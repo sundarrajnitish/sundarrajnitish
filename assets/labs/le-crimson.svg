@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="600" height="360" role="img" aria-labelledby="t d">
+<title id="t">Le Crimson: A personalised news reader, rebuilt from scratch.</title><desc id="d">Interest chips switch on and a news feed loads from skeleton placeholders into story cards.</desc>
+<style>
+.play{animation:nudge 2.4s ease-in-out infinite}@keyframes nudge{0%,70%,100%{transform:none}80%{transform:translateX(4px)}}
+@keyframes ch0{0%{fill:#121922;stroke:#223040}8.57%{fill:#121922;stroke:#223040}9.57%{fill:#2b2350;stroke:#8B7CF6}94%{fill:#2b2350;stroke:#8B7CF6}100%{fill:#121922;stroke:#223040}}.ch0{animation:ch0 7s linear infinite}
+@keyframes ch1{0%{fill:#121922;stroke:#223040}15.71%{fill:#121922;stroke:#223040}16.71%{fill:#2b2350;stroke:#8B7CF6}94%{fill:#2b2350;stroke:#8B7CF6}100%{fill:#121922;stroke:#223040}}.ch1{animation:ch1 7s linear infinite}
+@keyframes ch2{0%{fill:#121922;stroke:#223040}22.86%{fill:#121922;stroke:#223040}23.86%{fill:#2b2350;stroke:#8B7CF6}94%{fill:#2b2350;stroke:#8B7CF6}100%{fill:#121922;stroke:#223040}}.ch2{animation:ch2 7s linear infinite}
+@keyframes ch3{0%{fill:#121922;stroke:#223040}30%{fill:#121922;stroke:#223040}31%{fill:#2b2350;stroke:#8B7CF6}94%{fill:#2b2350;stroke:#8B7CF6}100%{fill:#121922;stroke:#223040}}.ch3{animation:ch3 7s linear infinite}
+@keyframes sk0{0%{opacity:1}37.14%{opacity:1}40.14%{opacity:0}94%{opacity:0}100%{opacity:1}}.sk0{animation:sk0 7s linear infinite}
+@keyframes ct0{0%{opacity:0}37.14%{opacity:0}40.14%{opacity:1}94%{opacity:1}100%{opacity:0}}.ct0{animation:ct0 7s linear infinite}
+@keyframes sk1{0%{opacity:1}42.14%{opacity:1}45.14%{opacity:0}94%{opacity:0}100%{opacity:1}}.sk1{animation:sk1 7s linear infinite}
+@keyframes ct1{0%{opacity:0}42.14%{opacity:0}45.14%{opacity:1}94%{opacity:1}100%{opacity:0}}.ct1{animation:ct1 7s linear infinite}
+@keyframes sk2{0%{opacity:1}47.14%{opacity:1}50.14%{opacity:0}94%{opacity:0}100%{opacity:1}}.sk2{animation:sk2 7s linear infinite}
+@keyframes ct2{0%{opacity:0}47.14%{opacity:0}50.14%{opacity:1}94%{opacity:1}100%{opacity:0}}.ct2{animation:ct2 7s linear infinite}
+.shim{animation:shim 1.4s linear infinite}@keyframes shim{from{transform:translateX(-120px)}to{transform:translateX(640px)}}
+@media (prefers-reduced-motion: reduce){.loop{animation:none!important;opacity:1!important}}
+</style>
+
+<rect x=".5" y=".5" width="599" height="359" rx="18" fill="#0A0E13" stroke="#223040"/>
+<rect x="28" y="28" width="4" height="16" rx="2" fill="#8B7CF6"/>
+<text x="42" y="42" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#8B7CF6" xml:space="preserve" letter-spacing="1.5">INTERFACES · 2022 → 2026</text>
+<text x="28" y="84" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="30" font-weight="700" fill="#E8EDF2" >Le Crimson</text>
+<text x="28" y="113" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="17" font-weight="400" fill="#8A97A6" >A personalised news reader, rebuilt from scratch.</text>
+<rect x="28" y="128" width="544" height="168" rx="12" fill="#0D131A" stroke="#1A2430"/>
+<clipPath id="box"><rect x="28" y="128" width="544" height="168" rx="12"/></clipPath>
+<g clip-path="url(#box)">
+<defs><linearGradient id="sh" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".06"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs>
+<rect class="ch0" x="44" y="142" width="57.6" height="26" rx="13"/><text x="72.8" y="160" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="13" fill="#E8EDF2" text-anchor="middle" xml:space="preserve" >Tech</text><rect class="ch1" x="109.6" y="142" width="82.8" height="26" rx="13"/><text x="151" y="160" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="13" fill="#E8EDF2" text-anchor="middle" xml:space="preserve" >Science</text><rect class="ch2" x="200.4" y="142" width="91.2" height="26" rx="13"/><text x="246" y="160" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="13" fill="#E8EDF2" text-anchor="middle" xml:space="preserve" >Montréal</text><rect class="ch3" x="299.6" y="142" width="40.8" height="26" rx="13"/><text x="320" y="160" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="13" fill="#E8EDF2" text-anchor="middle" xml:space="preserve" >F1</text><g class="ct0" opacity="0"><rect x="44" y="180" width="164" height="58" rx="8" fill="#5b3fa8"/>
+<rect x="44" y="246" width="150" height="9" rx="4" fill="#E8EDF2" opacity=".85"/><rect x="44" y="261" width="110" height="9" rx="4" fill="#E8EDF2" opacity=".85"/>
+<rect x="44" y="278" width="70" height="7" rx="3" fill="#8A97A6"/></g>
+<g class="sk0"><rect x="44" y="180" width="164" height="58" rx="8" fill="#121922"/><rect x="44" y="246" width="150" height="9" rx="4" fill="#121922"/>
+<rect x="44" y="261" width="110" height="9" rx="4" fill="#121922"/><rect x="44" y="278" width="70" height="7" rx="3" fill="#121922"/></g><g class="ct1" opacity="0"><rect x="220" y="180" width="164" height="58" rx="8" fill="#2c6f86"/>
+<rect x="220" y="246" width="150" height="9" rx="4" fill="#E8EDF2" opacity=".85"/><rect x="220" y="261" width="110" height="9" rx="4" fill="#E8EDF2" opacity=".85"/>
+<rect x="220" y="278" width="70" height="7" rx="3" fill="#8A97A6"/></g>
+<g class="sk1"><rect x="220" y="180" width="164" height="58" rx="8" fill="#121922"/><rect x="220" y="246" width="150" height="9" rx="4" fill="#121922"/>
+<rect x="220" y="261" width="110" height="9" rx="4" fill="#121922"/><rect x="220" y="278" width="70" height="7" rx="3" fill="#121922"/></g><g class="ct2" opacity="0"><rect x="396" y="180" width="164" height="58" rx="8" fill="#8a5a1c"/>
+<rect x="396" y="246" width="150" height="9" rx="4" fill="#E8EDF2" opacity=".85"/><rect x="396" y="261" width="110" height="9" rx="4" fill="#E8EDF2" opacity=".85"/>
+<rect x="396" y="278" width="70" height="7" rx="3" fill="#8A97A6"/></g>
+<g class="sk2"><rect x="396" y="180" width="164" height="58" rx="8" fill="#121922"/><rect x="396" y="246" width="150" height="9" rx="4" fill="#121922"/>
+<rect x="396" y="261" width="110" height="9" rx="4" fill="#121922"/><rect x="396" y="278" width="70" height="7" rx="3" fill="#121922"/></g>
+<rect class="shim" x="28" y="174" width="100" height="122" fill="url(#sh)"/></g>
+<text x="28" y="330" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#8A97A6" xml:space="preserve" >React 19 · TanStack Query · axe-checked</text>
+<g class="play"><rect x="458" y="309" width="114" height="32" rx="16" fill="none" stroke="#8B7CF6"/>
+<text x="515" y="330" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#8B7CF6" text-anchor="middle" xml:space="preserve" >▶ play it</text></g>
+
+</svg>

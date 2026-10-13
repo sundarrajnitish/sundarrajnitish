@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 686" width="1200" height="686" role="img" aria-labelledby="t d">
+<title id="t">The rebuild log</title><desc id="d">A terminal lists twelve past projects, from 2020 to 2025, each rebuilt in 2026 as an interactive lab, with one line of evidence each.</desc>
+<style>
+.blink{animation:blink 1s steps(1) infinite}@keyframes blink{50%{opacity:0}}
+@keyframes r0{0%,14.9%{opacity:0;transform:translateX(-8px)}16.9%,95%{opacity:1;transform:none}100%{opacity:0}}.r0{animation:r0 16.0s ease-out infinite}
+@keyframes r1{0%,16.9%{opacity:0;transform:translateX(-8px)}18.9%,95%{opacity:1;transform:none}100%{opacity:0}}.r1{animation:r1 16.0s ease-out infinite}
+@keyframes r2{0%,18.9%{opacity:0;transform:translateX(-8px)}20.9%,95%{opacity:1;transform:none}100%{opacity:0}}.r2{animation:r2 16.0s ease-out infinite}
+@keyframes r3{0%,20.9%{opacity:0;transform:translateX(-8px)}22.9%,95%{opacity:1;transform:none}100%{opacity:0}}.r3{animation:r3 16.0s ease-out infinite}
+@keyframes r4{0%,22.9%{opacity:0;transform:translateX(-8px)}24.9%,95%{opacity:1;transform:none}100%{opacity:0}}.r4{animation:r4 16.0s ease-out infinite}
+@keyframes r5{0%,24.9%{opacity:0;transform:translateX(-8px)}26.9%,95%{opacity:1;transform:none}100%{opacity:0}}.r5{animation:r5 16.0s ease-out infinite}
+@keyframes r6{0%,26.9%{opacity:0;transform:translateX(-8px)}28.9%,95%{opacity:1;transform:none}100%{opacity:0}}.r6{animation:r6 16.0s ease-out infinite}
+@keyframes r7{0%,28.9%{opacity:0;transform:translateX(-8px)}30.9%,95%{opacity:1;transform:none}100%{opacity:0}}.r7{animation:r7 16.0s ease-out infinite}
+@keyframes r8{0%,30.9%{opacity:0;transform:translateX(-8px)}32.9%,95%{opacity:1;transform:none}100%{opacity:0}}.r8{animation:r8 16.0s ease-out infinite}
+@keyframes r9{0%,32.9%{opacity:0;transform:translateX(-8px)}34.9%,95%{opacity:1;transform:none}100%{opacity:0}}.r9{animation:r9 16.0s ease-out infinite}
+@keyframes r10{0%,34.9%{opacity:0;transform:translateX(-8px)}36.9%,95%{opacity:1;transform:none}100%{opacity:0}}.r10{animation:r10 16.0s ease-out infinite}
+@keyframes r11{0%,36.9%{opacity:0;transform:translateX(-8px)}38.9%,95%{opacity:1;transform:none}100%{opacity:0}}.r11{animation:r11 16.0s ease-out infinite}
+@keyframes sum{0%,41.4%{opacity:0}44.4%,95%{opacity:1}100%{opacity:0}}.sum{animation:sum 16.0s linear infinite}
+@media (prefers-reduced-motion: reduce){.loop{animation:none!important;opacity:1!important}}
+</style>
+
+<defs><clipPath id="cmd"><rect x="306.8" y="87.2" width="0" height="23.2"><animate attributeName="width" calcMode="discrete" dur="16s" begin="0s" keyTimes="0.00000;0.02675;0.02850;0.03025;0.03200;0.03375;0.03550;0.03725;0.03900;0.04075;0.04250;0.04425;0.04600;0.04775;0.04950;0.05125;0.05300;0.05475;0.05650;0.05825;0.06000;0.06175;0.06350;0.06525;0.06700;0.06875;0.07050;0.07225;0.07400;0.07575;0.07750;0.07925;0.08100;0.08275;0.08450;0.08625;0.08800;0.08975;0.09150;0.09325;0.09500;0.09675;0.09850;0.10025;0.10200;0.10375;0.10550;0.10725;0.10900;0.11075;0.11250;0.11425;0.11600;0.11775;0.96250" values="0;9.6;19.2;28.8;38.4;48;57.6;67.2;76.8;86.4;96;105.6;115.2;124.8;134.4;144;153.6;163.2;172.8;182.4;192;201.6;211.2;220.8;230.4;240;249.6;259.2;268.8;278.4;288;297.6;307.2;316.8;326.4;336;345.6;355.2;364.8;374.4;384;393.6;403.2;412.8;422.4;432;441.6;451.2;460.8;470.4;480;489.6;499.2;508.8;0" repeatCount="indefinite"/></rect></clipPath></defs>
+<rect x="0.5" y="0.5" width="1199" height="685" rx="18" fill="#080B0F" stroke="#223040"/>
+<circle cx="28" cy="30" r="6" fill="#E4574C" opacity=".85"/><circle cx="48" cy="30" r="6" fill="#F2A93B" opacity=".85"/><circle cx="68" cy="30" r="6" fill="#3ED598" opacity=".85"/>
+<text x="92" y="35" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#57687A" xml:space="preserve" >~/projects  ·  rebuild season, sep-oct 2026</text>
+<line x1="0" y1="48" x2="1200" y2="48" stroke="#1A2430"/>
+<text x="40" y="104" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#3ED598" textLength="259.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >nitish@montreal:~/projects$</text>
+<line x1="40" y1="134" x2="1160" y2="134" stroke="#1A2430"/>
+<text x="40" y="154" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="13" fill="#57687A" xml:space="preserve" letter-spacing="1.5">YEAR</text>
+<text x="100" y="154" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="13" fill="#57687A" xml:space="preserve" letter-spacing="1.5">WHAT I HAD</text>
+<text x="430" y="154" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="13" fill="#57687A" xml:space="preserve" letter-spacing="1.5">WHAT IT IS NOW</text>
+<text x="680" y="154" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="13" fill="#57687A" xml:space="preserve" letter-spacing="1.5">PROOF</text>
+<g clip-path="url(#cmd)"><text x="308.8" y="104" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#E8EDF2" textLength="508.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >./rebuild --since 2020 --until &quot;you can play with it&quot;</text></g>
+<g class="r0 loop" opacity="0">
+  <text x="40" y="192" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#57687A" textLength="38.4" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >2020</text>
+  <text x="100" y="192" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#8A97A6" textLength="268.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >Automated-Hydroponics-System</text>
+  <text x="382" y="192" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#57687A" textLength="19.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >-&gt;</text>
+  <circle cx="418" cy="186.5" r="4.5" fill="#F2A93B"/>
+  <text x="430" y="192" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#E8EDF2" textLength="172.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >Hydroponinator Lab</text>
+  <text x="680" y="192" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#3ED598" textLength="19.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve" font-weight="700">OK</text>
+  <text x="714" y="192" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#8A97A6" textLength="307.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >pH in band 100% of a 14-day grow</text>
+</g>
+<g class="r1 loop" opacity="0">
+  <text x="40" y="226" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#57687A" textLength="38.4" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >2020</text>
+  <text x="100" y="226" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#8A97A6" textLength="220.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >FARM-E-Plantation-Robot</text>
+  <text x="382" y="226" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#57687A" textLength="19.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >-&gt;</text>
+  <circle cx="418" cy="220.5" r="4.5" fill="#F2A93B"/>
+  <text x="430" y="226" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#E8EDF2" textLength="96" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >FARM-E Lab</text>
+  <text x="680" y="226" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#3ED598" textLength="19.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve" font-weight="700">OK</text>
+  <text x="714" y="226" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#8A97A6" textLength="336" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >both boards' firmware, co-simulated</text>
+</g>
+<g class="r2 loop" opacity="0">
+  <text x="40" y="260" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#57687A" textLength="38.4" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >2021</text>
+  <text x="100" y="260" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#8A97A6" textLength="67.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >RTMC-HG</text>
+  <text x="382" y="260" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#57687A" textLength="19.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >-&gt;</text>
+  <circle cx="418" cy="254.5" r="4.5" fill="#F2A93B"/>
+  <text x="430" y="260" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#E8EDF2" textLength="105.6" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >RTMC-HG Lab</text>
+  <text x="680" y="260" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#3ED598" textLength="19.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve" font-weight="700">OK</text>
+  <text x="714" y="260" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#8A97A6" textLength="201.6" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >20 gestures, 83 tests</text>
+</g>
+<g class="r3 loop" opacity="0">
+  <text x="40" y="294" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#57687A" textLength="38.4" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >2022</text>
+  <text x="100" y="294" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#8A97A6" textLength="182.4" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >le-crimson-frontend</text>
+  <text x="382" y="294" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#57687A" textLength="19.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >-&gt;</text>
+  <circle cx="418" cy="288.5" r="4.5" fill="#8B7CF6"/>
+  <text x="430" y="294" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#E8EDF2" textLength="124.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >Le Crimson v2</text>
+  <text x="680" y="294" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#3ED598" textLength="19.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve" font-weight="700">OK</text>
+  <text x="714" y="294" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#8A97A6" textLength="259.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >React 19, WCAG 2.1 AA in CI</text>
+</g>
+<g class="r4 loop" opacity="0">
+  <text x="40" y="328" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#57687A" textLength="38.4" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >2023</text>
+  <text x="100" y="328" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#8A97A6" textLength="86.4" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >mini-MIPS</text>
+  <text x="382" y="328" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#57687A" textLength="19.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >-&gt;</text>
+  <circle cx="418" cy="322.5" r="4.5" fill="#35C4E8"/>
+  <text x="430" y="328" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#E8EDF2" textLength="115.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >Pipeline Lab</text>
+  <text x="680" y="328" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#3ED598" textLength="19.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve" font-weight="700">OK</text>
+  <text x="714" y="328" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#8A97A6" textLength="326.4" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >1,000 random programs, cycle-exact</text>
+</g>
+<g class="r5 loop" opacity="0">
+  <text x="40" y="362" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#57687A" textLength="38.4" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >2023</text>
+  <text x="100" y="362" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#8A97A6" textLength="240" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >COEN 6501 arithmetic unit</text>
+  <text x="382" y="362" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#57687A" textLength="19.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >-&gt;</text>
+  <circle cx="418" cy="356.5" r="4.5" fill="#35C4E8"/>
+  <text x="430" y="362" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#E8EDF2" textLength="182.4" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >Arithmetic Unit Lab</text>
+  <text x="680" y="362" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#3ED598" textLength="19.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve" font-weight="700">OK</text>
+  <text x="714" y="362" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#8A97A6" textLength="297.6" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >didn't compile -&gt; 83 runs green</text>
+</g>
+<g class="r6 loop" opacity="0">
+  <text x="40" y="396" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#57687A" textLength="38.4" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >2024</text>
+  <text x="100" y="396" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#8A97A6" textLength="230.4" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >Calc1/Calc3 verification</text>
+  <text x="382" y="396" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#57687A" textLength="19.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >-&gt;</text>
+  <circle cx="418" cy="390.5" r="4.5" fill="#35C4E8"/>
+  <text x="430" y="396" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#E8EDF2" textLength="76.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >Calc Lab</text>
+  <text x="680" y="396" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#3ED598" textLength="19.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve" font-weight="700">OK</text>
+  <text x="714" y="396" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#8A97A6" textLength="393.6" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >14/14 bugs caught, 2024 fails root-caused</text>
+</g>
+<g class="r7 loop" opacity="0">
+  <text x="40" y="430" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#57687A" textLength="38.4" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >2024</text>
+  <text x="100" y="430" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#8A97A6" textLength="144" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >DDS-Synthesizer</text>
+  <text x="382" y="430" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#57687A" textLength="19.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >-&gt;</text>
+  <circle cx="418" cy="424.5" r="4.5" fill="#35C4E8"/>
+  <text x="430" y="430" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#E8EDF2" textLength="96" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >DDS Formal</text>
+  <text x="680" y="430" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#3ED598" textLength="19.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve" font-weight="700">OK</text>
+  <text x="714" y="430" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#8A97A6" textLength="307.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >14 netlist bugs repaired in ~5 s</text>
+</g>
+<g class="r8 loop" opacity="0">
+  <text x="40" y="464" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#57687A" textLength="38.4" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >2024</text>
+  <text x="100" y="464" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#8A97A6" textLength="124.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >AuctionSystem</text>
+  <text x="382" y="464" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#57687A" textLength="19.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >-&gt;</text>
+  <circle cx="418" cy="458.5" r="4.5" fill="#8B7CF6"/>
+  <text x="430" y="464" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#E8EDF2" textLength="96" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >AuctionHub</text>
+  <text x="680" y="464" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#3ED598" textLength="19.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve" font-weight="700">OK</text>
+  <text x="714" y="464" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#8A97A6" textLength="249.6" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >bid p95 43 ms, 0 lost bids</text>
+</g>
+<g class="r9 loop" opacity="0">
+  <text x="40" y="498" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#57687A" textLength="38.4" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >2025</text>
+  <text x="100" y="498" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#8A97A6" textLength="124.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >SoftHubGlobal</text>
+  <text x="382" y="498" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#57687A" textLength="19.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >-&gt;</text>
+  <circle cx="418" cy="492.5" r="4.5" fill="#8B7CF6"/>
+  <text x="430" y="498" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#E8EDF2" textLength="67.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >SoftHub</text>
+  <text x="680" y="498" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#3ED598" textLength="19.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve" font-weight="700">OK</text>
+  <text x="714" y="498" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#8A97A6" textLength="326.4" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >Stripe -&gt; licence key, ~US$2/month</text>
+</g>
+<g class="r10 loop" opacity="0">
+  <text x="40" y="532" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#57687A" textLength="38.4" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >2025</text>
+  <text x="100" y="532" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#8A97A6" textLength="153.6" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >F1-CAN-Telemetry</text>
+  <text x="382" y="532" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#57687A" textLength="19.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >-&gt;</text>
+  <circle cx="418" cy="526.5" r="4.5" fill="#3ED598"/>
+  <text x="430" y="532" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#E8EDF2" textLength="192" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >F1 CAN Telemetry Lab</text>
+  <text x="680" y="532" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#3ED598" textLength="19.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve" font-weight="700">OK</text>
+  <text x="714" y="532" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#8A97A6" textLength="240" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >2023 Canadian GP over CAN</text>
+</g>
+<g class="r11 loop" opacity="0">
+  <text x="40" y="566" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#57687A" textLength="38.4" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >2026</text>
+  <text x="100" y="566" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#8A97A6" textLength="124.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >(first build)</text>
+  <text x="382" y="566" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#57687A" textLength="19.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >-&gt;</text>
+  <circle cx="418" cy="560.5" r="4.5" fill="#3ED598"/>
+  <text x="430" y="566" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#E8EDF2" textLength="230.4" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >Monte Carlo Localization</text>
+  <text x="680" y="566" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#3ED598" textLength="19.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve" font-weight="700">OK</text>
+  <text x="714" y="566" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16" fill="#8A97A6" textLength="307.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >4 cm from the wall on a real log</text>
+</g>
+<g class="sum loop" opacity="0">
+  <line x1="40" y1="600" x2="1160" y2="600" stroke="#223040" stroke-dasharray="4 6"/>
+  <text x="40" y="630" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="17" xml:space="preserve"><tspan fill="#3ED598" font-weight="700">12 rebuilt</tspan><tspan fill="#8A97A6">  ·  </tspan><tspan fill="#E8EDF2">12 running in a browser</tspan><tspan fill="#8A97A6">  ·  </tspan><tspan fill="#F2A93B">0 "works on my machine"</tspan></text>
+  <rect x="40" y="648" width="9" height="18" fill="#8A97A6" class="blink"/>
+</g>
+</svg>

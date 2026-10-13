@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 360" width="600" height="360" role="img" aria-labelledby="t d">
+<title id="t">AuctionHub: Live auctions on serverless AWS, in real time.</title><desc id="d">Bids push the price up on a lot with a countdown; a late bid triggers a soft close extension before the hammer falls.</desc>
+<style>
+.play{animation:nudge 2.4s ease-in-out infinite}@keyframes nudge{0%,70%,100%{transform:none}80%{transform:translateX(4px)}}
+@keyframes ring{0%{stroke-dashoffset:0}58%{stroke-dashoffset:170}60%{stroke-dashoffset:110}82%{stroke-dashoffset:207}100%{stroke-dashoffset:207}}.ring{animation:ring 10s linear infinite}
+@keyframes bd0{0%{opacity:0}6%{opacity:0}6.01%{opacity:1}20%{opacity:1}20.01%{opacity:0}100%{opacity:0}}.bd0{animation:bd0 10s linear infinite}
+@keyframes bd1{0%{opacity:0}20%{opacity:0}20.01%{opacity:1}34%{opacity:1}34.01%{opacity:0}100%{opacity:0}}.bd1{animation:bd1 10s linear infinite}
+@keyframes bd2{0%{opacity:0}34%{opacity:0}34.01%{opacity:1}50%{opacity:1}50.01%{opacity:0}100%{opacity:0}}.bd2{animation:bd2 10s linear infinite}
+@keyframes bd3{0%{opacity:0}50%{opacity:0}50.01%{opacity:1}66%{opacity:1}66.01%{opacity:0}100%{opacity:0}}.bd3{animation:bd3 10s linear infinite}
+@keyframes bd4{0%{opacity:0}66%{opacity:0}66.01%{opacity:1}98%{opacity:1}98.01%{opacity:0}100%{opacity:0}}.bd4{animation:bd4 10s linear infinite}
+@keyframes soft{0%{opacity:0}59%{opacity:0}60%{opacity:1}80%{opacity:1}81%{opacity:0}100%{opacity:0}}.soft{animation:soft 10s linear infinite}
+@keyframes sold{0%{opacity:0;transform:scale(1.6)}84%{opacity:0;transform:scale(1.6)}86%{opacity:1;transform:scale(1)}98%{opacity:1;transform:scale(1)}100%{opacity:0}}.sold{animation:sold 10s linear infinite;transform-box:fill-box;transform-origin:center}
+@media (prefers-reduced-motion: reduce){.loop{animation:none!important;opacity:1!important}}
+</style>
+
+<rect x=".5" y=".5" width="599" height="359" rx="18" fill="#0A0E13" stroke="#223040"/>
+<rect x="28" y="28" width="4" height="16" rx="2" fill="#8B7CF6"/>
+<text x="42" y="42" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#8B7CF6" xml:space="preserve" letter-spacing="1.5">CLOUD · 2024 → 2026</text>
+<text x="28" y="84" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="30" font-weight="700" fill="#E8EDF2" >AuctionHub</text>
+<text x="28" y="113" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="17" font-weight="400" fill="#8A97A6" >Live auctions on serverless AWS, in real time.</text>
+<rect x="28" y="128" width="544" height="168" rx="12" fill="#0D131A" stroke="#1A2430"/>
+<clipPath id="box"><rect x="28" y="128" width="544" height="168" rx="12"/></clipPath>
+<g clip-path="url(#box)">
+<rect x="46" y="146" width="130" height="130" rx="10" fill="#2b2350"/>
+<circle cx="111" cy="208" r="34" fill="#8B7CF6" opacity=".55"/><rect x="78" y="232" width="66" height="22" rx="4" fill="#8B7CF6" opacity=".35"/>
+<text x="198" y="168" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="13" fill="#57687A" xml:space="preserve" >LOT 12 · ROOM: CAMERAS</text>
+<g class="bd0" opacity="0"><text x="196" y="210" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="38" font-weight="700" fill="#E8EDF2" >C$120</text><text x="198" y="236" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#8A97A6" xml:space="preserve" >high bid · maple_kid</text></g><g class="bd1" opacity="0"><text x="196" y="210" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="38" font-weight="700" fill="#E8EDF2" >C$125</text><text x="198" y="236" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#8B7CF6" xml:space="preserve" >high bid · you</text></g><g class="bd2" opacity="0"><text x="196" y="210" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="38" font-weight="700" fill="#E8EDF2" >C$135</text><text x="198" y="236" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#8A97A6" xml:space="preserve" >high bid · otter88</text></g><g class="bd3" opacity="0"><text x="196" y="210" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="38" font-weight="700" fill="#E8EDF2" >C$145</text><text x="198" y="236" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#8B7CF6" xml:space="preserve" >high bid · you</text></g><g class="bd4" opacity="0"><text x="196" y="210" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="38" font-weight="700" fill="#E8EDF2" >C$150</text><text x="198" y="236" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#8A97A6" xml:space="preserve" >high bid · otter88</text></g>
+<circle cx="502" cy="208" r="33" fill="none" stroke="#223040" stroke-width="6"/>
+<circle class="ring" cx="502" cy="208" r="33" fill="none" stroke="#8B7CF6" stroke-width="6" stroke-dasharray="207" transform="rotate(-90 502 208)" stroke-linecap="round"/>
+<text x="502" y="213" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="13" fill="#8A97A6" text-anchor="middle" xml:space="preserve" >live</text>
+<g class="soft" opacity="0"><rect x="446" y="252" width="112" height="24" rx="12" fill="#121922" stroke="#F2A93B"/><text x="502" y="269" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="12" fill="#F2A93B" text-anchor="middle" xml:space="preserve" >soft close +30s</text></g>
+<g class="sold" opacity="0"><rect x="328" y="184" width="120" height="44" rx="8" fill="none" stroke="#3ED598" stroke-width="3" transform="rotate(-8 388 206)"/>
+<text x="388" y="215" text-anchor="middle" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="24" font-weight="700" fill="#3ED598" transform="rotate(-8 388 206)">SOLD</text></g></g>
+<text x="28" y="330" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#8A97A6" xml:space="preserve" >bid p95 43 ms · 0 lost bids under load</text>
+<g class="play"><rect x="458" y="309" width="114" height="32" rx="16" fill="none" stroke="#8B7CF6"/>
+<text x="515" y="330" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#8B7CF6" text-anchor="middle" xml:space="preserve" >▶ play it</text></g>
+
+</svg>
