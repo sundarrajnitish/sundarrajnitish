@@ -210,7 +210,7 @@ def build():
 
     # ---- words ----------------------------------------------------------------------------
     t_words = t_plot_end + 0.2
-    name_s = "NITISH SUNDARRAJ BALAJI  ·  MONTRÉAL"
+    name_s = "NITISH SUNDARRAJ  ·  MONTRÉAL"
     tag = "I can build anything I put my mind to."
     c1, tag_el = typed(OX, 398, tag, 28, TEXT, t_words + 0.5, 0.045, cid="ctag", caret=None,
                        extra='font-weight="600"')
@@ -285,6 +285,6 @@ def build():
 {bed_svg}
 {pen_svg}
 {words_svg}"""
-    return doc(W, H, "Nitish Sundarraj Balaji: I can build anything I put my mind to.", css, body,
+    return doc(W, H, "Nitish Sundarraj: I can build anything I put my mind to.", css, body,
                "A pen plotter writes 'nitish' in cursive from streaming G-code, then types: "
                "I can build anything I put my mind to.")

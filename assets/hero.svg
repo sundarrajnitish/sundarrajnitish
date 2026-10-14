@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 500" width="1200" height="500" role="img" aria-labelledby="t d">
-<title id="t">Nitish Sundarraj Balaji: I can build anything I put my mind to.</title><desc id="d">A pen plotter writes 'nitish' in cursive from streaming G-code, then types: I can build anything I put my mind to.</desc>
+<title id="t">Nitish Sundarraj: I can build anything I put my mind to.</title><desc id="d">A pen plotter writes 'nitish' in cursive from streaming G-code, then types: I can build anything I put my mind to.</desc>
 <style>
 .ink{fill:none;stroke:#E8EDF2;stroke-width:4.2;stroke-linecap:round;stroke-linejoin:round}
 #main{stroke-dasharray:2212.27;stroke-dashoffset:2212.27;animation:draw 6.2s linear 0.7s forwards}
@@ -64,7 +64,7 @@
 </g>
 
 <g class="fadein" style="animation-delay:9.36s">
-  <text x="452" y="352" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#35C4E8" xml:space="preserve" letter-spacing="2.4">NITISH SUNDARRAJ BALAJI  ·  MONTRÉAL</text>
+  <text x="452" y="352" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#35C4E8" xml:space="preserve" letter-spacing="2.4">NITISH SUNDARRAJ  ·  MONTRÉAL</text>
 </g>
 <g clip-path="url(#ctag)"><text x="452" y="398" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="28" fill="#E8EDF2" textLength="638.4" lengthAdjust="spacingAndGlyphs" xml:space="preserve" font-weight="600">I can build anything I put my mind to.</text></g>
 <g class="fadein" style="animation-delay:12.17s"><text x="452" y="442" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="19" fill="#57687A" textLength="91.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >↳ built:</text></g>
