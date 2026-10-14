@@ -1,4 +1,4 @@
-"""Header: the 2020 Handwriting-Machine plots my signature from its own G-code dialect."""
+"""Header: the 2019 Handwriting-Machine plots my signature from its own G-code dialect."""
 
 import math
 
@@ -121,7 +121,7 @@ def build():
     # ---- G-code panel --------------------------------------------------------------------
     preamble = [
         (0.00, "; nitish.gcode", ""),
-        (0.08, "; Handwriting-Machine, 2020", ""),
+        (0.08, "; Handwriting-Machine, 2019", ""),
         (0.16, "; ATmega16 + 2x A4988 + servo pen", ""),
         (0.24, "; 54.35 steps/mm, 155x155 mm bed", ""),
         (0.36, "G21", "; mm"),

@@ -77,7 +77,7 @@ def farme():
   <circle cx="11" cy="0" r="2.4" fill="{CYAN}"/>
 </g>"""
     svg = soil + f'<path d="{d}" fill="none" stroke="{AMBER}" stroke-opacity=".18" stroke-dasharray="3 6"/>' + "".join(seeds) + robot
-    return card("farm-e", AMBER, "MACHINES · 2020 → 2026", "FARM-E", "A tracked robot that plants, seeds and waters a bed.",
+    return card("farm-e", AMBER, "MACHINES · 2019 → 2026", "FARM-E", "A tracked robot that plants, seeds and waters a bed.",
                 "UNO + ESP8266 firmware, co-simulated", css, svg,
                 "A small tracked robot drives a serpentine path over soil rows, dropping seeds that sprout behind it.")
 
@@ -282,7 +282,7 @@ def mcl():
 <clipPath id="hall"><rect x="{BX - 400}" y="{BY + 53}" width="{BW + 800}" height="78"/></clipPath>
 {mono_text(BX + 16, BY + 24, "28 m hallway · 180-beam laser · 1000 particles", 13, DIM, fit=False)}
 {mono_text(BX + 16, BY + 160, "uniform -> converged -> tracking", 13, GREEN, fit=False)}"""
-    return card("monte-carlo-localization", GREEN, "SIGNALS · 2026", "Monte Carlo Localization",
+    return card("monte-carlo-localization", GREEN, "SIGNALS · 2023 → 2026", "Monte Carlo Localization",
                 "A particle filter that works out where the robot is.", "4 cm median error on a real laser log", css, svg,
                 "Particles scattered over a hallway converge onto the robot's true position, then follow it as it drives.")
 
@@ -528,7 +528,7 @@ def softhub():
 {mono_text(BX + 30, ky + 6, "licence key", 13, DIM, fit=False)}
 <clipPath id="kc"><rect class="key" x="{kx}" y="{ky - 16}" width="{f(len(key) * cw + 4)}" height="24"/></clipPath>
 <g clip-path="url(#kc)">{mono_text(kx, ky + 6, key, 17, GREEN)}</g>"""
-    return card("softhub", VIOLET, "CLOUD · 2025 → 2026", "SoftHub", "Pay with a card, get a licence key by e-mail.",
+    return card("softhub", VIOLET, "CLOUD · 2024 → 2026", "SoftHub", "Pay with a card, get a licence key by e-mail.",
                 "Stripe webhooks · ~US$2/month on AWS", css, svg,
                 "A payment travels from the card through Lambda, Stripe and SES to the inbox, where a licence key types out.")
 

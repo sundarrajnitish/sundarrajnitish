@@ -81,19 +81,19 @@ def stack():
 # ---------------------------------------------------------------------------------------------
 # The rebuild log: old projects in, playable labs out.
 
-LOG = [
+LOG = [  # oldest first, dated from the original projects
+    ("2019", "FARM-E-Plantation-Robot", "FARM-E Lab", "both boards' firmware, co-simulated", MACHINE),
     ("2020", "Automated-Hydroponics-System", "Hydroponinator Lab", "pH in band 100% of a 14-day grow", MACHINE),
-    ("2020", "FARM-E-Plantation-Robot", "FARM-E Lab", "both boards' firmware, co-simulated", MACHINE),
     ("2021", "RTMC-HG", "RTMC-HG Lab", "20 gestures, 83 tests", MACHINE),
     ("2022", "le-crimson-frontend", "Le Crimson v2", "React 19, WCAG 2.1 AA in CI", CLOUD),
     ("2023", "mini-MIPS", "Pipeline Lab", "1,000 random programs, cycle-exact", SILICON),
     ("2023", "COEN 6501 arithmetic unit", "Arithmetic Unit Lab", "didn't compile -> 83 runs green", SILICON),
+    ("2023", "MATLAB particle filter", "Monte Carlo Localization", "4 cm from the wall on a real log", SIGNAL),
     ("2024", "Calc1/Calc3 verification", "Calc Lab", "14/14 bugs caught, 2024 fails root-caused", SILICON),
     ("2024", "DDS-Synthesizer", "DDS Formal", "14 netlist bugs repaired in ~5 s", SILICON),
+    ("2024", "SoftHubGlobal", "SoftHub", "Stripe -> licence key, ~US$2/month", CLOUD),
     ("2024", "AuctionSystem", "AuctionHub", "bid p95 43 ms, 0 lost bids", CLOUD),
-    ("2025", "SoftHubGlobal", "SoftHub", "Stripe -> licence key, ~US$2/month", CLOUD),
     ("2025", "F1-CAN-Telemetry", "F1 CAN Telemetry Lab", "2023 Canadian GP over CAN", SIGNAL),
-    ("2026", "(first build)", "Monte Carlo Localization", "4 cm from the wall on a real log", SIGNAL),
 ]
 
 
@@ -101,7 +101,7 @@ def rebuild_log():
     W, x0, lh, size = 1200, 40, 34, 16
     y0 = 146
     H = y0 + len(LOG) * lh + 132
-    cmd = './rebuild --since 2020 --until "you can play with it"'
+    cmd = './rebuild --since 2019 --until "you can play with it"'
     t0, step = 0.4, 0.028
     t_cmd_end = t0 + len(cmd) * step
     cycle = 16.0
@@ -156,7 +156,7 @@ def rebuild_log():
 {mono_text(cols[3], head_y + 16, "PROOF", 13, DIM, fit=False, extra='letter-spacing="1.5"')}
 {''.join(els)}"""
     return doc(W, H, "The rebuild log", "\n".join(css), body,
-               "A terminal lists twelve past projects, from 2020 to 2025, each rebuilt in 2026 as an interactive lab, "
+               "A terminal lists twelve past projects, from 2019 to 2025, each rebuilt in 2026 as an interactive lab, "
                "with one line of evidence each.")
 
 
