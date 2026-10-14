@@ -4,7 +4,7 @@
 
 <p align="center">
   <a href="https://sundarrajnitish.github.io/portfolio/"><img src="https://img.shields.io/badge/portfolio-sundarrajnitish.github.io-35C4E8?style=flat-square&labelColor=0A0E13" alt="Portfolio"></a>
-  <a href="https://www.linkedin.com/in/sundarrajnithish"><img src="https://img.shields.io/badge/linkedin-sundarrajnithish-35C4E8?style=flat-square&logo=linkedin&logoColor=white&labelColor=0A0E13" alt="LinkedIn"></a>
+  <a href="https://www.linkedin.com/in/sundarrajnitish/"><img src="https://img.shields.io/badge/linkedin-sundarrajnitish-35C4E8?style=flat-square&logo=linkedin&logoColor=white&labelColor=0A0E13" alt="LinkedIn"></a>
   <img src="https://img.shields.io/badge/based_in-Montr%C3%A9al-F2A93B?style=flat-square&labelColor=0A0E13" alt="Based in Montréal">
   <img src="https://img.shields.io/badge/speaks-EN_%C2%B7_FR_%C2%B7_%E0%AE%A4%E0%AE%AE%E0%AE%BF%E0%AE%B4%E0%AF%8D-3ED598?style=flat-square&labelColor=0A0E13" alt="Speaks English, French, Tamil">
 </p>
@@ -49,7 +49,7 @@ This fall I went back to every project I'd built since 2020 and rebuilt each one
 - **M.Eng, Electrical & Computer Engineering**, Concordia University · **Bachelor's, Mechatronics, Robotics & Automation**, SRMIST
 - Heading towards **systems engineering**: owning the whole integration across hardware, controls and software, not just one layer of it.
 
-<a href="https://www.linkedin.com/in/sundarrajnithish">
+<a href="https://www.linkedin.com/in/sundarrajnitish/">
   <img src="assets/footer.svg" width="100%" alt="Next build: yours? If it can be built, I'd like to try. If it can't, I'd like to find out why.">
 </a>
 
