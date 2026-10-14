@@ -9,9 +9,11 @@
   <img src="https://img.shields.io/badge/speaks-EN_%C2%B7_FR_%C2%B7_%E0%AE%A4%E0%AE%AE%E0%AE%BF%E0%AE%B4%E0%AF%8D-3ED598?style=flat-square&labelColor=0A0E13" alt="Speaks English, French, Tamil">
 </p>
 
-I'm **Nitish**, an electrical and controls engineer in Montréal. At my day job at Schneider Electric I connect switchgear to the SCADA and BMS systems that supervise it. Outside work I've built robots that plant seeds, processors from full adders, F1 telemetry over CAN, and auction houses on AWS.
+I'm **Nitish**, a Multidisciplinary Engineering Professional in Montréal. I work across electrical power, controls, embedded firmware, digital hardware and cloud software, and I do my best work where they meet. By day, at Schneider Electric, I connect switchgear to the SCADA and BMS systems that supervise it. Outside work I've built robots that plant seeds, a robot hand you steer with gestures, processors from full adders, F1 telemetry over CAN and auction houses on AWS.
 
-This fall I went back to every project I'd built since 2020 and rebuilt each one as a lab you can **play with in your browser**. They aren't screenshots or mockups. The sites run the real firmware, RTL and backend code, and each one includes an honest audit of what the first version got wrong.
+Where I'm heading: **physical AI and robotics**, machines that sense, decide and act in the real world. Building them takes every layer at once, from power and motor control through firmware and real-time buses to perception and the software on top. That's the range I've spent the last few years building.
+
+This fall I went back to my past projects and rebuilt each one as a lab you can **play with in your browser**. They aren't screenshots or mockups. The sites run the real firmware, RTL and backend code, and each one includes an honest audit of what the first version got wrong.
 
 <img src="assets/stack.svg" width="100%" alt="From a full adder to a WebSocket: nine layers of abstraction, from gates and RTL up through firmware, machines, buses, algorithms, cloud and interfaces, each with projects of mine on it.">
 
@@ -47,7 +49,7 @@ This fall I went back to every project I'd built since 2020 and rebuilt each one
 
 - **Specialist, Power Application Engineering @ Schneider Electric**: EPMS and IT/OT integrations for data centres, hospitals, industrial sites and real estate across Eastern Canada.
 - **M.Eng, Electrical & Computer Engineering**, Concordia University · **Bachelor's, Mechatronics, Robotics & Automation**, SRMIST
-- Heading towards **systems engineering**: owning the whole integration across hardware, controls and software, not just one layer of it.
+- Heading towards **physical AI and robotics**: bringing power, controls, embedded systems and software together in machines that perceive and act in the real world.
 
 <a href="https://www.linkedin.com/in/sundarrajnitish/">
   <img src="assets/footer.svg" width="100%" alt="Next build: yours? If it can be built, I'd like to try. If it can't, I'd like to find out why.">
