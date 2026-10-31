@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 196" width="1200" height="196" role="img" aria-labelledby="t d">
+<title id="t">Next build: yours?</title><desc id="d">Next build: yours?</desc>
+<style>
+.blink{animation:blink 1s steps(1) infinite}@keyframes blink{50%{opacity:0}}
+.bar{animation:bar 4.5s cubic-bezier(.6,0,.3,1) infinite;transform-box:fill-box;transform-origin:left}
+@keyframes bar{0%{transform:scaleX(0)}70%,100%{transform:scaleX(1)}}
+.shine{animation:shine 4.5s linear infinite}@keyframes shine{0%,70%{opacity:0}78%{opacity:1}100%{opacity:0}}
+@media (prefers-reduced-motion: reduce){.loop{animation:none!important;opacity:1!important}}
+</style>
+
+<rect x="0.5" y="0.5" width="1199" height="195" rx="18" fill="#0A0E13" stroke="#223040"/>
+<text x="40" y="56" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#35C4E8" xml:space="preserve" >// queue</text>
+<text x="40" y="104" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="38" font-weight="700" fill="#E8EDF2" >Next build: yours?</text>
+<text x="40" y="146" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="20" font-weight="400" fill="#8A97A6" >If it can be built, I'd like to try. If it can't, I'd like to find out why.</text>
+<rect x="860" y="84" width="300" height="14" rx="7" fill="#0D131A" stroke="#223040"/>
+<rect x="862" y="86" width="296" height="10" rx="5" fill="#35C4E8" class="bar loop"/>
+<rect x="862" y="86" width="296" height="10" rx="5" fill="#E8EDF2" class="shine" opacity="0"/>
+<text x="860" y="128" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#57687A" xml:space="preserve" >loading next project</text>
+<rect x="1046" y="114" width="9" height="17" fill="#57687A" class="blink"/>
+
+</svg>
