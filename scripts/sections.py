@@ -162,7 +162,7 @@ def rebuild_log():
 
 # ---------------------------------------------------------------------------------------------
 # The coursework: all 68 courses as element-style tiles, stacked year by year and coloured by
-# layer (people at the base, software on top). Mirrors js/data/courses.js on the portfolio.
+# layer (people at the base, software on top). Curated from the portfolio coursework; people courses are selected for distinct professional relevance.
 
 LAYER_KEY = [  # bottom to top: (id, legend label, colour)
     ("people", "PEOPLE", "#C9D3DE"),
@@ -179,17 +179,15 @@ LAYER_KEY = [  # bottom to top: (id, legend label, colour)
 
 TERMS = [  # (label, school, [(symbol, short name, layer)])
     ("Year 1", "bachelors", [
-        ("Ve", "Value Education", "people"), ("Fr", "French", "people"), ("Ns", "NSO", "people"),
-        ("Ps", "Professional Skills", "people"), ("En", "English", "people"), ("Ga", "General Aptitude", "people"),
-        ("Ci", "Constitution of India", "people"), ("Yo", "Yoga: Mind & Body", "people"),
+        ("Fr", "French", "people"),
+        ("Ps", "Professional Skills", "people"), ("En", "English", "people"),
         ("Cl", "Calculus & Lin. Algebra", "math"), ("Cx", "Complex Analysis", "math"),
         ("Ph", "Physics: EM, QM, Optics", "math"), ("Ch", "Chemistry", "math"),
         ("Ws", "Mech & Civil Workshop", "mech"), ("Eg", "Engineering Graphics", "mech"),
         ("Ee", "Electrical & Electronics", "power"), ("Pf", "Programming Basics", "cloud"),
     ]),
     ("Year 2", "bachelors", [
-        ("Se", "Social Engineering", "people"), ("Ss", "Social Skills", "people"),
-        ("Es", "Environmental Science", "people"), ("Mp", "Management Principles", "people"),
+        ("Mp", "Management Principles", "people"),
         ("Ct", "Creative Thinking", "people"),
         ("Tb", "Transforms & BVPs", "math"), ("Nm", "Numerical Methods", "math"), ("Bi", "Biology", "math"),
         ("Th", "Thermo & Heat Transfer", "mech"), ("Sf", "Solids & Fluids", "mech"),
@@ -198,10 +196,8 @@ TERMS = [  # (label, school, [(symbol, short name, layer)])
         ("Sy", "System Dynamics", "control"), ("Dp", "Digital Systems & µP", "silicon"),
     ]),
     ("Year 3", "bachelors", [
-        ("Mo", "MOOC I", "people"), ("At", "Analytical Thinking", "people"), ("Ia", "Indian Art Form", "people"),
-        ("Ek", "Employability Skills", "people"), ("Co", "Comprehension", "people"),
-        ("Tk", "Traditional Knowledge", "people"), ("S2", "Seminar II", "people"),
-        ("Cp", "Competitive Prof. Skills", "people"),
+        ("At", "Analytical Thinking", "people"),
+
         ("Pb", "Probability & Statistics", "math"), ("Md", "Machine Design", "mech"),
         ("Pe", "Power Electronics", "power"),
         ("Lc", "Linear & Digital Control", "control"), ("Sc", "Sensors & Signal Cond.", "control"),
@@ -230,7 +226,7 @@ def coursework():
     order = {k: i for i, (k, _, _) in enumerate(LAYER_KEY)}
     colour = {k: c for k, _, c in LAYER_KEY}
     symbols = [sym for _, _, cs in TERMS for sym, _, _ in cs]
-    assert len(symbols) == len(set(symbols)) == 68, "symbols must be unique, 68 courses"
+    assert len(symbols) == len(set(symbols)), "course symbols must be unique"
 
     W, cw, gap, school_gap = 1200, 200, 20, 40
     th, step = 28, 32
@@ -294,7 +290,7 @@ def coursework():
 {panel(W, H)}
 <rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="18" fill="url(#g3)" opacity=".5"/>
 {mono_text(40, 54, "// coursework", 15, CYAN, fit=False)}
-{text(40, 98, "68 courses, stacked year by year.", 38, TEXT, 700)}
+{text(40, 98, f"{n_total} courses, stacked year by year.", 38, TEXT, 700)}
 {text(1160, 98, "people at the base, software on top", 18, MUTED, anchor="end")}
 {''.join(chips)}
 <line x1="40" y1="{base + 4}" x2="{W - 40}" y2="{base + 4}" stroke="{BORDER}"/>
@@ -302,8 +298,8 @@ def coursework():
 {''.join(tiles)}
 {''.join(axis)}
 """
-    return doc(W, H, "68 courses, stacked year by year", "\n".join(css), body,
-               "Every course from a Bachelor's in Mechatronics Engineering and a Master's in Electrical and "
+    return doc(W, H, f"{n_total} courses, stacked year by year", "\n".join(css), body,
+               "Selected coursework from a Bachelor's in Mechatronics Engineering and a Master's in Electrical and "
                "Computer Engineering, drawn as periodic-table tiles stacked by year and "
                "coloured by layer, from people and math at the base up to digital hardware, robotics and software.")
 

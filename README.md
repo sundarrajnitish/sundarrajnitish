@@ -34,16 +34,13 @@ A few things I've made, rebuilt and turned into interactive labs. Tap a card and
 
 <img src="assets/rebuild-log.svg" width="100%" alt="An animated terminal traces twelve projects from their original builds to interactive labs.">
 
-<details>
-<summary>The coursework behind the curiosity</summary>
+### The coursework behind the curiosity
 
 Bachelor's in **Mechatronics Engineering** · Master's in **Electrical & Computer Engineering**
 
 <a href="https://sundarrajnitish.github.io/portfolio/#curriculum">
-  <img src="assets/coursework.svg" width="100%" alt="An animated map of 68 courses across mechatronics, electrical and computer engineering.">
+  <img src="assets/coursework.svg" width="100%" alt="An animated map of selected courses across mechatronics, electrical and computer engineering.">
 </a>
-
-</details>
 
 <a href="https://www.linkedin.com/in/sundarrajnitish/">
   <img src="assets/footer.svg" width="100%" alt="Next build: yours? Let's connect.">
