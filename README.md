@@ -6,7 +6,10 @@ Hey, I'm **Nitish**. I build across power, electronics, robotics and software. I
 
 Sometimes that's a robot planting seeds. Sometimes it's a processor, a power-monitoring system or a live web app. **Connecting the disciplines is my favourite part.** Lately, that curiosity is pulling me toward robotics and physical AI.
 
-[Portfolio](https://sundarrajnitish.github.io/portfolio/) · [LinkedIn](https://www.linkedin.com/in/sundarrajnitish/) · Montréal · EN / FR / தமிழ்
+<a href="https://sundarrajnitish.github.io/portfolio/"><img src="assets/links/portfolio.svg" alt="Portfolio" height="32"></a>
+<a href="https://www.linkedin.com/in/sundarrajnitish/"><img src="assets/links/linkedin.svg" alt="LinkedIn" height="32"></a>
+<img src="assets/links/location.svg" alt="Montréal" height="32">
+<img src="assets/links/languages.svg" alt="English / French" height="32">
 
 <img src="assets/stack.svg" width="100%" alt="An animated signal travels through my builds, from logic gates and firmware to robots, cloud services and interfaces.">
 
