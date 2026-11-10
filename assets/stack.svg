@@ -1,119 +1,147 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 680" width="1200" height="680" role="img" aria-labelledby="t d">
-<title id="t">From a full adder to a WebSocket</title><desc id="d">Nine layers of abstraction, from gates and RTL up through firmware, machines, buses, algorithms, cloud and interfaces, each with projects built on it.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 624" width="1200" height="624" role="img" aria-labelledby="t d">
+<title id="t">From a full adder to a WebSocket</title><desc id="d">Nine layers of abstraction, from gates and RTL up through firmware, machines, buses, algorithms, cloud and interfaces, each with projects built on it. A signal climbs through all nine.</desc>
 <style>
-.pulse{animation:climb 9.0s linear infinite}
-@keyframes climb{0%{transform:translateY(0);opacity:0}4%{opacity:1}60%{transform:translateY(-464px);opacity:1}66%{opacity:0}100%{transform:translateY(-464px);opacity:0}}
-@keyframes on0{0%,61.9%{opacity:0}64%,88%{opacity:1}96%,100%{opacity:0}}.on0{animation:on0 9.0s linear infinite}
-@keyframes on1{0%,54.4%{opacity:0}56.5%,88%{opacity:1}96%,100%{opacity:0}}.on1{animation:on1 9.0s linear infinite}
-@keyframes on2{0%,46.9%{opacity:0}49%,88%{opacity:1}96%,100%{opacity:0}}.on2{animation:on2 9.0s linear infinite}
-@keyframes on3{0%,39.4%{opacity:0}41.5%,88%{opacity:1}96%,100%{opacity:0}}.on3{animation:on3 9.0s linear infinite}
-@keyframes on4{0%,31.9%{opacity:0}34%,88%{opacity:1}96%,100%{opacity:0}}.on4{animation:on4 9.0s linear infinite}
-@keyframes on5{0%,24.4%{opacity:0}26.5%,88%{opacity:1}96%,100%{opacity:0}}.on5{animation:on5 9.0s linear infinite}
-@keyframes on6{0%,16.9%{opacity:0}19%,88%{opacity:1}96%,100%{opacity:0}}.on6{animation:on6 9.0s linear infinite}
-@keyframes on7{0%,9.4%{opacity:0}11.5%,88%{opacity:1}96%,100%{opacity:0}}.on7{animation:on7 9.0s linear infinite}
-@keyframes on8{0%,1.9%{opacity:0}4%,88%{opacity:1}96%,100%{opacity:0}}.on8{animation:on8 9.0s linear infinite}
+.sig{animation:climb 9.0s linear infinite}
+@keyframes climb{0%{transform:translateY(0);opacity:0}3%{opacity:1}57.78%{transform:translateY(-416px);opacity:1}62.78%,100%{transform:translateY(-416px);opacity:0}}
+@keyframes on0{0%,59.28%{opacity:0}61.78%{opacity:1}79.28%,100%{opacity:0}}.on0{animation:on0 9.0s ease-out infinite}
+@keyframes on1{0%,52.06%{opacity:0}54.56%{opacity:1}72.06%,100%{opacity:0}}.on1{animation:on1 9.0s ease-out infinite}
+@keyframes on2{0%,44.83%{opacity:0}47.33%{opacity:1}64.83%,100%{opacity:0}}.on2{animation:on2 9.0s ease-out infinite}
+@keyframes on3{0%,37.61%{opacity:0}40.11%{opacity:1}57.61%,100%{opacity:0}}.on3{animation:on3 9.0s ease-out infinite}
+@keyframes on4{0%,30.39%{opacity:0}32.89%{opacity:1}50.39%,100%{opacity:0}}.on4{animation:on4 9.0s ease-out infinite}
+@keyframes on5{0%,23.17%{opacity:0}25.67%{opacity:1}43.17%,100%{opacity:0}}.on5{animation:on5 9.0s ease-out infinite}
+@keyframes on6{0%,15.94%{opacity:0}18.44%{opacity:1}35.94%,100%{opacity:0}}.on6{animation:on6 9.0s ease-out infinite}
+@keyframes on7{0%,8.72%{opacity:0}11.22%{opacity:1}28.72%,100%{opacity:0}}.on7{animation:on7 9.0s ease-out infinite}
+@keyframes on8{0%,1.5%{opacity:0}4%{opacity:1}21.5%,100%{opacity:0}}.on8{animation:on8 9.0s ease-out infinite}
 @media (prefers-reduced-motion: reduce){.loop{animation:none!important;opacity:1!important}}
 </style>
 
-<defs><pattern id="g2" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0H0V24" fill="none" stroke="#1A2430" stroke-width="1" opacity="0.55"/></pattern>
-<radialGradient id="glow"><stop offset="0" stop-color="#35C4E8" stop-opacity=".9"/><stop offset="1" stop-color="#35C4E8" stop-opacity="0"/></radialGradient></defs>
-<rect x="0.5" y="0.5" width="1199" height="679" rx="18" fill="#0A0E13" stroke="#223040"/>
-<rect x="1" y="1" width="1198" height="678" rx="18" fill="url(#g2)" opacity=".5"/>
-<text x="40" y="54" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#35C4E8" xml:space="preserve" >// range</text>
-<text x="40" y="98" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="38" font-weight="700" fill="#E8EDF2" >From a full adder to a WebSocket.</text>
-<text x="1160" y="98" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="18" font-weight="400" fill="#8A97A6" text-anchor="end" >every layer has something of mine running on it</text>
-<line x1="60" y1="157.0" x2="60" y2="621.0" stroke="#223040" stroke-width="2"/>
+<defs>
+<linearGradient id="wake" x1="0" x2="1"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".13"/><stop offset=".55" stop-color="#FFFFFF" stop-opacity=".02"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></linearGradient>
+<radialGradient id="glow"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".8"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient>
+</defs>
+<rect x="0.5" y="0.5" width="1199" height="623" rx="18" fill="#000" stroke="#2C2C2C"/>
+<text x="40" y="50" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="12" fill="#767676" xml:space="preserve" letter-spacing="3">RANGE</text>
+<text x="40" y="94" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="36" font-weight="600" fill="#F5F5F5" letter-spacing="-0.6">From a full adder to a WebSocket.</text>
+<text x="1160" y="94" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="16" font-weight="400" fill="#A3A3A3" text-anchor="end" >something of mine runs on every layer</text>
+<line x1="60" y1="151.0" x2="60" y2="567.0" stroke="#2C2C2C" stroke-width="1.5"/>
 
 <g>
-  <rect x="96" y="132" width="1078" height="50" rx="10" fill="#0D131A" stroke="#1A2430"/>
-  <rect x="96" y="132" width="1078" height="50" rx="10" fill="#35C4E8" fill-opacity="0.05" stroke="#35C4E8" stroke-opacity="0.55" class="on0" opacity="0"/>
-  <circle cx="60" cy="157.0" r="5" fill="#0D131A" stroke="#223040" stroke-width="2"/>
-  <circle cx="60" cy="157.0" r="5" fill="#35C4E8" class="on0" opacity="0"/>
-  <text x="114" y="163" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#57687A" textLength="16.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >09</text>
-  <text x="146" y="163" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#8A97A6" xml:space="preserve" letter-spacing="1">INTERFACES</text>
-  <rect x="330" y="142" width="126" height="30" rx="15" fill="#121922" stroke="#223040"/><circle cx="344" cy="157" r="4" fill="#8B7CF6"/><text x="355" y="162" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#E8EDF2" textLength="90" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >Le Crimson</text><rect x="466" y="142" width="144" height="30" rx="15" fill="#121922" stroke="#223040"/><circle cx="480" cy="157" r="4" fill="#8B7CF6"/><text x="491" y="162" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#E8EDF2" textLength="108" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >12 lab sites</text>
-  <text x="1154" y="163" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="15" font-weight="400" fill="#57687A" text-anchor="end" >React 19 · TypeScript · three.js · SVG</text>
+  <rect x="96" y="128" width="1064" height="46" rx="10" fill="#0A0A0A" stroke="#1B1B1B"/>
+  <g class="on0 loop" opacity="0">
+    <rect x="96" y="128" width="1064" height="46" rx="10" fill="url(#wake)" stroke="#FFFFFF" stroke-opacity=".7"/>
+    <circle cx="60" cy="151.0" r="5" fill="#FFFFFF"/>
+    <text x="146" y="157" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#FFFFFF" xml:space="preserve" letter-spacing="1.6">INTERFACES</text>
+  </g>
+  <circle cx="60" cy="151.0" r="5" fill="none" stroke="#2C2C2C" stroke-width="1.5"/>
+  <text x="114" y="157" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="13" fill="#767676" textLength="15.6" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >09</text>
+  <text x="146" y="157" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#A3A3A3" xml:space="preserve" letter-spacing="1.6">INTERFACES</text>
+  <rect x="340" y="137" width="112" height="28" rx="14" fill="#121212" stroke="#2C2C2C"/><text x="354" y="156" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#F5F5F5" textLength="84" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >Le Crimson</text><rect x="460" y="137" width="128.8" height="28" rx="14" fill="#121212" stroke="#2C2C2C"/><text x="474" y="156" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#F5F5F5" textLength="100.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >12 lab sites</text>
+  <text x="1142" y="157" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#767676" text-anchor="end" >React 19 · TypeScript · three.js · SVG</text>
 </g>
 <g>
-  <rect x="96" y="190" width="1078" height="50" rx="10" fill="#0D131A" stroke="#1A2430"/>
-  <rect x="96" y="190" width="1078" height="50" rx="10" fill="#35C4E8" fill-opacity="0.05" stroke="#35C4E8" stroke-opacity="0.55" class="on1" opacity="0"/>
-  <circle cx="60" cy="215.0" r="5" fill="#0D131A" stroke="#223040" stroke-width="2"/>
-  <circle cx="60" cy="215.0" r="5" fill="#35C4E8" class="on1" opacity="0"/>
-  <text x="114" y="221" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#57687A" textLength="16.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >08</text>
-  <text x="146" y="221" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#8A97A6" xml:space="preserve" letter-spacing="1">CLOUD</text>
-  <rect x="330" y="200" width="126" height="30" rx="15" fill="#121922" stroke="#223040"/><circle cx="344" cy="215" r="4" fill="#8B7CF6"/><text x="355" y="220" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#E8EDF2" textLength="90" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >AuctionHub</text><rect x="466" y="200" width="99" height="30" rx="15" fill="#121922" stroke="#223040"/><circle cx="480" cy="215" r="4" fill="#8B7CF6"/><text x="491" y="220" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#E8EDF2" textLength="63" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >SoftHub</text>
-  <text x="1154" y="221" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="15" font-weight="400" fill="#57687A" text-anchor="end" >Lambda · DynamoDB streams · WebSockets · Stripe</text>
+  <rect x="96" y="180" width="1064" height="46" rx="10" fill="#0A0A0A" stroke="#1B1B1B"/>
+  <g class="on1 loop" opacity="0">
+    <rect x="96" y="180" width="1064" height="46" rx="10" fill="url(#wake)" stroke="#FFFFFF" stroke-opacity=".7"/>
+    <circle cx="60" cy="203.0" r="5" fill="#FFFFFF"/>
+    <text x="146" y="209" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#FFFFFF" xml:space="preserve" letter-spacing="1.6">CLOUD</text>
+  </g>
+  <circle cx="60" cy="203.0" r="5" fill="none" stroke="#2C2C2C" stroke-width="1.5"/>
+  <text x="114" y="209" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="13" fill="#767676" textLength="15.6" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >08</text>
+  <text x="146" y="209" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#A3A3A3" xml:space="preserve" letter-spacing="1.6">CLOUD</text>
+  <rect x="340" y="189" width="112" height="28" rx="14" fill="#121212" stroke="#2C2C2C"/><text x="354" y="208" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#F5F5F5" textLength="84" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >AuctionHub</text><rect x="460" y="189" width="86.8" height="28" rx="14" fill="#121212" stroke="#2C2C2C"/><text x="474" y="208" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#F5F5F5" textLength="58.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >SoftHub</text>
+  <text x="1142" y="209" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#767676" text-anchor="end" >Lambda · DynamoDB streams · WebSockets · Stripe</text>
 </g>
 <g>
-  <rect x="96" y="248" width="1078" height="50" rx="10" fill="#0D131A" stroke="#1A2430"/>
-  <rect x="96" y="248" width="1078" height="50" rx="10" fill="#35C4E8" fill-opacity="0.05" stroke="#35C4E8" stroke-opacity="0.55" class="on2" opacity="0"/>
-  <circle cx="60" cy="273.0" r="5" fill="#0D131A" stroke="#223040" stroke-width="2"/>
-  <circle cx="60" cy="273.0" r="5" fill="#35C4E8" class="on2" opacity="0"/>
-  <text x="114" y="279" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#57687A" textLength="16.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >07</text>
-  <text x="146" y="279" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#8A97A6" xml:space="preserve" letter-spacing="1">ALGORITHMS</text>
-  <rect x="330" y="258" width="252" height="30" rx="15" fill="#121922" stroke="#223040"/><circle cx="344" cy="273" r="4" fill="#3ED598"/><text x="355" y="278" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#E8EDF2" textLength="216" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >Monte Carlo Localization</text><rect x="592" y="258" width="99" height="30" rx="15" fill="#121922" stroke="#223040"/><circle cx="606" cy="273" r="4" fill="#F2A93B"/><text x="617" y="278" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#E8EDF2" textLength="63" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >RTMC-HG</text>
-  <text x="1154" y="279" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="15" font-weight="400" fill="#57687A" text-anchor="end" >particle filters · gesture classifiers</text>
+  <rect x="96" y="232" width="1064" height="46" rx="10" fill="#0A0A0A" stroke="#1B1B1B"/>
+  <g class="on2 loop" opacity="0">
+    <rect x="96" y="232" width="1064" height="46" rx="10" fill="url(#wake)" stroke="#FFFFFF" stroke-opacity=".7"/>
+    <circle cx="60" cy="255.0" r="5" fill="#FFFFFF"/>
+    <text x="146" y="261" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#FFFFFF" xml:space="preserve" letter-spacing="1.6">ALGORITHMS</text>
+  </g>
+  <circle cx="60" cy="255.0" r="5" fill="none" stroke="#2C2C2C" stroke-width="1.5"/>
+  <text x="114" y="261" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="13" fill="#767676" textLength="15.6" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >07</text>
+  <text x="146" y="261" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#A3A3A3" xml:space="preserve" letter-spacing="1.6">ALGORITHMS</text>
+  <rect x="340" y="241" width="229.6" height="28" rx="14" fill="#121212" stroke="#2C2C2C"/><text x="354" y="260" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#F5F5F5" textLength="201.6" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >Monte Carlo Localization</text><rect x="577.6" y="241" width="86.8" height="28" rx="14" fill="#121212" stroke="#2C2C2C"/><text x="591.6" y="260" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#F5F5F5" textLength="58.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >RTMC-HG</text>
+  <text x="1142" y="261" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#767676" text-anchor="end" >particle filters · gesture classifiers</text>
 </g>
 <g>
-  <rect x="96" y="306" width="1078" height="50" rx="10" fill="#0D131A" stroke="#1A2430"/>
-  <rect x="96" y="306" width="1078" height="50" rx="10" fill="#35C4E8" fill-opacity="0.05" stroke="#35C4E8" stroke-opacity="0.55" class="on3" opacity="0"/>
-  <circle cx="60" cy="331.0" r="5" fill="#0D131A" stroke="#223040" stroke-width="2"/>
-  <circle cx="60" cy="331.0" r="5" fill="#35C4E8" class="on3" opacity="0"/>
-  <text x="114" y="337" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#57687A" textLength="16.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >06</text>
-  <text x="146" y="337" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#8A97A6" xml:space="preserve" letter-spacing="1">BUSES</text>
-  <rect x="330" y="316" width="180" height="30" rx="15" fill="#121922" stroke="#223040"/><circle cx="344" cy="331" r="4" fill="#3ED598"/><text x="355" y="336" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#E8EDF2" textLength="144" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >F1 CAN Telemetry</text><rect x="520" y="316" width="135" height="30" rx="15" fill="#121922" stroke="#223040"/><circle cx="534" cy="331" r="4" fill="#F2A93B"/><text x="545" y="336" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#E8EDF2" textLength="99" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >FARM-E link</text>
-  <text x="1154" y="337" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="15" font-weight="400" fill="#57687A" text-anchor="end" >CAN 500 kbit/s · CRC-8 frames · UDP</text>
+  <rect x="96" y="284" width="1064" height="46" rx="10" fill="#0A0A0A" stroke="#1B1B1B"/>
+  <g class="on3 loop" opacity="0">
+    <rect x="96" y="284" width="1064" height="46" rx="10" fill="url(#wake)" stroke="#FFFFFF" stroke-opacity=".7"/>
+    <circle cx="60" cy="307.0" r="5" fill="#FFFFFF"/>
+    <text x="146" y="313" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#FFFFFF" xml:space="preserve" letter-spacing="1.6">BUSES</text>
+  </g>
+  <circle cx="60" cy="307.0" r="5" fill="none" stroke="#2C2C2C" stroke-width="1.5"/>
+  <text x="114" y="313" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="13" fill="#767676" textLength="15.6" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >06</text>
+  <text x="146" y="313" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#A3A3A3" xml:space="preserve" letter-spacing="1.6">BUSES</text>
+  <rect x="340" y="293" width="162.4" height="28" rx="14" fill="#121212" stroke="#2C2C2C"/><text x="354" y="312" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#F5F5F5" textLength="134.4" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >F1 CAN Telemetry</text><rect x="510.4" y="293" width="120.4" height="28" rx="14" fill="#121212" stroke="#2C2C2C"/><text x="524.4" y="312" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#F5F5F5" textLength="92.4" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >FARM-E link</text>
+  <text x="1142" y="313" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#767676" text-anchor="end" >CAN 500 kbit/s · CRC-8 frames · UDP</text>
 </g>
 <g>
-  <rect x="96" y="364" width="1078" height="50" rx="10" fill="#0D131A" stroke="#1A2430"/>
-  <rect x="96" y="364" width="1078" height="50" rx="10" fill="#35C4E8" fill-opacity="0.05" stroke="#35C4E8" stroke-opacity="0.55" class="on4" opacity="0"/>
-  <circle cx="60" cy="389.0" r="5" fill="#0D131A" stroke="#223040" stroke-width="2"/>
-  <circle cx="60" cy="389.0" r="5" fill="#35C4E8" class="on4" opacity="0"/>
-  <text x="114" y="395" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#57687A" textLength="16.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >05</text>
-  <text x="146" y="395" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#8A97A6" xml:space="preserve" letter-spacing="1">MACHINES</text>
-  <rect x="330" y="374" width="90" height="30" rx="15" fill="#121922" stroke="#223040"/><circle cx="344" cy="389" r="4" fill="#F2A93B"/><text x="355" y="394" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#E8EDF2" textLength="54" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >FARM-E</text><rect x="430" y="374" width="162" height="30" rx="15" fill="#121922" stroke="#223040"/><circle cx="444" cy="389" r="4" fill="#F2A93B"/><text x="455" y="394" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#E8EDF2" textLength="126" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >Hydroponinator</text><rect x="602" y="374" width="207" height="30" rx="15" fill="#121922" stroke="#223040"/><circle cx="616" cy="389" r="4" fill="#F2A93B"/><text x="627" y="394" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#E8EDF2" textLength="171" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >Handwriting-Machine</text>
-  <text x="1154" y="395" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="15" font-weight="400" fill="#57687A" text-anchor="end" >tracks · steppers · servos · pumps</text>
+  <rect x="96" y="336" width="1064" height="46" rx="10" fill="#0A0A0A" stroke="#1B1B1B"/>
+  <g class="on4 loop" opacity="0">
+    <rect x="96" y="336" width="1064" height="46" rx="10" fill="url(#wake)" stroke="#FFFFFF" stroke-opacity=".7"/>
+    <circle cx="60" cy="359.0" r="5" fill="#FFFFFF"/>
+    <text x="146" y="365" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#FFFFFF" xml:space="preserve" letter-spacing="1.6">MACHINES</text>
+  </g>
+  <circle cx="60" cy="359.0" r="5" fill="none" stroke="#2C2C2C" stroke-width="1.5"/>
+  <text x="114" y="365" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="13" fill="#767676" textLength="15.6" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >05</text>
+  <text x="146" y="365" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#A3A3A3" xml:space="preserve" letter-spacing="1.6">MACHINES</text>
+  <rect x="340" y="345" width="78.4" height="28" rx="14" fill="#121212" stroke="#2C2C2C"/><text x="354" y="364" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#F5F5F5" textLength="50.4" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >FARM-E</text><rect x="426.4" y="345" width="145.6" height="28" rx="14" fill="#121212" stroke="#2C2C2C"/><text x="440.4" y="364" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#F5F5F5" textLength="117.6" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >Hydroponinator</text><rect x="580" y="345" width="187.6" height="28" rx="14" fill="#121212" stroke="#2C2C2C"/><text x="594" y="364" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#F5F5F5" textLength="159.6" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >Handwriting-Machine</text>
+  <text x="1142" y="365" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#767676" text-anchor="end" >tracks · steppers · servos · pumps</text>
 </g>
 <g>
-  <rect x="96" y="422" width="1078" height="50" rx="10" fill="#0D131A" stroke="#1A2430"/>
-  <rect x="96" y="422" width="1078" height="50" rx="10" fill="#35C4E8" fill-opacity="0.05" stroke="#35C4E8" stroke-opacity="0.55" class="on5" opacity="0"/>
-  <circle cx="60" cy="447.0" r="5" fill="#0D131A" stroke="#223040" stroke-width="2"/>
-  <circle cx="60" cy="447.0" r="5" fill="#35C4E8" class="on5" opacity="0"/>
-  <text x="114" y="453" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#57687A" textLength="16.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >04</text>
-  <text x="146" y="453" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#8A97A6" xml:space="preserve" letter-spacing="1">FIRMWARE</text>
-  <rect x="330" y="432" width="126" height="30" rx="15" fill="#121922" stroke="#223040"/><circle cx="344" cy="447" r="4" fill="#F2A93B"/><text x="355" y="452" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#E8EDF2" textLength="90" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >ATmega2560</text><rect x="466" y="432" width="153" height="30" rx="15" fill="#121922" stroke="#223040"/><circle cx="480" cy="447" r="4" fill="#F2A93B"/><text x="491" y="452" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#E8EDF2" textLength="117" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >UNO + ESP8266</text>
-  <text x="1154" y="453" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="15" font-weight="400" fill="#57687A" text-anchor="end" >non-blocking loops · watchdogs · EEPROM</text>
+  <rect x="96" y="388" width="1064" height="46" rx="10" fill="#0A0A0A" stroke="#1B1B1B"/>
+  <g class="on5 loop" opacity="0">
+    <rect x="96" y="388" width="1064" height="46" rx="10" fill="url(#wake)" stroke="#FFFFFF" stroke-opacity=".7"/>
+    <circle cx="60" cy="411.0" r="5" fill="#FFFFFF"/>
+    <text x="146" y="417" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#FFFFFF" xml:space="preserve" letter-spacing="1.6">FIRMWARE</text>
+  </g>
+  <circle cx="60" cy="411.0" r="5" fill="none" stroke="#2C2C2C" stroke-width="1.5"/>
+  <text x="114" y="417" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="13" fill="#767676" textLength="15.6" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >04</text>
+  <text x="146" y="417" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#A3A3A3" xml:space="preserve" letter-spacing="1.6">FIRMWARE</text>
+  <rect x="340" y="397" width="112" height="28" rx="14" fill="#121212" stroke="#2C2C2C"/><text x="354" y="416" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#F5F5F5" textLength="84" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >ATmega2560</text><rect x="460" y="397" width="137.2" height="28" rx="14" fill="#121212" stroke="#2C2C2C"/><text x="474" y="416" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#F5F5F5" textLength="109.2" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >UNO + ESP8266</text>
+  <text x="1142" y="417" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#767676" text-anchor="end" >non-blocking loops · watchdogs · EEPROM</text>
 </g>
 <g>
-  <rect x="96" y="480" width="1078" height="50" rx="10" fill="#0D131A" stroke="#1A2430"/>
-  <rect x="96" y="480" width="1078" height="50" rx="10" fill="#35C4E8" fill-opacity="0.05" stroke="#35C4E8" stroke-opacity="0.55" class="on6" opacity="0"/>
-  <circle cx="60" cy="505.0" r="5" fill="#0D131A" stroke="#223040" stroke-width="2"/>
-  <circle cx="60" cy="505.0" r="5" fill="#35C4E8" class="on6" opacity="0"/>
-  <text x="114" y="511" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#57687A" textLength="16.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >03</text>
-  <text x="146" y="511" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#8A97A6" xml:space="preserve" letter-spacing="1">VERIFICATION</text>
-  <rect x="330" y="490" width="135" height="30" rx="15" fill="#121922" stroke="#223040"/><circle cx="344" cy="505" r="4" fill="#35C4E8"/><text x="355" y="510" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#E8EDF2" textLength="99" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >Calc1/Calc3</text><rect x="475" y="490" width="126" height="30" rx="15" fill="#121922" stroke="#223040"/><circle cx="489" cy="505" r="4" fill="#35C4E8"/><text x="500" y="510" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#E8EDF2" textLength="90" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >DDS formal</text>
-  <text x="1154" y="511" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="15" font-weight="400" fill="#57687A" text-anchor="end" >SystemVerilog · equivalence · k-induction</text>
+  <rect x="96" y="440" width="1064" height="46" rx="10" fill="#0A0A0A" stroke="#1B1B1B"/>
+  <g class="on6 loop" opacity="0">
+    <rect x="96" y="440" width="1064" height="46" rx="10" fill="url(#wake)" stroke="#FFFFFF" stroke-opacity=".7"/>
+    <circle cx="60" cy="463.0" r="5" fill="#FFFFFF"/>
+    <text x="146" y="469" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#FFFFFF" xml:space="preserve" letter-spacing="1.6">VERIFICATION</text>
+  </g>
+  <circle cx="60" cy="463.0" r="5" fill="none" stroke="#2C2C2C" stroke-width="1.5"/>
+  <text x="114" y="469" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="13" fill="#767676" textLength="15.6" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >03</text>
+  <text x="146" y="469" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#A3A3A3" xml:space="preserve" letter-spacing="1.6">VERIFICATION</text>
+  <rect x="340" y="449" width="120.4" height="28" rx="14" fill="#121212" stroke="#2C2C2C"/><text x="354" y="468" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#F5F5F5" textLength="92.4" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >Calc1/Calc3</text><rect x="468.4" y="449" width="112" height="28" rx="14" fill="#121212" stroke="#2C2C2C"/><text x="482.4" y="468" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#F5F5F5" textLength="84" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >DDS formal</text>
+  <text x="1142" y="469" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#767676" text-anchor="end" >SystemVerilog · equivalence · k-induction</text>
 </g>
 <g>
-  <rect x="96" y="538" width="1078" height="50" rx="10" fill="#0D131A" stroke="#1A2430"/>
-  <rect x="96" y="538" width="1078" height="50" rx="10" fill="#35C4E8" fill-opacity="0.05" stroke="#35C4E8" stroke-opacity="0.55" class="on7" opacity="0"/>
-  <circle cx="60" cy="563.0" r="5" fill="#0D131A" stroke="#223040" stroke-width="2"/>
-  <circle cx="60" cy="563.0" r="5" fill="#35C4E8" class="on7" opacity="0"/>
-  <text x="114" y="569" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#57687A" textLength="16.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >02</text>
-  <text x="146" y="569" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#8A97A6" xml:space="preserve" letter-spacing="1">RTL</text>
-  <rect x="330" y="548" width="117" height="30" rx="15" fill="#121922" stroke="#223040"/><circle cx="344" cy="563" r="4" fill="#35C4E8"/><text x="355" y="568" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#E8EDF2" textLength="81" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >mini-MIPS</text><rect x="457" y="548" width="171" height="30" rx="15" fill="#121922" stroke="#223040"/><circle cx="471" cy="563" r="4" fill="#35C4E8"/><text x="482" y="568" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#E8EDF2" textLength="135" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >Arithmetic Unit</text>
-  <text x="1154" y="569" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="15" font-weight="400" fill="#57687A" text-anchor="end" >VHDL-2008 · 5-stage pipeline · Yosys</text>
+  <rect x="96" y="492" width="1064" height="46" rx="10" fill="#0A0A0A" stroke="#1B1B1B"/>
+  <g class="on7 loop" opacity="0">
+    <rect x="96" y="492" width="1064" height="46" rx="10" fill="url(#wake)" stroke="#FFFFFF" stroke-opacity=".7"/>
+    <circle cx="60" cy="515.0" r="5" fill="#FFFFFF"/>
+    <text x="146" y="521" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#FFFFFF" xml:space="preserve" letter-spacing="1.6">RTL</text>
+  </g>
+  <circle cx="60" cy="515.0" r="5" fill="none" stroke="#2C2C2C" stroke-width="1.5"/>
+  <text x="114" y="521" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="13" fill="#767676" textLength="15.6" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >02</text>
+  <text x="146" y="521" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#A3A3A3" xml:space="preserve" letter-spacing="1.6">RTL</text>
+  <rect x="340" y="501" width="103.6" height="28" rx="14" fill="#121212" stroke="#2C2C2C"/><text x="354" y="520" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#F5F5F5" textLength="75.6" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >mini-MIPS</text><rect x="451.6" y="501" width="154" height="28" rx="14" fill="#121212" stroke="#2C2C2C"/><text x="465.6" y="520" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#F5F5F5" textLength="126" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >Arithmetic Unit</text>
+  <text x="1142" y="521" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#767676" text-anchor="end" >VHDL-2008 · 5-stage pipeline · Yosys</text>
 </g>
 <g>
-  <rect x="96" y="596" width="1078" height="50" rx="10" fill="#0D131A" stroke="#1A2430"/>
-  <rect x="96" y="596" width="1078" height="50" rx="10" fill="#35C4E8" fill-opacity="0.05" stroke="#35C4E8" stroke-opacity="0.55" class="on8" opacity="0"/>
-  <circle cx="60" cy="621.0" r="5" fill="#0D131A" stroke="#223040" stroke-width="2"/>
-  <circle cx="60" cy="621.0" r="5" fill="#35C4E8" class="on8" opacity="0"/>
-  <text x="114" y="627" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#57687A" textLength="16.8" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >01</text>
-  <text x="146" y="627" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#8A97A6" xml:space="preserve" letter-spacing="1">GATES</text>
-  <rect x="330" y="606" width="135" height="30" rx="15" fill="#121922" stroke="#223040"/><circle cx="344" cy="621" r="4" fill="#35C4E8"/><text x="355" y="626" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#E8EDF2" textLength="99" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >full adders</text><rect x="475" y="606" width="135" height="30" rx="15" fill="#121922" stroke="#223040"/><circle cx="489" cy="621" r="4" fill="#35C4E8"/><text x="500" y="626" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#E8EDF2" textLength="99" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >Dadda trees</text>
-  <text x="1154" y="627" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="15" font-weight="400" fill="#57687A" text-anchor="end" >carry-save arrays · ripple carries</text>
+  <rect x="96" y="544" width="1064" height="46" rx="10" fill="#0A0A0A" stroke="#1B1B1B"/>
+  <g class="on8 loop" opacity="0">
+    <rect x="96" y="544" width="1064" height="46" rx="10" fill="url(#wake)" stroke="#FFFFFF" stroke-opacity=".7"/>
+    <circle cx="60" cy="567.0" r="5" fill="#FFFFFF"/>
+    <text x="146" y="573" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#FFFFFF" xml:space="preserve" letter-spacing="1.6">GATES</text>
+  </g>
+  <circle cx="60" cy="567.0" r="5" fill="none" stroke="#2C2C2C" stroke-width="1.5"/>
+  <text x="114" y="573" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="13" fill="#767676" textLength="15.6" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >01</text>
+  <text x="146" y="573" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#A3A3A3" xml:space="preserve" letter-spacing="1.6">GATES</text>
+  <rect x="340" y="553" width="120.4" height="28" rx="14" fill="#121212" stroke="#2C2C2C"/><text x="354" y="572" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#F5F5F5" textLength="92.4" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >full adders</text><rect x="468.4" y="553" width="120.4" height="28" rx="14" fill="#121212" stroke="#2C2C2C"/><text x="482.4" y="572" font-family="ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#F5F5F5" textLength="92.4" lengthAdjust="spacingAndGlyphs" xml:space="preserve" >Dadda trees</text>
+  <text x="1142" y="573" font-family="-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#767676" text-anchor="end" >carry-save arrays · ripple carries</text>
 </g>
-<g class="pulse loop"><circle cx="60" cy="621.0" r="16" fill="url(#glow)"/><circle cx="60" cy="621.0" r="4" fill="#E8EDF2"/></g>
+<g class="sig loop"><circle cx="60" cy="567.0" r="18" fill="url(#glow)"/><circle cx="60" cy="567.0" r="3.5" fill="#FFFFFF"/></g>
 
 </svg>

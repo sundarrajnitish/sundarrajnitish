@@ -1,12 +1,12 @@
-"""Header: the 2019 Handwriting-Machine plots my signature from its own G-code dialect."""
+"""Header: my 2019 Handwriting-Machine plots the signature, and the disciplines fall into orbit around it."""
 
 import math
+import random
 
-from svgkit import (AMBER, BG_ALT, BORDER, BORDER_SOFT, CYAN, DIM, GREEN, MONO, MONO_ADV, MUTED, RED, TEXT,
-                    VIOLET, bez, discrete, doc, esc, f, grid_pattern, length, mono_text, panel, parse_path,
-                    polyline, resample, seg_path, typed)
+from svgkit import (BG, BORDER, DIM, EASE, MONO, MUTED, SANS, TEXT, WHITE, discrete, doc, esc, f, length, mono_text,
+                    parse_path, polyline, resample, seg_path, text)
 
-W, H = 1200, 500
+W, H = 1200, 560
 
 # "nitish" in one continuous cursive stroke. Units: baseline y=0, x-height 50, up is negative.
 STROKE = """
@@ -28,15 +28,23 @@ LIFTS = [
     ("t", [(86, -60), (116, -64)]),
 ]
 
-SCALE, SLANT = 1.82, math.tan(math.radians(12))
-OX, OY = 452, 300
+SCALE, SLANT = 1.7, math.tan(math.radians(12))
+OX, OY = 384, 290
+HOME = (960, 96)
 
-# Bed and its mapping to plotter millimetres (the real machine had a 155 x 155 mm bed).
-BED = (392, 60, 1180, 480)
-PX_PER_MM = (BED[2] - BED[0]) / 155
-HOME = (1128, 112)
+# The real machine had a 155 x 155 mm bed; the G-code readout is in its millimetres.
+PX_PER_MM = 5.0
+BED_X, BED_Y = OX - 150, OY + 190
 
-T_START, T_DRAW = 0.7, 6.2  # main stroke timing (s)
+T_START, T_DRAW = 0.6, 4.2  # main stroke timing (s)
+
+# The system the name sits in: three orbits, two disciplines on each. The hollow one is where I'm headed.
+CX, CY, TILT = 600, 272, -7
+ORBITS = [  # (rx, ry, period s, [(label, phase 0..1, hollow)])
+    (404, 172, 46, [("SILICON", 0.06, False), ("FIRMWARE", 0.56, False)]),
+    (474, 204, 62, [("POWER", 0.30, False), ("ROBOTICS", 0.80, False)]),
+    (544, 236, 80, [("CLOUD", 0.47, False), ("PHYSICAL AI", 0.93, True)]),
+]
 
 
 def place(p):
@@ -45,17 +53,18 @@ def place(p):
 
 
 def mm(p):
-    return ((p[0] - BED[0]) / PX_PER_MM, (BED[3] - p[1]) / PX_PER_MM)
+    return ((p[0] - BED_X) / PX_PER_MM, (BED_Y - p[1]) / PX_PER_MM)
 
 
-def g01(p):
+def g(code, p):
     x, y = mm(p)
-    return f"G01 X{x:.2f} Y{y:.2f}"
+    return f"{code} X{x:.2f} Y{y:.2f}"
 
 
-def g00(p):
-    x, y = mm(p)
-    return f"G00 X{x:.2f} Y{y:.2f}"
+def ellipse(rx, ry):
+    """Closed ellipse that starts on the right and comes round the front (bottom) first."""
+    return (f"M{CX + rx} {CY}A{rx} {ry} 0 1 1 {CX - rx} {CY}"
+            f"A{rx} {ry} 0 1 1 {CX + rx} {CY}Z")
 
 
 def build():
@@ -65,226 +74,184 @@ def build():
     lifts = [(k, [place(p) for p in pts]) for k, pts in LIFTS]
     start, end = main_pts[0], main_pts[-1]
 
-    # ---- timeline -------------------------------------------------------------------------
-    # waypoints for the pen: (time, cumulative distance along the motion path)
-    motion = [f"M{f(HOME[0])} {f(HOME[1])}L{f(start[0])} {f(start[1])}", seg_path(segs)[seg_path(segs).index("C"):]]
-    dist = [0.0, math.dist(HOME, start)]
-    times = [0.0, T_START]
+    # ---- pen timeline: (time, distance along the motion path) ------------------------------
+    main_d = seg_path(segs)
+    motion = [f"M{f(HOME[0])} {f(HOME[1])}L{f(start[0])} {f(start[1])}", main_d[main_d.index("C"):]]
+    dist, times = [0.0, math.dist(HOME, start)], [0.0, T_START]
     dist.append(dist[-1] + main_len)
     t = T_START + T_DRAW
     times.append(t)
-    pen_down = [(T_START, T_START + T_DRAW)]
-    lift_draws = []
-    gcode = [(T_START - 0.02, "M03", "; pen down")]
-    gcode_main = resample(main_pts, 58)
-    for k, p in enumerate(gcode_main[1:], 1):
-        gcode.append((T_START + T_DRAW * k / 58, g01(p), ""))
+    pen_down, lift_draws = [(T_START, t)], []
+    gcode = [(0.0, "G21", "; mm"), (0.25, g("G00", start), ""), (T_START - 0.02, "M03", "; pen down")]
+    n_g = 44
+    for k, p in enumerate(resample(main_pts, n_g)[1:], 1):
+        gcode.append((T_START + T_DRAW * k / n_g, g("G01", p), ""))
     gcode.append((t + 0.02, "M05", "; pen up"))
     cur = end
     for kind, (a, b) in lifts:
         travel = math.dist(cur, a)
-        t_travel = 0.18 + travel / 1400
+        t_travel = 0.16 + travel / 1500
         motion.append(f"L{f(a[0])} {f(a[1])}")
         dist.append(dist[-1] + travel)
         t += t_travel
         times.append(t)
-        gcode.append((t - t_travel / 2, g00(a), "; i dot" if kind == "i" else "; cross the t"))
-        gcode.append((t, "M03", ""))
-        t_draw = 0.14 if kind == "i" else 0.32
+        gcode.append((t - t_travel / 2, g("G00", a), "; dot the i" if kind == "i" else "; cross the t"))
+        t_draw = 0.12 if kind == "i" else 0.28
         motion.append(f"L{f(b[0])} {f(b[1])}")
         dist.append(dist[-1] + math.dist(a, b))
         lift_draws.append((a, b, t, t_draw))
         pen_down.append((t, t + t_draw))
         t += t_draw
         times.append(t)
-        gcode.append((t, g01(b), ""))
-        gcode.append((t + 0.02, "M05", ""))
-        t += 0.08
+        gcode.append((t, g("G01", b), ""))
+        t += 0.06
         cur = b
-    travel = math.dist(cur, HOME)
-    motion.append(f"L{f(HOME[0])} {f(HOME[1])}")
-    dist.append(dist[-1] + travel)
-    t += 0.55
-    times.append(t)
-    gcode.append((t - 0.3, g00(HOME), "; park"))
-    gcode.append((t + 0.1, "M02", "; done"))
-    t_plot_end = t
-    # pad the pen's still segments (lift pauses) into the motion keys
+    t_signed = t
+    gcode.append((t_signed + 0.1, "M02", "; signed"))
     total = dist[-1]
-    key_points, key_times = [], []
-    # dist/times are paired except for pauses; rebuild pairs in order
-    pairs = list(zip(times, dist))
-    for tt, dd in pairs:
-        key_times.append(tt / t_plot_end)
-        key_points.append(dd / total)
+    key_times = [tt / t_signed for tt in times]
+    key_points = [dd / total for dd in dist]
 
-    # ---- G-code panel --------------------------------------------------------------------
-    preamble = [
-        (0.00, "; nitish.gcode", ""),
-        (0.08, "; Handwriting-Machine, 2019", ""),
-        (0.16, "; ATmega16 + 2x A4988 + servo pen", ""),
-        (0.24, "; 54.35 steps/mm, 155x155 mm bed", ""),
-        (0.36, "G21", "; mm"),
-        (0.44, "M05", "; pen up (servo 90)"),
-        (0.56, g00(start), ""),
-    ]
-    lines = preamble + gcode
-    lines.append((t_plot_end + 0.6, "; next: connect the pieces.", ""))
-    gx0, gy0, lh, rows = 40, 104, 20, 18
-    g_total = lines[-1][0] + 0.2
-    row_events, clip_events, scroll_events = [], [], []
-    for i, (tt, _, _) in enumerate(lines):
-        row = min(i, rows - 1)
-        row_events.append((tt, f(gy0 + row * lh)))
-        clip_events.append((tt, f((row + 1) * lh)))
-        scroll_events.append((tt, f"0,{f(-max(0, i - rows + 1) * lh)}"))
-    gl = []
-    for i, (_, code, cmt) in enumerate(lines):
-        y = gy0 + 14 + i * lh
-        if code.startswith(";"):
-            gl.append(mono_text(gx0, y, code, 12.5, DIM, fit=False))
-            continue
-        color = AMBER if code.startswith("M0") else (CYAN if code.startswith("G01") else MUTED)
-        gl.append(
-            f'<text x="{gx0}" y="{y}" font-family="{MONO}" font-size="12.5" xml:space="preserve">'
-            f'<tspan fill="{color}">{esc(code)}</tspan><tspan fill="{DIM}">{esc("  " + cmt) if cmt else ""}</tspan></text>'
-        )
-    gcode_svg = f"""
-<g>
-  <rect x="20" y="60" width="356" height="420" rx="12" fill="{BG_ALT}" stroke="{BORDER_SOFT}"/>
-  {mono_text(40, 86, "nitish.gcode", 12, CYAN, fit=False)}
-  {mono_text(356, 86, "G01 / M03 / M05", 11, DIM, fit=False, anchor="end")}
-  <line x1="20" y1="96" x2="376" y2="96" stroke="{BORDER_SOFT}"/>
-  <clipPath id="gwin"><rect x="24" y="{gy0}" width="348" height="0">{discrete("height", clip_events, g_total)}</rect></clipPath>
-  <rect x="24" y="{gy0}" width="348" height="{lh}" fill="{CYAN}" opacity="0.10">{discrete("y", row_events, g_total)}</rect>
-  <rect x="24" y="{gy0}" width="3" height="{lh}" fill="{CYAN}">{discrete("y", row_events, g_total)}</rect>
-  <g clip-path="url(#gwin)"><g>
-    <animateTransform attributeName="transform" type="translate" calcMode="discrete" dur="{f(g_total)}s" fill="freeze"
-      keyTimes="{';'.join(f'{min(e[0], g_total) / g_total:.5f}' for e in [(0, '0,0')] + scroll_events[1:])}"
-      values="{';'.join(e[1] for e in [(0, '0,0')] + scroll_events[1:])}"/>
-    {''.join(gl)}
-  </g></g>
-</g>"""
-
-    # ---- bed, drawn strokes, pen -------------------------------------------------------
-    main_d = seg_path(segs)
-    draw_css = [
-        f".ink{{fill:none;stroke:{TEXT};stroke-width:4.2;stroke-linecap:round;stroke-linejoin:round}}",
-        f"#main{{stroke-dasharray:{f(main_len + 2)};stroke-dashoffset:{f(main_len + 2)};"
-        f"animation:draw {T_DRAW}s linear {T_START}s forwards}}",
+    # ---- the signature ---------------------------------------------------------------------
+    css = [
+        ".ink{fill:none;stroke-linecap:round;stroke-linejoin:round}",
+        f".main{{stroke-dasharray:{f(main_len + 2)};stroke-dashoffset:{f(main_len + 2)};"
+        f"animation:draw {T_DRAW}s cubic-bezier(.45,.05,.55,.95) {T_START}s forwards}}",
         "@keyframes draw{to{stroke-dashoffset:0}}",
-        ".dot{stroke-width:6.5}",
     ]
     lift_svg = []
     for i, (a, b, t0, td) in enumerate(lift_draws):
         L = math.dist(a, b) + 1
-        draw_css.append(
-            f"#lift{i}{{stroke-dasharray:{f(L)};stroke-dashoffset:{f(L)};animation:draw {td}s linear {f(t0)}s forwards}}"
-        )
-        lift_svg.append(f'<path id="lift{i}" class="ink{" dot" if L < 6 else ""}" d="M{f(a[0])} {f(a[1])}L{f(b[0])} {f(b[1])}"/>')
+        css.append(f".lift{i}{{stroke-dasharray:{f(L)};stroke-dashoffset:{f(L)};"
+                   f"animation:draw {td}s linear {f(t0)}s forwards}}")
+        lift_svg.append(f'<path class="ink lift{i}" stroke="{WHITE}" stroke-width="{6 if L < 6 else 3.8}" '
+                        f'd="M{f(a[0])} {f(a[1])}L{f(b[0])} {f(b[1])}"/>')
+    signature = f"""
+<path class="ink main" d="{main_d}" stroke="{WHITE}" stroke-width="9" opacity=".34" filter="url(#bloom)"/>
+<path class="ink main" d="{main_d}" stroke="{WHITE}" stroke-width="3.8"/>
+{''.join(lift_svg)}"""
+
+    # The main stroke eases in and out, so the pen has to follow the same curve: sample it.
+    def ease(u, a=0.45, b=0.05, c=0.55, d=0.95):
+        lo, hi = 0.0, 1.0
+        for _ in range(40):  # solve bezier x(s) = u
+            s = (lo + hi) / 2
+            x = 3 * (1 - s) ** 2 * s * a + 3 * (1 - s) * s * s * c + s ** 3
+            lo, hi = (s, hi) if x < u else (lo, s)
+        return 3 * (1 - s) ** 2 * s * b + 3 * (1 - s) * s * s * d + s ** 3
+
+    kt, kp = [key_times[0]], [key_points[0]]
+    for k in range(25):
+        u = k / 24
+        kt.append((T_START + T_DRAW * u) / t_signed)
+        kp.append((dist[1] + main_len * ease(u)) / total)
+    kt += key_times[3:]
+    kp += key_points[3:]
 
     pen_ev = [(0, "0")]
     for a, b in pen_down:
         pen_ev += [(a, "1"), (b, "0")]
-    pen_svg = f"""
-<g clip-path="url(#bedclip)">
-  <g>
-    <animateMotion dur="{f(t_plot_end)}s" fill="freeze" calcMode="linear"
-      path="{''.join(motion)}" keyPoints="{';'.join(f'{k:.5f}' for k in key_points)}" keyTimes="{';'.join(f'{k:.5f}' for k in key_times)}"/>
-    <line x1="0" y1="-800" x2="0" y2="800" stroke="{CYAN}" stroke-opacity="0.16"/>
-    <line x1="-1200" y1="0" x2="1200" y2="0" stroke="{CYAN}" stroke-opacity="0.16"/>
-    <circle r="13" fill="none" stroke="{CYAN}" stroke-width="1.6" opacity="0.9"/>
-    <path d="M-20 0h-6M20 0h6M0 -20v-6M0 20v6" stroke="{CYAN}" stroke-width="1.6"/>
-    <circle r="4.5" fill="{AMBER}" opacity="0">{discrete("opacity", pen_ev, t_plot_end + 0.01)}</circle>
-  </g>
+    pen = f"""
+<g opacity="0">
+  <animate attributeName="opacity" dur="{f(t_signed + 0.5)}s" fill="freeze" values="0;1;1;0"
+    keyTimes="0;{0.2 / (t_signed + 0.5):.4f};{t_signed / (t_signed + 0.5):.4f};1"/>
+  <animateMotion dur="{f(t_signed)}s" fill="freeze" calcMode="linear" path="{''.join(motion)}"
+    keyPoints="{';'.join(f'{k:.5f}' for k in kp)}" keyTimes="{';'.join(f'{k:.5f}' for k in kt)}"/>
+  <circle r="26" fill="url(#halo)" opacity="0">{discrete("opacity", pen_ev, t_signed + 0.01)}</circle>
+  <circle r="3.2" fill="{WHITE}"/>
 </g>"""
 
-    bx0, by0, bx1, by1 = BED
-    bed_svg = f"""
-<clipPath id="bedclip"><rect x="{bx0}" y="{by0}" width="{bx1 - bx0}" height="{by1 - by0}" rx="12"/></clipPath>
-<rect x="{bx0}" y="{by0}" width="{bx1 - bx0}" height="{by1 - by0}" rx="12" fill="{BG_ALT}" stroke="{BORDER_SOFT}"/>
-<rect x="{bx0}" y="{by0}" width="{bx1 - bx0}" height="{by1 - by0}" rx="12" fill="url(#grid)"/>
-{mono_text(bx1 - 16, by1 - 14, "155 x 155 mm", 11, DIM, fit=False, anchor="end")}
-<path id="main" class="ink" d="{main_d}"/>
-{''.join(lift_svg)}"""
-
-    # ---- words ----------------------------------------------------------------------------
-    t_words = t_plot_end + 0.2
-    name_s = "NITISH SUNDARRAJ  ·  MONTRÉAL"
-    tag = "Connecting ideas. Making things work."
-    c1, tag_el = typed(OX, 398, tag, 28, TEXT, t_words + 0.5, 0.045, cid="ctag", caret=None,
-                       extra='font-weight="600"')
-    t_rot = t_words + 0.5 + len(tag) * 0.045 + 0.6
-
-    phrases = [
-        ("a robot that plants its own seed rows", AMBER),
-        ("a 5-stage MIPS pipeline, cycle-exact", CYAN),
-        ("multipliers out of nothing but full adders", CYAN),
-        ("F1 telemetry streamed over a CAN bus", GREEN),
-        ("a particle filter that finds a lost robot", GREEN),
-        ("live auctions on serverless AWS", VIOLET),
-        ("a pH controller that keeps roots alive", AMBER),
-        ("proofs that a broken netlist is fixed", CYAN),
-        ("a robot hand you steer with gestures", AMBER),
-        ("a licence store wired to Stripe", VIOLET),
+    # ---- orbits ----------------------------------------------------------------------------
+    t_orbit = 1.2
+    orbit_svg, sat_svg = [], []
+    for i, (rx, ry, period, sats) in enumerate(ORBITS):
+        d = ellipse(rx, ry)
+        delay = t_orbit + i * 0.45
+        orbit_svg.append(f'<path class="orbit" d="{d}" pathLength="1" style="animation-delay:{f(delay)}s" '
+                         f'stroke-opacity="{f(0.2 - i * 0.04)}"/>')
+        for label, phase, hollow in sats:
+            begin = f"-{f(phase * period)}s"
+            loop = f'dur="{period}s" begin="{begin}" repeatCount="indefinite"'
+            dot = (f'<circle r="3.6" fill="{BG}" stroke="{WHITE}" stroke-width="1.4"/>' if hollow
+                   else f'<circle r="3" fill="{WHITE}"/>')
+            sat_svg.append(f"""
+<g class="rise" style="animation-delay:{f(delay + 2.2)}s"><g>
+  <animateMotion {loop} path="{d}"/>
+  <g><animate attributeName="opacity" {loop} values=".6;1;.6;.24;.6" keyTimes="0;.25;.5;.75;1"/>
+    {dot}
+    <text transform="rotate({-TILT})" y="20" text-anchor="middle" font-family="{MONO}" font-size="11" letter-spacing="2.4" fill="{TEXT}">{esc(label)}</text>
+  </g>
+</g></g>""")
+    css += [
+        f".orbit{{fill:none;stroke:{WHITE};stroke-dasharray:1;stroke-dashoffset:1;animation:draw 3.2s {EASE} forwards}}",
+        f".rise{{opacity:0;animation:rise 1.4s {EASE} forwards}}",
+        "@keyframes rise{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}",
     ]
-    slot, ty, bk = 3.4, 0.032, 0.012
-    cycle = slot * len(phrases)
-    rx, ry, rs = OX + len("↳ built: ") * MONO_ADV * 19, 442, 19
-    rot_defs, rot_els, caret_ev = [], [], []
-    for j, (p, color) in enumerate(phrases):
-        s0 = j * slot
-        hold = slot - len(p) * (ty + bk) - 0.35
-        d, e = typed(rx, ry, p, rs, color, s0 + 0.05, ty, dur=cycle, hold=hold, back=bk, cid=f"rot{j}",
-                     begin=f"{f(t_rot)}s", repeat="indefinite")
-        rot_defs.append(d)
-        rot_els.append(e)
-        cw = MONO_ADV * rs
-        caret_ev += [(s0 + 0.05 + i * ty, f(rx + i * cw + 1)) for i in range(1, len(p) + 1)]
-        t_back = s0 + 0.05 + len(p) * ty + hold
-        caret_ev += [(t_back + i * bk, f(rx + (len(p) - i) * cw + 1)) for i in range(1, len(p) + 1)]
-    caret = (
-        f'<rect x="{f(rx)}" y="{ry - 16}" width="10" height="20" fill="{MUTED}" class="blink" opacity="0">'
-        f'<set attributeName="opacity" to="1" begin="{f(t_rot)}s" fill="freeze"/>'
-        + discrete("x", caret_ev, cycle, f"{f(t_rot)}s", "indefinite", initial=f(rx + 1))
-        + "</rect>"
-    )
 
-    words_svg = f"""
-<g class="fadein" style="animation-delay:{f(t_words)}s">
-  {mono_text(OX, 352, name_s, 14, CYAN, fit=False, extra='letter-spacing="2.4"')}
+    # ---- a quiet field of stars behind everything -------------------------------------------
+    random.seed(11)
+    stars = []
+    for i in range(64):
+        x, y = random.uniform(24, W - 24), random.uniform(24, H - 24)
+        r, o = random.choice([0.6, 0.8, 0.8, 1.1, 1.4]), random.uniform(0.12, 0.5)
+        tw = f' class="tw loop" style="animation-delay:-{f(random.uniform(0, 6))}s"' if i % 5 == 0 else ""
+        stars.append(f'<circle cx="{f(x)}" cy="{f(y)}" r="{r}" fill="{WHITE}" opacity="{f(o)}"{tw}/>')
+    css.append(".tw{animation:tw 6s ease-in-out infinite}@keyframes tw{50%{opacity:.05}}")
+
+    # ---- words -----------------------------------------------------------------------------
+    t_words = t_signed + 0.15
+    words = f"""
+<g class="rise" style="animation-delay:{f(t_words)}s">
+  {text(W / 2, OY + 82, "Connecting ideas. Making things work.", 30, TEXT, 500, anchor="middle", extra='letter-spacing="-0.4"')}
 </g>
-{tag_el}
-<g class="fadein" style="animation-delay:{f(t_rot)}s">{mono_text(OX, ry, "↳ built:", rs, DIM)}</g>
-{''.join(rot_els)}
-{caret}"""
+<g class="rise" style="animation-delay:{f(t_words + 0.25)}s">
+  {mono_text(W / 2 + 2, OY + 118, "MULTIDISCIPLINARY ENGINEER  ·  MONTRÉAL", 12, MUTED, fit=False, anchor="middle", extra='letter-spacing="3.6"')}
+</g>"""
 
-    # ---- chrome ---------------------------------------------------------------------------
+    # ---- live G-code readout: one line, the command the pen is executing ---------------------
+    lh, gy = 20, H - 50
+    g_total = gcode[-1][0] + 0.2
+    rows = []
+    for i, (_, code, cmt) in enumerate(gcode):
+        rows.append(f'<text x="40" y="{gy + 14 + i * lh}" font-family="{MONO}" font-size="12" xml:space="preserve">'
+                    f'<tspan fill="{MUTED}">{esc(code)}</tspan><tspan fill="{DIM}">{esc("  " + cmt) if cmt else ""}</tspan></text>')
+    ev = [(tt, f"0,{-i * lh}") for i, (tt, _, _) in enumerate(gcode)]
+    readout = f"""
+<clipPath id="gwin"><rect x="36" y="{gy}" width="330" height="{lh}"/></clipPath>
+<g clip-path="url(#gwin)"><g>
+  <animateTransform attributeName="transform" type="translate" calcMode="discrete" dur="{f(g_total)}s" fill="freeze"
+    keyTimes="{';'.join(f'{min(e[0], g_total) / g_total:.5f}' for e in ev)}" values="{';'.join(e[1] for e in ev)}"/>
+  {''.join(rows)}
+</g></g>"""
+
     chrome = f"""
-<circle cx="28" cy="30" r="6" fill="{RED}" opacity="0.85"/>
-<circle cx="48" cy="30" r="6" fill="{AMBER}" opacity="0.85"/>
-<circle cx="68" cy="30" r="6" fill="{GREEN}" opacity="0.85"/>
-{mono_text(92, 34, "handwriting-machine  ~  plotting nitish.gcode", 12.5, DIM, fit=False)}
-<circle cx="1036" cy="30" r="4.5" fill="{GREEN}" class="pulse"/>
-{mono_text(1048, 34, "12 labs live", 12.5, GREEN, fit=False)}
-<line x1="0" y1="48" x2="{W}" y2="48" stroke="{BORDER_SOFT}"/>"""
+{mono_text(40, 46, "NITISH SUNDARRAJ", 12, TEXT, fit=False, extra='letter-spacing="3.6"')}
+<circle cx="{W - 190}" cy="42" r="3.5" fill="{WHITE}" class="live loop"/>
+{mono_text(W - 40, 46, "12 LABS LIVE", 12, MUTED, fit=False, anchor="end", extra='letter-spacing="3"')}
+{readout}
+{mono_text(W - 40, H - 36, "PLOTTED FROM G-CODE  ·  HANDWRITING-MACHINE, 2019", 11, DIM, fit=False, anchor="end", extra='letter-spacing="2.4"')}"""
+    css += [
+        ".live{animation:live 2.4s ease-in-out infinite}@keyframes live{50%{opacity:.2}}",
+        "@media (prefers-reduced-motion: reduce){.main,[class*=lift],.orbit{animation-duration:.01s!important;"
+        "animation-delay:0s!important}.rise{animation:none!important;opacity:1!important}}",
+    ]
 
-    css = "\n".join(draw_css + [
-        ".fadein{opacity:0;animation:fade .6s ease forwards}",
-        "@keyframes fade{to{opacity:1}}",
-        ".blink{animation:blink 1s steps(1) infinite}",
-        "@keyframes blink{50%{opacity:0}}",
-        ".pulse{animation:pulse 1.6s ease-in-out infinite}",
-        "@keyframes pulse{50%{opacity:.25}}",
-        "@media (prefers-reduced-motion: reduce){#main,[id^=lift]{animation-duration:.01s!important;animation-delay:0s!important}}",
-    ])
-    body = f"""<defs>{grid_pattern("grid")}{c1}{''.join(rot_defs)}</defs>
-{panel(W, H)}
-{chrome}
-{gcode_svg}
-{bed_svg}
-{pen_svg}
-{words_svg}"""
-    return doc(W, H, "Nitish Sundarraj: Connecting ideas. Making things work.", css, body,
-               "A pen plotter writes 'nitish' in cursive from streaming G-code, then types: "
-               "Connecting ideas. Making things work.")
+    body = f"""<defs>
+<clipPath id="frame"><rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="17"/></clipPath>
+<radialGradient id="stage" cx="50%" cy="48%" r="60%"><stop offset="0" stop-color="{WHITE}" stop-opacity=".075"/><stop offset=".55" stop-color="{WHITE}" stop-opacity=".02"/><stop offset="1" stop-color="{WHITE}" stop-opacity="0"/></radialGradient>
+<radialGradient id="halo"><stop offset="0" stop-color="{WHITE}" stop-opacity=".55"/><stop offset="1" stop-color="{WHITE}" stop-opacity="0"/></radialGradient>
+<filter id="bloom" x="-10%" y="-30%" width="120%" height="160%"><feGaussianBlur stdDeviation="9"/></filter>
+</defs>
+<rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="18" fill="#000" stroke="{BORDER}"/>
+<g clip-path="url(#frame)">
+  <rect width="{W}" height="{H}" fill="url(#stage)"/>
+  {''.join(stars)}
+  <g transform="rotate({TILT} {CX} {CY})">{''.join(orbit_svg)}{''.join(sat_svg)}</g>
+</g>
+{signature}
+{pen}
+{words}
+{chrome}"""
+    return doc(W, H, "Nitish Sundarraj: Connecting ideas. Making things work.", "\n".join(css), body,
+               "A pen plotter signs 'nitish' in white on black while six disciplines, from silicon and firmware to "
+               "robotics, cloud and physical AI, settle into orbit around the name.")

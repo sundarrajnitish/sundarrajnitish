@@ -1,10 +1,8 @@
 <a href="https://sundarrajnitish.github.io/portfolio/">
-  <img src="assets/hero.svg" width="100%" alt="Nitish's pen plotter writes his name, followed by a rotating tour of his builds.">
+  <img src="assets/hero.svg" width="100%" alt="A pen plotter signs 'nitish' while six disciplines, from silicon to physical AI, settle into orbit around the name.">
 </a>
 
-Hey, I'm **Nitish**. I build across power, electronics, robotics and software. I like figuring out how the pieces fit—then getting the hardware, code and interfaces working together.
-
-Sometimes that's a robot planting seeds. Sometimes it's a processor, a power-monitoring system or a live web app. **Connecting the disciplines is my favourite part.** Lately, that curiosity is pulling me toward robotics and physical AI.
+Hey, I'm **Nitish**. I build across power, electronics, robotics and software, and **connecting the disciplines is my favourite part**: getting the hardware, code and interfaces to work as one system. Lately that's pulling me toward robotics and physical AI.
 
 <a href="https://sundarrajnitish.github.io/portfolio/"><img src="assets/links/portfolio.svg" alt="Portfolio" height="32"></a>
 <a href="https://www.linkedin.com/in/sundarrajnitish/"><img src="assets/links/linkedin.svg" alt="LinkedIn" height="32"></a>
@@ -15,7 +13,7 @@ Sometimes that's a robot planting seeds. Sometimes it's a processor, a power-mon
 
 ### Built it. Broke it. Figured it out.
 
-A few things I've made, rebuilt and turned into interactive labs. Tap a card and explore.
+Twelve projects, rebuilt as interactive labs. Tap a card and play.
 
 <p align="center">
   <a href="https://sundarrajnitish.github.io/FARM-E-Plantation-Lab/"><img src="assets/labs/farm-e.svg" width="49%" alt="FARM-E: a tracked robot that plants, seeds and waters a bed"></a>
@@ -31,8 +29,6 @@ A few things I've made, rebuilt and turned into interactive labs. Tap a card and
   <a href="https://sundarrajnitish.github.io/SoftHub-Lab/"><img src="assets/labs/softhub.svg" width="49%" alt="SoftHub: pay with a card, get a licence key by e-mail"></a>
   <a href="https://sundarrajnitish.github.io/le-crimson-frontend/"><img src="assets/labs/le-crimson.svg" width="49%" alt="Le Crimson: a personalised news reader"></a>
 </p>
-
-<img src="assets/rebuild-log.svg" width="100%" alt="An animated terminal traces twelve projects from their original builds to interactive labs.">
 
 ### The coursework behind the curiosity
 

@@ -19,7 +19,6 @@ def write(rel, svg):
 if __name__ == "__main__":
     write("hero.svg", hero.build())
     write("stack.svg", sections.stack())
-    write("rebuild-log.svg", sections.rebuild_log())
     write("coursework.svg", sections.coursework())
     write("footer.svg", sections.footer())
     for builder, _ in labs.CARDS:
