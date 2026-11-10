@@ -1,8 +1,8 @@
 <a href="https://sundarrajnitish.github.io/portfolio/">
-  <img src="assets/hero.svg" width="100%" alt="A pen plotter signs 'nitish' while six disciplines, from silicon to physical AI, settle into orbit around the name.">
+  <img src="assets/hero.svg" width="100%" alt="Nitish Sundarraj, multidisciplinary engineer in Montréal. A pen plotter signs 'nitish' while six disciplines, from silicon to physical AI, settle into orbit around the name.">
 </a>
 
-Hey, I'm **Nitish**. I build across power, electronics, robotics and software, and **connecting the disciplines is my favourite part**: getting the hardware, code and interfaces to work as one system. Lately that's pulling me toward robotics and physical AI.
+Hey, I'm **Nitish Sundarraj**. I build across power, electronics, robotics and software, and **connecting the disciplines is my favourite part**: getting the hardware, code and interfaces to work as one system. Lately that's pulling me toward robotics and physical AI.
 
 <a href="https://sundarrajnitish.github.io/portfolio/"><img src="assets/links/portfolio.svg" alt="Portfolio" height="32"></a>
 <a href="https://www.linkedin.com/in/sundarrajnitish/"><img src="assets/links/linkedin.svg" alt="LinkedIn" height="32"></a>
@@ -31,8 +31,6 @@ Twelve projects, rebuilt as interactive labs. Tap a card and play.
 </p>
 
 ### The coursework behind the curiosity
-
-Bachelor's in **Mechatronics Engineering** · Master's in **Electrical & Computer Engineering**
 
 <a href="https://sundarrajnitish.github.io/portfolio/#curriculum">
   <img src="assets/coursework.svg" width="100%" alt="An animated map of selected courses across mechatronics, electrical and computer engineering.">
