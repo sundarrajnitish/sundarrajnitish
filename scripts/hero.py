@@ -3,8 +3,8 @@
 import math
 import random
 
-from svgkit import (BG, BORDER, DIM, EASE, MONO, MUTED, SANS, TEXT, WHITE, discrete, doc, esc, f, length, mono_text,
-                    parse_path, polyline, resample, seg_path, text)
+from svgkit import (AI, BG, BORDER, EASE, EMBEDDED, MONO, MUTED, POWER, ROBOTICS, SILICON, SOFTWARE, TEXT, WHITE,
+                    discrete, doc, esc, f, length, mono_text, parse_path, polyline, seg_path, text)
 
 W, H = 1200, 560
 
@@ -32,33 +32,20 @@ SCALE, SLANT = 1.7, math.tan(math.radians(12))
 OX, OY = 384, 290
 HOME = (960, 96)
 
-# The real machine had a 155 x 155 mm bed; the G-code readout is in its millimetres.
-PX_PER_MM = 5.0
-BED_X, BED_Y = OX - 150, OY + 190
-
 T_START, T_DRAW = 0.6, 4.2  # main stroke timing (s)
 
 # The system the name sits in: three orbits, two disciplines on each. The hollow one is where I'm headed.
 CX, CY, TILT = 600, 272, -7
-ORBITS = [  # (rx, ry, period s, [(label, phase 0..1, hollow)])
-    (404, 172, 46, [("SILICON", 0.06, False), ("FIRMWARE", 0.56, False)]),
-    (474, 204, 62, [("POWER", 0.30, False), ("ROBOTICS", 0.80, False)]),
-    (544, 236, 80, [("CLOUD", 0.47, False), ("PHYSICAL AI", 0.93, True)]),
+ORBITS = [  # (rx, ry, period s, [(label, colour, phase 0..1, hollow)])
+    (404, 172, 46, [("SILICON", SILICON, 0.06, False), ("FIRMWARE", EMBEDDED, 0.56, False)]),
+    (474, 204, 62, [("POWER", POWER, 0.30, False), ("ROBOTICS", ROBOTICS, 0.80, False)]),
+    (544, 236, 80, [("CLOUD", SOFTWARE, 0.47, False), ("PHYSICAL AI", AI, 0.93, True)]),
 ]
 
 
 def place(p):
     x, y = p
     return (OX + SCALE * (x - y * SLANT), OY + SCALE * y)
-
-
-def mm(p):
-    return ((p[0] - BED_X) / PX_PER_MM, (BED_Y - p[1]) / PX_PER_MM)
-
-
-def g(code, p):
-    x, y = mm(p)
-    return f"{code} X{x:.2f} Y{y:.2f}"
 
 
 def ellipse(rx, ry):
@@ -82,11 +69,6 @@ def build():
     t = T_START + T_DRAW
     times.append(t)
     pen_down, lift_draws = [(T_START, t)], []
-    gcode = [(0.0, "G21", "; mm"), (0.25, g("G00", start), ""), (T_START - 0.02, "M03", "; pen down")]
-    n_g = 44
-    for k, p in enumerate(resample(main_pts, n_g)[1:], 1):
-        gcode.append((T_START + T_DRAW * k / n_g, g("G01", p), ""))
-    gcode.append((t + 0.02, "M05", "; pen up"))
     cur = end
     for kind, (a, b) in lifts:
         travel = math.dist(cur, a)
@@ -95,7 +77,6 @@ def build():
         dist.append(dist[-1] + travel)
         t += t_travel
         times.append(t)
-        gcode.append((t - t_travel / 2, g("G00", a), "; dot the i" if kind == "i" else "; cross the t"))
         t_draw = 0.12 if kind == "i" else 0.28
         motion.append(f"L{f(b[0])} {f(b[1])}")
         dist.append(dist[-1] + math.dist(a, b))
@@ -103,11 +84,9 @@ def build():
         pen_down.append((t, t + t_draw))
         t += t_draw
         times.append(t)
-        gcode.append((t, g("G01", b), ""))
         t += 0.06
         cur = b
     t_signed = t
-    gcode.append((t_signed + 0.1, "M02", "; signed"))
     total = dist[-1]
     key_times = [tt / t_signed for tt in times]
     key_points = [dd / total for dd in dist]
@@ -169,17 +148,17 @@ def build():
         delay = t_orbit + i * 0.45
         orbit_svg.append(f'<path class="orbit" d="{d}" pathLength="1" style="animation-delay:{f(delay)}s" '
                          f'stroke-opacity="{f(0.2 - i * 0.04)}"/>')
-        for label, phase, hollow in sats:
+        for label, colour, phase, hollow in sats:
             begin = f"-{f(phase * period)}s"
             loop = f'dur="{period}s" begin="{begin}" repeatCount="indefinite"'
-            dot = (f'<circle r="3.6" fill="{BG}" stroke="{WHITE}" stroke-width="1.4"/>' if hollow
-                   else f'<circle r="3" fill="{WHITE}"/>')
+            dot = (f'<circle r="5" fill="{BG}" stroke="{colour}" stroke-width="2"/>' if hollow
+                   else f'<circle r="4.5" fill="{colour}"/>')
             sat_svg.append(f"""
 <g class="rise" style="animation-delay:{f(delay + 2.2)}s"><g>
   <animateMotion {loop} path="{d}"/>
-  <g><animate attributeName="opacity" {loop} values=".6;1;.6;.24;.6" keyTimes="0;.25;.5;.75;1"/>
+  <g><animate attributeName="opacity" {loop} values=".75;1;.75;.45;.75" keyTimes="0;.25;.5;.75;1"/>
     {dot}
-    <text transform="rotate({-TILT})" y="20" text-anchor="middle" font-family="{MONO}" font-size="11" letter-spacing="2.4" fill="{TEXT}">{esc(label)}</text>
+    <text transform="rotate({-TILT})" y="28" text-anchor="middle" font-family="{MONO}" font-size="17" font-weight="600" letter-spacing="2" fill="{colour}">{esc(label)}</text>
   </g>
 </g></g>""")
     css += [
@@ -202,34 +181,16 @@ def build():
     t_words = t_signed + 0.15
     words = f"""
 <g class="rise" style="animation-delay:{f(t_words)}s">
-  {text(W / 2, OY + 82, "Connecting ideas. Making things work.", 30, TEXT, 500, anchor="middle", extra='letter-spacing="-0.4"')}
+  {text(W / 2, OY + 94, "Connecting ideas. Making things work.", 42, TEXT, 600, anchor="middle", extra='letter-spacing="-0.8"')}
 </g>
 <g class="rise" style="animation-delay:{f(t_words + 0.25)}s">
-  {mono_text(W / 2 + 2, OY + 118, "MULTIDISCIPLINARY ENGINEER  ·  MONTRÉAL", 12, MUTED, fit=False, anchor="middle", extra='letter-spacing="3.6"')}
+  {mono_text(W / 2 + 2, OY + 138, "MULTIDISCIPLINARY ENGINEER  ·  MONTRÉAL", 18, MUTED, fit=False, anchor="middle", extra='letter-spacing="3"')}
 </g>"""
 
-    # ---- live G-code readout: one line, the command the pen is executing ---------------------
-    lh, gy = 20, H - 50
-    g_total = gcode[-1][0] + 0.2
-    rows = []
-    for i, (_, code, cmt) in enumerate(gcode):
-        rows.append(f'<text x="40" y="{gy + 14 + i * lh}" font-family="{MONO}" font-size="12" xml:space="preserve">'
-                    f'<tspan fill="{MUTED}">{esc(code)}</tspan><tspan fill="{DIM}">{esc("  " + cmt) if cmt else ""}</tspan></text>')
-    ev = [(tt, f"0,{-i * lh}") for i, (tt, _, _) in enumerate(gcode)]
-    readout = f"""
-<clipPath id="gwin"><rect x="36" y="{gy}" width="330" height="{lh}"/></clipPath>
-<g clip-path="url(#gwin)"><g>
-  <animateTransform attributeName="transform" type="translate" calcMode="discrete" dur="{f(g_total)}s" fill="freeze"
-    keyTimes="{';'.join(f'{min(e[0], g_total) / g_total:.5f}' for e in ev)}" values="{';'.join(e[1] for e in ev)}"/>
-  {''.join(rows)}
-</g></g>"""
-
     chrome = f"""
-{mono_text(40, 46, "NITISH SUNDARRAJ", 12, TEXT, fit=False, extra='letter-spacing="3.6"')}
-<circle cx="{W - 190}" cy="42" r="3.5" fill="{WHITE}" class="live loop"/>
-{mono_text(W - 40, 46, "12 LABS LIVE", 12, MUTED, fit=False, anchor="end", extra='letter-spacing="3"')}
-{readout}
-{mono_text(W - 40, H - 36, "PLOTTED FROM G-CODE  ·  HANDWRITING-MACHINE, 2019", 11, DIM, fit=False, anchor="end", extra='letter-spacing="2.4"')}"""
+{mono_text(40, 54, "NITISH SUNDARRAJ", 18, TEXT, fit=False, extra='letter-spacing="4" font-weight="600"')}
+<circle cx="{W - 216}" cy="48" r="5" fill="{SILICON}" class="live loop"/>
+{mono_text(W - 40, 54, "12 LABS LIVE", 17, MUTED, fit=False, anchor="end", extra='letter-spacing="3"')}"""
     css += [
         ".live{animation:live 2.4s ease-in-out infinite}@keyframes live{50%{opacity:.2}}",
         "@media (prefers-reduced-motion: reduce){.main,[class*=lift],.orbit{animation-duration:.01s!important;"
@@ -241,6 +202,7 @@ def build():
 <radialGradient id="stage" cx="50%" cy="48%" r="60%"><stop offset="0" stop-color="{WHITE}" stop-opacity=".075"/><stop offset=".55" stop-color="{WHITE}" stop-opacity=".02"/><stop offset="1" stop-color="{WHITE}" stop-opacity="0"/></radialGradient>
 <radialGradient id="halo"><stop offset="0" stop-color="{WHITE}" stop-opacity=".55"/><stop offset="1" stop-color="{WHITE}" stop-opacity="0"/></radialGradient>
 <filter id="bloom" x="-10%" y="-30%" width="120%" height="160%"><feGaussianBlur stdDeviation="9"/></filter>
+<filter id="soft" x="-20%" y="-60%" width="140%" height="220%"><feGaussianBlur stdDeviation="16"/></filter>
 </defs>
 <rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="18" fill="#000" stroke="{BORDER}"/>
 <g clip-path="url(#frame)">
@@ -248,6 +210,7 @@ def build():
   {''.join(stars)}
   <g transform="rotate({TILT} {CX} {CY})">{''.join(orbit_svg)}{''.join(sat_svg)}</g>
 </g>
+<rect x="236" y="{OY + 46}" width="{W - 472}" height="116" rx="58" fill="#000" opacity=".92" filter="url(#soft)"/>
 {signature}
 {pen}
 {words}

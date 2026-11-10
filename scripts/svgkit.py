@@ -21,6 +21,19 @@ TEXT = "#F5F5F5"
 MUTED = "#A3A3A3"
 DIM = "#767676"
 
+# Colour is reserved for meaning: one soft hue per discipline, the same in every section,
+# so a colour on a card, an orbit, a layer or a course always points at the same field.
+PEOPLE = "#C8C8C8"
+MATH = "#F28B82"
+MECH = "#F6A66B"
+POWER = "#F5C26B"
+CONTROL = "#DCE07A"
+EMBEDDED = "#9DDB7C"
+SILICON = "#5FD3A5"
+ROBOTICS = "#5CC8E0"
+AI = "#7EA8F8"
+SOFTWARE = "#B39DF5"
+
 # One easing for every entrance, so the whole page moves the same way.
 EASE = "cubic-bezier(.16,1,.3,1)"
 
@@ -54,12 +67,7 @@ def doc(w, h, title, css, body, desc=""):
     )
 
 
-def eyebrow(x, y, s, anchor=None):
-    """Small tracked caps label that opens each section."""
-    return mono_text(x, y, s, 12, DIM, fit=False, anchor=anchor, extra='letter-spacing="3"')
-
-
-def headline(x, y, s, size=36):
+def headline(x, y, s, size=44):
     return text(x, y, s, size, TEXT, 600, extra='letter-spacing="-0.6"')
 
 
