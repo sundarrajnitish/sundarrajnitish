@@ -9,21 +9,20 @@ import math
 import re
 from xml.sax.saxutils import escape
 
-# Palette from the portfolio site (sundarrajnitish.github.io/portfolio).
-BG = "#0A0E13"
-BG_ALT = "#0D131A"
-PANEL = "#121922"
-PANEL_HI = "#161F2A"
-BORDER = "#223040"
-BORDER_SOFT = "#1A2430"
-TEXT = "#E8EDF2"
-MUTED = "#8A97A6"
-DIM = "#57687A"
-CYAN = "#35C4E8"
-AMBER = "#F2A93B"
-GREEN = "#3ED598"
-RED = "#E4574C"
-VIOLET = "#8B7CF6"
+# Monochrome palette: black stage, white ink, greys for everything in between.
+BG = "#050505"
+BG_ALT = "#0A0A0A"
+PANEL = "#121212"
+PANEL_HI = "#1C1C1C"
+BORDER = "#2C2C2C"
+BORDER_SOFT = "#1B1B1B"
+WHITE = "#FFFFFF"
+TEXT = "#F5F5F5"
+MUTED = "#A3A3A3"
+DIM = "#767676"
+
+# One easing for every entrance, so the whole page moves the same way.
+EASE = "cubic-bezier(.16,1,.3,1)"
 
 MONO = "ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace"
 SANS = "-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',system-ui,'Helvetica Neue',Arial,sans-serif"
@@ -53,6 +52,15 @@ def doc(w, h, title, css, body, desc=""):
         "@media (prefers-reduced-motion: reduce){.loop{animation:none!important;opacity:1!important}}\n"
         f"</style>\n{body}\n</svg>\n"
     )
+
+
+def eyebrow(x, y, s, anchor=None):
+    """Small tracked caps label that opens each section."""
+    return mono_text(x, y, s, 12, DIM, fit=False, anchor=anchor, extra='letter-spacing="3"')
+
+
+def headline(x, y, s, size=36):
+    return text(x, y, s, size, TEXT, 600, extra='letter-spacing="-0.6"')
 
 
 def panel(w, h, r=18, fill=BG, stroke=BORDER):
