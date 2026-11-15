@@ -1,5 +1,5 @@
 <a href="https://sundarrajnitish.github.io/portfolio/">
-  <img src="assets/hero.svg" width="100%" alt="Nitish Sundarraj, multidisciplinary engineer in Montréal. A pen plotter signs 'nitish' while six disciplines, from silicon to physical AI, settle into orbit around the name.">
+  <img src="assets/hero.svg" width="100%" alt="Nitish Sundarraj, multidisciplinary developer in Montréal. A pen plotter signs 'nitish' while six disciplines, from silicon to physical AI, settle into orbit around the name.">
 </a>
 
 Hey, I'm **Nitish Sundarraj**. I build across power, electronics, robotics and software, and **connecting the disciplines is my favourite part**: getting the hardware, code and interfaces to work as one system. Lately that's pulling me toward robotics and physical AI.

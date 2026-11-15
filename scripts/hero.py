@@ -184,7 +184,7 @@ def build():
   {text(W / 2, OY + 94, "Connecting ideas. Making things work.", 42, TEXT, 600, anchor="middle", extra='letter-spacing="-0.8"')}
 </g>
 <g class="rise" style="animation-delay:{f(t_words + 0.25)}s">
-  {mono_text(W / 2 + 2, OY + 138, "MULTIDISCIPLINARY ENGINEER  ·  MONTRÉAL", 18, MUTED, fit=False, anchor="middle", extra='letter-spacing="3"')}
+  {mono_text(W / 2 + 2, OY + 138, "MULTIDISCIPLINARY DEVELOPER  ·  MONTRÉAL", 18, MUTED, fit=False, anchor="middle", extra='letter-spacing="3"')}
 </g>"""
 
     chrome = f"""
