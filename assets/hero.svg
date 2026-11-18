@@ -1,200 +1,537 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 620" width="1200" height="620" role="img" aria-labelledby="t d">
-<title id="t">Nitish Sundarraj: Connecting ideas. Making things work.</title><desc id="d">Obsidian architectural glass hero matching Nitish Sundarraj's portfolio theme: a pen plotter signs 'nitish' in white and warm amber while six disciplines orbit as glowing convergence nodes above four engineering threads.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 436" width="1200" height="436" role="img" aria-labelledby="t d">
+<title id="t">Nitish Sundarraj — workshop characters</title><desc id="d">Four illustrated characters interacting on a dark workshop stage: a floating cloud buddy drops a hot spark onto a little robot, who yanks the power buddy's cord, sparking a comic finger-pointing standoff while Nitish sighs over his coffee and walks over to plug everything back in.</desc>
 <style>
-.ink{fill:none;stroke-linecap:round;stroke-linejoin:round}
-.main{stroke-dasharray:1884.37;stroke-dashoffset:1884.37;animation:draw 4.2s cubic-bezier(.45,.05,.55,.95) 0.6s forwards}
-@keyframes draw{to{stroke-dashoffset:0}}
-.lift0{stroke-dasharray:6.49;stroke-dashoffset:6.49;animation:draw 0.12s linear 5.12s forwards}
-.lift1{stroke-dasharray:6.49;stroke-dashoffset:6.49;animation:draw 0.12s linear 5.51s forwards}
-.lift2{stroke-dasharray:49.22;stroke-dashoffset:49.22;animation:draw 0.28s linear 5.9s forwards}
-.orbit{fill:none;stroke:#FFFFFF;stroke-dasharray:1;stroke-dashoffset:1;animation:draw 3.0s cubic-bezier(.22,.61,.36,1) forwards}
-.rise{opacity:0;animation:rise 1.2s cubic-bezier(.22,.61,.36,1) forwards}
-@keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-@keyframes breath{50%{opacity:.55}}
-.glow{animation:breath 14s ease-in-out infinite}
-.tw{animation:tw 6.5s ease-in-out infinite}@keyframes tw{50%{opacity:.04}}
-.live{animation:live 2.8s ease-in-out infinite}@keyframes live{50%{opacity:.45}}
-.arrow{animation:arrow 3.2s cubic-bezier(.22,.61,.36,1) infinite}@keyframes arrow{0%,55%,100%{transform:none}75%{transform:translateX(5px)}}
-@media (prefers-reduced-motion: reduce){.main,[class*=lift],.orbit{animation-duration:.01s!important;animation-delay:0s!important}.rise{animation:none!important;opacity:1!important}}
+@keyframes steam{0%{transform:translateY(0);opacity:.45}100%{transform:translateY(-10px);opacity:0}}
+.steam{animation:steam 2.4s ease-out infinite}
+@keyframes notes{0%,100%{transform:translate(0,0) rotate(-4deg)}50%{transform:translate(4px,-8px) rotate(6deg)}}
+.music-notes{animation:notes 1.8s ease-in-out infinite}
+@keyframes nbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}
+.nitish-bob{animation:nbob 3.2s ease-in-out infinite}
+@keyframes spark_drop{0%{transform:translate(952px,240px) scale(0.9);opacity:0}1.92%{transform:translate(952px,240px) scale(1);opacity:1}5.77%{transform:translate(918px,186px) scale(1.05);opacity:1}9.62%{transform:translate(825px,136px) scale(1.1);opacity:1}12.46%{transform:translate(740px,180px) scale(1.25);opacity:1}13.69%{transform:translate(740px,180px) scale(0.3);opacity:0}100%{transform:translate(952px,240px) scale(0.9);opacity:0}}
+.spark-drop{animation:spark_drop 13s ease-in-out -5.4s infinite}
+@keyframes bonk_burst{0%{opacity:0;transform:scale(.3)}11.92%{opacity:0;transform:scale(.3)}12.92%{opacity:1;transform:scale(1.15)}16.54%{opacity:1;transform:scale(.95)}18.31%{opacity:0;transform:scale(.4)}100%{opacity:0;transform:scale(.3)}}
+.bonk-burst{animation:bonk_burst 13s ease-out -5.4s infinite}
+@keyframes nitish_walk{0%{transform:translateX(0px)}59.23%{transform:translateX(0px)}66.54%{transform:translateX(118px)}71.92%{transform:translateX(118px)}80.38%{transform:translateX(0px)}100%{transform:translateX(0px)}}
+.nitish-walk{animation:nitish_walk 13s ease-in-out -5.4s infinite}
+@keyframes nitish_fix_arm{0%{transform:rotate(58deg)}60%{transform:rotate(58deg)}66.54%{transform:rotate(14deg)}70%{transform:rotate(24deg)}73.85%{transform:rotate(-28deg)}89.23%{transform:rotate(-28deg)}94.23%{transform:rotate(58deg)}100%{transform:rotate(58deg)}}
+.nitish-fix-arm{animation:nitish_fix_arm 13s ease-in-out -5.4s infinite}
+@keyframes nitish_deadpan{0%{opacity:0}16.15%{opacity:0}17.69%{opacity:1}68.85%{opacity:1}70.38%{opacity:0}100%{opacity:0}}
+.nitish-deadpan{animation:nitish_deadpan 13s linear -5.4s infinite}
+@keyframes nitish_happy{0%{opacity:1}16.15%{opacity:1}17.69%{opacity:0}68.85%{opacity:0}70.38%{opacity:1}100%{opacity:1}}
+.nitish-happy{animation:nitish_happy 13s linear -5.4s infinite}
+@keyframes sparky_jump{0%{transform:translateY(0px)}15.38%{transform:translateY(0px)}17.31%{transform:translateY(-20px)}19.62%{transform:translateY(0px)}70%{transform:translateY(0px)}71.92%{transform:translateY(-10px)}74.23%{transform:translateY(0px)}100%{transform:translateY(0px)}}
+.sparky-jump{animation:sparky_jump 13s ease-out -5.4s infinite}
+@keyframes hat_pop{0%{transform:translateY(0px) rotate(0deg)}15.77%{transform:translateY(0px) rotate(0deg)}18.08%{transform:translateY(-20px) rotate(-10deg)}21.15%{transform:translateY(-10px) rotate(-7deg)}68.46%{transform:translateY(-10px) rotate(-7deg)}70.77%{transform:translateY(0px) rotate(0deg)}100%{transform:translateY(0px) rotate(0deg)}}
+.hat-pop{animation:hat_pop 13s ease-out -5.4s infinite}
+@keyframes sparky_mad{0%{opacity:0}15.38%{opacity:0}16.54%{opacity:1}68.85%{opacity:1}70.38%{opacity:0}100%{opacity:0}}
+.sparky-mad,.sparky-point-arm{animation:sparky_mad 13s linear -5.4s infinite}
+@keyframes sparky_happy{0%{opacity:1}15.38%{opacity:1}16.54%{opacity:0}68.85%{opacity:0}70.38%{opacity:1}100%{opacity:1}}
+.sparky-happy,.sparky-chill-arm{animation:sparky_happy 13s linear -5.4s infinite}
+@keyframes bot_react{0%{transform:translateY(0px) rotate(0deg)}12.31%{transform:translateY(0px) rotate(0deg)}13.69%{transform:translateY(7px) rotate(-6deg)}16.15%{transform:translateY(-8px) rotate(4deg)}18.46%{transform:translateY(0px) rotate(-2deg)}70%{transform:translateY(0px) rotate(-2deg)}72.69%{transform:translateY(-14px) rotate(0deg)}75.38%{transform:translateY(0px) rotate(0deg)}78.08%{transform:translateY(-8px) rotate(0deg)}80.77%{transform:translateY(0px) rotate(0deg)}100%{transform:translateY(0px) rotate(0deg)}}
+.bot-react{animation:bot_react 13s ease-in-out -5.4s infinite}
+@keyframes antenna_wobble{0%{transform:rotate(0deg)}12.46%{transform:rotate(0deg)}13.54%{transform:rotate(-24deg)}14.92%{transform:rotate(20deg)}16.46%{transform:rotate(-14deg)}18.31%{transform:rotate(6deg)}20.38%{transform:rotate(0deg)}100%{transform:rotate(0deg)}}
+.antenna-wobble{animation:antenna_wobble 13s ease-in-out -5.4s infinite}
+@keyframes bot_nervous{0%{opacity:0}12.46%{opacity:0}13.46%{opacity:1}70.77%{opacity:1}72.31%{opacity:0}100%{opacity:0}}
+.bot-nervous,.bot-panic-arms{animation:bot_nervous 13s linear -5.4s infinite}
+@keyframes bot_joy{0%{opacity:1}12.46%{opacity:1}13.46%{opacity:0}70.77%{opacity:0}72.31%{opacity:1}100%{opacity:1}}
+.bot-joy,.bot-happy-arms{animation:bot_joy 13s linear -5.4s infinite}
+@keyframes cloud_float{0%{transform:translateY(0px)}16.92%{transform:translateY(-4px)}34.62%{transform:translateY(-14px)}57.69%{transform:translateY(-10px)}73.08%{transform:translateY(2px)}87.69%{transform:translateY(-7px)}100%{transform:translateY(0px)}}
+.cloud-float{animation:cloud_float 13s ease-in-out -5.4s infinite}
+@keyframes cloud_whistle{0%{opacity:0}16.54%{opacity:0}18.08%{opacity:1}71.92%{opacity:1}73.46%{opacity:0}100%{opacity:0}}
+.cloud-whistle{animation:cloud_whistle 13s linear -5.4s infinite}
+@keyframes cloud_sheepish{0%{opacity:1}16.54%{opacity:1}18.08%{opacity:0}71.92%{opacity:0}73.46%{opacity:1}100%{opacity:1}}
+.cloud-sheepish{animation:cloud_sheepish 13s linear -5.4s infinite}
+@keyframes bub-sparky{0%{opacity:0;transform:translateY(8px) scale(.9)}16.54%{opacity:0;transform:translateY(8px) scale(.9)}18.54%{opacity:1;transform:translateY(0px) scale(1)}66.92%{opacity:1;transform:translateY(0px) scale(1)}68.69%{opacity:0;transform:translateY(-5px) scale(.92)}100%{opacity:0;transform:translateY(8px) scale(.9)}}
+.bub-sparky{animation:bub-sparky 13s ease-out -5.4s infinite}
+@keyframes bub-bot{0%{opacity:0;transform:translateY(8px) scale(.9)}20%{opacity:0;transform:translateY(8px) scale(.9)}22%{opacity:1;transform:translateY(0px) scale(1)}68.46%{opacity:1;transform:translateY(0px) scale(1)}70.23%{opacity:0;transform:translateY(-5px) scale(.92)}100%{opacity:0;transform:translateY(8px) scale(.9)}}
+.bub-bot{animation:bub-bot 13s ease-out -5.4s infinite}
+@keyframes bub-cloud{0%{opacity:0;transform:translateY(8px) scale(.9)}23.46%{opacity:0;transform:translateY(8px) scale(.9)}25.46%{opacity:1;transform:translateY(0px) scale(1)}70%{opacity:1;transform:translateY(0px) scale(1)}71.77%{opacity:0;transform:translateY(-5px) scale(.92)}100%{opacity:0;transform:translateY(8px) scale(.9)}}
+.bub-cloud{animation:bub-cloud 13s ease-out -5.4s infinite}
+@keyframes bub-nitish{0%{opacity:0;transform:translateY(8px) scale(.9)}27.31%{opacity:0;transform:translateY(8px) scale(.9)}29.31%{opacity:1;transform:translateY(0px) scale(1)}57.69%{opacity:1;transform:translateY(0px) scale(1)}59.46%{opacity:0;transform:translateY(-5px) scale(.92)}100%{opacity:0;transform:translateY(8px) scale(.9)}}
+.bub-nitish{animation:bub-nitish 13s ease-out -5.4s infinite}
+@keyframes bub-mybad{0%{opacity:0;transform:translateY(8px) scale(.9)}72.69%{opacity:0;transform:translateY(8px) scale(.9)}74.69%{opacity:1;transform:translateY(0px) scale(1)}91.92%{opacity:1;transform:translateY(0px) scale(1)}93.69%{opacity:0;transform:translateY(-5px) scale(.92)}100%{opacity:0;transform:translateY(8px) scale(.9)}}
+.bub-mybad{animation:bub-mybad 13s ease-out -5.4s infinite}
+@keyframes bub-allgood{0%{opacity:0;transform:translateY(8px) scale(.9)}74.23%{opacity:0;transform:translateY(8px) scale(.9)}76.23%{opacity:1;transform:translateY(0px) scale(1)}93.46%{opacity:1;transform:translateY(0px) scale(1)}95.23%{opacity:0;transform:translateY(-5px) scale(.92)}100%{opacity:0;transform:translateY(8px) scale(.9)}}
+.bub-allgood{animation:bub-allgood 13s ease-out -5.4s infinite}
+@keyframes power_pulse{0%{opacity:0;transform:translate(356px,348px)}68.85%{opacity:0;transform:translate(356px,348px)}70%{opacity:1;transform:translate(356px,348px)}75%{opacity:1;transform:translate(740px,348px)}79.62%{opacity:1;transform:translate(940px,289px)}82.31%{opacity:0;transform:translate(985px,259px)}100%{opacity:0;transform:translate(356px,348px)}}
+.power-pulse{animation:power_pulse 13s ease-in-out -5.4s infinite}
+@keyframes cable_live{0%{opacity:.85}15.77%{opacity:.85}16.92%{opacity:.18}68.85%{opacity:.18}70.38%{opacity:.95}100%{opacity:.85}}
+.cable-live{animation:cable_live 13s linear -5.4s infinite}
+@media (prefers-reduced-motion: reduce){*{animation-play-state:paused!important}}
 @media (prefers-reduced-motion: reduce){.loop{animation:none!important;opacity:1!important}}
 </style>
 <defs>
-<clipPath id="frame"><rect x="1" y="1" width="1198" height="618" rx="23"/></clipPath>
-<linearGradient id="canvasBg" x1="0" y1="0" x2="0" y2="1">
-  <stop offset="0" stop-color="#101521"/>
-  <stop offset=".55" stop-color="#0C0F16"/>
-  <stop offset="1" stop-color="#06070A"/>
+<clipPath id="frame"><rect x="1" y="1" width="1198" height="434" rx="21"/></clipPath>
+<linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0" stop-color="#0D1018"/>
+  <stop offset="1" stop-color="#07090E"/>
 </linearGradient>
-<linearGradient id="accentBar" x1="0" y1="0" x2="1" y2="0">
+<linearGradient id="floorGrad" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0" stop-color="#111622"/>
+  <stop offset="1" stop-color="#080A10"/>
+</linearGradient>
+<linearGradient id="cloudGrad" x1="0" y1="0" x2="0" y2="1">
+  <stop offset="0" stop-color="#C6B8FF"/>
+  <stop offset=".6" stop-color="#9B86F5"/>
+  <stop offset="1" stop-color="#7660D4"/>
+</linearGradient>
+<linearGradient id="cableGrad" x1="0" y1="0" x2="1" y2="0">
   <stop offset="0" stop-color="#FF9442"/>
-  <stop offset=".5" stop-color="#FFD166"/>
+  <stop offset=".5" stop-color="#34D399"/>
   <stop offset="1" stop-color="#38BDF8"/>
 </linearGradient>
-<linearGradient id="brandGrad" gradientUnits="userSpaceOnUse" x1="715" y1="360" x2="965" y2="390">
-  <stop offset="0" stop-color="#FF9442"/>
-  <stop offset=".55" stop-color="#FFD479"/>
-  <stop offset="1" stop-color="#38BDF8"/>
-</linearGradient>
-<linearGradient id="sigBloom" x1="0" y1="0" x2="1" y2="0">
-  <stop offset="0" stop-color="#FF9442"/>
-  <stop offset=".5" stop-color="#FFFFFF"/>
-  <stop offset="1" stop-color="#38BDF8"/>
-</linearGradient>
-<radialGradient id="glowAmber" cx="76%" cy="32%" r="42%">
-  <stop offset="0" stop-color="#FF9442" stop-opacity=".18"/>
+<radialGradient id="spotWarm" cx="34%" cy="56%" r="40%">
+  <stop offset="0" stop-color="#FF9442" stop-opacity=".10"/>
   <stop offset="1" stop-color="#FF9442" stop-opacity="0"/>
 </radialGradient>
-<radialGradient id="glowCyan" cx="22%" cy="30%" r="40%">
-  <stop offset="0" stop-color="#38BDF8" stop-opacity=".14"/>
+<radialGradient id="spotCool" cx="76%" cy="48%" r="42%">
+  <stop offset="0" stop-color="#38BDF8" stop-opacity=".09"/>
   <stop offset="1" stop-color="#38BDF8" stop-opacity="0"/>
 </radialGradient>
-<radialGradient id="glowGreen" cx="52%" cy="84%" r="36%">
-  <stop offset="0" stop-color="#34D399" stop-opacity=".09"/>
-  <stop offset="1" stop-color="#34D399" stop-opacity="0"/>
+<radialGradient id="spotViolet" cx="88%" cy="38%" r="32%">
+  <stop offset="0" stop-color="#A78BFA" stop-opacity=".10"/>
+  <stop offset="1" stop-color="#A78BFA" stop-opacity="0"/>
 </radialGradient>
-<radialGradient id="wordVeil" cx="50%" cy="50%" r="50%">
-  <stop offset="0" stop-color="#06070A" stop-opacity=".86"/>
-  <stop offset=".58" stop-color="#06070A" stop-opacity=".62"/>
-  <stop offset="1" stop-color="#06070A" stop-opacity="0"/>
-</radialGradient>
-<radialGradient id="halo">
-  <stop offset="0" stop-color="#FF9442" stop-opacity=".62"/>
-  <stop offset=".45" stop-color="#FFD479" stop-opacity=".22"/>
-  <stop offset="1" stop-color="#FF9442" stop-opacity="0"/>
-</radialGradient>
-<pattern id="archGrid" width="64" height="64" patternUnits="userSpaceOnUse">
-  <path d="M64 0H0V64" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-opacity=".075"/>
-</pattern>
-<radialGradient id="gridFade" cx="50%" cy="46%" r="58%">
-  <stop offset="0" stop-color="#FFFFFF" stop-opacity="1"/>
-  <stop offset=".68" stop-color="#FFFFFF" stop-opacity=".45"/>
-  <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
-</radialGradient>
-<mask id="gridMask"><rect width="1200" height="620" fill="url(#gridFade)"/></mask>
-<filter id="bloom" x="-12%" y="-30%" width="124%" height="160%"><feGaussianBlur stdDeviation="8.5"/></filter>
 </defs>
-<rect x=".5" y=".5" width="1199" height="619" rx="24" fill="url(#canvasBg)" stroke="#242B3A"/>
+<rect x=".5" y=".5" width="1199" height="435" rx="22" fill="url(#bgGrad)" stroke="#1D2332"/>
 <g clip-path="url(#frame)">
-  <rect width="1200" height="620" fill="url(#archGrid)" mask="url(#gridMask)"/>
-  <rect class="glow loop" width="1200" height="620" fill="url(#glowAmber)"/>
-  <rect class="glow loop" style="animation-delay:-5s" width="1200" height="620" fill="url(#glowCyan)"/>
-  <rect class="glow loop" style="animation-delay:-10s" width="1200" height="620" fill="url(#glowGreen)"/>
-  <circle cx="801.21" cy="428.93" r="1.1" fill="#FFFFFF" opacity="0.1" class="tw loop" style="animation-delay:-2.36s"/><circle cx="1164.38" cy="209.9" r="0.7" fill="#FFFFFF" opacity="0.2"/><circle cx="327.86" cy="226.7" r="0.9" fill="#FFFFFF" opacity="0.25"/><circle cx="1051.22" cy="92.1" r="1.1" fill="#FFFFFF" opacity="0.12"/><circle cx="1077.57" cy="132.34" r="0.9" fill="#FFFFFF" opacity="0.16" class="tw loop" style="animation-delay:-4.82s"/><circle cx="502.8" cy="125.92" r="1.1" fill="#38BDF8" opacity="0.16"/><circle cx="532.18" cy="519.23" r="1.1" fill="#FFFFFF" opacity="0.26"/><circle cx="931.67" cy="503.63" r="0.7" fill="#FF9442" opacity="0.23"/><circle cx="862.84" cy="436.25" r="0.9" fill="#FFFFFF" opacity="0.12" class="tw loop" style="animation-delay:-3.76s"/><circle cx="150.87" cy="393.77" r="0.7" fill="#38BDF8" opacity="0.27"/><circle cx="706.93" cy="311.92" r="1.1" fill="#38BDF8" opacity="0.18"/><circle cx="1050.17" cy="464.8" r="0.7" fill="#FFFFFF" opacity="0.13"/><circle cx="561.35" cy="281.7" r="1.1" fill="#FFFFFF" opacity="0.22" class="tw loop" style="animation-delay:-5.61s"/><circle cx="572.31" cy="280.57" r="0.9" fill="#38BDF8" opacity="0.23"/><circle cx="530.38" cy="218.27" r="0.7" fill="#FFFFFF" opacity="0.1"/><circle cx="812.97" cy="414.4" r="0.7" fill="#38BDF8" opacity="0.17"/><circle cx="606.58" cy="372.15" r="0.7" fill="#FFFFFF" opacity="0.12" class="tw loop" style="animation-delay:-0.45s"/><circle cx="175.56" cy="272.11" r="0.9" fill="#FFFFFF" opacity="0.25"/><circle cx="736.71" cy="470.41" r="1.1" fill="#38BDF8" opacity="0.24"/><circle cx="768.69" cy="362.17" r="0.7" fill="#FF9442" opacity="0.26"/><circle cx="773.3" cy="501.96" r="0.7" fill="#FF9442" opacity="0.19" class="tw loop" style="animation-delay:-2.14s"/><circle cx="319.41" cy="198.81" r="0.9" fill="#FFFFFF" opacity="0.09"/><circle cx="774.54" cy="175.08" r="0.7" fill="#38BDF8" opacity="0.14"/><circle cx="885.93" cy="142.06" r="0.9" fill="#FFFFFF" opacity="0.24"/><circle cx="670.58" cy="398.77" r="1.1" fill="#FF9442" opacity="0.27" class="tw loop" style="animation-delay:-1.71s"/><circle cx="605.35" cy="271.73" r="0.9" fill="#FFFFFF" opacity="0.27"/><circle cx="207.42" cy="284.58" r="0.7" fill="#FFFFFF" opacity="0.18"/><circle cx="327.94" cy="288.35" r="0.9" fill="#FFFFFF" opacity="0.22"/><circle cx="451.65" cy="278.8" r="0.9" fill="#FFFFFF" opacity="0.27" class="tw loop" style="animation-delay:-3.82s"/><circle cx="780.9" cy="280.79" r="1.1" fill="#FFFFFF" opacity="0.09"/><circle cx="138.41" cy="275.11" r="0.9" fill="#FFFFFF" opacity="0.2"/><circle cx="83.06" cy="197.81" r="0.7" fill="#38BDF8" opacity="0.28"/>
-  <g transform="rotate(-6 600 286)"><path d="M1027 286A427 159 0 1 1 173 286A427 159 0 1 1 1027 286Z" fill="none" stroke="#FFFFFF" stroke-opacity=".075" stroke-dasharray="3 7"/><path class="orbit" d="M992 286A392 144 0 1 1 208 286A392 144 0 1 1 992 286Z" pathLength="1" style="animation-delay:1.1s" stroke-opacity="0.17"/><path class="orbit" d="M1062 286A462 174 0 1 1 138 286A462 174 0 1 1 1062 286Z" pathLength="1" style="animation-delay:1.52s" stroke-opacity="0.14"/><path class="orbit" d="M1132 286A532 204 0 1 1 68 286A532 204 0 1 1 1132 286Z" pathLength="1" style="animation-delay:1.94s" stroke-opacity="0.11"/>
-<g class="rise" style="animation-delay:2.9s"><g>
-  <animateMotion dur="19.32s" begin="-2.4s" repeatCount="indefinite" path="M992 286A392 144 0 1 1 208 286A392 144 0 1 1 992 286Z"/>
-  <circle r="9" fill="#34D399" opacity=".24"/>
-  <circle r="2.4" fill="#FFFFFF"/>
-</g></g>
-<g class="rise" style="animation-delay:3.32s"><g>
-  <animateMotion dur="26.04s" begin="-7.6s" repeatCount="indefinite" path="M1062 286A462 174 0 1 1 138 286A462 174 0 1 1 1062 286Z"/>
-  <circle r="9" fill="#FF9442" opacity=".24"/>
-  <circle r="2.4" fill="#FFFFFF"/>
-</g></g>
-<g class="rise" style="animation-delay:3.74s"><g>
-  <animateMotion dur="33.6s" begin="-12.8s" repeatCount="indefinite" path="M1132 286A532 204 0 1 1 68 286A532 204 0 1 1 1132 286Z"/>
-  <circle r="9" fill="#38BDF8" opacity=".24"/>
-  <circle r="2.4" fill="#FFFFFF"/>
-</g></g>
-<g class="rise" style="animation-delay:3.1s"><g>
-  <animateMotion dur="46s" begin="-44.16s" repeatCount="indefinite" path="M992 286A392 144 0 1 1 208 286A392 144 0 1 1 992 286Z"/>
-  <g><animate attributeName="opacity" dur="46s" begin="-44.16s" repeatCount="indefinite" values=".84;1;.84;.56;.84" keyTimes="0;.25;.5;.75;1"/>
-    <circle r="13.5" fill="#34D399" opacity=".18"/>
-    <circle r="6.4" fill="#0A0D14" stroke="#34D399" stroke-width="2.1"/>
-    <circle r="2.7" fill="#34D399"/>
-    <text transform="rotate(6)" y="27" text-anchor="middle" font-family="'JetBrains Mono','SFMono-Regular',ui-monospace,Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16.5" font-weight="600" letter-spacing="1.8" fill="#34D399">SILICON</text>
-  </g>
-</g></g>
-<g class="rise" style="animation-delay:3.1s"><g>
-  <animateMotion dur="46s" begin="-25.3s" repeatCount="indefinite" path="M992 286A392 144 0 1 1 208 286A392 144 0 1 1 992 286Z"/>
-  <g><animate attributeName="opacity" dur="46s" begin="-25.3s" repeatCount="indefinite" values=".84;1;.84;.56;.84" keyTimes="0;.25;.5;.75;1"/>
-    <circle r="13.5" fill="#A3E635" opacity=".18"/>
-    <circle r="6.4" fill="#0A0D14" stroke="#A3E635" stroke-width="2.1"/>
-    <circle r="2.7" fill="#A3E635"/>
-    <text transform="rotate(6)" y="27" text-anchor="middle" font-family="'JetBrains Mono','SFMono-Regular',ui-monospace,Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16.5" font-weight="600" letter-spacing="1.8" fill="#A3E635">FIRMWARE</text>
-  </g>
-</g></g>
-<g class="rise" style="animation-delay:3.52s"><g>
-  <animateMotion dur="62s" begin="-16.74s" repeatCount="indefinite" path="M1062 286A462 174 0 1 1 138 286A462 174 0 1 1 1062 286Z"/>
-  <g><animate attributeName="opacity" dur="62s" begin="-16.74s" repeatCount="indefinite" values=".84;1;.84;.56;.84" keyTimes="0;.25;.5;.75;1"/>
-    <circle r="13.5" fill="#FF9442" opacity=".18"/>
-    <circle r="6.4" fill="#0A0D14" stroke="#FF9442" stroke-width="2.1"/>
-    <circle r="2.7" fill="#FF9442"/>
-    <text transform="rotate(6)" y="27" text-anchor="middle" font-family="'JetBrains Mono','SFMono-Regular',ui-monospace,Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16.5" font-weight="600" letter-spacing="1.8" fill="#FF9442">POWER</text>
-  </g>
-</g></g>
-<g class="rise" style="animation-delay:3.52s"><g>
-  <animateMotion dur="62s" begin="-41.54s" repeatCount="indefinite" path="M1062 286A462 174 0 1 1 138 286A462 174 0 1 1 1062 286Z"/>
-  <g><animate attributeName="opacity" dur="62s" begin="-41.54s" repeatCount="indefinite" values=".84;1;.84;.56;.84" keyTimes="0;.25;.5;.75;1"/>
-    <circle r="13.5" fill="#38BDF8" opacity=".18"/>
-    <circle r="6.4" fill="#0A0D14" stroke="#38BDF8" stroke-width="2.1"/>
-    <circle r="2.7" fill="#38BDF8"/>
-    <text transform="rotate(6)" y="27" text-anchor="middle" font-family="'JetBrains Mono','SFMono-Regular',ui-monospace,Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16.5" font-weight="600" letter-spacing="1.8" fill="#38BDF8">ROBOTICS</text>
-  </g>
-</g></g>
-<g class="rise" style="animation-delay:3.94s"><g>
-  <animateMotion dur="80s" begin="-34.4s" repeatCount="indefinite" path="M1132 286A532 204 0 1 1 68 286A532 204 0 1 1 1132 286Z"/>
-  <g><animate attributeName="opacity" dur="80s" begin="-34.4s" repeatCount="indefinite" values=".84;1;.84;.56;.84" keyTimes="0;.25;.5;.75;1"/>
-    <circle r="13.5" fill="#A78BFA" opacity=".18"/>
-    <circle r="6.4" fill="#0A0D14" stroke="#A78BFA" stroke-width="2.1"/>
-    <circle r="2.7" fill="#A78BFA"/>
-    <text transform="rotate(6)" y="27" text-anchor="middle" font-family="'JetBrains Mono','SFMono-Regular',ui-monospace,Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16.5" font-weight="600" letter-spacing="1.8" fill="#A78BFA">CLOUD</text>
-  </g>
-</g></g>
-<g class="rise" style="animation-delay:3.94s"><g>
-  <animateMotion dur="80s" begin="-72s" repeatCount="indefinite" path="M1132 286A532 204 0 1 1 68 286A532 204 0 1 1 1132 286Z"/>
-  <g><animate attributeName="opacity" dur="80s" begin="-72s" repeatCount="indefinite" values=".84;1;.84;.56;.84" keyTimes="0;.25;.5;.75;1"/>
-    <circle r="13.5" fill="#60A5FA" opacity=".18"/>
-    <circle r="6.4" fill="#0A0D14" stroke="#60A5FA" stroke-width="2.1"/>
-    
-    <text transform="rotate(6)" y="27" text-anchor="middle" font-family="'JetBrains Mono','SFMono-Regular',ui-monospace,Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="16.5" font-weight="600" letter-spacing="1.8" fill="#60A5FA">PHYSICAL AI</text>
-  </g>
-</g></g></g>
-  <ellipse cx="600.0" cy="396" rx="450" ry="96" fill="url(#wordVeil)"/>
+  <rect width="1200" height="436" fill="url(#spotWarm)"/>
+  <rect width="1200" height="436" fill="url(#spotCool)"/>
+  <rect width="1200" height="436" fill="url(#spotViolet)"/>
   
-<path class="ink main" d="M411 298C428.48 288.7 445.68 251.5 458.47 220.5C453.53 243.75 445.39 274.75 438.9 298C454.32 254.6 477.73 217.4 498.77 220.5C513.61 223.6 509.66 242.2 504.16 260.8C498.65 279.4 495.36 294.9 504 298C512.97 299.55 528.53 270.1 543.96 226.7C536.47 254.6 527.68 288.7 535 298C546.74 301.1 572.98 236 594.99 161.6C582.57 212.75 566.29 274.75 572.53 296.45C580.84 301.1 603.59 267 618.36 226.7C609.32 254.6 600.53 288.7 607.85 298C616.49 301.1 637.88 251.5 654.43 217.4C662.88 236 674.66 260.8 658.87 284.05C646.27 299.55 623.02 299.55 619.13 288.7C627.11 294.9 646.93 296.45 665.39 282.5C684.38 251.5 728.95 158.5 728.88 115.1C727.29 93.4 702.95 105.8 698.15 143C689.81 189.5 678.18 251.5 668.3 298C684.38 251.5 707.13 217.4 725.07 220.5C739.91 223.6 735.3 245.3 729.8 263.9C724.29 282.5 721.66 294.9 733.4 298C745.14 301.1 763.94 285.6 787.15 263.9" stroke="url(#sigBloom)" stroke-width="10" opacity=".42" filter="url(#bloom)"/>
-<path class="ink main" d="M411 298C428.48 288.7 445.68 251.5 458.47 220.5C453.53 243.75 445.39 274.75 438.9 298C454.32 254.6 477.73 217.4 498.77 220.5C513.61 223.6 509.66 242.2 504.16 260.8C498.65 279.4 495.36 294.9 504 298C512.97 299.55 528.53 270.1 543.96 226.7C536.47 254.6 527.68 288.7 535 298C546.74 301.1 572.98 236 594.99 161.6C582.57 212.75 566.29 274.75 572.53 296.45C580.84 301.1 603.59 267 618.36 226.7C609.32 254.6 600.53 288.7 607.85 298C616.49 301.1 637.88 251.5 654.43 217.4C662.88 236 674.66 260.8 658.87 284.05C646.27 299.55 623.02 299.55 619.13 288.7C627.11 294.9 646.93 296.45 665.39 282.5C684.38 251.5 728.95 158.5 728.88 115.1C727.29 93.4 702.95 105.8 698.15 143C689.81 189.5 678.18 251.5 668.3 298C684.38 251.5 707.13 217.4 725.07 220.5C739.91 223.6 735.3 245.3 729.8 263.9C724.29 282.5 721.66 294.9 733.4 298C745.14 301.1 763.94 285.6 787.15 263.9" stroke="#F4F6FB" stroke-width="3.8"/>
-<path class="ink lift0" stroke="#F4F6FB" stroke-width="3.8" d="M553.41 189.5L557.95 186.4"/><path class="ink lift1" stroke="#F4F6FB" stroke-width="3.8" d="M629.36 189.5L633.9 186.4"/><path class="ink lift2" stroke="#F4F6FB" stroke-width="3.8" d="M564.07 205L611.89 198.8"/>
-<g class="rise" style="animation-delay:6.24s">
-  <circle cx="798.5" cy="294" r="12" fill="#FF9442" opacity=".2"/>
-  <circle cx="798.5" cy="294" r="4.8" fill="#FF9442"/>
+<!-- Studio floor horizon -->
+<rect x="0" y="320" width="1200" height="116" fill="url(#floorGrad)"/>
+<line x1="48" y1="320" x2="1152" y2="320" stroke="#FFFFFF" stroke-opacity=".065"/>
+
+<!-- Coiled floor cable connecting Power -> Chip-Bot -> wireless link to Nimbus -->
+<path d="M356 346 C460 366 590 338 740 348" fill="none" stroke="#1E2638" stroke-width="5" stroke-linecap="round"/>
+<path class="cable-live" d="M356 346 C460 366 590 338 740 348" fill="none" stroke="url(#cableGrad)" stroke-width="2.6" stroke-linecap="round"/>
+<path class="cable-live" d="M774 338 C856 330 916 304 962 268" fill="none" stroke="#38BDF8" stroke-width="2.2" stroke-dasharray="5 7" stroke-linecap="round"/>
+
+<!-- Floor power junction box (where Nitish plugs Sparky's cord back in!) -->
+<g transform="translate(342 330)">
+  <rect x="-14" y="0" width="28" height="24" rx="6" fill="#171E2E" stroke="#2D384F" stroke-width="1.3"/>
+  <circle cx="0" cy="12" r="4" fill="#34D399" class="cable-live"/>
+  <!-- Snapped-in amber plug when power is live -->
+  <g class="sparky-happy">
+    <rect x="13" y="5" width="16" height="14" rx="4" fill="#FF9442" stroke="#FFD479" stroke-width="1"/>
+  </g>
+</g>
+
+<!-- Restoring bright pulse traveling through the system -->
+<g class="power-pulse">
+  <circle cx="0" cy="0" r="14" fill="#FF9442" opacity=".35"/>
+  <circle cx="0" cy="0" r="5" fill="#FFFFFF"/>
 </g>
   
-<g opacity="0">
-  <animate attributeName="opacity" dur="6.74s" fill="freeze" values="0;1;1;0"
-    keyTimes="0;0.0297;0.9258;1"/>
-  <animateMotion dur="6.24s" fill="freeze" calcMode="linear" path="M960 120L411 298C428.48 288.7 445.68 251.5 458.47 220.5C453.53 243.75 445.39 274.75 438.9 298C454.32 254.6 477.73 217.4 498.77 220.5C513.61 223.6 509.66 242.2 504.16 260.8C498.65 279.4 495.36 294.9 504 298C512.97 299.55 528.53 270.1 543.96 226.7C536.47 254.6 527.68 288.7 535 298C546.74 301.1 572.98 236 594.99 161.6C582.57 212.75 566.29 274.75 572.53 296.45C580.84 301.1 603.59 267 618.36 226.7C609.32 254.6 600.53 288.7 607.85 298C616.49 301.1 637.88 251.5 654.43 217.4C662.88 236 674.66 260.8 658.87 284.05C646.27 299.55 623.02 299.55 619.13 288.7C627.11 294.9 646.93 296.45 665.39 282.5C684.38 251.5 728.95 158.5 728.88 115.1C727.29 93.4 702.95 105.8 698.15 143C689.81 189.5 678.18 251.5 668.3 298C684.38 251.5 707.13 217.4 725.07 220.5C739.91 223.6 735.3 245.3 729.8 263.9C724.29 282.5 721.66 294.9 733.4 298C745.14 301.1 763.94 285.6 787.15 263.9L553.41 189.5L557.95 186.4L629.36 189.5L633.9 186.4L564.07 205L611.89 198.8"
-    keyPoints="0.00000;0.19848;0.20317;0.21142;0.22353;0.23977;0.26040;0.28561;0.31547;0.34991;0.38859;0.43087;0.47581;0.52216;0.56851;0.61345;0.65574;0.69442;0.72886;0.75872;0.78393;0.80456;0.82080;0.83290;0.84116;0.84585;0.93020;0.93209;0.95668;0.95857;0.98342;1.00000" keyTimes="0.00000;0.09616;0.12421;0.15226;0.18031;0.20835;0.23640;0.26445;0.29250;0.32055;0.34859;0.37664;0.40469;0.43274;0.46078;0.48883;0.51688;0.54493;0.57298;0.60102;0.62907;0.65712;0.68517;0.71321;0.74126;0.76931;0.82116;0.84040;0.88329;0.90253;0.94551;0.99038"/>
-  <circle r="28" fill="url(#halo)" opacity="0"><animate attributeName="opacity" calcMode="discrete" dur="6.25s" begin="0s" keyTimes="0.00000;0.09601;0.76808;0.81985;0.83905;0.88188;0.90108;0.94399;0.98880" values="0;1;0;1;0;1;0;1;0" fill="freeze"/></circle>
-  <circle r="3.4" fill="#FFFFFF"/>
+<g transform="translate(178 356)">
+  <g class="nitish-walk">
+    <!-- Ground contact shadow -->
+    <ellipse cx="0" cy="4" rx="46" ry="9" fill="#000" opacity=".48"/>
+    <!-- Legs & sneakers -->
+    <rect x="-22" y="-58" width="17" height="50" rx="8" fill="#181D2B"/>
+    <rect x="6" y="-58" width="17" height="50" rx="8" fill="#181D2B"/>
+    <path d="M-24 -10h22c4 0 6 3 6 7v4h-30v-5c0-3 1-6 2-6z" fill="#2A3244"/>
+    <path d="M4 -10h24c4 0 6 3 6 7v4h-30v-11z" fill="#2A3244"/>
+    <line x1="-24" y1="0" x2="2" y2="0" stroke="#E5E9F2" stroke-width="2.6" stroke-linecap="round"/>
+    <line x1="4" y1="0" x2="32" y2="0" stroke="#E5E9F2" stroke-width="2.6" stroke-linecap="round"/>
+
+    <!-- Breathing upper body -->
+    <g class="nitish-bob">
+      <!-- Left arm holding steaming coffee mug -->
+      <g class="nitish-mug-arm" transform="translate(-31 -118)">
+        <path d="M0 0 C-18 10 -24 30 -16 48" fill="none" stroke="#1E2536" stroke-width="16" stroke-linecap="round"/>
+        <circle cx="-16" cy="50" r="8.5" fill="#A96F51"/>
+        <!-- Coffee mug -->
+        <g transform="translate(-34 36)">
+          <path d="M16 5c6 0 7 11 0 11" fill="none" stroke="#E8EDF7" stroke-width="2.6" stroke-linecap="round"/>
+          <rect x="0" y="0" width="18" height="22" rx="4" fill="#EFF3FA"/>
+          <rect x="0" y="8" width="18" height="5" fill="#FF9442"/>
+          <!-- Gentle rising steam -->
+          <path class="steam" d="M5 -4c-2 -5 3 -8 1 -13M12 -5c-2 -5 3 -8 1 -13" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" opacity=".45"/>
+        </g>
+      </g>
+
+      <!-- Torso (charcoal hoodie over cream tee) -->
+      <path d="M-34 -126 C-34 -138 -20 -144 0 -144 C20 -144 34 -138 34 -126 L30 -54 C30 -48 24 -45 18 -45 L-18 -45 C-24 -45 -30 -48 -30 -54 Z"
+            fill="#1D2333" stroke="#2C354A" stroke-width="1.2"/>
+      <!-- Soft torso highlight -->
+      <ellipse cx="-10" cy="-102" rx="16" ry="26" fill="#FFFFFF" opacity=".04"/>
+      <!-- Cream tee collar & hoodie drawstrings -->
+      <path d="M-13 -143 Q0 -130 13 -143" fill="#ECEBE6"/>
+      <path d="M-8 -134 L-9 -108 M8 -134 L9 -110" stroke="#9EA7B8" stroke-width="2" stroke-linecap="round" opacity=".65"/>
+      <!-- Kangaroo pocket -->
+      <path d="M-20 -78 L20 -78 L24 -54 L-24 -54 Z" fill="#171C29" stroke="#283145" stroke-width="1"/>
+
+      <!-- Right arm (relaxed at side -> reaches out to plug cable back in -> cheerful wave!) -->
+      <g transform="translate(30 -120)">
+        <g class="nitish-fix-arm">
+          <path d="M0 0 C18 8 34 14 48 8" fill="none" stroke="#1E2536" stroke-width="16" stroke-linecap="round"/>
+          <circle cx="51" cy="7" r="8.5" fill="#A96F51"/>
+        </g>
+      </g>
+
+      <!-- Neck -->
+      <rect x="-9" y="-156" width="18" height="18" rx="7" fill="#86533B"/>
+
+      <!-- Head -->
+      <g transform="translate(0 -184)">
+        <!-- Ears -->
+        <circle cx="-30" cy="4" r="7.5" fill="#86533B"/>
+        <circle cx="30" cy="4" r="7.5" fill="#A96F51"/>
+        <!-- Face base -->
+        <rect x="-30" y="-30" width="60" height="64" rx="28" fill="#A96F51"/>
+        <!-- Warm cheek/forehead highlight -->
+        <ellipse cx="6" cy="-6" rx="18" ry="14" fill="#BF8766" opacity=".35"/>
+        <!-- Stylish dark wavy hair -->
+        <path d="M-32 -3 C-35 -24 -24 -40 -6 -43 C6 -45 20 -42 28 -30 C35 -20 35 -10 32 -3 C27 -15 16 -21 2 -21 C-14 -21 -25 -15 -32 -3 Z" fill="#15100E"/>
+        <path d="M-22 -28 C-8 -39 13 -39 24 -25" fill="none" stroke="#362822" stroke-width="4" stroke-linecap="round" opacity=".6"/>
+        <!-- Subtle beard/stubble jaw shadow -->
+        <path d="M-22 14 C-18 32 18 32 22 14 C16 26 -16 26 -22 14 Z" fill="#15100E" opacity=".22"/>
+        <!-- Eyes looking toward the chaos on the right -->
+        <g>
+          <ellipse cx="-9" cy="1" rx="5.2" ry="5.6" fill="#FFFFFF"/>
+          <ellipse cx="12" cy="1" rx="5.2" ry="5.6" fill="#FFFFFF"/>
+          <circle cx="-7.2" cy="1.2" r="2.7" fill="#15100E"/>
+          <circle cx="13.8" cy="1.2" r="2.7" fill="#15100E"/>
+          <circle cx="-8.2" cy="-0.2" r="1" fill="#FFFFFF"/>
+          <circle cx="12.8" cy="-0.2" r="1" fill="#FFFFFF"/>
+        </g>
+        <!-- Deadpan eyebrows + dry smirk during chaos -->
+        <g class="nitish-deadpan">
+          <path d="M-16 -9 L-3 -7" stroke="#15100E" stroke-width="2.6" stroke-linecap="round"/>
+          <path d="M6 -11 Q13 -15 20 -10" fill="none" stroke="#15100E" stroke-width="2.6" stroke-linecap="round"/>
+          <path d="M-5 16 Q4 14 11 16" fill="none" stroke="#4A1915" stroke-width="2.4" stroke-linecap="round"/>
+        </g>
+        <!-- Warm happy grin once fixed -->
+        <g class="nitish-happy">
+          <path d="M-16 -10 Q-9 -13 -3 -10" fill="none" stroke="#15100E" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M6 -10 Q13 -13 19 -10" fill="none" stroke="#15100E" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M-7 13 Q3 24 13 13 Z" fill="#4A1915"/>
+          <path d="M-5 14 Q3 17 11 14" fill="none" stroke="#F6F1EA" stroke-width="2" stroke-linecap="round"/>
+        </g>
+      </g>
+    </g>
+  </g>
 </g>
   
-<g class="rise" style="animation-delay:6.36s">
-  <text x="600.0" y="384" text-anchor="middle" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="42" font-weight="700" letter-spacing="-0.9" fill="#F4F6FB">Connecting ideas. Making <tspan font-family="'Instrument Serif','Iowan Old Style','Palatino Linotype','Book Antiqua',Georgia,'Times New Roman',serif" font-style="italic" font-weight="400" font-size="47" letter-spacing="-0.2" fill="url(#brandGrad)">things work.</tspan></text>
-</g>
-<g class="rise" style="animation-delay:6.58s">
-  <text x="600" y="426" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="18.5" font-weight="400" fill="#9EA7B8" text-anchor="middle" letter-spacing="-0.1">Bridging power infrastructure, verified silicon, autonomous machines &amp; cloud.</text>
+<g transform="translate(462 356)">
+  <!-- Ground shadow -->
+  <ellipse cx="0" cy="4" rx="44" ry="8.5" fill="#000" opacity=".46"/>
+
+  <g class="sparky-jump">
+    <!-- Boots -->
+    <rect x="-24" y="-22" width="19" height="22" rx="7" fill="#232A3A"/>
+    <rect x="6" y="-22" width="19" height="22" rx="7" fill="#232A3A"/>
+    <rect x="-26" y="-5" width="23" height="6" rx="3" fill="#FF9442"/>
+    <rect x="5" y="-5" width="23" height="6" rx="3" fill="#FF9442"/>
+
+    <!-- Plump overalls body -->
+    <rect x="-34" y="-92" width="68" height="74" rx="26" fill="#263248" stroke="#364663" stroke-width="1.3"/>
+    <!-- Dark tee underneath -->
+    <path d="M-24 -92 Q0 -76 24 -92 Z" fill="#141925"/>
+    <!-- Overall straps & amber buttons -->
+    <rect x="-20" y="-90" width="9" height="32" rx="3" fill="#2F3F5C"/>
+    <rect x="11" y="-90" width="9" height="32" rx="3" fill="#2F3F5C"/>
+    <circle cx="-15.5" cy="-64" r="3" fill="#FF9442"/>
+    <circle cx="15.5" cy="-64" r="3" fill="#FF9442"/>
+    <!-- Pocket with tiny lightning bolt -->
+    <rect x="-14" y="-54" width="28" height="20" rx="6" fill="#1E283B"/>
+    <path d="M2 -50 L-5 -43 H1 L-2 -36 L6 -44 H0 Z" fill="#FF9442"/>
+
+    <!-- Left arm: clutches sparking unplugged cord during chaos, relaxes happily once plugged back in -->
+    <g transform="translate(-34 -74)">
+      <g class="sparky-mad">
+        <!-- Cord curling down from unplugged plug toward floor -->
+        <path d="M-36 36 C-26 58 -14 70 8 72" fill="none" stroke="#FF9442" stroke-width="4" stroke-linecap="round" opacity=".85"/>
+        <path d="M0 0 C-18 6 -30 22 -38 28" fill="none" stroke="#182030" stroke-width="14" stroke-linecap="round"/>
+        <circle cx="-40" cy="29" r="8" fill="#E8B896"/>
+        <!-- Giant amber power plug -->
+        <g transform="translate(-56 20)">
+          <rect x="0" y="0" width="22" height="18" rx="5" fill="#FF9442" stroke="#FFD479" stroke-width="1"/>
+          <line x1="-8" y1="5" x2="0" y2="5" stroke="#E2E8F0" stroke-width="2.8" stroke-linecap="round"/>
+          <line x1="-8" y1="13" x2="0" y2="13" stroke="#E2E8F0" stroke-width="2.8" stroke-linecap="round"/>
+          <!-- Angry sparks when unplugged -->
+          <path d="M-12 2 L-20 -4 M-14 9 L-23 9 M-12 16 L-19 22" stroke="#FFD479" stroke-width="2.2" stroke-linecap="round"/>
+        </g>
+      </g>
+      <g class="sparky-happy">
+        <path d="M0 0 C-16 10 -22 24 -14 34" fill="none" stroke="#182030" stroke-width="14" stroke-linecap="round"/>
+        <circle cx="-14" cy="36" r="8" fill="#E8B896"/>
+      </g>
+    </g>
+
+    <!-- Right arm (points angrily at Chip-Bot during standoff, relaxed when fixed!) -->
+    <g transform="translate(34 -74)">
+      <g class="sparky-point-arm">
+        <path d="M0 0 C22 -8 42 -12 58 -10" fill="none" stroke="#182030" stroke-width="14" stroke-linecap="round"/>
+        <circle cx="60" cy="-10" r="8" fill="#E8B896"/>
+        <!-- Pointing finger -->
+        <line x1="65" y1="-11" x2="77" y2="-12" stroke="#E8B896" stroke-width="4.5" stroke-linecap="round"/>
+      </g>
+      <g class="sparky-chill-arm">
+        <path d="M0 0 C16 10 22 24 14 34" fill="none" stroke="#182030" stroke-width="14" stroke-linecap="round"/>
+        <circle cx="14" cy="36" r="8" fill="#E8B896"/>
+      </g>
+    </g>
+
+    <!-- Head -->
+    <g transform="translate(0 -124)">
+      <circle cx="-27" cy="2" r="6.5" fill="#C99572"/>
+      <circle cx="27" cy="2" r="6.5" fill="#E8B896"/>
+      <circle cx="0" cy="0" r="28" fill="#E8B896"/>
+      <ellipse cx="-6" cy="-7" rx="14" ry="10" fill="#FFFFFF" opacity=".16"/>
+      <!-- Rosy cheeks -->
+      <circle cx="-15" cy="8" r="4.5" fill="#FF7E9D" opacity=".28"/>
+      <circle cx="15" cy="8" r="4.5" fill="#FF7E9D" opacity=".28"/>
+
+      <!-- Startled/grumpy face during chaos -->
+      <g class="sparky-mad">
+        <circle cx="-8" cy="-1" r="5.5" fill="#FFFFFF"/>
+        <circle cx="11" cy="-1" r="5.5" fill="#FFFFFF"/>
+        <circle cx="-6" cy="-1" r="2.6" fill="#181C24"/>
+        <circle cx="13" cy="-1" r="2.6" fill="#181C24"/>
+        <circle cx="-7" cy="-2.2" r="1" fill="#FFFFFF"/>
+        <circle cx="12" cy="-2.2" r="1" fill="#FFFFFF"/>
+        <!-- Furrowed brows -->
+        <path d="M-15 -10 L-3 -6 M18 -10 L6 -6" stroke="#4D2E1B" stroke-width="2.8" stroke-linecap="round"/>
+        <!-- Open shouting mouth -->
+        <ellipse cx="2" cy="13" rx="6.5" ry="5.5" fill="#4A1915"/>
+      </g>
+
+      <!-- Happy relieved face when plugged back in -->
+      <g class="sparky-happy">
+        <path d="M-13 0 Q-8 -6 -3 0 M6 0 Q11 -6 16 0" fill="none" stroke="#2D1B10" stroke-width="2.8" stroke-linecap="round"/>
+        <path d="M-7 10 Q2 20 11 10" fill="none" stroke="#4A1915" stroke-width="2.8" stroke-linecap="round"/>
+      </g>
+
+      <!-- Glossy Amber Hard Hat (pops up into the air when startled!) -->
+      <g class="hat-pop">
+        <path d="M-31 -10 C-31 -34 -16 -44 0 -44 C16 -44 31 -34 31 -10 Z" fill="#FF9442"/>
+        <!-- Glossy highlight on dome -->
+        <path d="M-18 -29 C-12 -36 -2 -38 8 -35" fill="none" stroke="#FFE0B5" stroke-width="4" stroke-linecap="round" opacity=".65"/>
+        <!-- Hard hat brim -->
+        <rect x="-36" y="-13" width="72" height="8" rx="4" fill="#E67926"/>
+        <!-- White lightning emblem -->
+        <path d="M2 -34 L-4 -25 H1 L-2 -18 L6 -26 H1 Z" fill="#FFFFFF"/>
+      </g>
+    </g>
+  </g>
 </g>
   
-<rect x="0" y="0" width="1200" height="64" fill="#0A0D16" fill-opacity=".68"/>
-<rect x="0" y="0" width="1200" height="3" fill="url(#accentBar)"/>
-<line x1="0" y1="64" x2="1200" y2="64" stroke="#FFFFFF" stroke-opacity=".075"/>
-<circle cx="38" cy="33" r="10" fill="#34D399" opacity=".2" class="live loop"/>
-<circle cx="38" cy="33" r="4.5" fill="#34D399" class="live loop"/>
-<text x="56" y="39" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="17.5" font-weight="700" letter-spacing="-0.3" fill="#F4F6FB">Nitish Sundarraj<tspan fill="#FF9442">.</tspan></text>
-<line x1="204" y1="22" x2="204" y2="44" stroke="#242B3A"/>
-<text x="222" y="38" font-family="'JetBrains Mono','SFMono-Regular',ui-monospace,Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14.5" fill="#9EA7B8" xml:space="preserve" letter-spacing="2.2" font-weight="500">MULTIDISCIPLINARY DEVELOPER</text>
-<rect x="904" y="19" width="76" height="28" rx="14" fill="#34D399" fill-opacity=".13" stroke="#34D399" stroke-opacity=".34"/>
-<circle cx="921" cy="33" r="3.5" fill="#34D399" class="live loop"/>
-<text x="932" y="37.5" font-family="'JetBrains Mono','SFMono-Regular',ui-monospace,Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="12.5" fill="#34D399" xml:space="preserve" letter-spacing="1.2" font-weight="700">LIVE</text>
-<text x="1166" y="38" font-family="'JetBrains Mono','SFMono-Regular',ui-monospace,Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#687387" text-anchor="end" xml:space="preserve" letter-spacing="1.4" font-weight="500">SYS // 09 LAYERS</text>
+<g transform="translate(740 356)">
+  <!-- Ground shadow -->
+  <ellipse cx="0" cy="4" rx="46" ry="8.5" fill="#000" opacity=".46"/>
+
+  <g class="bot-react">
+    <!-- Cute rubber treads / stubby boots -->
+    <rect x="-30" y="-18" width="24" height="18" rx="9" fill="#232D42" stroke="#364563" stroke-width="1.2"/>
+    <rect x="6" y="-18" width="24" height="18" rx="9" fill="#232D42" stroke="#364563" stroke-width="1.2"/>
+    <circle cx="-18" cy="-9" r="3.5" fill="#38BDF8"/>
+    <circle cx="18" cy="-9" r="3.5" fill="#38BDF8"/>
+
+    <!-- Rounded Robot Torso with glowing emerald silicon chip core -->
+    <rect x="-34" y="-86" width="68" height="70" rx="22" fill="#182234" stroke="#2D405E" stroke-width="1.5"/>
+    <!-- Chest silicon die window -->
+    <rect x="-18" y="-68" width="36" height="32" rx="8" fill="#0C111C" stroke="#34D399" stroke-width="1.4" stroke-opacity=".8"/>
+    <path d="M-18 -58h-5M-18 -46h-5M18 -58h5M18 -46h5M-6 -68v-4M6 -68v-4M-6 -36v4M6 -36v4"
+          stroke="#FFD479" stroke-width="2" stroke-linecap="round"/>
+    <rect x="-9" y="-59" width="18" height="14" rx="3" fill="#34D399" opacity=".25"/>
+    <circle cx="0" cy="-52" r="4.5" fill="#34D399"/>
+
+    <!-- Left arm (flustered hands-up pose clearing gold pins during standoff, waves happily when fixed) -->
+    <g transform="translate(-34 -68)">
+      <g class="bot-panic-arms">
+        <path d="M0 0 C-22 -4 -34 -18 -28 -34" fill="none" stroke="#2B3D5B" stroke-width="12" stroke-linecap="round"/>
+        <circle cx="-28" cy="-36" r="7.5" fill="#38BDF8"/>
+      </g>
+      <g class="bot-happy-arms">
+        <path d="M0 0 C-20 -12 -32 -28 -28 -44" fill="none" stroke="#2B3D5B" stroke-width="12" stroke-linecap="round"/>
+        <circle cx="-28" cy="-46" r="7.5" fill="#38BDF8"/>
+      </g>
+    </g>
+
+    <!-- Right arm (pointing directly right at Nimbus during standoff!) -->
+    <g transform="translate(34 -68)">
+      <g class="bot-panic-arms">
+        <path d="M0 0 C22 -12 44 -20 62 -24" fill="none" stroke="#2B3D5B" stroke-width="12" stroke-linecap="round"/>
+        <circle cx="64" cy="-24" r="7.5" fill="#38BDF8"/>
+        <line x1="69" y1="-26" x2="80" y2="-30" stroke="#38BDF8" stroke-width="4" stroke-linecap="round"/>
+      </g>
+      <g class="bot-happy-arms">
+        <path d="M0 0 C20 -12 32 -28 28 -44" fill="none" stroke="#2B3D5B" stroke-width="12" stroke-linecap="round"/>
+        <circle cx="28" cy="-46" r="7.5" fill="#38BDF8"/>
+      </g>
+    </g>
+
+    <!-- Robot Head -->
+    <g transform="translate(0 -122)">
+      <!-- Gold IC-pin ears -->
+      <rect x="-46" y="-12" width="12" height="5" rx="2.5" fill="#FFD479"/>
+      <rect x="-46" y="-2" width="12" height="5" rx="2.5" fill="#FFD479"/>
+      <rect x="-46" y="8" width="12" height="5" rx="2.5" fill="#FFD479"/>
+      <rect x="34" y="-12" width="12" height="5" rx="2.5" fill="#FFD479"/>
+      <rect x="34" y="-2" width="12" height="5" rx="2.5" fill="#FFD479"/>
+      <rect x="34" y="8" width="12" height="5" rx="2.5" fill="#FFD479"/>
+
+      <!-- Bouncy antenna -->
+      <g class="antenna-wobble">
+        <line x1="0" y1="-28" x2="0" y2="-48" stroke="#64748B" stroke-width="3.2" stroke-linecap="round"/>
+        <circle cx="0" cy="-52" r="7" fill="#38BDF8"/>
+        <circle cx="-2" cy="-54" r="2.2" fill="#FFFFFF" opacity=".8"/>
+      </g>
+
+      <!-- Cyan helmet shell -->
+      <rect x="-38" y="-30" width="76" height="58" rx="22" fill="#38BDF8"/>
+      <!-- Soft glossy top rim -->
+      <path d="M-22 -24 H22" stroke="#BAE6FD" stroke-width="4" stroke-linecap="round" opacity=".6"/>
+      <!-- Dark glossy OLED face visor -->
+      <rect x="-30" y="-20" width="60" height="39" rx="14" fill="#0B101B"/>
+      <path d="M-22 -14 L-10 -14" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" opacity=".2"/>
+
+      <!-- Nervous / panicked eyes + cartoon sweat drop -->
+      <g class="bot-nervous">
+        <circle cx="-12" cy="-2" r="7" fill="#FFFFFF"/>
+        <circle cx="12" cy="-2" r="7" fill="#FFFFFF"/>
+        <!-- Pupils glancing anxiously right at Nimbus -->
+        <circle cx="-9.5" cy="-2" r="3" fill="#0B101B"/>
+        <circle cx="14.5" cy="-2" r="3" fill="#0B101B"/>
+        <circle cx="-10.5" cy="-3.5" r="1.2" fill="#FFFFFF"/>
+        <circle cx="13.5" cy="-3.5" r="1.2" fill="#FFFFFF"/>
+        <!-- Squiggly nervous mouth -->
+        <path d="M-8 11 Q-4 8 0 11 Q4 14 8 11" fill="none" stroke="#FF9442" stroke-width="2.4" stroke-linecap="round"/>
+        <!-- Cartoon sweat drop on forehead -->
+        <path d="M27 -24 C27 -24 33 -15 33 -11 A6 6 0 1 1 21 -11 C21 -15 27 -24 27 -24 Z" fill="#7DD3FC"/>
+      </g>
+
+      <!-- Joyful happy eyes when fixed -->
+      <g class="bot-joy">
+        <path d="M-19 0 Q-12 -10 -5 0 M5 0 Q12 -10 19 0" fill="none" stroke="#34D399" stroke-width="3.4" stroke-linecap="round"/>
+        <path d="M-8 9 Q0 16 8 9" fill="none" stroke="#38BDF8" stroke-width="2.8" stroke-linecap="round"/>
+      </g>
+
+      <!-- Comic BONK starburst right on top of the antenna when spark hits! -->
+      <g transform="translate(0 -54)">
+        <g class="bonk-burst">
+          <path d="M0 -24 L5 -9 L20 -16 L10 -3 L25 4 L9 7 L14 21 L1 10 L-12 21 L-8 7 L-24 4 L-10 -3 L-19 -16 L-5 -9 Z"
+                fill="#FFD479" stroke="#FF5C5C" stroke-width="1.8" stroke-linejoin="round"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</g>
   
-<rect x="0" y="542" width="1200" height="78" fill="#07090F" fill-opacity=".86"/>
-<line x1="0" y1="542" x2="1200" y2="542" stroke="#FFFFFF" stroke-opacity=".075"/>
-<rect x="38" y="577" width="8" height="8" rx="2" fill="#FF9442"/><text x="55" y="586" font-family="'JetBrains Mono','SFMono-Regular',ui-monospace,Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#F4F6FB" xml:space="preserve" font-weight="600">01</text><text x="81" y="586" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="16" font-weight="500" fill="#9EA7B8" >Power &amp; OT</text><rect x="248" y="577" width="8" height="8" rx="2" fill="#34D399"/><text x="265" y="586" font-family="'JetBrains Mono','SFMono-Regular',ui-monospace,Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#F4F6FB" xml:space="preserve" font-weight="600">02</text><text x="291" y="586" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="16" font-weight="500" fill="#9EA7B8" >Verified Silicon</text><rect x="496" y="577" width="8" height="8" rx="2" fill="#38BDF8"/><text x="513" y="586" font-family="'JetBrains Mono','SFMono-Regular',ui-monospace,Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#F4F6FB" xml:space="preserve" font-weight="600">03</text><text x="539" y="586" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="16" font-weight="500" fill="#9EA7B8" >Autonomy</text><rect x="696" y="577" width="8" height="8" rx="2" fill="#A78BFA"/><text x="713" y="586" font-family="'JetBrains Mono','SFMono-Regular',ui-monospace,Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="15" fill="#F4F6FB" xml:space="preserve" font-weight="600">04</text><text x="739" y="586" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="16" font-weight="500" fill="#9EA7B8" >Cloud &amp; AI</text>
-<rect x="954" y="559" width="212" height="44" rx="22.0" fill="#F4F6FB"/>
-<text x="980" y="586.5" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="15.5" font-weight="700" fill="#06070A" letter-spacing="-0.1">Explore portfolio</text>
-<g class="arrow loop"><path d="M1128 581.0h14m-5.5 -5.5l5.5 5.5l-5.5 5.5" fill="none" stroke="#06070A" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/></g>
-  <line x1="24" y1="3.5" x2="1176" y2="3.5" stroke="#FFFFFF" stroke-opacity=".1"/>
+<g transform="translate(1004 356)">
+  <!-- Soft hovering shadow on floor -->
+  <ellipse class="cloud-shadow" cx="0" cy="4" rx="44" ry="7.5" fill="#000" opacity=".36"/>
+
+  <g class="cloud-float">
+    <!-- Little dangling sneakers kicking gently in midair -->
+    <g transform="translate(0 -54)">
+      <path d="M-14 -10 L-18 14" stroke="#6D5CAE" stroke-width="6.5" stroke-linecap="round"/>
+      <path d="M14 -10 L18 14" stroke="#6D5CAE" stroke-width="6.5" stroke-linecap="round"/>
+      <ellipse cx="-21" cy="18" rx="12" ry="7" fill="#FF9442"/>
+      <ellipse cx="21" cy="18" rx="12" ry="7" fill="#FF9442"/>
+      <line x1="-30" y1="22" x2="-12" y2="22" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="12" y1="22" x2="30" y2="22" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
+    </g>
+
+    <!-- Fluffy multi-lobe illustrated cloud body -->
+    <g transform="translate(0 -116)">
+      <!-- Main cloud silhouette -->
+      <path d="M-48 26 H48 C64 26 74 14 72 -2 C70 -16 58 -24 44 -22 C40 -42 22 -54 2 -52 C-16 -50 -28 -38 -32 -24 C-48 -28 -64 -16 -66 0 C-68 16 -58 26 -48 26 Z"
+            fill="url(#cloudGrad)" stroke="#C8B9FF" stroke-width="1.3" stroke-linejoin="round"/>
+      <!-- Soft top highlights -->
+      <ellipse cx="-14" cy="-26" rx="20" ry="12" fill="#FFFFFF" opacity=".2"/>
+      <ellipse cx="32" cy="-8" rx="14" ry="9" fill="#FFFFFF" opacity=".14"/>
+
+      <!-- Innocent whistling face (looking far right away from the crime scene!) -->
+      <g class="cloud-whistle">
+        <ellipse cx="-12" cy="-6" rx="6.2" ry="6.6" fill="#FFFFFF"/>
+        <ellipse cx="14" cy="-6" rx="6.2" ry="6.6" fill="#FFFFFF"/>
+        <!-- Pupils glancing way over to the right -->
+        <circle cx="-8.5" cy="-7" r="3" fill="#1A1530"/>
+        <circle cx="17.5" cy="-7" r="3" fill="#1A1530"/>
+        <circle cx="-9.5" cy="-8.5" r="1.1" fill="#FFFFFF"/>
+        <circle cx="16.5" cy="-8.5" r="1.1" fill="#FFFFFF"/>
+        <!-- Relaxed innocent brows -->
+        <path d="M-19 -16 Q-12 -20 -6 -16 M8 -16 Q14 -20 20 -16" fill="none" stroke="#45337A" stroke-width="2.4" stroke-linecap="round"/>
+        <!-- Tiny whistling 'o' mouth -->
+        <circle cx="6" cy="9" r="3.6" fill="#3B296E"/>
+        <!-- Floating musical notes drifting right out of the whistle! -->
+        <g class="music-notes">
+          <text x="34" y="-12" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="22" font-weight="700" fill="#FFD479">♪</text>
+          <text x="58" y="-32" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="18" font-weight="700" fill="#38BDF8">♫</text>
+        </g>
+      </g>
+
+      <!-- Sheepish / happy face once fixed -->
+      <g class="cloud-sheepish">
+        <path d="M-18 -6 Q-12 -13 -6 -6 M8 -6 Q14 -13 20 -6" fill="none" stroke="#2D1E59" stroke-width="2.8" stroke-linecap="round"/>
+        <ellipse cx="-22" cy="4" rx="7" ry="4" fill="#FF7E9D" opacity=".55"/>
+        <ellipse cx="24" cy="4" rx="7" ry="4" fill="#FF7E9D" opacity=".55"/>
+        <path d="M-6 6 Q2 14 10 6" fill="none" stroke="#3B296E" stroke-width="2.6" stroke-linecap="round"/>
+      </g>
+    </g>
+  </g>
+</g>
+  
+<g class="spark-drop">
+  <circle cx="0" cy="0" r="16" fill="#FF5C5C" opacity=".28"/>
+  <path d="M0 -11 L3 -3 L11 -4 L5 2 L8 10 L0 5 L-8 10 L-5 2 L-11 -4 L-3 -3 Z" fill="#FFD479" stroke="#FF5C5C" stroke-width="1.4" stroke-linejoin="round"/>
+</g>
+  
+<g transform="translate(184 78)">
+  <g class="bub-nitish">
+    <rect x="-63" y="-19" width="126" height="36" rx="18" fill="#161B26" stroke="#3A445C" stroke-width="1.5"/>
+    <path d="M-10 16.5 L-4 26 L3 16.5 Z" fill="#161B26" stroke="#3A445C" stroke-width="1.5" stroke-linejoin="round"/>
+    <line x1="-9" y1="16.5" x2="2" y2="16.5" stroke="#161B26" stroke-width="2.6"/>
+    <text x="0" y="4" text-anchor="middle" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="14.5" font-weight="600" fill="#F4F6FB">Every time…</text>
+  </g>
+</g>
+<g transform="translate(184 78)">
+  <g class="bub-allgood">
+    <rect x="-55" y="-19" width="110" height="36" rx="18" fill="#161B26" stroke="#34D399" stroke-width="1.5"/>
+    <path d="M-10 16.5 L-4 26 L3 16.5 Z" fill="#161B26" stroke="#34D399" stroke-width="1.5" stroke-linejoin="round"/>
+    <line x1="-9" y1="16.5" x2="2" y2="16.5" stroke="#161B26" stroke-width="2.6"/>
+    <text x="0" y="4" text-anchor="middle" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="14.5" font-weight="600" fill="#F4F6FB">All good!</text>
+  </g>
+</g>
+<g transform="translate(464 118)">
+  <g class="bub-sparky">
+    <rect x="-43" y="-19" width="86" height="36" rx="18" fill="#161B26" stroke="#FF9442" stroke-width="1.5"/>
+    <path d="M-6 16.5 L0 26 L7 16.5 Z" fill="#161B26" stroke="#FF9442" stroke-width="1.5" stroke-linejoin="round"/>
+    <line x1="-5" y1="16.5" x2="6" y2="16.5" stroke="#161B26" stroke-width="2.6"/>
+    <text x="0" y="4" text-anchor="middle" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="14.5" font-weight="600" fill="#F4F6FB">Hey!!</text>
+  </g>
+</g>
+<g transform="translate(742 106)">
+  <g class="bub-bot">
+    <rect x="-73" y="-19" width="146" height="36" rx="18" fill="#161B26" stroke="#38BDF8" stroke-width="1.5"/>
+    <path d="M-8 16.5 L-2 26 L5 16.5 Z" fill="#161B26" stroke="#38BDF8" stroke-width="1.5" stroke-linejoin="round"/>
+    <line x1="-7" y1="16.5" x2="4" y2="16.5" stroke="#161B26" stroke-width="2.6"/>
+    <text x="0" y="4" text-anchor="middle" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="14.5" font-weight="600" fill="#F4F6FB">He started it!</text>
+  </g>
+</g>
+<g transform="translate(998 96)">
+  <g class="bub-cloud">
+    <rect x="-61" y="-19" width="122" height="36" rx="18" fill="#161B26" stroke="#A78BFA" stroke-width="1.5"/>
+    <path d="M-2 16.5 L4 26 L11 16.5 Z" fill="#161B26" stroke="#A78BFA" stroke-width="1.5" stroke-linejoin="round"/>
+    <line x1="-1" y1="16.5" x2="10" y2="16.5" stroke="#161B26" stroke-width="2.6"/>
+    <text x="0" y="4" text-anchor="middle" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="14.5" font-weight="600" fill="#F4F6FB">Wasn't me.</text>
+  </g>
+</g>
+<g transform="translate(998 96)">
+  <g class="bub-mybad">
+    <rect x="-53" y="-19" width="106" height="36" rx="18" fill="#161B26" stroke="#FF7E9D" stroke-width="1.5"/>
+    <path d="M-2 16.5 L4 26 L11 16.5 Z" fill="#161B26" stroke="#FF7E9D" stroke-width="1.5" stroke-linejoin="round"/>
+    <line x1="-1" y1="16.5" x2="10" y2="16.5" stroke="#161B26" stroke-width="2.6"/>
+    <text x="0" y="4" text-anchor="middle" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="14.5" font-weight="600" fill="#F4F6FB">My bad.</text>
+  </g>
+</g>
+  
+<text x="36" y="414" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="13.5" font-weight="500" fill="#6D778C">nitish sundarraj</text>
+<text x="1144" y="414" text-anchor="end" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="13.5" font-weight="500" fill="#6D778C">portfolio</text>
+<path d="M1152 409.5 h11 m-4 -4 l4 4 l-4 4" fill="none" stroke="#FF9442" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
 </g>
 </svg>
