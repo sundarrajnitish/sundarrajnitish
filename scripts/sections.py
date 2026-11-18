@@ -3,9 +3,9 @@
 GitHub shows these about two-thirds of their drawn size, so nothing here is set below 15px.
 """
 
-from svgkit import (AI, BG, BG_ALT, BORDER, BORDER_SOFT, CONTROL, DIM, EASE, EMBEDDED, MATH, MECH, MONO_ADV, MUTED,
-                    PANEL, PEOPLE, POWER, ROBOTICS, SILICON, SOFTWARE, TEXT, WHITE, doc, f, headline, mono_text, panel,
-                    text)
+from svgkit import (ACCENT, ACCENT_2, ACCENT_MID, AI, BG, BG_ALT, BORDER, BORDER_SOFT, CONTROL, DIM, EASE, EMBEDDED,
+                    MATH, MECH, MONO_ADV, MUTED, PANEL, PEOPLE, POWER, ROBOTICS, SANS, SERIF, SILICON, SOFTWARE, TEXT,
+                    VERIFY, WHITE, doc, f, headline, mono_text, panel, text)
 
 # ---------------------------------------------------------------------------------------------
 # The stack: every layer from gates to UI has a project of mine on it.
@@ -17,7 +17,7 @@ LAYERS = [  # top to bottom: (layer, colour, projects, tech)
     ("BUSES", EMBEDDED, ["F1 CAN Telemetry", "FARM-E link"], "CAN · CRC-8 · UDP"),
     ("MACHINES", ROBOTICS, ["FARM-E", "Hydroponinator", "Handwriting-Machine"], "steppers · servos · pumps"),
     ("FIRMWARE", EMBEDDED, ["ATmega2560", "UNO + ESP8266"], "watchdogs · EEPROM"),
-    ("VERIFICATION", SILICON, ["Calc1/Calc3", "DDS formal"], "SystemVerilog · k-induction"),
+    ("VERIFICATION", VERIFY, ["Calc1/Calc3", "DDS formal"], "SystemVerilog · k-induction"),
     ("RTL", SILICON, ["mini-MIPS", "Arithmetic Unit"], "VHDL-2008 · Yosys"),
     ("GATES", SILICON, ["full adders", "Dadda trees"], "carry-save · ripple carry"),
 ]
@@ -68,9 +68,13 @@ def stack():
     bus_top, bus_bot = top + rh / 2, top + (n - 1) * (rh + gap) + rh / 2
     body = f"""
 <defs>{wakes}
-<radialGradient id="glow"><stop offset="0" stop-color="{WHITE}" stop-opacity=".8"/><stop offset="1" stop-color="{WHITE}" stop-opacity="0"/></radialGradient>
+<clipPath id="sframe"><rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="21"/></clipPath>
+<linearGradient id="sbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#101521"/><stop offset="1" stop-color="{BG}"/></linearGradient>
+<linearGradient id="sbar" x1="0" x2="1"><stop offset="0" stop-color="{ACCENT}"/><stop offset=".5" stop-color="{ACCENT_MID}"/><stop offset="1" stop-color="{ACCENT_2}"/></linearGradient>
+<radialGradient id="glow"><stop offset="0" stop-color="{ACCENT}" stop-opacity=".9"/><stop offset="1" stop-color="{ACCENT}" stop-opacity="0"/></radialGradient>
 </defs>
-{panel(W, H, fill="#000")}
+{panel(W, H, fill="url(#sbg)")}
+<g clip-path="url(#sframe)"><rect width="{W}" height="2" fill="url(#sbar)"/></g>
 {headline(40, 76, "From a full adder to a WebSocket.")}
 {text(40, 116, "Something of mine runs on every layer, from logic gates to the browser.", 21, MUTED)}
 <line x1="60" y1="{bus_top}" x2="60" y2="{bus_bot}" stroke="{BORDER}" stroke-width="1.5"/>
@@ -211,7 +215,13 @@ def coursework():
                      + text(lx + 24, 162, label, 17, TEXT) + "</g>")
         lx += 24 + len(label) * 8.6 + 26
     body = f"""
-{panel(W, H, fill="#000")}
+<defs>
+<clipPath id="cframe"><rect x="1" y="1" width="{W - 2}" height="{H - 2}" rx="21"/></clipPath>
+<linearGradient id="cbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#101521"/><stop offset="1" stop-color="{BG}"/></linearGradient>
+<linearGradient id="cbar" x1="0" x2="1"><stop offset="0" stop-color="{ACCENT}"/><stop offset=".5" stop-color="{ACCENT_MID}"/><stop offset="1" stop-color="{ACCENT_2}"/></linearGradient>
+</defs>
+{panel(W, H, fill="url(#cbg)")}
+<g clip-path="url(#cframe)"><rect width="{W}" height="2" fill="url(#cbar)"/></g>
 {headline(40, 76, f"{n_total} courses, stacked year by year.")}
 {text(40, 116, "People and math at the base, software on top.", 21, MUTED)}
 {''.join(chips)}
@@ -237,15 +247,17 @@ def footer():
     ]
     body = f"""
 <defs>
-<linearGradient id="beam" x1="0" x2="1"><stop offset="0" stop-color="{WHITE}" stop-opacity="0"/><stop offset=".5" stop-color="{WHITE}" stop-opacity=".9"/><stop offset="1" stop-color="{WHITE}" stop-opacity="0"/></linearGradient>
-<clipPath id="edge"><rect x="18" y="0" width="{W - 36}" height="2"/></clipPath>
+<linearGradient id="fbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#101521"/><stop offset="1" stop-color="{BG}"/></linearGradient>
+<linearGradient id="beam" x1="0" x2="1"><stop offset="0" stop-color="{ACCENT}" stop-opacity="0"/><stop offset=".5" stop-color="{ACCENT_MID}" stop-opacity=".95"/><stop offset="1" stop-color="{ACCENT_2}" stop-opacity="0"/></linearGradient>
+<linearGradient id="fglow" gradientUnits="userSpaceOnUse" x1="280" y1="50" x2="460" y2="95"><stop offset="0" stop-color="{ACCENT}"/><stop offset=".55" stop-color="{ACCENT_MID}"/><stop offset="1" stop-color="{ACCENT_2}"/></linearGradient>
+<clipPath id="edge"><rect x="22" y="0" width="{W - 44}" height="2.5"/></clipPath>
 </defs>
-{panel(W, H, fill="#000")}
-<g clip-path="url(#edge)"><rect class="sweep loop" x="0" y="0" width="240" height="1.5" fill="url(#beam)"/></g>
-{headline(40, 92, "Next build: yours?", 48)}
-{text(40, 140, "If it can be built, I'd like to try. If it can't, I'd like to find out why.", 21, MUTED)}
+{panel(W, H, fill="url(#fbg)")}
+<g clip-path="url(#edge)"><rect class="sweep loop" x="0" y="0" width="260" height="2" fill="url(#beam)"/></g>
+<text x="40" y="94" font-family="{SANS}" font-size="48" font-weight="700" letter-spacing="-1" fill="{TEXT}">Next build: <tspan font-family="{SERIF}" font-style="italic" font-weight="400" font-size="54" fill="url(#fglow)">yours?</tspan></text>
+{text(40, 142, "If it can be built, I'd like to try. If it can't, I'd like to find out why.", 21, MUTED)}
 <rect x="{bx}" y="{by}" width="{bw}" height="{bh}" rx="{bh / 2}" fill="{TEXT}"/>
-{text(bx + 36, by + 38, "Let's connect", 22, BG, 600)}
+{text(bx + 36, by + 38, "Let's connect", 22, BG, 700)}
 <g class="arrow loop"><path d="M{bx + bw - 64} {by + bh / 2}h24m-9 -9l9 9l-9 9" fill="none" stroke="{BG}" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></g>
 """
     return doc(W, H, "Next build: yours? Let's connect.", "\n".join(css), body)

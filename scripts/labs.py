@@ -12,7 +12,7 @@ from svgkit import (AI, BG, BG_ALT, BORDER, BORDER_SOFT, CONTROL, DIM, EMBEDDED,
 
 W, H = 600, 380
 BX, BY, BW, BH = 28, 120, 544, 192  # animation box
-STEEL = "#D4D4D4"  # the solid parts of machines
+STEEL = "#CBD5E1"  # the solid parts of machines
 BASE = "https://sundarrajnitish.github.io"
 
 
@@ -24,11 +24,15 @@ def kf(name, stops, dur, extra=""):
 
 def card(slug, accent, title, hook, stat, anim_css, anim_svg, desc):
     body = f"""
-<rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="18" fill="#000" stroke="{BORDER}"/>
-{text(28, 62, title, 34, TEXT, 600, extra='letter-spacing="-0.6"')}
+<defs>
+<linearGradient id="cbg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#101521"/><stop offset="1" stop-color="{BG}"/></linearGradient>
+<clipPath id="box"><rect x="{BX}" y="{BY}" width="{BW}" height="{BH}" rx="12"/></clipPath>
+</defs>
+<rect x=".5" y=".5" width="{W - 1}" height="{H - 1}" rx="20" fill="url(#cbg)" stroke="{BORDER}"/>
+<line x1="20" y1="1.5" x2="{W - 20}" y2="1.5" stroke="{WHITE}" stroke-opacity=".1"/>
+{text(28, 62, title, 34, TEXT, 700, extra='letter-spacing="-0.8"')}
 {text(28, 96, hook, 20, MUTED)}
 <rect x="{BX}" y="{BY}" width="{BW}" height="{BH}" rx="12" fill="{BG_ALT}" stroke="{BORDER_SOFT}"/>
-<clipPath id="box"><rect x="{BX}" y="{BY}" width="{BW}" height="{BH}" rx="12"/></clipPath>
 <g clip-path="url(#box)">{anim_svg}</g>
 <circle cx="34" cy="{H - 36}" r="5" fill="{accent}"/>
 {mono_text(50, H - 30, stat, 17, MUTED, fit=False)}

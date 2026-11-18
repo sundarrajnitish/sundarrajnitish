@@ -9,36 +9,46 @@ import math
 import re
 from xml.sax.saxutils import escape
 
-# Monochrome palette: black stage, white ink, greys for everything in between.
-BG = "#050505"
-BG_ALT = "#0A0A0A"
-PANEL = "#121212"
-PANEL_HI = "#1C1C1C"
-BORDER = "#2C2C2C"
-BORDER_SOFT = "#1B1B1B"
+# Portfolio-matched deep obsidian palette: obsidian canvas, architectural glass surfaces,
+# cool-white ink, slate secondary ink, warm amber + electric cyan + emerald accents.
+BG = "#06070A"
+BG_ALT = "#0C0F16"
+PANEL = "#111622"
+PANEL_HI = "#171E2E"
+BORDER = "#242B3A"
+BORDER_SOFT = "#161B26"
 WHITE = "#FFFFFF"
-TEXT = "#F5F5F5"
-MUTED = "#A3A3A3"
-DIM = "#767676"
+TEXT = "#F4F6FB"
+MUTED = "#9EA7B8"
+DIM = "#687387"
 
-# Colour is reserved for meaning: one soft hue per discipline, the same in every section,
-# so a colour on a card, an orbit, a layer or a course always points at the same field.
-PEOPLE = "#C8C8C8"
-MATH = "#F28B82"
-MECH = "#F6A66B"
-POWER = "#F5C26B"
-CONTROL = "#DCE07A"
-EMBEDDED = "#9DDB7C"
-SILICON = "#5FD3A5"
-ROBOTICS = "#5CC8E0"
-AI = "#7EA8F8"
-SOFTWARE = "#B39DF5"
+# Signature portfolio accents
+ACCENT = "#FF9442"
+ACCENT_MID = "#FFD479"
+ACCENT_2 = "#38BDF8"
+GREEN = "#34D399"
+VIOLET = "#A78BFA"
 
-# One easing for every entrance, so the whole page moves the same way.
-EASE = "cubic-bezier(.16,1,.3,1)"
+# Colour is reserved for meaning: exact 9-layer convergence palette from the portfolio,
+# so every discipline carries the same colour across the hero, stack, labs and coursework.
+PEOPLE = "#9EA7B8"
+MATH = "#F472B6"
+MECH = "#FFB020"
+POWER = "#FF9442"
+CONTROL = "#E3D633"
+EMBEDDED = "#A3E635"
+SILICON = "#34D399"
+VERIFY = "#2DD4BF"
+ROBOTICS = "#38BDF8"
+AI = "#60A5FA"
+SOFTWARE = "#A78BFA"
 
-MONO = "ui-monospace,'SFMono-Regular','JetBrains Mono','Cascadia Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace"
-SANS = "-apple-system,BlinkMacSystemFont,'Segoe UI','Inter',system-ui,'Helvetica Neue',Arial,sans-serif"
+# One easing for every entrance, matching the portfolio --ease token.
+EASE = "cubic-bezier(.22,.61,.36,1)"
+
+MONO = "'JetBrains Mono','SFMono-Regular',ui-monospace,Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace"
+SANS = "'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif"
+SERIF = "'Instrument Serif','Iowan Old Style','Palatino Linotype','Book Antiqua',Georgia,'Times New Roman',serif"
 
 # Advance of one monospace glyph as a fraction of the font size. Typed text is
 # pinned to n * MONO_ADV * size with textLength, so the reveal clips line up
@@ -68,10 +78,10 @@ def doc(w, h, title, css, body, desc=""):
 
 
 def headline(x, y, s, size=44):
-    return text(x, y, s, size, TEXT, 600, extra='letter-spacing="-0.6"')
+    return text(x, y, s, size, TEXT, 700, extra='letter-spacing="-0.9"')
 
 
-def panel(w, h, r=18, fill=BG, stroke=BORDER):
+def panel(w, h, r=22, fill=BG, stroke=BORDER):
     return f'<rect x="0.5" y="0.5" width="{w - 1}" height="{h - 1}" rx="{r}" fill="{fill}" stroke="{stroke}"/>'
 
 
