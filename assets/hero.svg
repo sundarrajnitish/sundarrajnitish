@@ -1,537 +1,756 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 436" width="1200" height="436" role="img" aria-labelledby="t d">
-<title id="t">Nitish Sundarraj — workshop characters</title><desc id="d">Four illustrated characters interacting on a dark workshop stage: a floating cloud buddy drops a hot spark onto a little robot, who yanks the power buddy's cord, sparking a comic finger-pointing standoff while Nitish sighs over his coffee and walks over to plug everything back in.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 440" width="1200" height="440" role="img" aria-labelledby="t d">
+<title id="t">Nitish Sundarraj: power, silicon, robots, cloud</title><desc id="d">A rainy neon street at night. Nitish's name glows on a brick wall next to a door marked portfolio. He eats noodles beside a stall whose sign reads BUG-FREE RAMEN, run by a robot in a chef hat. The FREE tube flickers out, a bug climbs onto his chopsticks, he drops it into a jar that goes from 14 to 15 bugs, says that's bug #15, and the sign lights up again.</desc>
 <style>
-@keyframes steam{0%{transform:translateY(0);opacity:.45}100%{transform:translateY(-10px);opacity:0}}
-.steam{animation:steam 2.4s ease-out infinite}
-@keyframes notes{0%,100%{transform:translate(0,0) rotate(-4deg)}50%{transform:translate(4px,-8px) rotate(6deg)}}
-.music-notes{animation:notes 1.8s ease-in-out infinite}
-@keyframes nbob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2.5px)}}
-.nitish-bob{animation:nbob 3.2s ease-in-out infinite}
-@keyframes spark_drop{0%{transform:translate(952px,240px) scale(0.9);opacity:0}1.92%{transform:translate(952px,240px) scale(1);opacity:1}5.77%{transform:translate(918px,186px) scale(1.05);opacity:1}9.62%{transform:translate(825px,136px) scale(1.1);opacity:1}12.46%{transform:translate(740px,180px) scale(1.25);opacity:1}13.69%{transform:translate(740px,180px) scale(0.3);opacity:0}100%{transform:translate(952px,240px) scale(0.9);opacity:0}}
-.spark-drop{animation:spark_drop 13s ease-in-out -5.4s infinite}
-@keyframes bonk_burst{0%{opacity:0;transform:scale(.3)}11.92%{opacity:0;transform:scale(.3)}12.92%{opacity:1;transform:scale(1.15)}16.54%{opacity:1;transform:scale(.95)}18.31%{opacity:0;transform:scale(.4)}100%{opacity:0;transform:scale(.3)}}
-.bonk-burst{animation:bonk_burst 13s ease-out -5.4s infinite}
-@keyframes nitish_walk{0%{transform:translateX(0px)}59.23%{transform:translateX(0px)}66.54%{transform:translateX(118px)}71.92%{transform:translateX(118px)}80.38%{transform:translateX(0px)}100%{transform:translateX(0px)}}
-.nitish-walk{animation:nitish_walk 13s ease-in-out -5.4s infinite}
-@keyframes nitish_fix_arm{0%{transform:rotate(58deg)}60%{transform:rotate(58deg)}66.54%{transform:rotate(14deg)}70%{transform:rotate(24deg)}73.85%{transform:rotate(-28deg)}89.23%{transform:rotate(-28deg)}94.23%{transform:rotate(58deg)}100%{transform:rotate(58deg)}}
-.nitish-fix-arm{animation:nitish_fix_arm 13s ease-in-out -5.4s infinite}
-@keyframes nitish_deadpan{0%{opacity:0}16.15%{opacity:0}17.69%{opacity:1}68.85%{opacity:1}70.38%{opacity:0}100%{opacity:0}}
-.nitish-deadpan{animation:nitish_deadpan 13s linear -5.4s infinite}
-@keyframes nitish_happy{0%{opacity:1}16.15%{opacity:1}17.69%{opacity:0}68.85%{opacity:0}70.38%{opacity:1}100%{opacity:1}}
-.nitish-happy{animation:nitish_happy 13s linear -5.4s infinite}
-@keyframes sparky_jump{0%{transform:translateY(0px)}15.38%{transform:translateY(0px)}17.31%{transform:translateY(-20px)}19.62%{transform:translateY(0px)}70%{transform:translateY(0px)}71.92%{transform:translateY(-10px)}74.23%{transform:translateY(0px)}100%{transform:translateY(0px)}}
-.sparky-jump{animation:sparky_jump 13s ease-out -5.4s infinite}
-@keyframes hat_pop{0%{transform:translateY(0px) rotate(0deg)}15.77%{transform:translateY(0px) rotate(0deg)}18.08%{transform:translateY(-20px) rotate(-10deg)}21.15%{transform:translateY(-10px) rotate(-7deg)}68.46%{transform:translateY(-10px) rotate(-7deg)}70.77%{transform:translateY(0px) rotate(0deg)}100%{transform:translateY(0px) rotate(0deg)}}
-.hat-pop{animation:hat_pop 13s ease-out -5.4s infinite}
-@keyframes sparky_mad{0%{opacity:0}15.38%{opacity:0}16.54%{opacity:1}68.85%{opacity:1}70.38%{opacity:0}100%{opacity:0}}
-.sparky-mad,.sparky-point-arm{animation:sparky_mad 13s linear -5.4s infinite}
-@keyframes sparky_happy{0%{opacity:1}15.38%{opacity:1}16.54%{opacity:0}68.85%{opacity:0}70.38%{opacity:1}100%{opacity:1}}
-.sparky-happy,.sparky-chill-arm{animation:sparky_happy 13s linear -5.4s infinite}
-@keyframes bot_react{0%{transform:translateY(0px) rotate(0deg)}12.31%{transform:translateY(0px) rotate(0deg)}13.69%{transform:translateY(7px) rotate(-6deg)}16.15%{transform:translateY(-8px) rotate(4deg)}18.46%{transform:translateY(0px) rotate(-2deg)}70%{transform:translateY(0px) rotate(-2deg)}72.69%{transform:translateY(-14px) rotate(0deg)}75.38%{transform:translateY(0px) rotate(0deg)}78.08%{transform:translateY(-8px) rotate(0deg)}80.77%{transform:translateY(0px) rotate(0deg)}100%{transform:translateY(0px) rotate(0deg)}}
-.bot-react{animation:bot_react 13s ease-in-out -5.4s infinite}
-@keyframes antenna_wobble{0%{transform:rotate(0deg)}12.46%{transform:rotate(0deg)}13.54%{transform:rotate(-24deg)}14.92%{transform:rotate(20deg)}16.46%{transform:rotate(-14deg)}18.31%{transform:rotate(6deg)}20.38%{transform:rotate(0deg)}100%{transform:rotate(0deg)}}
-.antenna-wobble{animation:antenna_wobble 13s ease-in-out -5.4s infinite}
-@keyframes bot_nervous{0%{opacity:0}12.46%{opacity:0}13.46%{opacity:1}70.77%{opacity:1}72.31%{opacity:0}100%{opacity:0}}
-.bot-nervous,.bot-panic-arms{animation:bot_nervous 13s linear -5.4s infinite}
-@keyframes bot_joy{0%{opacity:1}12.46%{opacity:1}13.46%{opacity:0}70.77%{opacity:0}72.31%{opacity:1}100%{opacity:1}}
-.bot-joy,.bot-happy-arms{animation:bot_joy 13s linear -5.4s infinite}
-@keyframes cloud_float{0%{transform:translateY(0px)}16.92%{transform:translateY(-4px)}34.62%{transform:translateY(-14px)}57.69%{transform:translateY(-10px)}73.08%{transform:translateY(2px)}87.69%{transform:translateY(-7px)}100%{transform:translateY(0px)}}
-.cloud-float{animation:cloud_float 13s ease-in-out -5.4s infinite}
-@keyframes cloud_whistle{0%{opacity:0}16.54%{opacity:0}18.08%{opacity:1}71.92%{opacity:1}73.46%{opacity:0}100%{opacity:0}}
-.cloud-whistle{animation:cloud_whistle 13s linear -5.4s infinite}
-@keyframes cloud_sheepish{0%{opacity:1}16.54%{opacity:1}18.08%{opacity:0}71.92%{opacity:0}73.46%{opacity:1}100%{opacity:1}}
-.cloud-sheepish{animation:cloud_sheepish 13s linear -5.4s infinite}
-@keyframes bub-sparky{0%{opacity:0;transform:translateY(8px) scale(.9)}16.54%{opacity:0;transform:translateY(8px) scale(.9)}18.54%{opacity:1;transform:translateY(0px) scale(1)}66.92%{opacity:1;transform:translateY(0px) scale(1)}68.69%{opacity:0;transform:translateY(-5px) scale(.92)}100%{opacity:0;transform:translateY(8px) scale(.9)}}
-.bub-sparky{animation:bub-sparky 13s ease-out -5.4s infinite}
-@keyframes bub-bot{0%{opacity:0;transform:translateY(8px) scale(.9)}20%{opacity:0;transform:translateY(8px) scale(.9)}22%{opacity:1;transform:translateY(0px) scale(1)}68.46%{opacity:1;transform:translateY(0px) scale(1)}70.23%{opacity:0;transform:translateY(-5px) scale(.92)}100%{opacity:0;transform:translateY(8px) scale(.9)}}
-.bub-bot{animation:bub-bot 13s ease-out -5.4s infinite}
-@keyframes bub-cloud{0%{opacity:0;transform:translateY(8px) scale(.9)}23.46%{opacity:0;transform:translateY(8px) scale(.9)}25.46%{opacity:1;transform:translateY(0px) scale(1)}70%{opacity:1;transform:translateY(0px) scale(1)}71.77%{opacity:0;transform:translateY(-5px) scale(.92)}100%{opacity:0;transform:translateY(8px) scale(.9)}}
-.bub-cloud{animation:bub-cloud 13s ease-out -5.4s infinite}
-@keyframes bub-nitish{0%{opacity:0;transform:translateY(8px) scale(.9)}27.31%{opacity:0;transform:translateY(8px) scale(.9)}29.31%{opacity:1;transform:translateY(0px) scale(1)}57.69%{opacity:1;transform:translateY(0px) scale(1)}59.46%{opacity:0;transform:translateY(-5px) scale(.92)}100%{opacity:0;transform:translateY(8px) scale(.9)}}
-.bub-nitish{animation:bub-nitish 13s ease-out -5.4s infinite}
-@keyframes bub-mybad{0%{opacity:0;transform:translateY(8px) scale(.9)}72.69%{opacity:0;transform:translateY(8px) scale(.9)}74.69%{opacity:1;transform:translateY(0px) scale(1)}91.92%{opacity:1;transform:translateY(0px) scale(1)}93.69%{opacity:0;transform:translateY(-5px) scale(.92)}100%{opacity:0;transform:translateY(8px) scale(.9)}}
-.bub-mybad{animation:bub-mybad 13s ease-out -5.4s infinite}
-@keyframes bub-allgood{0%{opacity:0;transform:translateY(8px) scale(.9)}74.23%{opacity:0;transform:translateY(8px) scale(.9)}76.23%{opacity:1;transform:translateY(0px) scale(1)}93.46%{opacity:1;transform:translateY(0px) scale(1)}95.23%{opacity:0;transform:translateY(-5px) scale(.92)}100%{opacity:0;transform:translateY(8px) scale(.9)}}
-.bub-allgood{animation:bub-allgood 13s ease-out -5.4s infinite}
-@keyframes power_pulse{0%{opacity:0;transform:translate(356px,348px)}68.85%{opacity:0;transform:translate(356px,348px)}70%{opacity:1;transform:translate(356px,348px)}75%{opacity:1;transform:translate(740px,348px)}79.62%{opacity:1;transform:translate(940px,289px)}82.31%{opacity:0;transform:translate(985px,259px)}100%{opacity:0;transform:translate(356px,348px)}}
-.power-pulse{animation:power_pulse 13s ease-in-out -5.4s infinite}
-@keyframes cable_live{0%{opacity:.85}15.77%{opacity:.85}16.92%{opacity:.18}68.85%{opacity:.18}70.38%{opacity:.95}100%{opacity:.85}}
-.cable-live{animation:cable_live 13s linear -5.4s infinite}
-@media (prefers-reduced-motion: reduce){*{animation-play-state:paused!important}}
+@keyframes free{0%{opacity:1}32.5%{opacity:1}32.92%{opacity:.1}33.75%{opacity:1}34.58%{opacity:.2}35.83%{opacity:.9}36.33%{opacity:0}65.83%{opacity:0}66.25%{opacity:.8}67.08%{opacity:.1}68.33%{opacity:1}68.83%{opacity:.3}70%{opacity:1}100%{opacity:1}}
+.free{animation:free 12s linear infinite}
+@keyframes rjit{0%{transform:translate(0,0)}38.33%{transform:translate(0,0)}39.17%{transform:translate(1.6px,-0.8px)}40%{transform:translate(-1.6px,-0.0px)}40.83%{transform:translate(1.6px,-0.8px)}41.67%{transform:translate(-1.6px,-0.0px)}42.5%{transform:translate(1.6px,-0.8px)}43.33%{transform:translate(-1.6px,-0.0px)}44.17%{transform:translate(1.6px,-0.8px)}45%{transform:translate(-1.6px,-0.0px)}45.83%{transform:translate(1.6px,-0.8px)}46.67%{transform:translate(-1.6px,-0.0px)}47.5%{transform:translate(1.6px,-0.8px)}48.33%{transform:translate(-1.6px,-0.0px)}49.17%{transform:translate(1.6px,-0.8px)}50%{transform:translate(-1.6px,-0.0px)}50.83%{transform:translate(1.6px,-0.8px)}51.67%{transform:translate(-1.6px,-0.0px)}52.5%{transform:translate(1.6px,-0.8px)}53.33%{transform:translate(-1.6px,-0.0px)}54.17%{transform:translate(1.6px,-0.8px)}55%{transform:translate(-1.6px,-0.0px)}55.83%{transform:translate(1.6px,-0.8px)}56.67%{transform:translate(-1.6px,-0.0px)}57.5%{transform:translate(1.6px,-0.8px)}58.33%{transform:translate(-1.6px,-0.0px)}59.17%{transform:translate(1.6px,-0.8px)}60%{transform:translate(-1.6px,-0.0px)}60.83%{transform:translate(1.6px,-0.8px)}61.67%{transform:translate(-1.6px,-0.0px)}62.5%{transform:translate(1.6px,-0.8px)}63.33%{transform:translate(-1.6px,-0.0px)}64.17%{transform:translate(1.6px,-0.8px)}65%{transform:translate(-1.6px,-0.0px)}65.42%{transform:translate(0,0)}100%{transform:translate(0,0)}}
+.robot{animation:rjit 12s linear infinite}
+@keyframes rcalm{0%{opacity:1}38.33%{opacity:1}39%{opacity:0}65%{opacity:0}65.67%{opacity:1}70%{opacity:1}70.67%{opacity:0}86.67%{opacity:0}87.33%{opacity:1}100%{opacity:1}}
+.r-calm{animation:rcalm 12s linear infinite}
+@keyframes ralarm{0%{opacity:0}38.33%{opacity:0}39%{opacity:1}65%{opacity:1}65.67%{opacity:0}100%{opacity:0}}
+.r-alarm{animation:ralarm 12s linear infinite}
+@keyframes rhappy{0%{opacity:0}70%{opacity:0}70.67%{opacity:1}86.67%{opacity:1}87.33%{opacity:0}100%{opacity:0}}
+.r-happy{animation:rhappy 12s linear infinite}
+@keyframes fcalm{0%{opacity:1}45.83%{opacity:1}46.5%{opacity:0}70%{opacity:0}70.67%{opacity:1}100%{opacity:1}}
+.f-calm{animation:fcalm 12s linear infinite}
+@keyframes fshock{0%{opacity:0}45.83%{opacity:0}46.5%{opacity:1}52.5%{opacity:1}53.17%{opacity:0}100%{opacity:0}}
+.f-shock{animation:fshock 12s linear infinite}
+@keyframes fsmug{0%{opacity:0}52.5%{opacity:0}53.17%{opacity:1}70%{opacity:1}70.67%{opacity:0}100%{opacity:0}}
+.f-smug{animation:fsmug 12s linear infinite}
+@keyframes tipbug{0%{opacity:0}40.83%{opacity:0}41.25%{opacity:1}58.33%{opacity:1}58.75%{opacity:0}100%{opacity:0}}
+.tipbug{animation:tipbug 12s linear infinite}
+@keyframes flybug{0%{opacity:0}58.33%{opacity:0}58.5%{opacity:1}98.33%{opacity:1}98.5%{opacity:0}100%{opacity:0}}
+.flybug{animation:flybug 12s linear infinite}
+@keyframes n14{0%{opacity:1}65.83%{opacity:1}66.25%{opacity:0}98.33%{opacity:0}98.75%{opacity:1}100%{opacity:1}}
+.n14{animation:n14 12s linear infinite}
+@keyframes n15{0%{opacity:0}65.83%{opacity:0}66.25%{opacity:1}98.33%{opacity:1}98.75%{opacity:0}100%{opacity:0}}
+.n15{animation:n15 12s linear infinite}
+@keyframes say{0%{opacity:0}52.5%{opacity:0}53.75%{opacity:1}78.33%{opacity:1}79.58%{opacity:0}100%{opacity:0}}
+.say{animation:say 12s linear infinite}
+@keyframes blinkR{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+.r-blink{animation:blinkR 3.7s infinite;transform-box:fill-box;transform-origin:center}
+@keyframes stir{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(6deg)}}
+.stir{animation:stir 1.6s ease-in-out infinite;transform-box:view-box;transform-origin:808px 284px}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+.bob{animation:bob 3s ease-in-out infinite}
+@keyframes steam{0%{transform:translateY(4px);opacity:0}30%{opacity:.4}100%{transform:translateY(-14px);opacity:0}}
+.steam{animation:steam 2.6s ease-out infinite}
+@keyframes tail{0%,100%{transform:rotate(0)}50%{transform:rotate(9deg)}}
+.tail{animation:tail 3.4s ease-in-out infinite;transform-box:view-box;transform-origin:1050px 68px}
+@keyframes cateyes{0%,46%,50%,100%{transform:scaleY(1)}48%{transform:scaleY(.1)}}
+.cateyes{animation:cateyes 5.2s infinite;transform-box:fill-box;transform-origin:center}
+@keyframes rain{to{transform:translate(-120px,440px)}}
+.rainA{animation:rain 1.5s linear infinite}.rainB{animation:rain .95s linear infinite}
+@keyframes ripple{0%{transform:scale(.2);opacity:0}15%{opacity:.6}100%{transform:scale(1.4);opacity:0}}
+.ripple{animation:ripple 2s ease-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes shimmer{0%,100%{transform:scaleX(1)}50%{transform:scaleX(1.25)}}
+.shimmer{animation:shimmer 2.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
+@keyframes blink{0%,60%{fill-opacity:1}61%,78%{fill-opacity:0}}
+.blink{animation:blink 6s steps(1) infinite}
+@keyframes beacon{0%,100%{opacity:.15}50%{opacity:1}}.beacon{animation:beacon 1.8s infinite}
+@keyframes hum{0%,96%,100%{opacity:1}97%{opacity:.35}98%{opacity:1}99%{opacity:.6}}
+.underline{animation:hum 5.5s infinite}.name-b{animation:hum 9s -3s infinite}
+@keyframes door{0%,100%{opacity:.45}50%{opacity:.62}}.doorlight{animation:door 4s ease-in-out infinite}
+@media (prefers-reduced-motion: reduce){*{animation:none!important}}
 @media (prefers-reduced-motion: reduce){.loop{animation:none!important;opacity:1!important}}
 </style>
+
 <defs>
-<clipPath id="frame"><rect x="1" y="1" width="1198" height="434" rx="21"/></clipPath>
-<linearGradient id="bgGrad" x1="0" y1="0" x2="0" y2="1">
-  <stop offset="0" stop-color="#0D1018"/>
-  <stop offset="1" stop-color="#07090E"/>
-</linearGradient>
-<linearGradient id="floorGrad" x1="0" y1="0" x2="0" y2="1">
-  <stop offset="0" stop-color="#111622"/>
-  <stop offset="1" stop-color="#080A10"/>
-</linearGradient>
-<linearGradient id="cloudGrad" x1="0" y1="0" x2="0" y2="1">
-  <stop offset="0" stop-color="#C6B8FF"/>
-  <stop offset=".6" stop-color="#9B86F5"/>
-  <stop offset="1" stop-color="#7660D4"/>
-</linearGradient>
-<linearGradient id="cableGrad" x1="0" y1="0" x2="1" y2="0">
-  <stop offset="0" stop-color="#FF9442"/>
-  <stop offset=".5" stop-color="#34D399"/>
-  <stop offset="1" stop-color="#38BDF8"/>
-</linearGradient>
-<radialGradient id="spotWarm" cx="34%" cy="56%" r="40%">
-  <stop offset="0" stop-color="#FF9442" stop-opacity=".10"/>
-  <stop offset="1" stop-color="#FF9442" stop-opacity="0"/>
-</radialGradient>
-<radialGradient id="spotCool" cx="76%" cy="48%" r="42%">
-  <stop offset="0" stop-color="#38BDF8" stop-opacity=".09"/>
-  <stop offset="1" stop-color="#38BDF8" stop-opacity="0"/>
-</radialGradient>
-<radialGradient id="spotViolet" cx="88%" cy="38%" r="32%">
-  <stop offset="0" stop-color="#A78BFA" stop-opacity=".10"/>
-  <stop offset="1" stop-color="#A78BFA" stop-opacity="0"/>
-</radialGradient>
+  <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#05060A"/><stop offset="1" stop-color="#120B22"/>
+  </linearGradient>
+  <radialGradient id="haze" cx=".62" cy="1" r=".7">
+    <stop offset="0" stop-color="#FF4F9A" stop-opacity=".22"/><stop offset="1" stop-color="#FF4F9A" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="street" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#0D1019"/><stop offset="1" stop-color="#05060A"/>
+  </linearGradient>
+  <linearGradient id="stallGlow" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#FF9442" stop-opacity=".26"/><stop offset="1" stop-color="#FF9442" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient id="doorSpill" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#FFB020" stop-opacity=".38"/><stop offset="1" stop-color="#FFB020" stop-opacity="0"/>
+  </linearGradient>
+  <pattern id="brick" width="44" height="22" patternUnits="userSpaceOnUse">
+    <path d="M0 21.5H44M22 0V11M0 10.5H44M0 11V22M44 11V22" stroke="#151A26" stroke-width="1" fill="none"/>
+  </pattern>
+  <filter id="glow" x="-30%" y="-60%" width="160%" height="220%"><feGaussianBlur stdDeviation="5"/></filter>
+  <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="9"/></filter>
 </defs>
-<rect x=".5" y=".5" width="1199" height="435" rx="22" fill="url(#bgGrad)" stroke="#1D2332"/>
-<g clip-path="url(#frame)">
-  <rect width="1200" height="436" fill="url(#spotWarm)"/>
-  <rect width="1200" height="436" fill="url(#spotCool)"/>
-  <rect width="1200" height="436" fill="url(#spotViolet)"/>
+<rect width="1200" height="440" fill="url(#sky)"/>
+<rect width="1200" height="440" fill="url(#haze)"/>
+<rect x="-10" y="79" width="72" height="293" fill="#0A0C16"/>
+<rect x="41" y="105" width="4" height="6" fill="#FF4F9A" opacity="0.29"/>
+<rect x="52" y="105" width="4" height="6" fill="#FFB020" opacity="0.28"/>
+<rect x="8" y="119" width="4" height="6" fill="#FF9442" opacity="0.15"/>
+<rect x="19" y="119" width="4" height="6" fill="#38BDF8" opacity="0.30"/>
+<rect x="19" y="133" width="4" height="6" fill="#FF9442" opacity="0.20"/>
+<rect x="41" y="147" width="4" height="6" fill="#FF9442" opacity="0.32"/>
+<rect x="19" y="161" width="4" height="6" fill="#38BDF8" opacity="0.15"/>
+<rect x="52" y="175" width="4" height="6" fill="#FFB020" opacity="0.16"/>
+<rect x="8" y="189" width="4" height="6" fill="#FF9442" opacity="0.24"/>
+<rect x="52" y="203" width="4" height="6" fill="#FF4F9A" opacity="0.33"/>
+<rect x="41" y="217" width="4" height="6" fill="#38BDF8" opacity="0.19"/>
+<rect x="19" y="231" width="4" height="6" fill="#FF9442" opacity="0.27"/>
+<rect x="30" y="231" width="4" height="6" fill="#38BDF8" opacity="0.24"/>
+<rect x="30" y="245" width="4" height="6" fill="#38BDF8" opacity="0.19"/>
+<rect x="-3" y="273" width="4" height="6" fill="#FF9442" opacity="0.19"/>
+<rect x="30" y="287" width="4" height="6" fill="#FFB020" opacity="0.32"/>
+<rect x="19" y="301" width="4" height="6" fill="#38BDF8" opacity="0.19"/>
+<rect x="30" y="301" width="4" height="6" fill="#38BDF8" opacity="0.26"/>
+<rect x="41" y="301" width="4" height="6" fill="#38BDF8" opacity="0.23"/>
+<rect x="19" y="329" width="4" height="6" fill="#FF4F9A" opacity="0.24"/>
+<rect x="-3" y="343" width="4" height="6" fill="#FF4F9A" opacity="0.15"/>
+<rect x="30" y="343" width="4" height="6" fill="#38BDF8" opacity="0.28"/>
+<rect x="64" y="204" width="82" height="168" fill="#0A0C16"/>
+<rect x="71" y="216" width="4" height="6" fill="#FF9442" opacity="0.32"/>
+<rect class="blink" style="animation-delay:-4.2s" x="71" y="230" width="4" height="6" fill="#FF4F9A" opacity="0.24"/>
+<rect x="71" y="244" width="4" height="6" fill="#38BDF8" opacity="0.27"/>
+<rect x="104" y="272" width="4" height="6" fill="#38BDF8" opacity="0.32"/>
+<rect x="71" y="286" width="4" height="6" fill="#FFB020" opacity="0.33"/>
+<rect x="115" y="328" width="4" height="6" fill="#FF9442" opacity="0.28"/>
+<rect x="104" y="342" width="4" height="6" fill="#FF9442" opacity="0.25"/>
+<rect x="115" y="342" width="4" height="6" fill="#38BDF8" opacity="0.21"/>
+<rect x="126" y="356" width="4" height="6" fill="#FFB020" opacity="0.24"/>
+<rect x="148" y="82" width="68" height="290" fill="#0A0C16"/>
+<rect x="166" y="150" width="4" height="6" fill="#FFB020" opacity="0.23"/>
+<rect x="177" y="164" width="4" height="6" fill="#FF4F9A" opacity="0.31"/>
+<rect x="188" y="164" width="4" height="6" fill="#38BDF8" opacity="0.33"/>
+<rect x="155" y="206" width="4" height="6" fill="#FF4F9A" opacity="0.26"/>
+<rect x="199" y="234" width="4" height="6" fill="#FF9442" opacity="0.22"/>
+<rect x="199" y="248" width="4" height="6" fill="#FF4F9A" opacity="0.33"/>
+<rect x="199" y="276" width="4" height="6" fill="#FFB020" opacity="0.33"/>
+<rect class="blink" style="animation-delay:-1.1s" x="155" y="290" width="4" height="6" fill="#FF9442" opacity="0.14"/>
+<rect x="177" y="318" width="4" height="6" fill="#FFB020" opacity="0.27"/>
+<rect x="155" y="346" width="4" height="6" fill="#38BDF8" opacity="0.21"/>
+<rect x="166" y="360" width="4" height="6" fill="#38BDF8" opacity="0.16"/>
+<rect x="226" y="190" width="94" height="182" fill="#0A0C16"/>
+<rect x="266" y="202" width="4" height="6" fill="#FF4F9A" opacity="0.33"/>
+<rect x="288" y="202" width="4" height="6" fill="#FF4F9A" opacity="0.21"/>
+<rect x="255" y="216" width="4" height="6" fill="#FF4F9A" opacity="0.33"/>
+<rect x="288" y="216" width="4" height="6" fill="#38BDF8" opacity="0.35"/>
+<rect x="310" y="216" width="4" height="6" fill="#FF9442" opacity="0.28"/>
+<rect x="233" y="230" width="4" height="6" fill="#FF9442" opacity="0.24"/>
+<rect x="277" y="230" width="4" height="6" fill="#FF9442" opacity="0.18"/>
+<rect x="244" y="244" width="4" height="6" fill="#FF4F9A" opacity="0.21"/>
+<rect x="255" y="244" width="4" height="6" fill="#FFB020" opacity="0.18"/>
+<rect x="310" y="244" width="4" height="6" fill="#38BDF8" opacity="0.23"/>
+<rect x="310" y="258" width="4" height="6" fill="#38BDF8" opacity="0.16"/>
+<rect x="266" y="272" width="4" height="6" fill="#38BDF8" opacity="0.28"/>
+<rect class="blink" style="animation-delay:-1.7s" x="299" y="286" width="4" height="6" fill="#FF4F9A" opacity="0.23"/>
+<rect x="255" y="300" width="4" height="6" fill="#38BDF8" opacity="0.33"/>
+<rect x="255" y="314" width="4" height="6" fill="#FF4F9A" opacity="0.34"/>
+<rect x="288" y="342" width="4" height="6" fill="#38BDF8" opacity="0.27"/>
+<rect x="233" y="356" width="4" height="6" fill="#38BDF8" opacity="0.15"/>
+<rect x="266" y="356" width="4" height="6" fill="#38BDF8" opacity="0.24"/>
+<rect x="329" y="160" width="53" height="212" fill="#0A0C16"/>
+<rect x="347" y="172" width="4" height="6" fill="#FF4F9A" opacity="0.16"/>
+<rect x="336" y="186" width="4" height="6" fill="#38BDF8" opacity="0.28"/>
+<rect x="369" y="214" width="4" height="6" fill="#38BDF8" opacity="0.27"/>
+<rect class="blink" style="animation-delay:-1.8s" x="336" y="270" width="4" height="6" fill="#FF9442" opacity="0.15"/>
+<rect x="347" y="270" width="4" height="6" fill="#38BDF8" opacity="0.16"/>
+<rect x="358" y="270" width="4" height="6" fill="#38BDF8" opacity="0.27"/>
+<rect x="347" y="298" width="4" height="6" fill="#FF9442" opacity="0.31"/>
+<rect x="369" y="312" width="4" height="6" fill="#38BDF8" opacity="0.35"/>
+<rect class="blink" style="animation-delay:-0.6s" x="358" y="340" width="4" height="6" fill="#38BDF8" opacity="0.26"/>
+<rect x="369" y="354" width="4" height="6" fill="#38BDF8" opacity="0.27"/>
+<rect x="388" y="139" width="75" height="233" fill="#0A0C16"/>
+<rect x="406" y="151" width="4" height="6" fill="#38BDF8" opacity="0.21"/>
+<rect class="blink" style="animation-delay:-4.7s" x="439" y="179" width="4" height="6" fill="#38BDF8" opacity="0.26"/>
+<rect x="428" y="193" width="4" height="6" fill="#FF4F9A" opacity="0.18"/>
+<rect class="blink" style="animation-delay:-1.1s" x="406" y="207" width="4" height="6" fill="#FF4F9A" opacity="0.20"/>
+<rect class="blink" style="animation-delay:-3.8s" x="417" y="207" width="4" height="6" fill="#FFB020" opacity="0.31"/>
+<rect x="428" y="207" width="4" height="6" fill="#FF9442" opacity="0.16"/>
+<rect class="blink" style="animation-delay:-5.7s" x="450" y="207" width="4" height="6" fill="#38BDF8" opacity="0.23"/>
+<rect x="417" y="235" width="4" height="6" fill="#FFB020" opacity="0.29"/>
+<rect x="406" y="277" width="4" height="6" fill="#38BDF8" opacity="0.22"/>
+<rect x="417" y="277" width="4" height="6" fill="#38BDF8" opacity="0.25"/>
+<rect x="417" y="291" width="4" height="6" fill="#38BDF8" opacity="0.30"/>
+<rect x="428" y="291" width="4" height="6" fill="#FFB020" opacity="0.15"/>
+<rect x="439" y="291" width="4" height="6" fill="#38BDF8" opacity="0.26"/>
+<rect x="439" y="333" width="4" height="6" fill="#38BDF8" opacity="0.19"/>
+<rect x="450" y="333" width="4" height="6" fill="#FFB020" opacity="0.31"/>
+<rect x="417" y="347" width="4" height="6" fill="#38BDF8" opacity="0.32"/>
+<rect x="439" y="361" width="4" height="6" fill="#FF4F9A" opacity="0.30"/>
+<rect x="473" y="209" width="78" height="163" fill="#0A0C16"/>
+<rect class="blink" style="animation-delay:-5.7s" x="480" y="221" width="4" height="6" fill="#38BDF8" opacity="0.32"/>
+<rect x="502" y="221" width="4" height="6" fill="#38BDF8" opacity="0.25"/>
+<rect x="535" y="221" width="4" height="6" fill="#FF4F9A" opacity="0.25"/>
+<rect x="480" y="235" width="4" height="6" fill="#38BDF8" opacity="0.33"/>
+<rect x="491" y="235" width="4" height="6" fill="#FFB020" opacity="0.25"/>
+<rect x="513" y="235" width="4" height="6" fill="#38BDF8" opacity="0.23"/>
+<rect x="491" y="249" width="4" height="6" fill="#FF9442" opacity="0.16"/>
+<rect x="491" y="263" width="4" height="6" fill="#FFB020" opacity="0.24"/>
+<rect x="513" y="263" width="4" height="6" fill="#FF9442" opacity="0.32"/>
+<rect x="480" y="277" width="4" height="6" fill="#FFB020" opacity="0.30"/>
+<rect x="524" y="277" width="4" height="6" fill="#38BDF8" opacity="0.29"/>
+<rect x="535" y="291" width="4" height="6" fill="#38BDF8" opacity="0.17"/>
+<rect x="491" y="305" width="4" height="6" fill="#38BDF8" opacity="0.32"/>
+<rect class="blink" style="animation-delay:-6.9s" x="513" y="305" width="4" height="6" fill="#38BDF8" opacity="0.23"/>
+<rect x="502" y="319" width="4" height="6" fill="#38BDF8" opacity="0.31"/>
+<rect x="480" y="333" width="4" height="6" fill="#FFB020" opacity="0.21"/>
+<rect x="491" y="361" width="4" height="6" fill="#38BDF8" opacity="0.25"/>
+<rect x="556" y="172" width="77" height="200" fill="#0A0C16"/>
+<rect x="574" y="184" width="4" height="6" fill="#38BDF8" opacity="0.17"/>
+<rect x="618" y="184" width="4" height="6" fill="#38BDF8" opacity="0.33"/>
+<rect x="618" y="198" width="4" height="6" fill="#38BDF8" opacity="0.30"/>
+<rect x="585" y="212" width="4" height="6" fill="#FF9442" opacity="0.33"/>
+<rect x="585" y="226" width="4" height="6" fill="#FF9442" opacity="0.30"/>
+<rect x="618" y="226" width="4" height="6" fill="#FFB020" opacity="0.27"/>
+<rect x="574" y="240" width="4" height="6" fill="#FFB020" opacity="0.17"/>
+<rect x="607" y="240" width="4" height="6" fill="#FF4F9A" opacity="0.19"/>
+<rect x="563" y="254" width="4" height="6" fill="#FF9442" opacity="0.31"/>
+<rect x="596" y="254" width="4" height="6" fill="#38BDF8" opacity="0.27"/>
+<rect x="585" y="296" width="4" height="6" fill="#FF4F9A" opacity="0.29"/>
+<rect x="574" y="310" width="4" height="6" fill="#FF9442" opacity="0.19"/>
+<rect x="618" y="310" width="4" height="6" fill="#38BDF8" opacity="0.28"/>
+<rect x="585" y="338" width="4" height="6" fill="#FFB020" opacity="0.33"/>
+<rect x="596" y="338" width="4" height="6" fill="#38BDF8" opacity="0.25"/>
+<rect x="618" y="338" width="4" height="6" fill="#38BDF8" opacity="0.15"/>
+<rect x="563" y="352" width="4" height="6" fill="#FFB020" opacity="0.31"/>
+<rect x="607" y="352" width="4" height="6" fill="#FF9442" opacity="0.21"/>
+<rect x="637" y="102" width="93" height="270" fill="#0A0C16"/>
+<rect x="688" y="114" width="4" height="6" fill="#38BDF8" opacity="0.21"/>
+<rect x="710" y="114" width="4" height="6" fill="#FF4F9A" opacity="0.27"/>
+<rect x="655" y="128" width="4" height="6" fill="#FF9442" opacity="0.31"/>
+<rect x="666" y="142" width="4" height="6" fill="#38BDF8" opacity="0.29"/>
+<rect x="666" y="156" width="4" height="6" fill="#FF4F9A" opacity="0.20"/>
+<rect x="721" y="156" width="4" height="6" fill="#FF9442" opacity="0.25"/>
+<rect x="655" y="170" width="4" height="6" fill="#FF4F9A" opacity="0.25"/>
+<rect x="688" y="170" width="4" height="6" fill="#38BDF8" opacity="0.20"/>
+<rect x="655" y="184" width="4" height="6" fill="#FFB020" opacity="0.26"/>
+<rect class="blink" style="animation-delay:-0.4s" x="666" y="184" width="4" height="6" fill="#FFB020" opacity="0.30"/>
+<rect x="710" y="184" width="4" height="6" fill="#38BDF8" opacity="0.32"/>
+<rect class="blink" style="animation-delay:-3.0s" x="666" y="198" width="4" height="6" fill="#38BDF8" opacity="0.28"/>
+<rect x="710" y="212" width="4" height="6" fill="#FFB020" opacity="0.18"/>
+<rect x="721" y="212" width="4" height="6" fill="#FF9442" opacity="0.31"/>
+<rect x="677" y="226" width="4" height="6" fill="#FF9442" opacity="0.26"/>
+<rect x="721" y="226" width="4" height="6" fill="#38BDF8" opacity="0.29"/>
+<rect x="666" y="268" width="4" height="6" fill="#FF4F9A" opacity="0.17"/>
+<rect x="699" y="268" width="4" height="6" fill="#38BDF8" opacity="0.25"/>
+<rect x="710" y="268" width="4" height="6" fill="#FF4F9A" opacity="0.23"/>
+<rect x="721" y="268" width="4" height="6" fill="#FF9442" opacity="0.29"/>
+<rect x="677" y="282" width="4" height="6" fill="#38BDF8" opacity="0.16"/>
+<rect x="655" y="296" width="4" height="6" fill="#FF4F9A" opacity="0.15"/>
+<rect x="644" y="324" width="4" height="6" fill="#38BDF8" opacity="0.26"/>
+<rect x="655" y="338" width="4" height="6" fill="#38BDF8" opacity="0.20"/>
+<rect x="666" y="338" width="4" height="6" fill="#38BDF8" opacity="0.25"/>
+<rect x="710" y="338" width="4" height="6" fill="#FF9442" opacity="0.34"/>
+<rect x="677" y="352" width="4" height="6" fill="#38BDF8" opacity="0.23"/>
+<rect x="732" y="122" width="63" height="250" fill="#0A0C16"/>
+<rect x="783" y="134" width="4" height="6" fill="#38BDF8" opacity="0.23"/>
+<rect x="750" y="148" width="4" height="6" fill="#FF4F9A" opacity="0.29"/>
+<rect x="772" y="148" width="4" height="6" fill="#38BDF8" opacity="0.25"/>
+<rect x="739" y="162" width="4" height="6" fill="#FF4F9A" opacity="0.19"/>
+<rect x="783" y="162" width="4" height="6" fill="#FF9442" opacity="0.24"/>
+<rect x="739" y="176" width="4" height="6" fill="#38BDF8" opacity="0.15"/>
+<rect x="783" y="176" width="4" height="6" fill="#38BDF8" opacity="0.27"/>
+<rect class="blink" style="animation-delay:-3.5s" x="739" y="190" width="4" height="6" fill="#FFB020" opacity="0.24"/>
+<rect x="739" y="246" width="4" height="6" fill="#FF9442" opacity="0.20"/>
+<rect x="750" y="260" width="4" height="6" fill="#FF9442" opacity="0.33"/>
+<rect x="761" y="316" width="4" height="6" fill="#38BDF8" opacity="0.20"/>
+<rect x="739" y="330" width="4" height="6" fill="#FF4F9A" opacity="0.19"/>
+<rect x="772" y="330" width="4" height="6" fill="#FF4F9A" opacity="0.14"/>
+<rect x="761" y="344" width="4" height="6" fill="#FF4F9A" opacity="0.29"/>
+<rect x="739" y="358" width="4" height="6" fill="#FF9442" opacity="0.29"/>
+<rect x="799" y="97" width="65" height="275" fill="#0A0C16"/>
+<rect x="850" y="151" width="4" height="6" fill="#FF4F9A" opacity="0.32"/>
+<rect x="806" y="165" width="4" height="6" fill="#38BDF8" opacity="0.30"/>
+<rect x="806" y="193" width="4" height="6" fill="#FFB020" opacity="0.17"/>
+<rect x="839" y="193" width="4" height="6" fill="#38BDF8" opacity="0.28"/>
+<rect x="817" y="207" width="4" height="6" fill="#FF4F9A" opacity="0.31"/>
+<rect x="850" y="221" width="4" height="6" fill="#38BDF8" opacity="0.16"/>
+<rect x="806" y="235" width="4" height="6" fill="#38BDF8" opacity="0.25"/>
+<rect x="817" y="249" width="4" height="6" fill="#FF9442" opacity="0.31"/>
+<rect x="828" y="277" width="4" height="6" fill="#38BDF8" opacity="0.26"/>
+<rect x="817" y="291" width="4" height="6" fill="#FF9442" opacity="0.26"/>
+<rect x="806" y="305" width="4" height="6" fill="#38BDF8" opacity="0.19"/>
+<rect class="blink" style="animation-delay:-5.3s" x="817" y="305" width="4" height="6" fill="#FF9442" opacity="0.28"/>
+<rect x="828" y="305" width="4" height="6" fill="#38BDF8" opacity="0.35"/>
+<rect x="850" y="319" width="4" height="6" fill="#FF4F9A" opacity="0.31"/>
+<rect x="828" y="347" width="4" height="6" fill="#FF9442" opacity="0.25"/>
+<rect x="806" y="361" width="4" height="6" fill="#FF4F9A" opacity="0.25"/>
+<rect class="blink" style="animation-delay:-2.6s" x="817" y="361" width="4" height="6" fill="#38BDF8" opacity="0.30"/>
+<rect x="873" y="144" width="69" height="228" fill="#0A0C16"/>
+<rect x="924" y="156" width="4" height="6" fill="#FFB020" opacity="0.29"/>
+<rect x="902" y="170" width="4" height="6" fill="#FF4F9A" opacity="0.21"/>
+<rect x="880" y="198" width="4" height="6" fill="#38BDF8" opacity="0.20"/>
+<rect x="913" y="198" width="4" height="6" fill="#38BDF8" opacity="0.28"/>
+<rect x="924" y="198" width="4" height="6" fill="#FF9442" opacity="0.22"/>
+<rect x="891" y="212" width="4" height="6" fill="#FFB020" opacity="0.22"/>
+<rect x="924" y="226" width="4" height="6" fill="#38BDF8" opacity="0.34"/>
+<rect class="blink" style="animation-delay:-2.7s" x="913" y="240" width="4" height="6" fill="#38BDF8" opacity="0.33"/>
+<rect x="902" y="254" width="4" height="6" fill="#FFB020" opacity="0.15"/>
+<rect x="880" y="282" width="4" height="6" fill="#FFB020" opacity="0.24"/>
+<rect x="880" y="296" width="4" height="6" fill="#FF9442" opacity="0.23"/>
+<rect x="902" y="296" width="4" height="6" fill="#FF9442" opacity="0.17"/>
+<rect class="blink" style="animation-delay:-1.3s" x="891" y="324" width="4" height="6" fill="#FFB020" opacity="0.33"/>
+<rect x="913" y="324" width="4" height="6" fill="#FF9442" opacity="0.25"/>
+<rect x="880" y="338" width="4" height="6" fill="#FF9442" opacity="0.19"/>
+<rect x="913" y="352" width="4" height="6" fill="#FF4F9A" opacity="0.30"/>
+<rect x="945" y="95" width="95" height="277" fill="#0A0C16"/>
+<rect x="1007" y="107" width="4" height="6" fill="#38BDF8" opacity="0.21"/>
+<rect x="996" y="121" width="4" height="6" fill="#FF4F9A" opacity="0.24"/>
+<rect x="1007" y="121" width="4" height="6" fill="#38BDF8" opacity="0.21"/>
+<rect x="985" y="149" width="4" height="6" fill="#FF4F9A" opacity="0.17"/>
+<rect x="996" y="149" width="4" height="6" fill="#38BDF8" opacity="0.22"/>
+<rect x="996" y="163" width="4" height="6" fill="#38BDF8" opacity="0.31"/>
+<rect x="952" y="205" width="4" height="6" fill="#FFB020" opacity="0.26"/>
+<rect x="996" y="205" width="4" height="6" fill="#FF4F9A" opacity="0.23"/>
+<rect x="1007" y="205" width="4" height="6" fill="#38BDF8" opacity="0.20"/>
+<rect class="blink" style="animation-delay:-4.6s" x="1018" y="205" width="4" height="6" fill="#FF4F9A" opacity="0.24"/>
+<rect x="963" y="219" width="4" height="6" fill="#FF9442" opacity="0.28"/>
+<rect x="1007" y="219" width="4" height="6" fill="#38BDF8" opacity="0.22"/>
+<rect x="974" y="247" width="4" height="6" fill="#FFB020" opacity="0.31"/>
+<rect class="blink" style="animation-delay:-6.7s" x="963" y="261" width="4" height="6" fill="#FF9442" opacity="0.29"/>
+<rect x="963" y="275" width="4" height="6" fill="#38BDF8" opacity="0.34"/>
+<rect x="985" y="275" width="4" height="6" fill="#38BDF8" opacity="0.26"/>
+<rect x="1018" y="275" width="4" height="6" fill="#FF4F9A" opacity="0.15"/>
+<rect x="963" y="303" width="4" height="6" fill="#FF9442" opacity="0.32"/>
+<rect x="974" y="303" width="4" height="6" fill="#FF4F9A" opacity="0.34"/>
+<rect x="963" y="317" width="4" height="6" fill="#38BDF8" opacity="0.16"/>
+<rect x="1018" y="345" width="4" height="6" fill="#FF4F9A" opacity="0.16"/>
+<rect x="985" y="359" width="4" height="6" fill="#FFB020" opacity="0.28"/>
+<rect x="1007" y="359" width="4" height="6" fill="#38BDF8" opacity="0.15"/>
+<rect x="1048" y="165" width="96" height="207" fill="#0A0C16"/>
+<rect x="1077" y="177" width="4" height="6" fill="#38BDF8" opacity="0.19"/>
+<rect x="1110" y="177" width="4" height="6" fill="#FFB020" opacity="0.16"/>
+<rect x="1121" y="191" width="4" height="6" fill="#38BDF8" opacity="0.25"/>
+<rect x="1055" y="205" width="4" height="6" fill="#FF9442" opacity="0.26"/>
+<rect x="1110" y="205" width="4" height="6" fill="#FF4F9A" opacity="0.16"/>
+<rect class="blink" style="animation-delay:-4.4s" x="1110" y="219" width="4" height="6" fill="#FFB020" opacity="0.26"/>
+<rect x="1055" y="233" width="4" height="6" fill="#38BDF8" opacity="0.14"/>
+<rect x="1121" y="233" width="4" height="6" fill="#FF9442" opacity="0.30"/>
+<rect x="1077" y="247" width="4" height="6" fill="#38BDF8" opacity="0.29"/>
+<rect class="blink" style="animation-delay:-2.3s" x="1099" y="261" width="4" height="6" fill="#38BDF8" opacity="0.17"/>
+<rect x="1121" y="261" width="4" height="6" fill="#38BDF8" opacity="0.15"/>
+<rect x="1132" y="275" width="4" height="6" fill="#38BDF8" opacity="0.21"/>
+<rect x="1055" y="289" width="4" height="6" fill="#38BDF8" opacity="0.22"/>
+<rect x="1132" y="289" width="4" height="6" fill="#FFB020" opacity="0.29"/>
+<rect x="1110" y="303" width="4" height="6" fill="#38BDF8" opacity="0.29"/>
+<rect x="1132" y="317" width="4" height="6" fill="#38BDF8" opacity="0.17"/>
+<rect x="1077" y="331" width="4" height="6" fill="#FFB020" opacity="0.17"/>
+<rect x="1121" y="331" width="4" height="6" fill="#38BDF8" opacity="0.18"/>
+<rect x="1066" y="345" width="4" height="6" fill="#38BDF8" opacity="0.33"/>
+<rect x="1099" y="359" width="4" height="6" fill="#FF4F9A" opacity="0.28"/>
+<rect x="1147" y="215" width="61" height="157" fill="#0A0C16"/>
+<rect x="1198" y="227" width="4" height="6" fill="#FF4F9A" opacity="0.27"/>
+<rect x="1176" y="255" width="4" height="6" fill="#38BDF8" opacity="0.25"/>
+<rect class="blink" style="animation-delay:-6.6s" x="1165" y="283" width="4" height="6" fill="#FF4F9A" opacity="0.28"/>
+<rect class="blink" style="animation-delay:-4.0s" x="1176" y="283" width="4" height="6" fill="#FF9442" opacity="0.17"/>
+<rect x="1165" y="297" width="4" height="6" fill="#FF9442" opacity="0.23"/>
+<rect x="1176" y="297" width="4" height="6" fill="#FF4F9A" opacity="0.23"/>
+<rect x="1198" y="297" width="4" height="6" fill="#38BDF8" opacity="0.33"/>
+<rect x="1165" y="311" width="4" height="6" fill="#38BDF8" opacity="0.16"/>
+<rect x="1165" y="325" width="4" height="6" fill="#38BDF8" opacity="0.19"/>
+<rect x="1187" y="325" width="4" height="6" fill="#FF4F9A" opacity="0.33"/>
+<rect x="1165" y="339" width="4" height="6" fill="#FFB020" opacity="0.35"/>
+<rect x="1154" y="353" width="4" height="6" fill="#FF4F9A" opacity="0.33"/>
+<rect x="1165" y="353" width="4" height="6" fill="#38BDF8" opacity="0.34"/>
+<rect x="1176" y="353" width="4" height="6" fill="#FF9442" opacity="0.18"/>
+<rect x="4" y="187" width="44" height="185" fill="#0E1120"/>
+<rect x="11" y="199" width="4" height="6" fill="#38BDF8" opacity="0.50"/>
+<rect x="22" y="213" width="4" height="6" fill="#38BDF8" opacity="0.41"/>
+<rect x="33" y="241" width="4" height="6" fill="#38BDF8" opacity="0.37"/>
+<rect x="33" y="283" width="4" height="6" fill="#38BDF8" opacity="0.32"/>
+<rect x="33" y="311" width="4" height="6" fill="#FF4F9A" opacity="0.29"/>
+<rect x="22" y="353" width="4" height="6" fill="#38BDF8" opacity="0.48"/>
+<rect x="54" y="265" width="79" height="107" fill="#0E1120"/>
+<rect class="blink" style="animation-delay:-6.7s" x="83" y="277" width="4" height="6" fill="#FFB020" opacity="0.36"/>
+<rect x="94" y="277" width="4" height="6" fill="#FF9442" opacity="0.51"/>
+<rect x="83" y="291" width="4" height="6" fill="#38BDF8" opacity="0.28"/>
+<rect x="94" y="291" width="4" height="6" fill="#38BDF8" opacity="0.46"/>
+<rect x="72" y="305" width="4" height="6" fill="#38BDF8" opacity="0.51"/>
+<rect x="116" y="305" width="4" height="6" fill="#38BDF8" opacity="0.26"/>
+<rect class="blink" style="animation-delay:-6.5s" x="61" y="333" width="4" height="6" fill="#38BDF8" opacity="0.54"/>
+<rect x="61" y="347" width="4" height="6" fill="#FFB020" opacity="0.54"/>
+<rect x="83" y="361" width="4" height="6" fill="#FF4F9A" opacity="0.24"/>
+<rect x="94" y="361" width="4" height="6" fill="#38BDF8" opacity="0.49"/>
+<rect x="116" y="361" width="4" height="6" fill="#FFB020" opacity="0.38"/>
+<rect x="136" y="276" width="73" height="96" fill="#0E1120"/>
+<rect x="154" y="288" width="4" height="6" fill="#38BDF8" opacity="0.33"/>
+<rect x="154" y="302" width="4" height="6" fill="#38BDF8" opacity="0.41"/>
+<rect x="198" y="316" width="4" height="6" fill="#FF4F9A" opacity="0.52"/>
+<rect x="176" y="344" width="4" height="6" fill="#FFB020" opacity="0.38"/>
+<rect x="154" y="358" width="4" height="6" fill="#FFB020" opacity="0.38"/>
+<rect x="187" y="358" width="4" height="6" fill="#38BDF8" opacity="0.38"/>
+<rect x="211" y="169" width="61" height="203" fill="#0E1120"/>
+<rect x="218" y="181" width="4" height="6" fill="#38BDF8" opacity="0.30"/>
+<rect x="229" y="251" width="4" height="6" fill="#FFB020" opacity="0.30"/>
+<rect x="251" y="251" width="4" height="6" fill="#FF4F9A" opacity="0.38"/>
+<rect x="218" y="279" width="4" height="6" fill="#38BDF8" opacity="0.51"/>
+<rect x="240" y="293" width="4" height="6" fill="#FF9442" opacity="0.35"/>
+<rect x="218" y="307" width="4" height="6" fill="#38BDF8" opacity="0.43"/>
+<rect x="262" y="307" width="4" height="6" fill="#38BDF8" opacity="0.54"/>
+<rect x="240" y="321" width="4" height="6" fill="#38BDF8" opacity="0.32"/>
+<rect x="274" y="255" width="65" height="117" fill="#0E1120"/>
+<rect class="blink" style="animation-delay:-5.3s" x="314" y="267" width="4" height="6" fill="#FF4F9A" opacity="0.39"/>
+<rect x="325" y="309" width="4" height="6" fill="#FFB020" opacity="0.45"/>
+<rect x="292" y="351" width="4" height="6" fill="#38BDF8" opacity="0.54"/>
+<rect x="345" y="272" width="93" height="100" fill="#0E1120"/>
+<rect x="385" y="284" width="4" height="6" fill="#FFB020" opacity="0.30"/>
+<rect x="418" y="284" width="4" height="6" fill="#FFB020" opacity="0.36"/>
+<rect x="429" y="284" width="4" height="6" fill="#FFB020" opacity="0.48"/>
+<rect x="407" y="298" width="4" height="6" fill="#FF4F9A" opacity="0.24"/>
+<rect x="429" y="298" width="4" height="6" fill="#FF9442" opacity="0.46"/>
+<rect x="363" y="326" width="4" height="6" fill="#FF4F9A" opacity="0.46"/>
+<rect x="396" y="326" width="4" height="6" fill="#FF9442" opacity="0.37"/>
+<rect x="444" y="166" width="58" height="206" fill="#0E1120"/>
+<rect x="451" y="206" width="4" height="6" fill="#FFB020" opacity="0.36"/>
+<rect x="462" y="206" width="4" height="6" fill="#FFB020" opacity="0.35"/>
+<rect class="blink" style="animation-delay:-1.5s" x="462" y="220" width="4" height="6" fill="#FF4F9A" opacity="0.44"/>
+<rect x="473" y="220" width="4" height="6" fill="#38BDF8" opacity="0.41"/>
+<rect x="451" y="248" width="4" height="6" fill="#FF4F9A" opacity="0.46"/>
+<rect x="473" y="262" width="4" height="6" fill="#FFB020" opacity="0.32"/>
+<rect class="blink" style="animation-delay:-3.2s" x="462" y="276" width="4" height="6" fill="#FF4F9A" opacity="0.40"/>
+<rect x="484" y="276" width="4" height="6" fill="#38BDF8" opacity="0.47"/>
+<rect x="451" y="290" width="4" height="6" fill="#38BDF8" opacity="0.28"/>
+<rect x="451" y="304" width="4" height="6" fill="#FF4F9A" opacity="0.23"/>
+<rect x="484" y="304" width="4" height="6" fill="#38BDF8" opacity="0.50"/>
+<rect x="473" y="318" width="4" height="6" fill="#FF9442" opacity="0.23"/>
+<rect x="451" y="332" width="4" height="6" fill="#FF9442" opacity="0.23"/>
+<rect x="508" y="153" width="82" height="219" fill="#0E1120"/>
+<rect x="559" y="165" width="4" height="6" fill="#38BDF8" opacity="0.51"/>
+<rect x="570" y="165" width="4" height="6" fill="#38BDF8" opacity="0.44"/>
+<rect x="581" y="165" width="4" height="6" fill="#38BDF8" opacity="0.33"/>
+<rect x="559" y="179" width="4" height="6" fill="#FFB020" opacity="0.24"/>
+<rect x="581" y="179" width="4" height="6" fill="#FF4F9A" opacity="0.23"/>
+<rect x="559" y="207" width="4" height="6" fill="#38BDF8" opacity="0.33"/>
+<rect x="581" y="221" width="4" height="6" fill="#38BDF8" opacity="0.28"/>
+<rect x="515" y="235" width="4" height="6" fill="#38BDF8" opacity="0.37"/>
+<rect x="559" y="263" width="4" height="6" fill="#38BDF8" opacity="0.43"/>
+<rect x="570" y="263" width="4" height="6" fill="#FFB020" opacity="0.28"/>
+<rect x="559" y="291" width="4" height="6" fill="#38BDF8" opacity="0.33"/>
+<rect x="515" y="305" width="4" height="6" fill="#38BDF8" opacity="0.55"/>
+<rect class="blink" style="animation-delay:-1.0s" x="526" y="305" width="4" height="6" fill="#FF9442" opacity="0.35"/>
+<rect x="548" y="305" width="4" height="6" fill="#FF4F9A" opacity="0.52"/>
+<rect class="blink" style="animation-delay:-5.2s" x="581" y="305" width="4" height="6" fill="#38BDF8" opacity="0.30"/>
+<rect x="515" y="333" width="4" height="6" fill="#38BDF8" opacity="0.30"/>
+<rect x="537" y="333" width="4" height="6" fill="#FF4F9A" opacity="0.54"/>
+<rect class="blink" style="animation-delay:-5.6s" x="515" y="347" width="4" height="6" fill="#38BDF8" opacity="0.27"/>
+<rect x="537" y="347" width="4" height="6" fill="#38BDF8" opacity="0.43"/>
+<rect x="526" y="361" width="4" height="6" fill="#FF9442" opacity="0.23"/>
+<rect x="594" y="156" width="70" height="216" fill="#0E1120"/>
+<rect x="612" y="168" width="4" height="6" fill="#FF4F9A" opacity="0.52"/>
+<rect x="634" y="168" width="4" height="6" fill="#38BDF8" opacity="0.35"/>
+<rect x="601" y="182" width="4" height="6" fill="#FFB020" opacity="0.33"/>
+<rect x="612" y="182" width="4" height="6" fill="#FFB020" opacity="0.35"/>
+<rect x="634" y="182" width="4" height="6" fill="#FF9442" opacity="0.42"/>
+<rect x="645" y="196" width="4" height="6" fill="#FF4F9A" opacity="0.37"/>
+<rect x="601" y="210" width="4" height="6" fill="#FF4F9A" opacity="0.23"/>
+<rect x="623" y="224" width="4" height="6" fill="#FF9442" opacity="0.27"/>
+<rect x="634" y="224" width="4" height="6" fill="#FF9442" opacity="0.43"/>
+<rect x="645" y="224" width="4" height="6" fill="#FF9442" opacity="0.33"/>
+<rect class="blink" style="animation-delay:-1.4s" x="634" y="238" width="4" height="6" fill="#FFB020" opacity="0.43"/>
+<rect x="645" y="238" width="4" height="6" fill="#38BDF8" opacity="0.48"/>
+<rect x="623" y="252" width="4" height="6" fill="#FF9442" opacity="0.23"/>
+<rect x="601" y="266" width="4" height="6" fill="#FF4F9A" opacity="0.32"/>
+<rect x="634" y="266" width="4" height="6" fill="#38BDF8" opacity="0.26"/>
+<rect x="634" y="280" width="4" height="6" fill="#38BDF8" opacity="0.51"/>
+<rect x="612" y="294" width="4" height="6" fill="#FFB020" opacity="0.34"/>
+<rect x="656" y="308" width="4" height="6" fill="#FFB020" opacity="0.25"/>
+<rect x="645" y="336" width="4" height="6" fill="#38BDF8" opacity="0.45"/>
+<rect x="645" y="350" width="4" height="6" fill="#FF9442" opacity="0.43"/>
+<rect x="673" y="276" width="76" height="96" fill="#0E1120"/>
+<rect x="680" y="288" width="4" height="6" fill="#38BDF8" opacity="0.28"/>
+<rect x="702" y="316" width="4" height="6" fill="#FF4F9A" opacity="0.23"/>
+<rect x="713" y="330" width="4" height="6" fill="#FF9442" opacity="0.27"/>
+<rect x="724" y="344" width="4" height="6" fill="#FF9442" opacity="0.25"/>
+<rect x="691" y="358" width="4" height="6" fill="#38BDF8" opacity="0.42"/>
+<rect x="724" y="358" width="4" height="6" fill="#38BDF8" opacity="0.40"/>
+<rect x="751" y="199" width="87" height="173" fill="#0E1120"/>
+<rect x="802" y="211" width="4" height="6" fill="#FFB020" opacity="0.38"/>
+<rect class="blink" style="animation-delay:-0.9s" x="824" y="211" width="4" height="6" fill="#38BDF8" opacity="0.42"/>
+<rect x="758" y="253" width="4" height="6" fill="#FFB020" opacity="0.54"/>
+<rect x="802" y="253" width="4" height="6" fill="#38BDF8" opacity="0.37"/>
+<rect x="780" y="267" width="4" height="6" fill="#38BDF8" opacity="0.26"/>
+<rect x="791" y="267" width="4" height="6" fill="#FF9442" opacity="0.27"/>
+<rect x="769" y="281" width="4" height="6" fill="#38BDF8" opacity="0.24"/>
+<rect x="791" y="295" width="4" height="6" fill="#FFB020" opacity="0.52"/>
+<rect x="824" y="295" width="4" height="6" fill="#38BDF8" opacity="0.42"/>
+<rect x="802" y="309" width="4" height="6" fill="#FF4F9A" opacity="0.50"/>
+<rect x="769" y="323" width="4" height="6" fill="#FF4F9A" opacity="0.28"/>
+<rect x="780" y="337" width="4" height="6" fill="#FF9442" opacity="0.30"/>
+<rect x="758" y="351" width="4" height="6" fill="#38BDF8" opacity="0.42"/>
+<rect x="769" y="351" width="4" height="6" fill="#FF4F9A" opacity="0.42"/>
+<rect x="845" y="189" width="70" height="183" fill="#0E1120"/>
+<rect x="852" y="201" width="4" height="6" fill="#38BDF8" opacity="0.34"/>
+<rect x="885" y="215" width="4" height="6" fill="#38BDF8" opacity="0.32"/>
+<rect x="907" y="215" width="4" height="6" fill="#38BDF8" opacity="0.40"/>
+<rect x="896" y="229" width="4" height="6" fill="#FF9442" opacity="0.38"/>
+<rect x="896" y="243" width="4" height="6" fill="#FF4F9A" opacity="0.33"/>
+<rect class="blink" style="animation-delay:-5.2s" x="852" y="257" width="4" height="6" fill="#FF9442" opacity="0.40"/>
+<rect x="874" y="271" width="4" height="6" fill="#FF4F9A" opacity="0.51"/>
+<rect x="896" y="271" width="4" height="6" fill="#FF9442" opacity="0.44"/>
+<rect x="852" y="285" width="4" height="6" fill="#FF4F9A" opacity="0.55"/>
+<rect x="885" y="299" width="4" height="6" fill="#FF4F9A" opacity="0.49"/>
+<rect x="885" y="327" width="4" height="6" fill="#38BDF8" opacity="0.41"/>
+<rect x="885" y="341" width="4" height="6" fill="#FF4F9A" opacity="0.52"/>
+<rect x="923" y="272" width="73" height="100" fill="#0E1120"/>
+<rect x="952" y="284" width="4" height="6" fill="#38BDF8" opacity="0.41"/>
+<rect x="952" y="326" width="4" height="6" fill="#FF9442" opacity="0.26"/>
+<rect x="985" y="354" width="4" height="6" fill="#FF9442" opacity="0.41"/>
+<rect x="998" y="262" width="79" height="110" fill="#0E1120"/>
+<rect x="1049" y="274" width="4" height="6" fill="#38BDF8" opacity="0.32"/>
+<rect x="1060" y="274" width="4" height="6" fill="#FF4F9A" opacity="0.42"/>
+<rect class="blink" style="animation-delay:-3.4s" x="1060" y="302" width="4" height="6" fill="#38BDF8" opacity="0.25"/>
+<rect x="1005" y="316" width="4" height="6" fill="#38BDF8" opacity="0.24"/>
+<rect x="1049" y="316" width="4" height="6" fill="#38BDF8" opacity="0.49"/>
+<rect x="1060" y="316" width="4" height="6" fill="#38BDF8" opacity="0.24"/>
+<rect x="1027" y="330" width="4" height="6" fill="#FFB020" opacity="0.39"/>
+<rect x="1038" y="330" width="4" height="6" fill="#38BDF8" opacity="0.49"/>
+<rect class="blink" style="animation-delay:-1.7s" x="1060" y="330" width="4" height="6" fill="#FFB020" opacity="0.46"/>
+<rect x="1027" y="344" width="4" height="6" fill="#FF9442" opacity="0.31"/>
+<rect x="1027" y="358" width="4" height="6" fill="#FF4F9A" opacity="0.34"/>
+<rect x="1049" y="358" width="4" height="6" fill="#38BDF8" opacity="0.27"/>
+<rect x="1086" y="277" width="82" height="95" fill="#0E1120"/>
+<rect x="1104" y="289" width="4" height="6" fill="#FF9442" opacity="0.39"/>
+<rect x="1115" y="289" width="4" height="6" fill="#FF9442" opacity="0.50"/>
+<rect x="1137" y="289" width="4" height="6" fill="#FFB020" opacity="0.39"/>
+<rect x="1115" y="317" width="4" height="6" fill="#FF4F9A" opacity="0.40"/>
+<rect x="1148" y="317" width="4" height="6" fill="#FF9442" opacity="0.27"/>
+<rect class="blink" style="animation-delay:-4.4s" x="1093" y="331" width="4" height="6" fill="#FFB020" opacity="0.49"/>
+<rect x="1159" y="345" width="4" height="6" fill="#FFB020" opacity="0.33"/>
+<rect x="1093" y="359" width="4" height="6" fill="#FFB020" opacity="0.26"/>
+<rect x="1137" y="359" width="4" height="6" fill="#38BDF8" opacity="0.39"/>
+<rect x="1159" y="359" width="4" height="6" fill="#38BDF8" opacity="0.53"/>
+<rect x="1178" y="220" width="58" height="152" fill="#0E1120"/>
+<rect x="1218" y="246" width="4" height="6" fill="#38BDF8" opacity="0.53"/>
+<rect x="1207" y="260" width="4" height="6" fill="#FF9442" opacity="0.52"/>
+<rect x="1185" y="274" width="4" height="6" fill="#38BDF8" opacity="0.46"/>
+<rect x="1207" y="302" width="4" height="6" fill="#38BDF8" opacity="0.47"/>
+<rect x="1218" y="302" width="4" height="6" fill="#FF9442" opacity="0.50"/>
+<rect class="blink" style="animation-delay:-0.4s" x="1218" y="316" width="4" height="6" fill="#FF9442" opacity="0.46"/>
+<rect x="1196" y="358" width="4" height="6" fill="#FFB020" opacity="0.48"/>
+<rect x="508" y="38" width="64" height="40" rx="3" fill="#0B0E18" stroke="#1C2234"/><text x="540" y="64" text-anchor="middle" font-family="'JetBrains Mono','SFMono-Regular',ui-monospace,Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="13" font-weight="700" fill="#38BDF8" opacity=".55" class="billboard">24/7</text><circle class="beacon" cx="1150" cy="40" r="2.5" fill="#FF5454"/>
+
+<g>
+  <rect x="0" y="0" width="470" height="372" fill="#0B0D15"/>
+  <rect x="0" y="0" width="470" height="372" fill="url(#brick)" opacity=".9"/>
+  <rect x="462" y="0" width="8" height="372" fill="#070910"/>
+  <!-- conduit feeding the sign -->
+  <path d="M418 0 V44 Q418 54 408 54 H392" fill="none" stroke="#1B2131" stroke-width="5" stroke-linecap="round"/>
+  <rect x="60" y="70" width="10" height="4" rx="1.5" fill="#262E42"/><rect x="230" y="70" width="10" height="4" rx="1.5" fill="#262E42"/><rect x="380" y="70" width="10" height="4" rx="1.5" fill="#262E42"/><rect x="60" y="205" width="10" height="4" rx="1.5" fill="#262E42"/><rect x="250" y="205" width="10" height="4" rx="1.5" fill="#262E42"/><rect x="400" y="205" width="10" height="4" rx="1.5" fill="#262E42"/>
+  <text x="46" y="128" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="74" font-weight="800" textLength="232" lengthAdjust="spacingAndGlyphs" fill="none" stroke="#1A1F2C" stroke-width="3">Nitish</text><g class="name-a"><text x="46" y="128" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="74" font-weight="800" textLength="232" lengthAdjust="spacingAndGlyphs" fill="#FF9442" fill-opacity=".14" stroke="#FF9442" stroke-width="6" filter="url(#glow)" opacity=".85">Nitish</text><text x="46" y="128" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="74" font-weight="800" textLength="232" lengthAdjust="spacingAndGlyphs" fill="none" stroke="#FF9442" stroke-width="2.4" stroke-linejoin="round">Nitish</text><text x="46" y="128" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="74" font-weight="800" textLength="232" lengthAdjust="spacingAndGlyphs" fill="none" stroke="#FFFFFF" stroke-width=".8" stroke-opacity=".7" stroke-linejoin="round">Nitish</text></g>
+  <text x="46" y="200" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="74" font-weight="800" textLength="382" lengthAdjust="spacingAndGlyphs" fill="none" stroke="#1A1F2C" stroke-width="3">Sundarraj</text><g class="name-b"><text x="46" y="200" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="74" font-weight="800" textLength="382" lengthAdjust="spacingAndGlyphs" fill="#38BDF8" fill-opacity=".14" stroke="#38BDF8" stroke-width="6" filter="url(#glow)" opacity=".85">Sundarraj</text><text x="46" y="200" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="74" font-weight="800" textLength="382" lengthAdjust="spacingAndGlyphs" fill="none" stroke="#38BDF8" stroke-width="2.4" stroke-linejoin="round">Sundarraj</text><text x="46" y="200" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="74" font-weight="800" textLength="382" lengthAdjust="spacingAndGlyphs" fill="none" stroke="#FFFFFF" stroke-width=".8" stroke-opacity=".7" stroke-linejoin="round">Sundarraj</text></g>
+  <g class="underline"><line x1="52" y1="226" x2="268" y2="226" stroke="#FF4F9A" stroke-width="7" stroke-linecap="round" filter="url(#glow)" opacity=".8"/><line x1="52" y1="226" x2="268" y2="226" stroke="#FF4F9A" stroke-width="2.6" stroke-linecap="round"/><line x1="52" y1="226" x2="268" y2="226" stroke="#FFF" stroke-width=".8" stroke-opacity=".7" stroke-linecap="round"/></g>
+  <text x="50" y="258" font-family="'JetBrains Mono','SFMono-Regular',ui-monospace,Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14.5" fill="#9EA7B8">power · silicon · robots · cloud</text>
+  <text x="50" y="280" font-family="'JetBrains Mono','SFMono-Regular',ui-monospace,Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14.5" fill="#9EA7B8">systems developer, mostly awake</text>
+
+  <!-- door into the portfolio, left ajar -->
+  <rect x="372" y="294" width="80" height="78" fill="#070910"/>
+  <rect x="376" y="298" width="72" height="74" fill="#FFB020" opacity=".5" class="doorlight"/>
+  <path d="M384 298 H448 V372 H384 Z" fill="#121726"/>
+  <circle cx="392" cy="338" r="2.6" fill="#FFB020"/>
+  <rect x="372" y="294" width="80" height="78" fill="none" stroke="#38BDF8" stroke-width="2" opacity=".75"/>
+  <rect x="372" y="294" width="80" height="78" fill="none" stroke="#38BDF8" stroke-width="6" opacity=".35" filter="url(#glow)"/>
+  <text x="412" y="286" text-anchor="middle" font-family="'JetBrains Mono','SFMono-Regular',ui-monospace,Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="12.5" font-weight="700" fill="#38BDF8">portfolio →</text>
+</g>
+
+<g>
+  <line x1="690" y1="140" x2="690" y2="152" stroke="#1E2536" stroke-width="3"/>
+  <line x1="1020" y1="140" x2="1020" y2="152" stroke="#1E2536" stroke-width="3"/>
+  <rect x="640" y="72" width="430" height="68" rx="6" fill="#090B12" stroke="#222A3B" stroke-width="1.5"/>
+  <text x="664" y="123" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="42" font-weight="800" textLength="82" lengthAdjust="spacingAndGlyphs" fill="none" stroke="#1A1F2C" stroke-width="3">BUG</text><g class=""><text x="664" y="123" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="42" font-weight="800" textLength="82" lengthAdjust="spacingAndGlyphs" fill="#FF4F9A" fill-opacity=".14" stroke="#FF4F9A" stroke-width="6" filter="url(#glow)" opacity=".85">BUG</text><text x="664" y="123" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="42" font-weight="800" textLength="82" lengthAdjust="spacingAndGlyphs" fill="none" stroke="#FF4F9A" stroke-width="2.4" stroke-linejoin="round">BUG</text><text x="664" y="123" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="42" font-weight="800" textLength="82" lengthAdjust="spacingAndGlyphs" fill="none" stroke="#FFFFFF" stroke-width=".8" stroke-opacity=".7" stroke-linejoin="round">BUG</text></g>
+  <text x="752" y="123" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="42" font-weight="800" textLength="132" lengthAdjust="spacingAndGlyphs" fill="none" stroke="#1A1F2C" stroke-width="3">-FREE</text><g class="free"><text x="752" y="123" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="42" font-weight="800" textLength="132" lengthAdjust="spacingAndGlyphs" fill="#34D399" fill-opacity=".14" stroke="#34D399" stroke-width="6" filter="url(#glow)" opacity=".85">-FREE</text><text x="752" y="123" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="42" font-weight="800" textLength="132" lengthAdjust="spacingAndGlyphs" fill="none" stroke="#34D399" stroke-width="2.4" stroke-linejoin="round">-FREE</text><text x="752" y="123" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="42" font-weight="800" textLength="132" lengthAdjust="spacingAndGlyphs" fill="none" stroke="#FFFFFF" stroke-width=".8" stroke-opacity=".7" stroke-linejoin="round">-FREE</text></g>
+  <text x="902" y="123" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="42" font-weight="800" textLength="146" lengthAdjust="spacingAndGlyphs" fill="none" stroke="#1A1F2C" stroke-width="3">RAMEN</text><g class="ramen"><text x="902" y="123" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="42" font-weight="800" textLength="146" lengthAdjust="spacingAndGlyphs" fill="#FFB020" fill-opacity=".14" stroke="#FFB020" stroke-width="6" filter="url(#glow)" opacity=".85">RAMEN</text><text x="902" y="123" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="42" font-weight="800" textLength="146" lengthAdjust="spacingAndGlyphs" fill="none" stroke="#FFB020" stroke-width="2.4" stroke-linejoin="round">RAMEN</text><text x="902" y="123" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="42" font-weight="800" textLength="146" lengthAdjust="spacingAndGlyphs" fill="none" stroke="#FFFFFF" stroke-width=".8" stroke-opacity=".7" stroke-linejoin="round">RAMEN</text></g>
+</g>
+
+<g transform="translate(1040 72)">
+  <g class="tail"><path d="M10 -4 C22 -2 22 18 16 30 C13 36 16 40 20 40" fill="none" stroke="#04050A" stroke-width="4.5" stroke-linecap="round"/></g>
+  <g stroke="#FF4F9A" stroke-width="1.2" stroke-opacity=".55" stroke-linejoin="round">
+  <path d="M-12 0 C-14 -18 -8 -26 0 -27 C8 -26 14 -18 12 0 Z" fill="#04050A"/>
+    <circle cx="0" cy="-30" r="9" fill="#04050A"/>
+    <path d="M-8 -34 L-7 -44 L-2 -37 Z M8 -34 L7 -44 L2 -37 Z" fill="#04050A"/>
+  </g>
+  <g class="cateyes"><ellipse cx="-3.4" cy="-31" rx="1.7" ry="2.1" fill="#FFB020"/><ellipse cx="3.4" cy="-31" rx="1.7" ry="2.1" fill="#FFB020"/></g>
+</g>
+
+<g>
+  <!-- back wall with warm light under the awning -->
+  <rect x="618" y="186" width="484" height="112" fill="#0C0F18"/>
+  <rect x="618" y="186" width="484" height="112" fill="url(#stallGlow)"/>
+  <rect x="920" y="206" width="166" height="88" rx="5" fill="#070910" stroke="#2A3246"/>
+  <text x="932" y="221" font-family="'JetBrains Mono','SFMono-Regular',ui-monospace,Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="10.5" font-weight="700" fill="#9EA7B8" letter-spacing="1.5">TONIGHT</text>
+  <circle cx="932" cy="234" r="2" fill="#FF9442"/><text x="940" y="238" font-family="'JetBrains Mono','SFMono-Regular',ui-monospace,Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="12" fill="#D4DAE6">2N power broth</text><circle cx="932" cy="250" r="2" fill="#34D399"/><text x="940" y="254" font-family="'JetBrains Mono','SFMono-Regular',ui-monospace,Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="12" fill="#D4DAE6">UVM udon · 0 bugs</text><circle cx="932" cy="266" r="2" fill="#38BDF8"/><text x="940" y="270" font-family="'JetBrains Mono','SFMono-Regular',ui-monospace,Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="12" fill="#D4DAE6">formal pho · proven</text><circle cx="932" cy="282" r="2" fill="#FF4F9A"/><text x="940" y="286" font-family="'JetBrains Mono','SFMono-Regular',ui-monospace,Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="12" fill="#D4DAE6">CAN-bus noodles</text>
   
-<!-- Studio floor horizon -->
-<rect x="0" y="320" width="1200" height="116" fill="url(#floorGrad)"/>
-<line x1="48" y1="320" x2="1152" y2="320" stroke="#FFFFFF" stroke-opacity=".065"/>
-
-<!-- Coiled floor cable connecting Power -> Chip-Bot -> wireless link to Nimbus -->
-<path d="M356 346 C460 366 590 338 740 348" fill="none" stroke="#1E2638" stroke-width="5" stroke-linecap="round"/>
-<path class="cable-live" d="M356 346 C460 366 590 338 740 348" fill="none" stroke="url(#cableGrad)" stroke-width="2.6" stroke-linecap="round"/>
-<path class="cable-live" d="M774 338 C856 330 916 304 962 268" fill="none" stroke="#38BDF8" stroke-width="2.2" stroke-dasharray="5 7" stroke-linecap="round"/>
-
-<!-- Floor power junction box (where Nitish plugs Sparky's cord back in!) -->
-<g transform="translate(342 330)">
-  <rect x="-14" y="0" width="28" height="24" rx="6" fill="#171E2E" stroke="#2D384F" stroke-width="1.3"/>
-  <circle cx="0" cy="12" r="4" fill="#34D399" class="cable-live"/>
-  <!-- Snapped-in amber plug when power is live -->
-  <g class="sparky-happy">
-    <rect x="13" y="5" width="16" height="14" rx="4" fill="#FF9442" stroke="#FFD479" stroke-width="1"/>
+<g class="robot">
+  <!-- stirring arm and ladle -->
+  <g class="stir">
+    <path d="M808 284 Q790 272 772 268" fill="none" stroke="#2C354A" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="772" cy="268" r="5" fill="#3A4560"/>
+    <line x1="772" y1="268" x2="748" y2="282" stroke="#8C97AD" stroke-width="3" stroke-linecap="round"/>
   </g>
+  <path d="M872 284 Q888 276 892 262" fill="none" stroke="#2C354A" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="892" cy="260" r="5" fill="#3A4560"/>
+  <!-- body + apron -->
+  <rect x="804" y="274" width="72" height="26" rx="9" fill="#1B2234" stroke="#2C354A"/>
+  <rect x="822" y="278" width="36" height="22" rx="3" fill="#E8EDF7" opacity=".92"/>
+  <rect x="834" y="264" width="12" height="12" fill="#2C354A"/>
+  <!-- head -->
+  <rect x="800" y="226" width="80" height="42" rx="13" fill="#232C40" stroke="#36425C"/>
+  <rect x="808" y="232" width="64" height="30" rx="9" fill="#04060B"/>
+  <g class="r-calm"><g class="r-blink">
+    <rect x="822" y="240" width="11" height="14" rx="4" fill="#38BDF8"/>
+    <rect x="847" y="240" width="11" height="14" rx="4" fill="#38BDF8"/>
+  </g></g>
+  <g class="r-alarm" opacity="0">
+    <text x="840" y="253" text-anchor="middle" font-family="'JetBrains Mono','SFMono-Regular',ui-monospace,Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="13.5" font-weight="800" fill="#FF5454">BUG?!</text>
+  </g>
+  <g class="r-happy" opacity="0">
+    <path d="M821 251 Q827.5 240 834 251 M846 251 Q852.5 240 859 251" fill="none" stroke="#38BDF8" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <!-- chef hat -->
+  <rect x="814" y="212" width="52" height="15" rx="3" fill="#EEF1F7"/>
+  <circle cx="824" cy="206" r="11" fill="#EEF1F7"/>
+  <circle cx="840" cy="201" r="13" fill="#EEF1F7"/>
+  <circle cx="856" cy="206" r="11" fill="#EEF1F7"/>
+  <line x1="826" y1="216" x2="826" y2="226" stroke="#C9CFDB" stroke-width="1.2"/>
+  <line x1="854" y1="216" x2="854" y2="226" stroke="#C9CFDB" stroke-width="1.2"/>
 </g>
-
-<!-- Restoring bright pulse traveling through the system -->
-<g class="power-pulse">
-  <circle cx="0" cy="0" r="14" fill="#FF9442" opacity=".35"/>
-  <circle cx="0" cy="0" r="5" fill="#FFFFFF"/>
+  <!-- posts -->
+  <rect x="612" y="150" width="9" height="222" fill="#171C2A"/>
+  <rect x="1099" y="150" width="9" height="222" fill="#171C2A"/>
+  <!-- awning -->
+  <rect x="606" y="150" width="42" height="38" fill="#2A1033"/><rect x="648" y="150" width="42" height="38" fill="#10131F"/><rect x="690" y="150" width="42" height="38" fill="#2A1033"/><rect x="732" y="150" width="42" height="38" fill="#10131F"/><rect x="774" y="150" width="42" height="38" fill="#2A1033"/><rect x="816" y="150" width="42" height="38" fill="#10131F"/><rect x="858" y="150" width="42" height="38" fill="#2A1033"/><rect x="900" y="150" width="42" height="38" fill="#10131F"/><rect x="942" y="150" width="42" height="38" fill="#2A1033"/><rect x="984" y="150" width="42" height="38" fill="#10131F"/><rect x="1026" y="150" width="42" height="38" fill="#2A1033"/><rect x="1068" y="150" width="42" height="38" fill="#10131F"/><path d="M606 187 a21 9 0 0 0 42 0 Z" fill="#2A1033"/><path d="M648 187 a21 9 0 0 0 42 0 Z" fill="#10131F"/><path d="M690 187 a21 9 0 0 0 42 0 Z" fill="#2A1033"/><path d="M732 187 a21 9 0 0 0 42 0 Z" fill="#10131F"/><path d="M774 187 a21 9 0 0 0 42 0 Z" fill="#2A1033"/><path d="M816 187 a21 9 0 0 0 42 0 Z" fill="#10131F"/><path d="M858 187 a21 9 0 0 0 42 0 Z" fill="#2A1033"/><path d="M900 187 a21 9 0 0 0 42 0 Z" fill="#10131F"/><path d="M942 187 a21 9 0 0 0 42 0 Z" fill="#2A1033"/><path d="M984 187 a21 9 0 0 0 42 0 Z" fill="#10131F"/><path d="M1026 187 a21 9 0 0 0 42 0 Z" fill="#2A1033"/><path d="M1068 187 a21 9 0 0 0 42 0 Z" fill="#10131F"/>
+  <rect x="606" y="148" width="504" height="4" fill="#3A1846"/>
+  <line x1="676" y1="196" x2="676" y2="206" stroke="#2A3246" stroke-width="1.5"/><circle cx="676" cy="211" r="10" fill="#FF9442" opacity=".35" filter="url(#glow)"/><circle cx="676" cy="211" r="4.5" fill="#FFD9A8"/><line x1="1004" y1="196" x2="1004" y2="206" stroke="#2A3246" stroke-width="1.5"/><circle cx="1004" cy="211" r="10" fill="#FF9442" opacity=".35" filter="url(#glow)"/><circle cx="1004" cy="211" r="4.5" fill="#FFD9A8"/>
+  <!-- counter -->
+  <rect x="604" y="294" width="512" height="10" rx="2" fill="#252D40"/>
+  <line x1="606" y1="305" x2="1114" y2="305" stroke="#38BDF8" stroke-width="5" opacity=".45" filter="url(#glow)"/>
+  <line x1="606" y1="305" x2="1114" y2="305" stroke="#38BDF8" stroke-width="1.6"/>
+  <rect x="612" y="306" width="496" height="66" fill="#121725"/>
+  <line x1="652" y1="310" x2="652" y2="372" stroke="#0C1019" stroke-width="2"/><line x1="692" y1="310" x2="692" y2="372" stroke="#0C1019" stroke-width="2"/><line x1="732" y1="310" x2="732" y2="372" stroke="#0C1019" stroke-width="2"/><line x1="772" y1="310" x2="772" y2="372" stroke="#0C1019" stroke-width="2"/><line x1="812" y1="310" x2="812" y2="372" stroke="#0C1019" stroke-width="2"/><line x1="852" y1="310" x2="852" y2="372" stroke="#0C1019" stroke-width="2"/><line x1="892" y1="310" x2="892" y2="372" stroke="#0C1019" stroke-width="2"/><line x1="932" y1="310" x2="932" y2="372" stroke="#0C1019" stroke-width="2"/><line x1="972" y1="310" x2="972" y2="372" stroke="#0C1019" stroke-width="2"/><line x1="1012" y1="310" x2="1012" y2="372" stroke="#0C1019" stroke-width="2"/><line x1="1052" y1="310" x2="1052" y2="372" stroke="#0C1019" stroke-width="2"/><line x1="1092" y1="310" x2="1092" y2="372" stroke="#0C1019" stroke-width="2"/>
+  <text x="860" y="346" text-anchor="middle" font-family="'JetBrains Mono','SFMono-Regular',ui-monospace,Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="14" fill="#FFB020" opacity=".8">open till the tests pass</text>
+  
+<g>
+  <path class="steam" style="animation-delay:-0s" d="M728 262 c-6 -8 6 -14 0 -22 c-5 -7 5 -12 0 -18" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0"/><path class="steam" style="animation-delay:-0.9s" d="M744 262 c-6 -8 6 -14 0 -22 c-5 -7 5 -12 0 -18" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0"/><path class="steam" style="animation-delay:-1.7s" d="M760 262 c-6 -8 6 -14 0 -22 c-5 -7 5 -12 0 -18" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0"/>
+  <rect x="712" y="266" width="64" height="30" rx="5" fill="#2B3448"/>
+  <rect x="712" y="266" width="64" height="7" fill="#3A4560"/>
+  <rect x="706" y="270" width="8" height="5" rx="2" fill="#3A4560"/>
+  <rect x="774" y="270" width="8" height="5" rx="2" fill="#3A4560"/>
 </g>
   
-<g transform="translate(178 356)">
-  <g class="nitish-walk">
-    <!-- Ground contact shadow -->
-    <ellipse cx="0" cy="4" rx="46" ry="9" fill="#000" opacity=".48"/>
-    <!-- Legs & sneakers -->
-    <rect x="-22" y="-58" width="17" height="50" rx="8" fill="#181D2B"/>
-    <rect x="6" y="-58" width="17" height="50" rx="8" fill="#181D2B"/>
-    <path d="M-24 -10h22c4 0 6 3 6 7v4h-30v-5c0-3 1-6 2-6z" fill="#2A3244"/>
-    <path d="M4 -10h24c4 0 6 3 6 7v4h-30v-11z" fill="#2A3244"/>
-    <line x1="-24" y1="0" x2="2" y2="0" stroke="#E5E9F2" stroke-width="2.6" stroke-linecap="round"/>
-    <line x1="4" y1="0" x2="32" y2="0" stroke="#E5E9F2" stroke-width="2.6" stroke-linecap="round"/>
+<g>
+  <rect x="640" y="258" width="32" height="38" rx="6" fill="#38BDF8" fill-opacity=".07" stroke="#5B6B86" stroke-width="1.5"/>
+  <rect x="638" y="255" width="36" height="5" rx="2" fill="#3A4458"/>
+  <circle cx="649.2" cy="287.9" r="1.9" fill="#34D399" opacity=".9"/><circle cx="652.1" cy="288.4" r="1.9" fill="#34D399" opacity=".9"/><circle cx="657.8" cy="283.6" r="1.9" fill="#34D399" opacity=".9"/><circle cx="644.3" cy="290.5" r="1.9" fill="#34D399" opacity=".9"/><circle cx="649.7" cy="285.1" r="1.9" fill="#34D399" opacity=".9"/><circle cx="665.9" cy="287.2" r="1.9" fill="#34D399" opacity=".9"/><circle cx="662.4" cy="287.3" r="1.9" fill="#34D399" opacity=".9"/><circle cx="658.1" cy="284.4" r="1.9" fill="#34D399" opacity=".9"/><circle cx="658.0" cy="290.8" r="1.9" fill="#34D399" opacity=".9"/><circle cx="655.5" cy="289.7" r="1.9" fill="#34D399" opacity=".9"/><circle cx="658.8" cy="283.6" r="1.9" fill="#34D399" opacity=".9"/><circle cx="660.7" cy="288.3" r="1.9" fill="#34D399" opacity=".9"/><circle cx="650.6" cy="283.3" r="1.9" fill="#34D399" opacity=".9"/><circle cx="663.0" cy="287.3" r="1.9" fill="#34D399" opacity=".9"/>
+  <rect x="643" y="266" width="26" height="13" rx="2" fill="#E8EDF7"/>
+  <text class="n14" x="656" y="276.5" text-anchor="middle" font-family="'JetBrains Mono','SFMono-Regular',ui-monospace,Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="10.5" font-weight="700" fill="#10131F">14</text>
+  <text class="n15" x="656" y="276.5" text-anchor="middle" font-family="'JetBrains Mono','SFMono-Regular',ui-monospace,Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="10.5" font-weight="700" fill="#10131F" opacity="0">15</text>
+  <text x="656" y="250" text-anchor="middle" font-family="'JetBrains Mono','SFMono-Regular',ui-monospace,Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="9.5" fill="#9EA7B8">bugs</text>
+</g>
+</g>
 
-    <!-- Breathing upper body -->
-    <g class="nitish-bob">
-      <!-- Left arm holding steaming coffee mug -->
-      <g class="nitish-mug-arm" transform="translate(-31 -118)">
-        <path d="M0 0 C-18 10 -24 30 -16 48" fill="none" stroke="#1E2536" stroke-width="16" stroke-linecap="round"/>
-        <circle cx="-16" cy="50" r="8.5" fill="#A96F51"/>
-        <!-- Coffee mug -->
-        <g transform="translate(-34 36)">
-          <path d="M16 5c6 0 7 11 0 11" fill="none" stroke="#E8EDF7" stroke-width="2.6" stroke-linecap="round"/>
-          <rect x="0" y="0" width="18" height="22" rx="4" fill="#EFF3FA"/>
-          <rect x="0" y="8" width="18" height="5" fill="#FF9442"/>
-          <!-- Gentle rising steam -->
-          <path class="steam" d="M5 -4c-2 -5 3 -8 1 -13M12 -5c-2 -5 3 -8 1 -13" fill="none" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" opacity=".45"/>
-        </g>
+<rect x="0" y="372" width="1200" height="68" fill="url(#street)"/>
+<rect x="0" y="372" width="1200" height="2" fill="#1D2334"/>
+<path d="M372 372 H452 L500 440 H330 Z" fill="url(#doorSpill)"/>
+<g class=""><rect class="shimmer" style="animation-delay:-0.00s" x="664" y="378" width="52" height="58" fill="#FF4F9A" opacity=".2" filter="url(#soft)"/></g><g class="free"><rect class="shimmer" style="animation-delay:-0.37s" x="792" y="378" width="52" height="58" fill="#34D399" opacity=".2" filter="url(#soft)"/></g><g class="ramen"><rect class="shimmer" style="animation-delay:-0.74s" x="949" y="378" width="52" height="58" fill="#FFB020" opacity=".2" filter="url(#soft)"/></g><g class=""><rect class="shimmer" style="animation-delay:-1.11s" x="650" y="378" width="52" height="58" fill="#FF9442" opacity=".2" filter="url(#soft)"/></g><g class=""><rect class="shimmer" style="animation-delay:-1.48s" x="978" y="378" width="52" height="58" fill="#FF9442" opacity=".2" filter="url(#soft)"/></g><g class="name-a"><rect class="shimmer" style="animation-delay:-1.85s" x="104" y="378" width="52" height="58" fill="#FF9442" opacity=".2" filter="url(#soft)"/></g><g class="name-b"><rect class="shimmer" style="animation-delay:-2.22s" x="234" y="378" width="52" height="58" fill="#38BDF8" opacity=".2" filter="url(#soft)"/></g><g class="doorlight"><rect class="shimmer" style="animation-delay:-2.59s" x="386" y="378" width="52" height="58" fill="#FFB020" opacity=".2" filter="url(#soft)"/></g><g class=""><rect class="shimmer" style="animation-delay:-2.96s" x="834" y="378" width="52" height="58" fill="#38BDF8" opacity=".2" filter="url(#soft)"/></g>
+<ellipse class="ripple" style="animation-delay:-0s" cx="96" cy="412" rx="14" ry="3" fill="none" stroke="#9FB6D9" stroke-width="1" opacity="0"/><ellipse class="ripple" style="animation-delay:-0.5s" cx="300" cy="398" rx="14" ry="3" fill="none" stroke="#9FB6D9" stroke-width="1" opacity="0"/><ellipse class="ripple" style="animation-delay:-1.1s" cx="520" cy="424" rx="14" ry="3" fill="none" stroke="#9FB6D9" stroke-width="1" opacity="0"/><ellipse class="ripple" style="animation-delay:-0.3s" cx="742" cy="404" rx="14" ry="3" fill="none" stroke="#9FB6D9" stroke-width="1" opacity="0"/><ellipse class="ripple" style="animation-delay:-0.8s" cx="930" cy="420" rx="14" ry="3" fill="none" stroke="#9FB6D9" stroke-width="1" opacity="0"/><ellipse class="ripple" style="animation-delay:-1.4s" cx="1140" cy="400" rx="14" ry="3" fill="none" stroke="#9FB6D9" stroke-width="1" opacity="0"/><ellipse class="ripple" style="animation-delay:-1.7s" cx="420" cy="432" rx="14" ry="3" fill="none" stroke="#9FB6D9" stroke-width="1" opacity="0"/>
+
+<g transform="translate(540 372)">
+  <ellipse cx="0" cy="4" rx="48" ry="8" fill="#000" opacity=".55"/>
+  <!-- legs -->
+  <rect x="-22" y="-58" width="17" height="50" rx="8" fill="#181D2B"/>
+  <rect x="6" y="-58" width="17" height="50" rx="8" fill="#181D2B"/>
+  <path d="M-26 -10h22c4 0 6 3 6 7v4h-30v-5c0-3 1-6 2-6z" fill="#2A3244"/>
+  <path d="M4 -10h24c4 0 6 3 6 7v4h-30v-11z" fill="#2A3244"/>
+  <line x1="-26" y1="0" x2="2" y2="0" stroke="#FF4F9A" stroke-width="2.4" stroke-linecap="round"/>
+  <line x1="4" y1="0" x2="32" y2="0" stroke="#FF4F9A" stroke-width="2.4" stroke-linecap="round"/>
+  <g class="bob">
+    <!-- hoodie -->
+    <path d="M-34 -126 C-34 -138 -20 -144 0 -144 C20 -144 34 -138 34 -126 L30 -54 C30 -48 24 -45 18 -45 L-18 -45 C-24 -45 -30 -48 -30 -54 Z"
+          fill="#1D2333" stroke="#2C354A" stroke-width="1.2"/>
+    <path d="M-13 -143 Q0 -130 13 -143" fill="#ECEBE6"/>
+    <path d="M-8 -134 L-9 -112 M8 -134 L9 -114" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" opacity=".7"/>
+    <path d="M-20 -78 L20 -78 L24 -54 L-24 -54 Z" fill="#171C29" stroke="#283145" stroke-width="1"/>
+    <!-- neck + head -->
+    <rect x="-9" y="-156" width="18" height="18" rx="7" fill="#86533B"/>
+    <g transform="translate(0 -184)">
+      <circle cx="-30" cy="4" r="7.5" fill="#86533B"/>
+      <circle cx="30" cy="4" r="7.5" fill="#A96F51"/>
+      <rect x="-30" y="-30" width="60" height="64" rx="28" fill="#A96F51"/>
+      <ellipse cx="6" cy="-6" rx="18" ry="14" fill="#BF8766" opacity=".35"/>
+      <path d="M-32 -3 C-35 -24 -24 -40 -6 -43 C6 -45 20 -42 28 -30 C35 -20 35 -10 32 -3 C27 -15 16 -21 2 -21 C-14 -21 -25 -15 -32 -3 Z" fill="#15100E"/>
+      <path d="M-22 -28 C-8 -39 13 -39 24 -25" fill="none" stroke="#362822" stroke-width="4" stroke-linecap="round" opacity=".6"/>
+      <path d="M-22 14 C-18 32 18 32 22 14 C16 26 -16 26 -22 14 Z" fill="#15100E" opacity=".22"/>
+      <!-- headphones round the neck, because of course -->
+      <path d="M-27 22 Q0 44 27 22" fill="none" stroke="#2A3244" stroke-width="5" stroke-linecap="round"/>
+      <ellipse cx="-9" cy="1" rx="5.2" ry="5.6" fill="#FFF"/>
+      <ellipse cx="12" cy="1" rx="5.2" ry="5.6" fill="#FFF"/>
+      <!-- eating: eyes on the bowl -->
+      <g class="f-calm">
+        <circle cx="-8" cy="3" r="2.7" fill="#15100E"/><circle cx="13" cy="3" r="2.7" fill="#15100E"/>
+        <path d="M-16 -9 Q-9 -11 -3 -9 M6 -9 Q13 -11 19 -9" fill="none" stroke="#15100E" stroke-width="2.4" stroke-linecap="round"/>
+        <path d="M-4 15 Q3 19 10 15" fill="none" stroke="#4A1915" stroke-width="2.4" stroke-linecap="round"/>
       </g>
-
-      <!-- Torso (charcoal hoodie over cream tee) -->
-      <path d="M-34 -126 C-34 -138 -20 -144 0 -144 C20 -144 34 -138 34 -126 L30 -54 C30 -48 24 -45 18 -45 L-18 -45 C-24 -45 -30 -48 -30 -54 Z"
-            fill="#1D2333" stroke="#2C354A" stroke-width="1.2"/>
-      <!-- Soft torso highlight -->
-      <ellipse cx="-10" cy="-102" rx="16" ry="26" fill="#FFFFFF" opacity=".04"/>
-      <!-- Cream tee collar & hoodie drawstrings -->
-      <path d="M-13 -143 Q0 -130 13 -143" fill="#ECEBE6"/>
-      <path d="M-8 -134 L-9 -108 M8 -134 L9 -110" stroke="#9EA7B8" stroke-width="2" stroke-linecap="round" opacity=".65"/>
-      <!-- Kangaroo pocket -->
-      <path d="M-20 -78 L20 -78 L24 -54 L-24 -54 Z" fill="#171C29" stroke="#283145" stroke-width="1"/>
-
-      <!-- Right arm (relaxed at side -> reaches out to plug cable back in -> cheerful wave!) -->
-      <g transform="translate(30 -120)">
-        <g class="nitish-fix-arm">
-          <path d="M0 0 C18 8 34 14 48 8" fill="none" stroke="#1E2536" stroke-width="16" stroke-linecap="round"/>
-          <circle cx="51" cy="7" r="8.5" fill="#A96F51"/>
-        </g>
+      <!-- the bug shows up -->
+      <g class="f-shock" opacity="0">
+        <circle cx="-6.5" cy="0" r="2.2" fill="#15100E"/><circle cx="14.5" cy="0" r="2.2" fill="#15100E"/>
+        <path d="M-16 -14 Q-9 -18 -3 -14 M6 -14 Q13 -18 20 -14" fill="none" stroke="#15100E" stroke-width="2.4" stroke-linecap="round"/>
+        <ellipse cx="3" cy="16" rx="4" ry="5" fill="#4A1915"/>
       </g>
-
-      <!-- Neck -->
-      <rect x="-9" y="-156" width="18" height="18" rx="7" fill="#86533B"/>
-
-      <!-- Head -->
-      <g transform="translate(0 -184)">
-        <!-- Ears -->
-        <circle cx="-30" cy="4" r="7.5" fill="#86533B"/>
-        <circle cx="30" cy="4" r="7.5" fill="#A96F51"/>
-        <!-- Face base -->
-        <rect x="-30" y="-30" width="60" height="64" rx="28" fill="#A96F51"/>
-        <!-- Warm cheek/forehead highlight -->
-        <ellipse cx="6" cy="-6" rx="18" ry="14" fill="#BF8766" opacity=".35"/>
-        <!-- Stylish dark wavy hair -->
-        <path d="M-32 -3 C-35 -24 -24 -40 -6 -43 C6 -45 20 -42 28 -30 C35 -20 35 -10 32 -3 C27 -15 16 -21 2 -21 C-14 -21 -25 -15 -32 -3 Z" fill="#15100E"/>
-        <path d="M-22 -28 C-8 -39 13 -39 24 -25" fill="none" stroke="#362822" stroke-width="4" stroke-linecap="round" opacity=".6"/>
-        <!-- Subtle beard/stubble jaw shadow -->
-        <path d="M-22 14 C-18 32 18 32 22 14 C16 26 -16 26 -22 14 Z" fill="#15100E" opacity=".22"/>
-        <!-- Eyes looking toward the chaos on the right -->
-        <g>
-          <ellipse cx="-9" cy="1" rx="5.2" ry="5.6" fill="#FFFFFF"/>
-          <ellipse cx="12" cy="1" rx="5.2" ry="5.6" fill="#FFFFFF"/>
-          <circle cx="-7.2" cy="1.2" r="2.7" fill="#15100E"/>
-          <circle cx="13.8" cy="1.2" r="2.7" fill="#15100E"/>
-          <circle cx="-8.2" cy="-0.2" r="1" fill="#FFFFFF"/>
-          <circle cx="12.8" cy="-0.2" r="1" fill="#FFFFFF"/>
-        </g>
-        <!-- Deadpan eyebrows + dry smirk during chaos -->
-        <g class="nitish-deadpan">
-          <path d="M-16 -9 L-3 -7" stroke="#15100E" stroke-width="2.6" stroke-linecap="round"/>
-          <path d="M6 -11 Q13 -15 20 -10" fill="none" stroke="#15100E" stroke-width="2.6" stroke-linecap="round"/>
-          <path d="M-5 16 Q4 14 11 16" fill="none" stroke="#4A1915" stroke-width="2.4" stroke-linecap="round"/>
-        </g>
-        <!-- Warm happy grin once fixed -->
-        <g class="nitish-happy">
-          <path d="M-16 -10 Q-9 -13 -3 -10" fill="none" stroke="#15100E" stroke-width="2.4" stroke-linecap="round"/>
-          <path d="M6 -10 Q13 -13 19 -10" fill="none" stroke="#15100E" stroke-width="2.4" stroke-linecap="round"/>
-          <path d="M-7 13 Q3 24 13 13 Z" fill="#4A1915"/>
-          <path d="M-5 14 Q3 17 11 14" fill="none" stroke="#F6F1EA" stroke-width="2" stroke-linecap="round"/>
-        </g>
+      <!-- logged it -->
+      <g class="f-smug" opacity="0">
+        <circle cx="-6.5" cy="1.5" r="2.7" fill="#15100E"/><circle cx="14.5" cy="1.5" r="2.7" fill="#15100E"/>
+        <path d="M-16 -8 L-3 -8" stroke="#15100E" stroke-width="2.6" stroke-linecap="round"/>
+        <path d="M6 -12 Q13 -17 20 -11" fill="none" stroke="#15100E" stroke-width="2.6" stroke-linecap="round"/>
+        <path d="M-5 16 Q5 18 13 12" fill="none" stroke="#4A1915" stroke-width="2.4" stroke-linecap="round"/>
+      </g>
+    </g>
+    <!-- bowl arm -->
+    <path d="M30 -124 C46 -112 48 -98 36 -92" fill="none" stroke="#1E2536" stroke-width="16" stroke-linecap="round"/>
+    <circle cx="34" cy="-90" r="8.5" fill="#A96F51"/>
+    <!-- bowl -->
+    <path d="M-2 -102 H46 C46 -88 36 -80 22 -80 C8 -80 -2 -88 -2 -102 Z" fill="#EEF1F7"/>
+    <path d="M0 -95 H44" stroke="#FF4F9A" stroke-width="3"/>
+    <ellipse cx="22" cy="-102" rx="24" ry="5" fill="#5A2E16"/>
+    <path d="M4 -103 q4 -3 8 0 t8 0 t8 0 t8 0 t6 0" fill="none" stroke="#F5D27A" stroke-width="2.2" stroke-linecap="round"/>
+    <circle cx="34" cy="-104" r="4" fill="#FFF7E6"/><circle cx="34" cy="-104" r="2" fill="#FFB020"/>
+    <path class="steam" style="animation-delay:-.6s" d="M14 -110 c-4 -6 4 -10 0 -16" fill="none" stroke="#FFF" stroke-width="1.6" stroke-linecap="round" opacity="0"/>
+    <!-- chopstick arm -->
+    <path d="M-30 -124 Q-44 -98 -6 -128" fill="none" stroke="#1E2536" stroke-width="16" stroke-linecap="round"><animate attributeName="d" dur="12s" repeatCount="indefinite" calcMode="spline" keyTimes="0.0000;0.0667;0.1167;0.1583;0.2083;0.2667;0.3167;0.3500;0.4000;0.4167;0.4667;0.5833;0.6250;0.7167;0.7667;0.8083;0.8583;1.0000" keySplines=".42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1" values="M-30 -124 Q-44 -98 -6 -128;M-30 -124 Q-44 -98 -6 -128;M-30 -124 Q-50 -112 -22 -150;M-30 -124 Q-50 -112 -22 -150;M-30 -124 Q-44 -98 -6 -128;M-30 -124 Q-44 -98 -6 -128;M-30 -124 Q-50 -112 -22 -150;M-30 -124 Q-50 -112 -22 -150;M-30 -124 Q-44 -98 -6 -128;M-30 -124 Q-44 -98 -6 -128;M-30 -124 Q-46 -108 6 -146;M-30 -124 Q-46 -108 6 -146;M-30 -124 Q-44 -98 -6 -128;M-30 -124 Q-44 -98 -6 -128;M-30 -124 Q-50 -112 -22 -150;M-30 -124 Q-50 -112 -22 -150;M-30 -124 Q-44 -98 -6 -128;M-30 -124 Q-44 -98 -6 -128"/></path>
+    <g transform="translate(-6 -128)">
+      <animateTransform attributeName="transform" type="translate" dur="12s" repeatCount="indefinite" calcMode="spline" keyTimes="0.0000;0.0667;0.1167;0.1583;0.2083;0.2667;0.3167;0.3500;0.4000;0.4167;0.4667;0.5833;0.6250;0.7167;0.7667;0.8083;0.8583;1.0000" keySplines=".42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1" values="-6 -128;-6 -128;-22 -150;-22 -150;-6 -128;-6 -128;-22 -150;-22 -150;-6 -128;-6 -128;6 -146;6 -146;-6 -128;-6 -128;-22 -150;-22 -150;-6 -128;-6 -128"/>
+      <g transform="rotate(40)">
+        <animateTransform attributeName="transform" type="rotate" dur="12s" repeatCount="indefinite" calcMode="spline" keyTimes="0.0000;0.0667;0.1167;0.1583;0.2083;0.2667;0.3167;0.3500;0.4000;0.4167;0.4667;0.5833;0.6250;0.7167;0.7667;0.8083;0.8583;1.0000" keySplines=".42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1" values="40;40;-34;-34;40;40;-34;-34;40;40;-40;-40;40;40;-34;-34;40;40"/>
+        <line x1="-12" y1="-3" x2="40" y2="-1" stroke="#C98A4B" stroke-width="2.6" stroke-linecap="round"/>
+        <line x1="-12" y1="3" x2="40" y2="1" stroke="#B37638" stroke-width="2.6" stroke-linecap="round"/>
+        <g transform="translate(40 0) rotate(90)">
+<g class="tipbug">
+  <circle r="9" fill="#34D399" opacity=".45" filter="url(#glow)"/>
+  <path d="M-4 -2 L-9 -6 M-4 1 L-10 1 M-4 4 L-9 8 M4 -2 L9 -6 M4 1 L10 1 M4 4 L9 8" stroke="#0A2A1F" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M-2 -6 Q-5 -12 -8 -12 M2 -6 Q5 -12 8 -12" fill="none" stroke="#0A2A1F" stroke-width="1.4" stroke-linecap="round"/>
+  <ellipse cx="0" cy="1" rx="6" ry="7" fill="#34D399"/>
+  <line x1="0" y1="-3" x2="0" y2="8" stroke="#0A2A1F" stroke-width="1.2"/>
+  <circle cx="0" cy="-5" r="3.6" fill="#0A2A1F"/>
+  <circle cx="-1.3" cy="-5.6" r="1" fill="#FFF"/><circle cx="1.3" cy="-5.6" r="1" fill="#FFF"/>
+</g></g>
+        <circle cx="0" cy="0" r="8.5" fill="#A96F51"/>
       </g>
     </g>
   </g>
 </g>
-  
-<g transform="translate(462 356)">
-  <!-- Ground shadow -->
-  <ellipse cx="0" cy="4" rx="44" ry="8.5" fill="#000" opacity=".46"/>
 
-  <g class="sparky-jump">
-    <!-- Boots -->
-    <rect x="-24" y="-22" width="19" height="22" rx="7" fill="#232A3A"/>
-    <rect x="6" y="-22" width="19" height="22" rx="7" fill="#232A3A"/>
-    <rect x="-26" y="-5" width="23" height="6" rx="3" fill="#FF9442"/>
-    <rect x="5" y="-5" width="23" height="6" rx="3" fill="#FF9442"/>
-
-    <!-- Plump overalls body -->
-    <rect x="-34" y="-92" width="68" height="74" rx="26" fill="#263248" stroke="#364663" stroke-width="1.3"/>
-    <!-- Dark tee underneath -->
-    <path d="M-24 -92 Q0 -76 24 -92 Z" fill="#141925"/>
-    <!-- Overall straps & amber buttons -->
-    <rect x="-20" y="-90" width="9" height="32" rx="3" fill="#2F3F5C"/>
-    <rect x="11" y="-90" width="9" height="32" rx="3" fill="#2F3F5C"/>
-    <circle cx="-15.5" cy="-64" r="3" fill="#FF9442"/>
-    <circle cx="15.5" cy="-64" r="3" fill="#FF9442"/>
-    <!-- Pocket with tiny lightning bolt -->
-    <rect x="-14" y="-54" width="28" height="20" rx="6" fill="#1E283B"/>
-    <path d="M2 -50 L-5 -43 H1 L-2 -36 L6 -44 H0 Z" fill="#FF9442"/>
-
-    <!-- Left arm: clutches sparking unplugged cord during chaos, relaxes happily once plugged back in -->
-    <g transform="translate(-34 -74)">
-      <g class="sparky-mad">
-        <!-- Cord curling down from unplugged plug toward floor -->
-        <path d="M-36 36 C-26 58 -14 70 8 72" fill="none" stroke="#FF9442" stroke-width="4" stroke-linecap="round" opacity=".85"/>
-        <path d="M0 0 C-18 6 -30 22 -38 28" fill="none" stroke="#182030" stroke-width="14" stroke-linecap="round"/>
-        <circle cx="-40" cy="29" r="8" fill="#E8B896"/>
-        <!-- Giant amber power plug -->
-        <g transform="translate(-56 20)">
-          <rect x="0" y="0" width="22" height="18" rx="5" fill="#FF9442" stroke="#FFD479" stroke-width="1"/>
-          <line x1="-8" y1="5" x2="0" y2="5" stroke="#E2E8F0" stroke-width="2.8" stroke-linecap="round"/>
-          <line x1="-8" y1="13" x2="0" y2="13" stroke="#E2E8F0" stroke-width="2.8" stroke-linecap="round"/>
-          <!-- Angry sparks when unplugged -->
-          <path d="M-12 2 L-20 -4 M-14 9 L-23 9 M-12 16 L-19 22" stroke="#FFD479" stroke-width="2.2" stroke-linecap="round"/>
-        </g>
-      </g>
-      <g class="sparky-happy">
-        <path d="M0 0 C-16 10 -22 24 -14 34" fill="none" stroke="#182030" stroke-width="14" stroke-linecap="round"/>
-        <circle cx="-14" cy="36" r="8" fill="#E8B896"/>
-      </g>
-    </g>
-
-    <!-- Right arm (points angrily at Chip-Bot during standoff, relaxed when fixed!) -->
-    <g transform="translate(34 -74)">
-      <g class="sparky-point-arm">
-        <path d="M0 0 C22 -8 42 -12 58 -10" fill="none" stroke="#182030" stroke-width="14" stroke-linecap="round"/>
-        <circle cx="60" cy="-10" r="8" fill="#E8B896"/>
-        <!-- Pointing finger -->
-        <line x1="65" y1="-11" x2="77" y2="-12" stroke="#E8B896" stroke-width="4.5" stroke-linecap="round"/>
-      </g>
-      <g class="sparky-chill-arm">
-        <path d="M0 0 C16 10 22 24 14 34" fill="none" stroke="#182030" stroke-width="14" stroke-linecap="round"/>
-        <circle cx="14" cy="36" r="8" fill="#E8B896"/>
-      </g>
-    </g>
-
-    <!-- Head -->
-    <g transform="translate(0 -124)">
-      <circle cx="-27" cy="2" r="6.5" fill="#C99572"/>
-      <circle cx="27" cy="2" r="6.5" fill="#E8B896"/>
-      <circle cx="0" cy="0" r="28" fill="#E8B896"/>
-      <ellipse cx="-6" cy="-7" rx="14" ry="10" fill="#FFFFFF" opacity=".16"/>
-      <!-- Rosy cheeks -->
-      <circle cx="-15" cy="8" r="4.5" fill="#FF7E9D" opacity=".28"/>
-      <circle cx="15" cy="8" r="4.5" fill="#FF7E9D" opacity=".28"/>
-
-      <!-- Startled/grumpy face during chaos -->
-      <g class="sparky-mad">
-        <circle cx="-8" cy="-1" r="5.5" fill="#FFFFFF"/>
-        <circle cx="11" cy="-1" r="5.5" fill="#FFFFFF"/>
-        <circle cx="-6" cy="-1" r="2.6" fill="#181C24"/>
-        <circle cx="13" cy="-1" r="2.6" fill="#181C24"/>
-        <circle cx="-7" cy="-2.2" r="1" fill="#FFFFFF"/>
-        <circle cx="12" cy="-2.2" r="1" fill="#FFFFFF"/>
-        <!-- Furrowed brows -->
-        <path d="M-15 -10 L-3 -6 M18 -10 L6 -6" stroke="#4D2E1B" stroke-width="2.8" stroke-linecap="round"/>
-        <!-- Open shouting mouth -->
-        <ellipse cx="2" cy="13" rx="6.5" ry="5.5" fill="#4A1915"/>
-      </g>
-
-      <!-- Happy relieved face when plugged back in -->
-      <g class="sparky-happy">
-        <path d="M-13 0 Q-8 -6 -3 0 M6 0 Q11 -6 16 0" fill="none" stroke="#2D1B10" stroke-width="2.8" stroke-linecap="round"/>
-        <path d="M-7 10 Q2 20 11 10" fill="none" stroke="#4A1915" stroke-width="2.8" stroke-linecap="round"/>
-      </g>
-
-      <!-- Glossy Amber Hard Hat (pops up into the air when startled!) -->
-      <g class="hat-pop">
-        <path d="M-31 -10 C-31 -34 -16 -44 0 -44 C16 -44 31 -34 31 -10 Z" fill="#FF9442"/>
-        <!-- Glossy highlight on dome -->
-        <path d="M-18 -29 C-12 -36 -2 -38 8 -35" fill="none" stroke="#FFE0B5" stroke-width="4" stroke-linecap="round" opacity=".65"/>
-        <!-- Hard hat brim -->
-        <rect x="-36" y="-13" width="72" height="8" rx="4" fill="#E67926"/>
-        <!-- White lightning emblem -->
-        <path d="M2 -34 L-4 -25 H1 L-2 -18 L6 -26 H1 Z" fill="#FFFFFF"/>
-      </g>
-    </g>
-  </g>
+<g transform="translate(576.64 200.29)"><animateTransform attributeName="transform" type="translate" dur="12s" repeatCount="indefinite" calcMode="spline" keyTimes="0.0000;0.5833;0.6083;0.6333;0.6583;1.0000" keySplines=".42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1;.42 0 .58 1" values="576.64 200.29;576.64 200.29;620 180;656 252;656 286;656 286"/>
+  <g transform="scale(.8)">
+<g class="flybug">
+  <circle r="9" fill="#34D399" opacity=".45" filter="url(#glow)"/>
+  <path d="M-4 -2 L-9 -6 M-4 1 L-10 1 M-4 4 L-9 8 M4 -2 L9 -6 M4 1 L10 1 M4 4 L9 8" stroke="#0A2A1F" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M-2 -6 Q-5 -12 -8 -12 M2 -6 Q5 -12 8 -12" fill="none" stroke="#0A2A1F" stroke-width="1.4" stroke-linecap="round"/>
+  <ellipse cx="0" cy="1" rx="6" ry="7" fill="#34D399"/>
+  <line x1="0" y1="-3" x2="0" y2="8" stroke="#0A2A1F" stroke-width="1.2"/>
+  <circle cx="0" cy="-5" r="3.6" fill="#0A2A1F"/>
+  <circle cx="-1.3" cy="-5.6" r="1" fill="#FFF"/><circle cx="1.3" cy="-5.6" r="1" fill="#FFF"/>
+</g></g>
 </g>
-  
-<g transform="translate(740 356)">
-  <!-- Ground shadow -->
-  <ellipse cx="0" cy="4" rx="46" ry="8.5" fill="#000" opacity=".46"/>
 
-  <g class="bot-react">
-    <!-- Cute rubber treads / stubby boots -->
-    <rect x="-30" y="-18" width="24" height="18" rx="9" fill="#232D42" stroke="#364563" stroke-width="1.2"/>
-    <rect x="6" y="-18" width="24" height="18" rx="9" fill="#232D42" stroke="#364563" stroke-width="1.2"/>
-    <circle cx="-18" cy="-9" r="3.5" fill="#38BDF8"/>
-    <circle cx="18" cy="-9" r="3.5" fill="#38BDF8"/>
-
-    <!-- Rounded Robot Torso with glowing emerald silicon chip core -->
-    <rect x="-34" y="-86" width="68" height="70" rx="22" fill="#182234" stroke="#2D405E" stroke-width="1.5"/>
-    <!-- Chest silicon die window -->
-    <rect x="-18" y="-68" width="36" height="32" rx="8" fill="#0C111C" stroke="#34D399" stroke-width="1.4" stroke-opacity=".8"/>
-    <path d="M-18 -58h-5M-18 -46h-5M18 -58h5M18 -46h5M-6 -68v-4M6 -68v-4M-6 -36v4M6 -36v4"
-          stroke="#FFD479" stroke-width="2" stroke-linecap="round"/>
-    <rect x="-9" y="-59" width="18" height="14" rx="3" fill="#34D399" opacity=".25"/>
-    <circle cx="0" cy="-52" r="4.5" fill="#34D399"/>
-
-    <!-- Left arm (flustered hands-up pose clearing gold pins during standoff, waves happily when fixed) -->
-    <g transform="translate(-34 -68)">
-      <g class="bot-panic-arms">
-        <path d="M0 0 C-22 -4 -34 -18 -28 -34" fill="none" stroke="#2B3D5B" stroke-width="12" stroke-linecap="round"/>
-        <circle cx="-28" cy="-36" r="7.5" fill="#38BDF8"/>
-      </g>
-      <g class="bot-happy-arms">
-        <path d="M0 0 C-20 -12 -32 -28 -28 -44" fill="none" stroke="#2B3D5B" stroke-width="12" stroke-linecap="round"/>
-        <circle cx="-28" cy="-46" r="7.5" fill="#38BDF8"/>
-      </g>
-    </g>
-
-    <!-- Right arm (pointing directly right at Nimbus during standoff!) -->
-    <g transform="translate(34 -68)">
-      <g class="bot-panic-arms">
-        <path d="M0 0 C22 -12 44 -20 62 -24" fill="none" stroke="#2B3D5B" stroke-width="12" stroke-linecap="round"/>
-        <circle cx="64" cy="-24" r="7.5" fill="#38BDF8"/>
-        <line x1="69" y1="-26" x2="80" y2="-30" stroke="#38BDF8" stroke-width="4" stroke-linecap="round"/>
-      </g>
-      <g class="bot-happy-arms">
-        <path d="M0 0 C20 -12 32 -28 28 -44" fill="none" stroke="#2B3D5B" stroke-width="12" stroke-linecap="round"/>
-        <circle cx="28" cy="-46" r="7.5" fill="#38BDF8"/>
-      </g>
-    </g>
-
-    <!-- Robot Head -->
-    <g transform="translate(0 -122)">
-      <!-- Gold IC-pin ears -->
-      <rect x="-46" y="-12" width="12" height="5" rx="2.5" fill="#FFD479"/>
-      <rect x="-46" y="-2" width="12" height="5" rx="2.5" fill="#FFD479"/>
-      <rect x="-46" y="8" width="12" height="5" rx="2.5" fill="#FFD479"/>
-      <rect x="34" y="-12" width="12" height="5" rx="2.5" fill="#FFD479"/>
-      <rect x="34" y="-2" width="12" height="5" rx="2.5" fill="#FFD479"/>
-      <rect x="34" y="8" width="12" height="5" rx="2.5" fill="#FFD479"/>
-
-      <!-- Bouncy antenna -->
-      <g class="antenna-wobble">
-        <line x1="0" y1="-28" x2="0" y2="-48" stroke="#64748B" stroke-width="3.2" stroke-linecap="round"/>
-        <circle cx="0" cy="-52" r="7" fill="#38BDF8"/>
-        <circle cx="-2" cy="-54" r="2.2" fill="#FFFFFF" opacity=".8"/>
-      </g>
-
-      <!-- Cyan helmet shell -->
-      <rect x="-38" y="-30" width="76" height="58" rx="22" fill="#38BDF8"/>
-      <!-- Soft glossy top rim -->
-      <path d="M-22 -24 H22" stroke="#BAE6FD" stroke-width="4" stroke-linecap="round" opacity=".6"/>
-      <!-- Dark glossy OLED face visor -->
-      <rect x="-30" y="-20" width="60" height="39" rx="14" fill="#0B101B"/>
-      <path d="M-22 -14 L-10 -14" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round" opacity=".2"/>
-
-      <!-- Nervous / panicked eyes + cartoon sweat drop -->
-      <g class="bot-nervous">
-        <circle cx="-12" cy="-2" r="7" fill="#FFFFFF"/>
-        <circle cx="12" cy="-2" r="7" fill="#FFFFFF"/>
-        <!-- Pupils glancing anxiously right at Nimbus -->
-        <circle cx="-9.5" cy="-2" r="3" fill="#0B101B"/>
-        <circle cx="14.5" cy="-2" r="3" fill="#0B101B"/>
-        <circle cx="-10.5" cy="-3.5" r="1.2" fill="#FFFFFF"/>
-        <circle cx="13.5" cy="-3.5" r="1.2" fill="#FFFFFF"/>
-        <!-- Squiggly nervous mouth -->
-        <path d="M-8 11 Q-4 8 0 11 Q4 14 8 11" fill="none" stroke="#FF9442" stroke-width="2.4" stroke-linecap="round"/>
-        <!-- Cartoon sweat drop on forehead -->
-        <path d="M27 -24 C27 -24 33 -15 33 -11 A6 6 0 1 1 21 -11 C21 -15 27 -24 27 -24 Z" fill="#7DD3FC"/>
-      </g>
-
-      <!-- Joyful happy eyes when fixed -->
-      <g class="bot-joy">
-        <path d="M-19 0 Q-12 -10 -5 0 M5 0 Q12 -10 19 0" fill="none" stroke="#34D399" stroke-width="3.4" stroke-linecap="round"/>
-        <path d="M-8 9 Q0 16 8 9" fill="none" stroke="#38BDF8" stroke-width="2.8" stroke-linecap="round"/>
-      </g>
-
-      <!-- Comic BONK starburst right on top of the antenna when spark hits! -->
-      <g transform="translate(0 -54)">
-        <g class="bonk-burst">
-          <path d="M0 -24 L5 -9 L20 -16 L10 -3 L25 4 L9 7 L14 21 L1 10 L-12 21 L-8 7 L-24 4 L-10 -3 L-19 -16 L-5 -9 Z"
-                fill="#FFD479" stroke="#FF5C5C" stroke-width="1.8" stroke-linejoin="round"/>
-        </g>
-      </g>
-    </g>
-  </g>
+<g class="say" opacity="0">
+  <rect x="480" y="94" width="160" height="36" rx="18" fill="#11141F" stroke="#34D399" stroke-width="1.6"/>
+  <path d="M549 129 L554 140 L563 129" fill="#11141F" stroke="#34D399" stroke-width="1.6" stroke-linejoin="round"/>
+  <line x1="550" y1="129" x2="562" y2="129" stroke="#11141F" stroke-width="3"/>
+  <text x="560" y="117" text-anchor="middle" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="15" font-weight="700" fill="#F4F6FB">that's bug #15.</text>
 </g>
-  
-<g transform="translate(1004 356)">
-  <!-- Soft hovering shadow on floor -->
-  <ellipse class="cloud-shadow" cx="0" cy="4" rx="44" ry="7.5" fill="#000" opacity=".36"/>
-
-  <g class="cloud-float">
-    <!-- Little dangling sneakers kicking gently in midair -->
-    <g transform="translate(0 -54)">
-      <path d="M-14 -10 L-18 14" stroke="#6D5CAE" stroke-width="6.5" stroke-linecap="round"/>
-      <path d="M14 -10 L18 14" stroke="#6D5CAE" stroke-width="6.5" stroke-linecap="round"/>
-      <ellipse cx="-21" cy="18" rx="12" ry="7" fill="#FF9442"/>
-      <ellipse cx="21" cy="18" rx="12" ry="7" fill="#FF9442"/>
-      <line x1="-30" y1="22" x2="-12" y2="22" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
-      <line x1="12" y1="22" x2="30" y2="22" stroke="#FFFFFF" stroke-width="2.5" stroke-linecap="round"/>
-    </g>
-
-    <!-- Fluffy multi-lobe illustrated cloud body -->
-    <g transform="translate(0 -116)">
-      <!-- Main cloud silhouette -->
-      <path d="M-48 26 H48 C64 26 74 14 72 -2 C70 -16 58 -24 44 -22 C40 -42 22 -54 2 -52 C-16 -50 -28 -38 -32 -24 C-48 -28 -64 -16 -66 0 C-68 16 -58 26 -48 26 Z"
-            fill="url(#cloudGrad)" stroke="#C8B9FF" stroke-width="1.3" stroke-linejoin="round"/>
-      <!-- Soft top highlights -->
-      <ellipse cx="-14" cy="-26" rx="20" ry="12" fill="#FFFFFF" opacity=".2"/>
-      <ellipse cx="32" cy="-8" rx="14" ry="9" fill="#FFFFFF" opacity=".14"/>
-
-      <!-- Innocent whistling face (looking far right away from the crime scene!) -->
-      <g class="cloud-whistle">
-        <ellipse cx="-12" cy="-6" rx="6.2" ry="6.6" fill="#FFFFFF"/>
-        <ellipse cx="14" cy="-6" rx="6.2" ry="6.6" fill="#FFFFFF"/>
-        <!-- Pupils glancing way over to the right -->
-        <circle cx="-8.5" cy="-7" r="3" fill="#1A1530"/>
-        <circle cx="17.5" cy="-7" r="3" fill="#1A1530"/>
-        <circle cx="-9.5" cy="-8.5" r="1.1" fill="#FFFFFF"/>
-        <circle cx="16.5" cy="-8.5" r="1.1" fill="#FFFFFF"/>
-        <!-- Relaxed innocent brows -->
-        <path d="M-19 -16 Q-12 -20 -6 -16 M8 -16 Q14 -20 20 -16" fill="none" stroke="#45337A" stroke-width="2.4" stroke-linecap="round"/>
-        <!-- Tiny whistling 'o' mouth -->
-        <circle cx="6" cy="9" r="3.6" fill="#3B296E"/>
-        <!-- Floating musical notes drifting right out of the whistle! -->
-        <g class="music-notes">
-          <text x="34" y="-12" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="22" font-weight="700" fill="#FFD479">♪</text>
-          <text x="58" y="-32" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="18" font-weight="700" fill="#38BDF8">♫</text>
-        </g>
-      </g>
-
-      <!-- Sheepish / happy face once fixed -->
-      <g class="cloud-sheepish">
-        <path d="M-18 -6 Q-12 -13 -6 -6 M8 -6 Q14 -13 20 -6" fill="none" stroke="#2D1E59" stroke-width="2.8" stroke-linecap="round"/>
-        <ellipse cx="-22" cy="4" rx="7" ry="4" fill="#FF7E9D" opacity=".55"/>
-        <ellipse cx="24" cy="4" rx="7" ry="4" fill="#FF7E9D" opacity=".55"/>
-        <path d="M-6 6 Q2 14 10 6" fill="none" stroke="#3B296E" stroke-width="2.6" stroke-linecap="round"/>
-      </g>
-    </g>
-  </g>
-</g>
-  
-<g class="spark-drop">
-  <circle cx="0" cy="0" r="16" fill="#FF5C5C" opacity=".28"/>
-  <path d="M0 -11 L3 -3 L11 -4 L5 2 L8 10 L0 5 L-8 10 L-5 2 L-11 -4 L-3 -3 Z" fill="#FFD479" stroke="#FF5C5C" stroke-width="1.4" stroke-linejoin="round"/>
-</g>
-  
-<g transform="translate(184 78)">
-  <g class="bub-nitish">
-    <rect x="-63" y="-19" width="126" height="36" rx="18" fill="#161B26" stroke="#3A445C" stroke-width="1.5"/>
-    <path d="M-10 16.5 L-4 26 L3 16.5 Z" fill="#161B26" stroke="#3A445C" stroke-width="1.5" stroke-linejoin="round"/>
-    <line x1="-9" y1="16.5" x2="2" y2="16.5" stroke="#161B26" stroke-width="2.6"/>
-    <text x="0" y="4" text-anchor="middle" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="14.5" font-weight="600" fill="#F4F6FB">Every time…</text>
-  </g>
-</g>
-<g transform="translate(184 78)">
-  <g class="bub-allgood">
-    <rect x="-55" y="-19" width="110" height="36" rx="18" fill="#161B26" stroke="#34D399" stroke-width="1.5"/>
-    <path d="M-10 16.5 L-4 26 L3 16.5 Z" fill="#161B26" stroke="#34D399" stroke-width="1.5" stroke-linejoin="round"/>
-    <line x1="-9" y1="16.5" x2="2" y2="16.5" stroke="#161B26" stroke-width="2.6"/>
-    <text x="0" y="4" text-anchor="middle" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="14.5" font-weight="600" fill="#F4F6FB">All good!</text>
-  </g>
-</g>
-<g transform="translate(464 118)">
-  <g class="bub-sparky">
-    <rect x="-43" y="-19" width="86" height="36" rx="18" fill="#161B26" stroke="#FF9442" stroke-width="1.5"/>
-    <path d="M-6 16.5 L0 26 L7 16.5 Z" fill="#161B26" stroke="#FF9442" stroke-width="1.5" stroke-linejoin="round"/>
-    <line x1="-5" y1="16.5" x2="6" y2="16.5" stroke="#161B26" stroke-width="2.6"/>
-    <text x="0" y="4" text-anchor="middle" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="14.5" font-weight="600" fill="#F4F6FB">Hey!!</text>
-  </g>
-</g>
-<g transform="translate(742 106)">
-  <g class="bub-bot">
-    <rect x="-73" y="-19" width="146" height="36" rx="18" fill="#161B26" stroke="#38BDF8" stroke-width="1.5"/>
-    <path d="M-8 16.5 L-2 26 L5 16.5 Z" fill="#161B26" stroke="#38BDF8" stroke-width="1.5" stroke-linejoin="round"/>
-    <line x1="-7" y1="16.5" x2="4" y2="16.5" stroke="#161B26" stroke-width="2.6"/>
-    <text x="0" y="4" text-anchor="middle" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="14.5" font-weight="600" fill="#F4F6FB">He started it!</text>
-  </g>
-</g>
-<g transform="translate(998 96)">
-  <g class="bub-cloud">
-    <rect x="-61" y="-19" width="122" height="36" rx="18" fill="#161B26" stroke="#A78BFA" stroke-width="1.5"/>
-    <path d="M-2 16.5 L4 26 L11 16.5 Z" fill="#161B26" stroke="#A78BFA" stroke-width="1.5" stroke-linejoin="round"/>
-    <line x1="-1" y1="16.5" x2="10" y2="16.5" stroke="#161B26" stroke-width="2.6"/>
-    <text x="0" y="4" text-anchor="middle" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="14.5" font-weight="600" fill="#F4F6FB">Wasn't me.</text>
-  </g>
-</g>
-<g transform="translate(998 96)">
-  <g class="bub-mybad">
-    <rect x="-53" y="-19" width="106" height="36" rx="18" fill="#161B26" stroke="#FF7E9D" stroke-width="1.5"/>
-    <path d="M-2 16.5 L4 26 L11 16.5 Z" fill="#161B26" stroke="#FF7E9D" stroke-width="1.5" stroke-linejoin="round"/>
-    <line x1="-1" y1="16.5" x2="10" y2="16.5" stroke="#161B26" stroke-width="2.6"/>
-    <text x="0" y="4" text-anchor="middle" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="14.5" font-weight="600" fill="#F4F6FB">My bad.</text>
-  </g>
-</g>
-  
-<text x="36" y="414" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="13.5" font-weight="500" fill="#6D778C">nitish sundarraj</text>
-<text x="1144" y="414" text-anchor="end" font-family="'Inter Tight','Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',system-ui,'Helvetica Neue',Arial,sans-serif" font-size="13.5" font-weight="500" fill="#6D778C">portfolio</text>
-<path d="M1152 409.5 h11 m-4 -4 l4 4 l-4 4" fill="none" stroke="#FF9442" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-</g>
+<g class="rainA" stroke="#A9C7F0" stroke-width="1.1" stroke-linecap="round" opacity="0.22"><line x1="785" y1="326" x2="780" y2="344"/><line x1="785" y1="-114" x2="780" y2="-96"/><line x1="1187" y1="326" x2="1182" y2="345"/><line x1="1187" y1="-114" x2="1182" y2="-95"/><line x1="37" y1="205" x2="31" y2="224"/><line x1="37" y1="-235" x2="31" y2="-216"/><line x1="818" y1="396" x2="815" y2="408"/><line x1="818" y1="-44" x2="815" y2="-32"/><line x1="591" y1="108" x2="587" y2="124"/><line x1="591" y1="-332" x2="587" y2="-316"/><line x1="723" y1="6" x2="720" y2="18"/><line x1="723" y1="-434" x2="720" y2="-422"/><line x1="352" y1="403" x2="347" y2="421"/><line x1="352" y1="-37" x2="347" y2="-19"/><line x1="201" y1="351" x2="198" y2="362"/><line x1="201" y1="-89" x2="198" y2="-78"/><line x1="778" y1="56" x2="775" y2="66"/><line x1="778" y1="-384" x2="775" y2="-374"/><line x1="1098" y1="92" x2="1095" y2="104"/><line x1="1098" y1="-348" x2="1095" y2="-336"/><line x1="1238" y1="384" x2="1234" y2="397"/><line x1="1238" y1="-56" x2="1234" y2="-43"/><line x1="1211" y1="237" x2="1207" y2="254"/><line x1="1211" y1="-203" x2="1207" y2="-186"/><line x1="258" y1="414" x2="253" y2="431"/><line x1="258" y1="-26" x2="253" y2="-9"/><line x1="1218" y1="393" x2="1214" y2="406"/><line x1="1218" y1="-47" x2="1214" y2="-34"/><line x1="455" y1="73" x2="452" y2="84"/><line x1="455" y1="-367" x2="452" y2="-356"/><line x1="82" y1="133" x2="78" y2="149"/><line x1="82" y1="-307" x2="78" y2="-291"/><line x1="4" y1="298" x2="1" y2="312"/><line x1="4" y1="-142" x2="1" y2="-128"/><line x1="391" y1="360" x2="386" y2="375"/><line x1="391" y1="-80" x2="386" y2="-65"/><line x1="398" y1="212" x2="393" y2="229"/><line x1="398" y1="-228" x2="393" y2="-211"/><line x1="72" y1="429" x2="69" y2="439"/><line x1="72" y1="-11" x2="69" y2="-1"/><line x1="945" y1="372" x2="942" y2="382"/><line x1="945" y1="-68" x2="942" y2="-58"/><line x1="993" y1="161" x2="988" y2="177"/><line x1="993" y1="-279" x2="988" y2="-263"/><line x1="11" y1="21" x2="8" y2="32"/><line x1="11" y1="-419" x2="8" y2="-408"/><line x1="1204" y1="86" x2="1199" y2="104"/><line x1="1204" y1="-354" x2="1199" y2="-336"/><line x1="1171" y1="414" x2="1168" y2="428"/><line x1="1171" y1="-26" x2="1168" y2="-12"/><line x1="447" y1="231" x2="442" y2="249"/><line x1="447" y1="-209" x2="442" y2="-191"/><line x1="136" y1="329" x2="131" y2="347"/><line x1="136" y1="-111" x2="131" y2="-93"/><line x1="1083" y1="16" x2="1078" y2="36"/><line x1="1083" y1="-424" x2="1078" y2="-404"/><line x1="115" y1="150" x2="110" y2="166"/><line x1="115" y1="-290" x2="110" y2="-274"/><line x1="1157" y1="150" x2="1151" y2="169"/><line x1="1157" y1="-290" x2="1151" y2="-271"/><line x1="687" y1="137" x2="683" y2="151"/><line x1="687" y1="-303" x2="683" y2="-289"/><line x1="224" y1="34" x2="220" y2="46"/><line x1="224" y1="-406" x2="220" y2="-394"/><line x1="868" y1="439" x2="865" y2="450"/><line x1="868" y1="-1" x2="865" y2="10"/><line x1="61" y1="434" x2="57" y2="449"/><line x1="61" y1="-6" x2="57" y2="9"/><line x1="511" y1="104" x2="507" y2="120"/><line x1="511" y1="-336" x2="507" y2="-320"/><line x1="1041" y1="200" x2="1037" y2="215"/><line x1="1041" y1="-240" x2="1037" y2="-225"/><line x1="70" y1="403" x2="67" y2="413"/><line x1="70" y1="-37" x2="67" y2="-27"/><line x1="622" y1="369" x2="619" y2="380"/><line x1="622" y1="-71" x2="619" y2="-60"/><line x1="922" y1="418" x2="917" y2="434"/><line x1="922" y1="-22" x2="917" y2="-6"/><line x1="993" y1="47" x2="989" y2="61"/><line x1="993" y1="-393" x2="989" y2="-379"/><line x1="188" y1="372" x2="184" y2="385"/><line x1="188" y1="-68" x2="184" y2="-55"/><line x1="571" y1="440" x2="566" y2="458"/><line x1="571" y1="-0" x2="566" y2="18"/><line x1="1230" y1="200" x2="1226" y2="214"/><line x1="1230" y1="-240" x2="1226" y2="-226"/><line x1="919" y1="211" x2="916" y2="224"/><line x1="919" y1="-229" x2="916" y2="-216"/><line x1="509" y1="64" x2="505" y2="78"/><line x1="509" y1="-376" x2="505" y2="-362"/><line x1="1245" y1="422" x2="1241" y2="439"/><line x1="1245" y1="-18" x2="1241" y2="-1"/></g>
+<g class="rainB" stroke="#A9C7F0" stroke-width="1.1" stroke-linecap="round" opacity="0.34"><line x1="629" y1="149" x2="626" y2="160"/><line x1="629" y1="-291" x2="626" y2="-280"/><line x1="343" y1="344" x2="338" y2="363"/><line x1="343" y1="-96" x2="338" y2="-77"/><line x1="455" y1="346" x2="450" y2="364"/><line x1="455" y1="-94" x2="450" y2="-76"/><line x1="875" y1="292" x2="870" y2="310"/><line x1="875" y1="-148" x2="870" y2="-130"/><line x1="458" y1="310" x2="454" y2="323"/><line x1="458" y1="-130" x2="454" y2="-117"/><line x1="612" y1="339" x2="607" y2="356"/><line x1="612" y1="-101" x2="607" y2="-84"/><line x1="370" y1="416" x2="366" y2="433"/><line x1="370" y1="-24" x2="366" y2="-7"/><line x1="732" y1="5" x2="727" y2="21"/><line x1="732" y1="-435" x2="727" y2="-419"/><line x1="316" y1="296" x2="312" y2="310"/><line x1="316" y1="-144" x2="312" y2="-130"/><line x1="1029" y1="285" x2="1024" y2="303"/><line x1="1029" y1="-155" x2="1024" y2="-137"/><line x1="438" y1="283" x2="433" y2="301"/><line x1="438" y1="-157" x2="433" y2="-139"/><line x1="1044" y1="154" x2="1038" y2="172"/><line x1="1044" y1="-286" x2="1038" y2="-268"/><line x1="1096" y1="303" x2="1091" y2="323"/><line x1="1096" y1="-137" x2="1091" y2="-117"/><line x1="1205" y1="228" x2="1201" y2="243"/><line x1="1205" y1="-212" x2="1201" y2="-197"/><line x1="209" y1="368" x2="204" y2="387"/><line x1="209" y1="-72" x2="204" y2="-53"/><line x1="601" y1="304" x2="597" y2="321"/><line x1="601" y1="-136" x2="597" y2="-119"/><line x1="920" y1="76" x2="915" y2="93"/><line x1="920" y1="-364" x2="915" y2="-347"/><line x1="732" y1="293" x2="728" y2="307"/><line x1="732" y1="-147" x2="728" y2="-133"/><line x1="786" y1="341" x2="781" y2="357"/><line x1="786" y1="-99" x2="781" y2="-83"/><line x1="908" y1="12" x2="904" y2="24"/><line x1="908" y1="-428" x2="904" y2="-416"/><line x1="556" y1="286" x2="552" y2="298"/><line x1="556" y1="-154" x2="552" y2="-142"/><line x1="864" y1="278" x2="861" y2="288"/><line x1="864" y1="-162" x2="861" y2="-152"/><line x1="594" y1="100" x2="591" y2="110"/><line x1="594" y1="-340" x2="591" y2="-330"/><line x1="168" y1="140" x2="165" y2="151"/><line x1="168" y1="-300" x2="165" y2="-289"/><line x1="244" y1="16" x2="240" y2="30"/><line x1="244" y1="-424" x2="240" y2="-410"/><line x1="479" y1="269" x2="475" y2="285"/><line x1="479" y1="-171" x2="475" y2="-155"/><line x1="300" y1="397" x2="297" y2="407"/><line x1="300" y1="-43" x2="297" y2="-33"/><line x1="511" y1="123" x2="507" y2="137"/><line x1="511" y1="-317" x2="507" y2="-303"/><line x1="145" y1="366" x2="141" y2="380"/><line x1="145" y1="-74" x2="141" y2="-60"/><line x1="45" y1="270" x2="42" y2="281"/><line x1="45" y1="-170" x2="42" y2="-159"/><line x1="687" y1="149" x2="683" y2="165"/><line x1="687" y1="-291" x2="683" y2="-275"/><line x1="1207" y1="360" x2="1203" y2="374"/><line x1="1207" y1="-80" x2="1203" y2="-66"/><line x1="1024" y1="283" x2="1021" y2="296"/><line x1="1024" y1="-157" x2="1021" y2="-144"/><line x1="179" y1="262" x2="175" y2="278"/><line x1="179" y1="-178" x2="175" y2="-162"/></g>
 </svg>
