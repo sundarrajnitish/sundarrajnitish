@@ -1,19 +1,20 @@
-"""Header: a rainy neon street corner with a running gag, for the GitHub README.
+"""Header: ground to orbit in one 14 s loop, for the GitHub README.
 
-Left: a brick wall with Nitish's name in neon tubes and a door into the portfolio.
-Middle: Nitish eating noodles with chopsticks. Right: a ramen stall whose sign reads
-BUG-FREE RAMEN and whose cook is a small robot in a chef hat.
+Left: a lights-out factory where a robot arm builds rocket upper stages.
+Middle: a driverless truck hauls the stage along the service road while Nitish rides
+past in a self-driving convertible (empty driver seat, steering wheel turning itself).
+Right: a reusable booster on its pad, launch tower and countdown board.
 
-The 12 s loop:
-  0.0-3.9  Nitish eats. Rain falls. The robot stirs the pot.
-  3.9-4.5  The "-FREE" tube flickers out. The sign now reads BUG   RAMEN.
-  5.0-7.0  A bug comes up on his chopsticks. The robot's visor flashes BUG?!
-  6.3      "that's bug #15."  He flicks it into the jar and the count goes 14 -> 15.
-  7.9-8.4  "-FREE" flickers back on. The robot looks pleased.
+The loop:
+  0.0-2.0   The arm picks an upper stage off the conveyor and sets it on the truck.
+  3.0-6.4   The truck drives itself to the pad.
+  6.6-7.4   The stage is stacked on top of the booster that landed last loop.
+  8.0-9.0   T-3, T-2, T-1. Liftoff at 9.0.
+ 11.0-13.2  The booster comes back down, legs out, and sticks the landing.
+ 13.2-1.6   Nitish raises his coffee: "stuck it."
 
 GitHub shows README images through <img>, so this is one self-contained SVG: CSS
-keyframes and SMIL only, no script, no web fonts. PHASE is 0 so the CSS and SMIL
-timelines start together.
+keyframes and SMIL only, no script, no web fonts. CSS and SMIL share one clock.
 """
 
 import math
@@ -22,14 +23,9 @@ import random
 from svgkit import MONO, SANS, doc, esc, f
 
 W, H = 1200, 440
-FLOOR = 372
-CYCLE = 12.0
+GROUND = 330
+CYCLE = 14.0
 
-# Palette: the portfolio's obsidian base and amber/cyan accents, pushed toward neon.
-SKY_TOP = "#05060A"
-SKY_LOW = "#120B22"
-WALL = "#0B0D15"
-WALL_LINE = "#151A26"
 INK = "#F4F6FB"
 MUTED = "#9EA7B8"
 AMBER = "#FF9442"
@@ -37,8 +33,10 @@ GOLD = "#FFB020"
 CYAN = "#38BDF8"
 PINK = "#FF4F9A"
 GREEN = "#34D399"
+VIOLET = "#A78BFA"
 RED = "#FF5454"
-DEAD_TUBE = "#1A1F2C"
+STEEL = "#232C40"
+STEEL_HI = "#36425C"
 
 SKIN = "#A96F51"
 SKIN_DK = "#86533B"
@@ -46,7 +44,10 @@ SKIN_LT = "#BF8766"
 HAIR = "#15100E"
 HAIR_HI = "#362822"
 HOODIE = "#1D2333"
-SLEEVE = "#1E2536"
+
+EASE = ".42 0 .58 1"
+EASE_IN = ".55 0 1 .6"
+EASE_OUT = "0 .4 .3 1"
 
 
 # ---------------------------------------------------------------------------- timing helpers
@@ -63,535 +64,497 @@ def run(name, easing="linear"):
     return f"animation:{name} {f(CYCLE)}s {easing} infinite"
 
 
-def shown(name, spans, ramp=0.08):
-    """Opacity keyframes that are 1 inside each (start, end) span and 0 elsewhere."""
-    stops = [(0, "opacity:0")]
+def toggle(name, spans, ramp=0.08, invert=False):
+    """Opacity keyframes: on inside each (start, end) span. Spans may touch 0 or CYCLE."""
+    def on(t):
+        return any((a + ramp <= t <= b) or (a == 0 and t <= b) for a, b in spans)
+
+    pts = {0.0, CYCLE}
     for a, b in spans:
-        stops += [(a, "opacity:0"), (a + ramp, "opacity:1"), (b, "opacity:1"), (b + ramp, "opacity:0")]
-    stops.append((CYCLE, "opacity:0"))
-    return kf(name, stops)
+        pts |= {x for x in (a, a + ramp, b, b + ramp) if 0 <= x <= CYCLE}
+    stops = [(t, f"opacity:{int(on(t) != invert)}") for t in sorted(pts)]
+    return kf(name, stops) + f".{name}{{{run(name)}}}"
 
 
-def hidden(name, spans, ramp=0.08):
-    """The inverse of shown(): visible except inside each span."""
-    stops = [(0, "opacity:1")]
-    for a, b in spans:
-        stops += [(a, "opacity:1"), (a + ramp, "opacity:0"), (b, "opacity:0"), (b + ramp, "opacity:1")]
-    stops.append((CYCLE, "opacity:1"))
-    return kf(name, stops)
-
-
-def smil(attr, frames, kind="animate", extra=""):
-    """SMIL animation on the shared CYCLE clock with eased segments."""
-    times = ";".join(f"{t / CYCLE:.4f}" for t, _ in frames)
-    values = ";".join(v for _, v in frames)
-    splines = ";".join([".42 0 .58 1"] * (len(frames) - 1))
-    tag = "animateTransform" if kind != "animate" else "animate"
-    typ = f' type="{kind}"' if kind != "animate" else ""
+def smil(attr, frames, kind="animate", splines=None):
+    """SMIL animation on the shared clock. frames: [(t, value[, spline into this frame])]."""
+    times = ";".join(f"{fr[0] / CYCLE:.4f}" for fr in frames)
+    values = ";".join(fr[1] for fr in frames)
+    sp = ";".join((fr[2] if len(fr) > 2 else EASE) for fr in frames[1:])
+    tag = "animate" if kind == "animate" else "animateTransform"
+    typ = "" if kind == "animate" else f' type="{kind}"'
     return (f'<{tag} attributeName="{attr}"{typ} dur="{f(CYCLE)}s" repeatCount="indefinite" '
-            f'calcMode="spline" keyTimes="{times}" keySplines="{splines}" values="{values}"{extra}/>')
+            f'calcMode="spline" keyTimes="{times}" keySplines="{sp}" values="{values}"/>')
 
 
-# ---------------------------------------------------------------------------- neon
-
-def neon(x, y, s, size, color, length, cls="", weight=800, family=SANS, core=True):
-    """Tube lettering: an unlit tube that is always there, plus a lit layer that can flicker."""
-    base = (f'x="{f(x)}" y="{f(y)}" font-family="{family}" font-size="{size}" font-weight="{weight}" '
-            f'textLength="{f(length)}" lengthAdjust="spacingAndGlyphs"')
-    t = esc(s)
-    lit = (f'<text {base} fill="{color}" fill-opacity=".14" stroke="{color}" stroke-width="6" '
-           f'filter="url(#glow)" opacity=".85">{t}</text>'
-           f'<text {base} fill="none" stroke="{color}" stroke-width="2.4" stroke-linejoin="round">{t}</text>')
-    if core:
-        lit += (f'<text {base} fill="none" stroke="#FFFFFF" stroke-width=".8" stroke-opacity=".7" '
-                f'stroke-linejoin="round">{t}</text>')
-    return (f'<text {base} fill="none" stroke="{DEAD_TUBE}" stroke-width="3">{t}</text>'
-            f'<g class="{cls}">{lit}</g>')
-
-
-def tube_line(x1, y1, x2, y2, color, cls=""):
-    return (f'<g class="{cls}"><line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{color}" stroke-width="7" '
-            f'stroke-linecap="round" filter="url(#glow)" opacity=".8"/>'
-            f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{color}" stroke-width="2.6" stroke-linecap="round"/>'
-            f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="#FFF" stroke-width=".8" stroke-opacity=".7" '
-            f'stroke-linecap="round"/></g>')
-
-
-# ---------------------------------------------------------------------------- scenery
+# ---------------------------------------------------------------------------- sky
 
 def defs():
     return f"""
 <defs>
   <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0" stop-color="{SKY_TOP}"/><stop offset="1" stop-color="{SKY_LOW}"/>
+    <stop offset="0" stop-color="#020308"/><stop offset=".6" stop-color="#090A1A"/><stop offset="1" stop-color="#1A0E2A"/>
   </linearGradient>
-  <radialGradient id="haze" cx=".62" cy="1" r=".7">
-    <stop offset="0" stop-color="{PINK}" stop-opacity=".22"/><stop offset="1" stop-color="{PINK}" stop-opacity="0"/>
+  <radialGradient id="haze" cx=".5" cy="1" r=".6">
+    <stop offset="0" stop-color="{PINK}" stop-opacity=".18"/><stop offset="1" stop-color="{PINK}" stop-opacity="0"/>
   </radialGradient>
-  <linearGradient id="street" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0" stop-color="#0D1019"/><stop offset="1" stop-color="#05060A"/>
+  <linearGradient id="road" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#0C0F18"/><stop offset="1" stop-color="#05060A"/>
   </linearGradient>
-  <linearGradient id="stallGlow" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0" stop-color="{AMBER}" stop-opacity=".26"/><stop offset="1" stop-color="{AMBER}" stop-opacity="0"/>
+  <linearGradient id="beam" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0" stop-color="#FFF1C9" stop-opacity=".35"/><stop offset="1" stop-color="#FFF1C9" stop-opacity="0"/>
   </linearGradient>
-  <linearGradient id="doorSpill" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0" stop-color="{GOLD}" stop-opacity=".38"/><stop offset="1" stop-color="{GOLD}" stop-opacity="0"/>
+  <linearGradient id="flame" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#FFFFFF"/><stop offset=".3" stop-color="{GOLD}"/><stop offset="1" stop-color="{AMBER}" stop-opacity="0"/>
   </linearGradient>
-  <pattern id="brick" width="44" height="22" patternUnits="userSpaceOnUse">
-    <path d="M0 21.5H44M22 0V11M0 10.5H44M0 11V22M44 11V22" stroke="{WALL_LINE}" stroke-width="1" fill="none"/>
-  </pattern>
-  <filter id="glow" x="-30%" y="-60%" width="160%" height="220%"><feGaussianBlur stdDeviation="5"/></filter>
+  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4"/></filter>
   <filter id="soft" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="9"/></filter>
 </defs>"""
 
 
+def sky():
+    rnd = random.Random(21)
+    stars = []
+    for _ in range(110):
+        x, y = rnd.uniform(0, W), rnd.uniform(0, 250)
+        r = rnd.choice([.6, .8, .8, 1.1, 1.4])
+        tw = f' class="tw" style="animation-delay:-{rnd.uniform(0, 4):.1f}s"' if rnd.random() < .3 else ""
+        stars.append(f'<circle{tw} cx="{x:.0f}" cy="{y:.0f}" r="{r}" fill="#DDE6FF" opacity="{rnd.uniform(.3, .9):.2f}"/>')
+    orbit = "M60 150 A560 70 -6 0 1 1140 60"
+    return f"""
+<rect width="{W}" height="{H}" fill="url(#sky)"/>
+<rect width="{W}" height="{H}" fill="url(#haze)"/>
+{''.join(stars)}
+<!-- moon -->
+<circle cx="560" cy="64" r="30" fill="{VIOLET}" opacity=".12" filter="url(#soft)"/>
+<circle cx="560" cy="64" r="22" fill="#D9DDF0"/>
+<circle cx="552" cy="58" r="4" fill="#B8BED6"/><circle cx="566" cy="72" r="3" fill="#B8BED6"/><circle cx="568" cy="55" r="2" fill="#B8BED6"/>
+<!-- orbit with a satellite riding it -->
+<path id="orbit" d="{orbit}" fill="none" stroke="{CYAN}" stroke-opacity=".22" stroke-width="1" stroke-dasharray="3 7"/>
+<g>
+  <animateMotion dur="{f(CYCLE)}s" repeatCount="indefinite" rotate="auto"><mpath href="#orbit"/></animateMotion>
+  <rect x="-3" y="-3" width="6" height="6" fill="#C9D2E6"/>
+  <rect x="-15" y="-2" width="10" height="4" fill="{CYAN}" opacity=".8"/><rect x="5" y="-2" width="10" height="4" fill="{CYAN}" opacity=".8"/>
+  <circle class="beacon" r="1.5" cy="-5" fill="{RED}"/>
+</g>"""
+
+
 def skyline():
-    rnd = random.Random(11)
-    out = ['<rect width="1200" height="440" fill="url(#sky)"/>', '<rect width="1200" height="440" fill="url(#haze)"/>']
-    for layer, (shade, lo, hi, win_op) in enumerate([("#0A0C16", 150, 300, .35), ("#0E1120", 90, 220, .55)]):
-        x = -10 if layer == 0 else 4
-        while x < W:
-            w = rnd.randint(44, 96)
-            h = rnd.randint(lo, hi)
-            top = FLOOR - h
-            out.append(f'<rect x="{x}" y="{top}" width="{w}" height="{h}" fill="{shade}"/>')
-            for wy in range(top + 12, FLOOR - 10, 14):
-                for wx in range(x + 7, x + w - 7, 11):
-                    if rnd.random() < 0.18:
-                        c = rnd.choice([AMBER, CYAN, CYAN, GOLD, PINK])
-                        blink = ' class="blink"' if rnd.random() < 0.12 else ""
-                        delay = f' style="animation-delay:-{rnd.uniform(0, 7):.1f}s"' if blink else ""
-                        out.append(f'<rect{blink}{delay} x="{wx}" y="{wy}" width="4" height="6" fill="{c}" '
-                                   f'opacity="{win_op * rnd.uniform(.4, 1):.2f}"/>')
-            x += w + rnd.randint(2, 10)
-    # A far billboard between the wall and the stall, plus a blinking aircraft light.
-    out.append(f'<rect x="508" y="38" width="64" height="40" rx="3" fill="#0B0E18" stroke="#1C2234"/>'
-               f'<text x="540" y="64" text-anchor="middle" font-family="{MONO}" font-size="13" font-weight="700" '
-               f'fill="{CYAN}" opacity=".55" class="billboard">24/7</text>'
-               f'<circle class="beacon" cx="1150" cy="40" r="2.5" fill="{RED}"/>')
+    rnd = random.Random(8)
+    out = []
+    x = 330
+    while x < 900:
+        w, h = rnd.randint(30, 64), rnd.randint(30, 110)
+        top = GROUND - h
+        out.append(f'<rect x="{x}" y="{top}" width="{w}" height="{h}" fill="#0E1120"/>')
+        for wy in range(top + 8, GROUND - 6, 10):
+            for wx in range(x + 5, x + w - 5, 8):
+                if rnd.random() < .2:
+                    c = rnd.choice([AMBER, CYAN, CYAN, PINK])
+                    out.append(f'<rect x="{wx}" y="{wy}" width="3" height="4" fill="{c}" opacity="{rnd.uniform(.25, .6):.2f}"/>')
+        x += w + rnd.randint(2, 8)
     return "\n".join(out)
 
 
-def wall():
+# ---------------------------------------------------------------------------- factory + arm
+
+SHOULDER = (210, 214)
+L1, L2 = 62, 62
+PICK = (112, 242)
+PLACE = (300, 248)
+REST = (180, 200)
+ARM_KEYS = [(0, REST), (0.4, (112, 218)), (0.8, PICK), (1.15, (140, 214)), (1.7, (300, 224)), (2.0, PLACE),
+            (2.35, (290, 222)), (2.9, REST), (CYCLE, REST)]
+
+
+def ik(target):
+    sx, sy = SHOULDER
+    dx, dy = target[0] - sx, target[1] - sy
+    d = min(math.hypot(dx, dy), L1 + L2 - 1e-3)
+    phi = math.degrees(math.atan2(dx, -dy))
+    alpha = math.degrees(math.acos((L1 * L1 + d * d - L2 * L2) / (2 * L1 * d)))
+
+    def elbow(t1):
+        return sx + L1 * math.sin(math.radians(t1)), sy - L1 * math.cos(math.radians(t1))
+
+    t1 = min((phi + alpha, phi - alpha), key=lambda a: elbow(a)[1])  # elbow up
+    ex, ey = elbow(t1)
+    psi = math.degrees(math.atan2(target[0] - ex, -(target[1] - ey)))
+    return t1, psi - t1, -psi
+
+
+def stage(cls="", x=0, y=0):
+    """A rocket upper stage, drawn hanging from its nose tip at (x, y)."""
+    return f"""
+<g class="{cls}" transform="translate({f(x)} {f(y)})">
+  <path d="M0 0 C7 4 9 10 9 16 H-9 C-9 10 -7 4 0 0 Z" fill="#E8EDF7"/>
+  <rect x="-9" y="16" width="18" height="30" fill="#D6DCE8"/>
+  <rect x="-9" y="24" width="18" height="3" fill="{PINK}"/>
+  <circle cx="0" cy="36" r="2.6" fill="{CYAN}"/>
+  <path d="M-9 46 L-12 52 H12 L9 46 Z" fill="#3A4560"/>
+</g>"""
+
+
+def arm():
+    sx, sy = SHOULDER
+    poses = [(t, ik(p)) for t, p in ARM_KEYS]
+    up = smil("transform", [(t, f"{a[0]:.1f} {sx} {sy}") for t, a in poses], kind="rotate")
+    fore = smil("transform", [(t, f"{a[1]:.1f} {sx} {sy - L1}") for t, a in poses], kind="rotate")
+    wrist = smil("transform", [(t, f"{a[2]:.1f} {sx} {sy - L1 - L2}") for t, a in poses], kind="rotate")
+    a0 = poses[0][1]
+    gx, gy = sx, sy - L1 - L2
     return f"""
 <g>
-  <rect x="0" y="0" width="470" height="{FLOOR}" fill="{WALL}"/>
-  <rect x="0" y="0" width="470" height="{FLOOR}" fill="url(#brick)" opacity=".9"/>
-  <rect x="462" y="0" width="8" height="{FLOOR}" fill="#070910"/>
-  <!-- conduit feeding the sign -->
-  <path d="M418 0 V44 Q418 54 408 54 H392" fill="none" stroke="#1B2131" stroke-width="5" stroke-linecap="round"/>
-  {''.join(f'<rect x="{cx}" y="{cy}" width="10" height="4" rx="1.5" fill="#262E42"/>' for cx, cy in [(60, 70), (230, 70), (380, 70), (60, 205), (250, 205), (400, 205)])}
-  {neon(46, 128, "Nitish", 74, AMBER, 232, cls="name-a")}
-  {neon(46, 200, "Sundarraj", 74, CYAN, 382, cls="name-b")}
-  {tube_line(52, 226, 268, 226, PINK, cls="underline")}
-  <text x="50" y="258" font-family="{MONO}" font-size="14.5" fill="{MUTED}">power · silicon · robots · cloud</text>
-  <text x="50" y="280" font-family="{MONO}" font-size="14.5" fill="{MUTED}">systems developer, mostly awake</text>
-
-  <!-- door into the portfolio, left ajar -->
-  <rect x="372" y="294" width="80" height="78" fill="#070910"/>
-  <rect x="376" y="298" width="72" height="74" fill="{GOLD}" opacity=".5" class="doorlight"/>
-  <path d="M384 298 H448 V372 H384 Z" fill="#121726"/>
-  <circle cx="392" cy="338" r="2.6" fill="{GOLD}"/>
-  <rect x="372" y="294" width="80" height="78" fill="none" stroke="{CYAN}" stroke-width="2" opacity=".75"/>
-  <rect x="372" y="294" width="80" height="78" fill="none" stroke="{CYAN}" stroke-width="6" opacity=".35" filter="url(#glow)"/>
-  <text x="412" y="286" text-anchor="middle" font-family="{MONO}" font-size="12.5" font-weight="700" fill="{CYAN}">portfolio →</text>
-</g>"""
-
-
-def stall_sign():
-    return f"""
-<g>
-  <line x1="690" y1="140" x2="690" y2="152" stroke="#1E2536" stroke-width="3"/>
-  <line x1="1020" y1="140" x2="1020" y2="152" stroke="#1E2536" stroke-width="3"/>
-  <rect x="640" y="72" width="430" height="68" rx="6" fill="#090B12" stroke="#222A3B" stroke-width="1.5"/>
-  {neon(664, 123, "BUG", 42, PINK, 82, cls="")}
-  {neon(752, 123, "-FREE", 42, GREEN, 132, cls="free")}
-  {neon(902, 123, "RAMEN", 42, GOLD, 146, cls="ramen")}
-</g>"""
-
-
-def cat():
-    """A cat sitting on top of the sign, tail hanging over the edge."""
-    return f"""
-<g transform="translate(1040 72)">
-  <g class="tail"><path d="M10 -4 C22 -2 22 18 16 30 C13 36 16 40 20 40" fill="none" stroke="#04050A" stroke-width="4.5" stroke-linecap="round"/></g>
-  <g stroke="{PINK}" stroke-width="1.2" stroke-opacity=".55" stroke-linejoin="round">
-  <path d="M-12 0 C-14 -18 -8 -26 0 -27 C8 -26 14 -18 12 0 Z" fill="#04050A"/>
-    <circle cx="0" cy="-30" r="9" fill="#04050A"/>
-    <path d="M-8 -34 L-7 -44 L-2 -37 Z M8 -34 L7 -44 L2 -37 Z" fill="#04050A"/>
-  </g>
-  <g class="cateyes"><ellipse cx="-3.4" cy="-31" rx="1.7" ry="2.1" fill="{GOLD}"/><ellipse cx="3.4" cy="-31" rx="1.7" ry="2.1" fill="{GOLD}"/></g>
-</g>"""
-
-
-def stall():
-    bulbs = "".join(
-        f'<line x1="{x}" y1="196" x2="{x}" y2="206" stroke="#2A3246" stroke-width="1.5"/>'
-        f'<circle cx="{x}" cy="211" r="10" fill="{AMBER}" opacity=".35" filter="url(#glow)"/>'
-        f'<circle cx="{x}" cy="211" r="4.5" fill="#FFD9A8"/>' for x in (676, 1004))
-    stripes = "".join(
-        f'<rect x="{606 + i * 42}" y="150" width="42" height="38" fill="{"#2A1033" if i % 2 == 0 else "#10131F"}"/>'
-        for i in range(12))
-    scallops = "".join(
-        f'<path d="M{606 + i * 42} 187 a21 9 0 0 0 42 0 Z" fill="{"#2A1033" if i % 2 == 0 else "#10131F"}"/>'
-        for i in range(12))
-    menu = [("2N power broth", AMBER), ("UVM udon · 0 bugs", GREEN), ("formal pho · proven", CYAN),
-            ("CAN-bus noodles", PINK)]
-    menu_rows = "".join(
-        f'<circle cx="932" cy="{238 + i * 16 - 4}" r="2" fill="{c}"/>'
-        f'<text x="940" y="{238 + i * 16}" font-family="{MONO}" font-size="12" fill="#D4DAE6">{esc(s)}</text>'
-        for i, (s, c) in enumerate(menu))
-    return f"""
-<g>
-  <!-- back wall with warm light under the awning -->
-  <rect x="618" y="186" width="484" height="112" fill="#0C0F18"/>
-  <rect x="618" y="186" width="484" height="112" fill="url(#stallGlow)"/>
-  <rect x="920" y="206" width="166" height="88" rx="5" fill="#070910" stroke="#2A3246"/>
-  <text x="932" y="221" font-family="{MONO}" font-size="10.5" font-weight="700" fill="{MUTED}" letter-spacing="1.5">TONIGHT</text>
-  {menu_rows}
-  {robot()}
-  <!-- posts -->
-  <rect x="612" y="150" width="9" height="{FLOOR - 150}" fill="#171C2A"/>
-  <rect x="1099" y="150" width="9" height="{FLOOR - 150}" fill="#171C2A"/>
-  <!-- awning -->
-  {stripes}{scallops}
-  <rect x="606" y="148" width="504" height="4" fill="#3A1846"/>
-  {bulbs}
-  <!-- counter -->
-  <rect x="604" y="294" width="512" height="10" rx="2" fill="#252D40"/>
-  <line x1="606" y1="305" x2="1114" y2="305" stroke="{CYAN}" stroke-width="5" opacity=".45" filter="url(#glow)"/>
-  <line x1="606" y1="305" x2="1114" y2="305" stroke="{CYAN}" stroke-width="1.6"/>
-  <rect x="612" y="306" width="496" height="{FLOOR - 306}" fill="#121725"/>
-  {''.join(f'<line x1="{x}" y1="310" x2="{x}" y2="{FLOOR}" stroke="#0C1019" stroke-width="2"/>' for x in range(652, 1108, 40))}
-  <text x="860" y="346" text-anchor="middle" font-family="{MONO}" font-size="14" fill="{GOLD}" opacity=".8">open till the tests pass</text>
-  {pot()}
-  {jar()}
-</g>"""
-
-
-def pot():
-    steam = "".join(
-        f'<path class="steam" style="animation-delay:-{d}s" d="M{x} 262 c-6 -8 6 -14 0 -22 c-5 -7 5 -12 0 -18" '
-        f'fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0"/>'
-        for x, d in ((728, 0), (744, 0.9), (760, 1.7)))
-    return f"""
-<g>
-  {steam}
-  <rect x="712" y="266" width="64" height="30" rx="5" fill="#2B3448"/>
-  <rect x="712" y="266" width="64" height="7" fill="#3A4560"/>
-  <rect x="706" y="270" width="8" height="5" rx="2" fill="#3A4560"/>
-  <rect x="774" y="270" width="8" height="5" rx="2" fill="#3A4560"/>
-</g>"""
-
-
-def jar():
-    rnd = random.Random(3)
-    dots = "".join(
-        f'<circle cx="{644 + rnd.uniform(0, 22):.1f}" cy="{288 + rnd.uniform(-5, 4):.1f}" r="1.9" fill="{GREEN}" opacity=".9"/>'
-        for _ in range(14))
-    return f"""
-<g>
-  <rect x="640" y="258" width="32" height="38" rx="6" fill="{CYAN}" fill-opacity=".07" stroke="#5B6B86" stroke-width="1.5"/>
-  <rect x="638" y="255" width="36" height="5" rx="2" fill="#3A4458"/>
-  {dots}
-  <rect x="643" y="266" width="26" height="13" rx="2" fill="#E8EDF7"/>
-  <text class="n14" x="656" y="276.5" text-anchor="middle" font-family="{MONO}" font-size="10.5" font-weight="700" fill="#10131F">14</text>
-  <text class="n15" x="656" y="276.5" text-anchor="middle" font-family="{MONO}" font-size="10.5" font-weight="700" fill="#10131F" opacity="0">15</text>
-  <text x="656" y="250" text-anchor="middle" font-family="{MONO}" font-size="9.5" fill="{MUTED}">bugs</text>
-</g>"""
-
-
-def robot():
-    return f"""
-<g class="robot">
-  <!-- stirring arm and ladle -->
-  <g class="stir">
-    <path d="M808 284 Q790 272 772 268" fill="none" stroke="#2C354A" stroke-width="8" stroke-linecap="round"/>
-    <circle cx="772" cy="268" r="5" fill="#3A4560"/>
-    <line x1="772" y1="268" x2="748" y2="282" stroke="#8C97AD" stroke-width="3" stroke-linecap="round"/>
-  </g>
-  <path d="M872 284 Q888 276 892 262" fill="none" stroke="#2C354A" stroke-width="8" stroke-linecap="round"/>
-  <circle cx="892" cy="260" r="5" fill="#3A4560"/>
-  <!-- body + apron -->
-  <rect x="804" y="274" width="72" height="26" rx="9" fill="#1B2234" stroke="#2C354A"/>
-  <rect x="822" y="278" width="36" height="22" rx="3" fill="#E8EDF7" opacity=".92"/>
-  <rect x="834" y="264" width="12" height="12" fill="#2C354A"/>
-  <!-- head -->
-  <rect x="800" y="226" width="80" height="42" rx="13" fill="#232C40" stroke="#36425C"/>
-  <rect x="808" y="232" width="64" height="30" rx="9" fill="#04060B"/>
-  <g class="r-calm"><g class="r-blink">
-    <rect x="822" y="240" width="11" height="14" rx="4" fill="{CYAN}"/>
-    <rect x="847" y="240" width="11" height="14" rx="4" fill="{CYAN}"/>
-  </g></g>
-  <g class="r-alarm" opacity="0">
-    <text x="840" y="253" text-anchor="middle" font-family="{MONO}" font-size="13.5" font-weight="800" fill="{RED}">BUG?!</text>
-  </g>
-  <g class="r-happy" opacity="0">
-    <path d="M821 251 Q827.5 240 834 251 M846 251 Q852.5 240 859 251" fill="none" stroke="{CYAN}" stroke-width="3" stroke-linecap="round"/>
-  </g>
-  <!-- chef hat -->
-  <rect x="814" y="212" width="52" height="15" rx="3" fill="#EEF1F7"/>
-  <circle cx="824" cy="206" r="11" fill="#EEF1F7"/>
-  <circle cx="840" cy="201" r="13" fill="#EEF1F7"/>
-  <circle cx="856" cy="206" r="11" fill="#EEF1F7"/>
-  <line x1="826" y1="216" x2="826" y2="226" stroke="#C9CFDB" stroke-width="1.2"/>
-  <line x1="854" y1="216" x2="854" y2="226" stroke="#C9CFDB" stroke-width="1.2"/>
-</g>"""
-
-
-# ---------------------------------------------------------------------------- Nitish
-
-# Chopstick-hand poses in his local frame: (hand x, hand y, stick angle, elbow control x, y)
-DOWN = (-6, -128, 40, -44, -98)
-MOUTH = (-22, -150, -34, -50, -112)
-LOOK = (6, -146, -40, -46, -108)
-SHOULDER = (-30, -124)
-STICK = 40
-
-POSES = [(0, DOWN), (0.8, DOWN), (1.4, MOUTH), (1.9, MOUTH), (2.5, DOWN), (3.2, DOWN), (3.8, MOUTH),
-         (4.2, MOUTH), (4.8, DOWN), (5.0, DOWN), (5.6, LOOK), (7.0, LOOK), (7.5, DOWN), (8.6, DOWN),
-         (9.2, MOUTH), (9.7, MOUTH), (10.3, DOWN), (CYCLE, DOWN)]
-
-NX, NY = 540, FLOOR
-
-
-def tip(pose):
-    hx, hy, a, _, _ = pose
-    return hx + STICK * math.cos(math.radians(a)), hy + STICK * math.sin(math.radians(a))
-
-
-def arm_d(pose):
-    hx, hy, _, cx, cy = pose
-    return f"M{SHOULDER[0]} {SHOULDER[1]} Q{cx} {cy} {hx} {hy}"
-
-
-def bug(cls=""):
-    return f"""
-<g class="{cls}">
-  <circle r="9" fill="{GREEN}" opacity=".45" filter="url(#glow)"/>
-  <path d="M-4 -2 L-9 -6 M-4 1 L-10 1 M-4 4 L-9 8 M4 -2 L9 -6 M4 1 L10 1 M4 4 L9 8" stroke="#0A2A1F" stroke-width="1.6" stroke-linecap="round"/>
-  <path d="M-2 -6 Q-5 -12 -8 -12 M2 -6 Q5 -12 8 -12" fill="none" stroke="#0A2A1F" stroke-width="1.4" stroke-linecap="round"/>
-  <ellipse cx="0" cy="1" rx="6" ry="7" fill="{GREEN}"/>
-  <line x1="0" y1="-3" x2="0" y2="8" stroke="#0A2A1F" stroke-width="1.2"/>
-  <circle cx="0" cy="-5" r="3.6" fill="#0A2A1F"/>
-  <circle cx="-1.3" cy="-5.6" r="1" fill="#FFF"/><circle cx="1.3" cy="-5.6" r="1" fill="#FFF"/>
-</g>"""
-
-
-def nitish():
-    hand_xy = [(t, f"{p[0]} {p[1]}") for t, p in POSES]
-    hand_rot = [(t, f"{p[2]}") for t, p in POSES]
-    arm = [(t, arm_d(p)) for t, p in POSES]
-    d0 = POSES[0][1]
-    return f"""
-<g transform="translate({NX} {NY})">
-  <ellipse cx="0" cy="4" rx="48" ry="8" fill="#000" opacity=".55"/>
-  <!-- legs -->
-  <rect x="-22" y="-58" width="17" height="50" rx="8" fill="#181D2B"/>
-  <rect x="6" y="-58" width="17" height="50" rx="8" fill="#181D2B"/>
-  <path d="M-26 -10h22c4 0 6 3 6 7v4h-30v-5c0-3 1-6 2-6z" fill="#2A3244"/>
-  <path d="M4 -10h24c4 0 6 3 6 7v4h-30v-11z" fill="#2A3244"/>
-  <line x1="-26" y1="0" x2="2" y2="0" stroke="{PINK}" stroke-width="2.4" stroke-linecap="round"/>
-  <line x1="4" y1="0" x2="32" y2="0" stroke="{PINK}" stroke-width="2.4" stroke-linecap="round"/>
-  <g class="bob">
-    <!-- hoodie -->
-    <path d="M-34 -126 C-34 -138 -20 -144 0 -144 C20 -144 34 -138 34 -126 L30 -54 C30 -48 24 -45 18 -45 L-18 -45 C-24 -45 -30 -48 -30 -54 Z"
-          fill="{HOODIE}" stroke="#2C354A" stroke-width="1.2"/>
-    <path d="M-13 -143 Q0 -130 13 -143" fill="#ECEBE6"/>
-    <path d="M-8 -134 L-9 -112 M8 -134 L9 -114" stroke="{CYAN}" stroke-width="2" stroke-linecap="round" opacity=".7"/>
-    <path d="M-20 -78 L20 -78 L24 -54 L-24 -54 Z" fill="#171C29" stroke="#283145" stroke-width="1"/>
-    <!-- neck + head -->
-    <rect x="-9" y="-156" width="18" height="18" rx="7" fill="{SKIN_DK}"/>
-    <g transform="translate(0 -184)">
-      <circle cx="-30" cy="4" r="7.5" fill="{SKIN_DK}"/>
-      <circle cx="30" cy="4" r="7.5" fill="{SKIN}"/>
-      <rect x="-30" y="-30" width="60" height="64" rx="28" fill="{SKIN}"/>
-      <ellipse cx="6" cy="-6" rx="18" ry="14" fill="{SKIN_LT}" opacity=".35"/>
-      <path d="M-32 -3 C-35 -24 -24 -40 -6 -43 C6 -45 20 -42 28 -30 C35 -20 35 -10 32 -3 C27 -15 16 -21 2 -21 C-14 -21 -25 -15 -32 -3 Z" fill="{HAIR}"/>
-      <path d="M-22 -28 C-8 -39 13 -39 24 -25" fill="none" stroke="{HAIR_HI}" stroke-width="4" stroke-linecap="round" opacity=".6"/>
-      <path d="M-22 14 C-18 32 18 32 22 14 C16 26 -16 26 -22 14 Z" fill="{HAIR}" opacity=".22"/>
-      <!-- headphones round the neck, because of course -->
-      <path d="M-27 22 Q0 44 27 22" fill="none" stroke="#2A3244" stroke-width="5" stroke-linecap="round"/>
-      <ellipse cx="-9" cy="1" rx="5.2" ry="5.6" fill="#FFF"/>
-      <ellipse cx="12" cy="1" rx="5.2" ry="5.6" fill="#FFF"/>
-      <!-- eating: eyes on the bowl -->
-      <g class="f-calm">
-        <circle cx="-8" cy="3" r="2.7" fill="{HAIR}"/><circle cx="13" cy="3" r="2.7" fill="{HAIR}"/>
-        <path d="M-16 -9 Q-9 -11 -3 -9 M6 -9 Q13 -11 19 -9" fill="none" stroke="{HAIR}" stroke-width="2.4" stroke-linecap="round"/>
-        <path d="M-4 15 Q3 19 10 15" fill="none" stroke="#4A1915" stroke-width="2.4" stroke-linecap="round"/>
+  <rect x="198" y="{sy}" width="24" height="{GROUND - sy}" fill="#2A3246"/>
+  <rect x="188" y="{GROUND - 10}" width="44" height="10" rx="2" fill="#323B52"/>
+  <g transform="rotate({a0[0]:.1f} {sx} {sy})">{up}
+    <rect x="{sx - 8}" y="{sy - L1}" width="16" height="{L1}" rx="8" fill="{AMBER}"/>
+    <g transform="rotate({a0[1]:.1f} {sx} {sy - L1})">{fore}
+      <rect x="{sx - 6}" y="{sy - L1 - L2}" width="12" height="{L2}" rx="6" fill="{GOLD}"/>
+      <g transform="rotate({a0[2]:.1f} {gx} {gy})">{wrist}
+        {stage("u2", gx, gy + 4)}
+        <rect x="{gx - 9}" y="{gy - 3}" width="18" height="6" rx="2" fill="#3A4560"/>
+        <path d="M{gx - 8} {gy + 3} v7 M{gx + 8} {gy + 3} v7" stroke="#8C97AD" stroke-width="2.4" stroke-linecap="round"/>
+        <circle cx="{gx}" cy="{gy}" r="2" fill="{CYAN}"/>
       </g>
-      <!-- the bug shows up -->
-      <g class="f-shock" opacity="0">
-        <circle cx="-6.5" cy="0" r="2.2" fill="{HAIR}"/><circle cx="14.5" cy="0" r="2.2" fill="{HAIR}"/>
-        <path d="M-16 -14 Q-9 -18 -3 -14 M6 -14 Q13 -18 20 -14" fill="none" stroke="{HAIR}" stroke-width="2.4" stroke-linecap="round"/>
-        <ellipse cx="3" cy="16" rx="4" ry="5" fill="#4A1915"/>
-      </g>
-      <!-- logged it -->
-      <g class="f-smug" opacity="0">
-        <circle cx="-6.5" cy="1.5" r="2.7" fill="{HAIR}"/><circle cx="14.5" cy="1.5" r="2.7" fill="{HAIR}"/>
-        <path d="M-16 -8 L-3 -8" stroke="{HAIR}" stroke-width="2.6" stroke-linecap="round"/>
-        <path d="M6 -12 Q13 -17 20 -11" fill="none" stroke="{HAIR}" stroke-width="2.6" stroke-linecap="round"/>
-        <path d="M-5 16 Q5 18 13 12" fill="none" stroke="#4A1915" stroke-width="2.4" stroke-linecap="round"/>
-      </g>
+      <circle cx="{sx}" cy="{sy - L1}" r="8" fill="#1B2234" stroke="{STEEL_HI}"/>
     </g>
-    <!-- bowl arm -->
-    <path d="M30 -124 C46 -112 48 -98 36 -92" fill="none" stroke="{SLEEVE}" stroke-width="16" stroke-linecap="round"/>
-    <circle cx="34" cy="-90" r="8.5" fill="{SKIN}"/>
-    <!-- bowl -->
-    <path d="M-2 -102 H46 C46 -88 36 -80 22 -80 C8 -80 -2 -88 -2 -102 Z" fill="#EEF1F7"/>
-    <path d="M0 -95 H44" stroke="{PINK}" stroke-width="3"/>
-    <ellipse cx="22" cy="-102" rx="24" ry="5" fill="#5A2E16"/>
-    <path d="M4 -103 q4 -3 8 0 t8 0 t8 0 t8 0 t6 0" fill="none" stroke="#F5D27A" stroke-width="2.2" stroke-linecap="round"/>
-    <circle cx="34" cy="-104" r="4" fill="#FFF7E6"/><circle cx="34" cy="-104" r="2" fill="{GOLD}"/>
-    <path class="steam" style="animation-delay:-.6s" d="M14 -110 c-4 -6 4 -10 0 -16" fill="none" stroke="#FFF" stroke-width="1.6" stroke-linecap="round" opacity="0"/>
-    <!-- chopstick arm -->
-    <path d="{arm_d(d0)}" fill="none" stroke="{SLEEVE}" stroke-width="16" stroke-linecap="round">{smil("d", arm)}</path>
-    <g transform="translate({d0[0]} {d0[1]})">
-      {smil("transform", hand_xy, kind="translate")}
-      <g transform="rotate({d0[2]})">
-        {smil("transform", hand_rot, kind="rotate")}
-        <line x1="-12" y1="-3" x2="{STICK}" y2="-1" stroke="#C98A4B" stroke-width="2.6" stroke-linecap="round"/>
-        <line x1="-12" y1="3" x2="{STICK}" y2="1" stroke="#B37638" stroke-width="2.6" stroke-linecap="round"/>
-        <g transform="translate({STICK} 0) rotate(90)">{bug("tipbug")}</g>
-        <circle cx="0" cy="0" r="8.5" fill="{SKIN}"/>
-      </g>
-    </g>
+    <circle cx="{sx}" cy="{sy}" r="10" fill="#1B2234" stroke="{STEEL_HI}"/>
+    <circle cx="{sx}" cy="{sy}" r="3" fill="{CYAN}" class="beacon"/>
   </g>
 </g>"""
 
 
-def flying_bug():
-    sx, sy = tip(LOOK)
-    start = f"{f(NX + sx)} {f(NY + sy)}"
-    frames = [(0, start), (7.0, start), (7.3, "620 180"), (7.6, "656 252"), (7.9, "656 286"), (CYCLE, "656 286")]
+def factory():
+    teeth = "".join(f"L{x} 150 L{x + 68} 178 " for x in range(20, 360, 68))
+    glass = "".join(f'<path d="M{x} 150 L{x} 178 L{x + 6} 178 L{x + 6} 153 Z" fill="{CYAN}" opacity=".35"/>'
+                    for x in range(88, 360, 68))
+    belt = "".join(f'<line x1="{x}" y1="300" x2="{x + 5}" y2="300"/>' for x in range(0, 180, 12))
+    rollers = "".join(f'<circle cx="{x}" cy="306" r="4" fill="#1B2234" stroke="{STEEL_HI}"/>' for x in range(40, 166, 18))
     return f"""
-<g transform="translate({start})">{smil("transform", frames, kind="translate")}
-  <g transform="scale(.8)">{bug("flybug")}</g>
+<g>
+  <path d="M20 178 {teeth} L360 178 V{GROUND} H20 Z" fill="#0C0F18"/>
+  <path d="M20 178 {teeth}" fill="none" stroke="#1E2536" stroke-width="2"/>
+  {glass}
+  <rect x="26" y="184" width="328" height="{GROUND - 184}" fill="#080A11"/>
+  <!-- floor arrows for the AGVs nobody is here to read -->
+  <path d="M60 326 h20 l-5 -3 m5 3 l-5 3 M250 326 h20 l-5 -3 m5 3 l-5 3" stroke="{GOLD}" stroke-opacity=".5" fill="none"/>
+  <!-- conveyor -->
+  <rect x="32" y="298" width="140" height="10" rx="5" fill="#1B2234"/>
+  <g class="belt" stroke="{STEEL_HI}" stroke-width="2">{belt}</g>
+  {rollers}
+  <rect x="44" y="308" width="6" height="22" fill="#1B2234"/><rect x="154" y="308" width="6" height="22" fill="#1B2234"/>
+  <g class="u1slide">{stage("u1", PICK[0], 246)}</g>
+</g>"""
+
+
+def factory_front():
+    return f"""
+<g>
+  <rect x="20" y="176" width="10" height="{GROUND - 176}" fill="#121725"/>
+  <rect x="350" y="176" width="10" height="{GROUND - 176}" fill="#121725"/>
+  <rect x="20" y="176" width="340" height="8" fill="#121725"/>
+  <line x1="40" y1="138" x2="40" y2="150" stroke="#1E2536" stroke-width="3"/>
+  <line x1="340" y1="138" x2="340" y2="150" stroke="#1E2536" stroke-width="3"/>
+  <rect x="34" y="114" width="312" height="26" rx="4" fill="#07080E" stroke="#1E2536"/>
+  <text x="190" y="132" text-anchor="middle" font-family="{MONO}" font-size="14" font-weight="700" fill="{CYAN}"
+        letter-spacing="2" filter="url(#glow)" opacity=".7">LIGHTS-OUT FACTORY</text>
+  <text x="190" y="132" text-anchor="middle" font-family="{MONO}" font-size="14" font-weight="700" fill="#BFE9FF"
+        letter-spacing="2">LIGHTS-OUT FACTORY</text>
+</g>"""
+
+
+# ---------------------------------------------------------------------------- truck
+
+TRUCK = [(0, "300 0"), (3.0, "300 0"), (6.4, "930 0"), (7.6, "930 0"), (9.0, "1320 0", EASE_IN),
+         (10.5, "1320 0"), (10.51, "-140 0"), (13.6, "300 0", EASE_OUT), (CYCLE, "300 0")]
+
+
+def truck():
+    return f"""
+<g transform="translate(300 0)">{smil("transform", TRUCK, kind="translate")}
+  <ellipse cx="10" cy="{GROUND}" rx="60" ry="4" fill="#000" opacity=".6"/>
+  <rect x="-38" y="304" width="76" height="10" rx="2" fill="#2A3246"/>
+  <path d="M38 314 V294 Q38 286 46 286 H60 Q68 286 70 296 L72 314 Z" fill="#1B2234" stroke="{STEEL_HI}"/>
+  <path d="M46 290 H59 Q64 290 66 298 H46 Z" fill="#0B1424" stroke="{CYAN}" stroke-opacity=".5"/>
+  <rect x="52" y="280" width="8" height="6" rx="2" fill="#3A4560"/><circle class="beacon" cx="56" cy="279" r="2" fill="{CYAN}"/>
+  <circle cx="71" cy="306" r="2.4" fill="#FFF1C9"/>
+  <line x1="-38" y1="320" x2="72" y2="320" stroke="{CYAN}" stroke-width="3" opacity=".6" filter="url(#glow)"/>
+  <circle cx="-22" cy="321" r="8" fill="#0B0D14" stroke="#3A4560" stroke-width="2"/>
+  <circle cx="20" cy="321" r="8" fill="#0B0D14" stroke="#3A4560" stroke-width="2"/>
+  <circle cx="56" cy="321" r="8" fill="#0B0D14" stroke="#3A4560" stroke-width="2"/>
+  {stage("u3", 0, 252)}
+</g>"""
+
+
+# ---------------------------------------------------------------------------- pad + booster
+
+PAD_X = 980
+BTOP = 198
+UP = -420
+BOOST = [(0, "0 0"), (9.0, "0 0"), (10.4, f"0 {UP}", EASE_IN), (11.0, f"0 {UP}"), (13.2, "0 0", EASE_OUT),
+         (CYCLE, "0 0")]
+
+
+def booster():
+    left = smil("transform", [(0, f"0 {PAD_X - 8} 292"), (9.3, f"0 {PAD_X - 8} 292"), (9.6, f"-30 {PAD_X - 8} 292"),
+                              (12.4, f"-30 {PAD_X - 8} 292"), (12.8, f"0 {PAD_X - 8} 292"), (CYCLE, f"0 {PAD_X - 8} 292")],
+                kind="rotate")
+    right = smil("transform", [(0, f"0 {PAD_X + 8} 292"), (9.3, f"0 {PAD_X + 8} 292"), (9.6, f"30 {PAD_X + 8} 292"),
+                               (12.4, f"30 {PAD_X + 8} 292"), (12.8, f"0 {PAD_X + 8} 292"), (CYCLE, f"0 {PAD_X + 8} 292")],
+                 kind="rotate")
+    x0 = PAD_X - 11
+    return f"""
+<g>{smil("transform", BOOST, kind="translate")}
+  <g class="burn">
+    <path d="M{PAD_X - 14} 318 Q{PAD_X} 520 {PAD_X + 14} 318 Z" fill="{AMBER}" opacity=".35" filter="url(#glow)"/>
+    <path class="flick" d="M{PAD_X - 9} 318 Q{PAD_X} 450 {PAD_X + 9} 318 Z" fill="url(#flame)"/>
+    <circle cx="{PAD_X}" cy="326" r="16" fill="{GOLD}" opacity=".5" filter="url(#soft)"/>
+  </g>
+  <g transform="rotate(0 {PAD_X - 8} 292)">{left}<path d="M{PAD_X - 8} 292 L{PAD_X - 30} 318 H{PAD_X - 24}" fill="none" stroke="#9AA4BA" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <g transform="rotate(0 {PAD_X + 8} 292)">{right}<path d="M{PAD_X + 8} 292 L{PAD_X + 30} 318 H{PAD_X + 24}" fill="none" stroke="#9AA4BA" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></g>
+  <rect x="{x0}" y="{BTOP}" width="22" height="114" rx="2" fill="#E2E7F1"/>
+  <rect x="{x0}" y="{BTOP}" width="7" height="114" fill="#FFFFFF" opacity=".35"/>
+  <rect x="{x0}" y="{BTOP + 70}" width="22" height="44" fill="#C3C9D6"/>
+  <rect x="{x0}" y="{BTOP + 70}" width="22" height="44" fill="#2B2018" opacity=".35"/>
+  <rect x="{x0 - 4}" y="{BTOP + 4}" width="5" height="7" fill="#5B667C"/><rect x="{x0 + 21}" y="{BTOP + 4}" width="5" height="7" fill="#5B667C"/>
+  <text x="{PAD_X}" y="{BTOP + 50}" text-anchor="middle" font-family="{MONO}" font-size="8" font-weight="700" fill="#3A4560"
+        transform="rotate(-90 {PAD_X} {BTOP + 50})">REUSE</text>
+  <path d="M{PAD_X - 8} 312 H{PAD_X + 8} L{PAD_X + 10} 319 H{PAD_X - 10} Z" fill="#2A3246"/>
+</g>"""
+
+
+def stacked_stage():
+    frames = [(0, "930 252"), (6.6, "930 252"), (7.0, f"948 {BTOP - 96}"), (7.4, f"{PAD_X} {BTOP - 52}"),
+              (9.0, f"{PAD_X} {BTOP - 52}"), (10.4, f"{PAD_X} {BTOP - 52 + UP}", EASE_IN), (CYCLE, f"{PAD_X} {BTOP - 52 + UP}")]
+    return f'<g>{smil("transform", frames, kind="translate")}{stage("u4")}</g>'
+
+
+def pad():
+    lattice = "".join(f'<path d="M1064 {y} L1080 {y + 14} M1080 {y} L1064 {y + 14}" stroke="#2A3246" stroke-width="1.4"/>'
+                      for y in range(126, 316, 14))
+    return f"""
+<g>
+  <rect x="1062" y="122" width="20" height="{GROUND - 122}" fill="none" stroke="#2A3246" stroke-width="2.4"/>
+  {lattice}
+  <circle class="beacon" cx="1072" cy="118" r="3" fill="{RED}"/>
+  <rect x="1022" y="190" width="40" height="5" fill="#2A3246"/>
+  <rect x="1090" y="140" width="94" height="26" rx="4" fill="#07080E" stroke="#2A3246"/>
+  {''.join(f'<text class="{c}" x="1137" y="158" text-anchor="middle" font-family="{MONO}" font-size="12.5" font-weight="700" fill="{col}">{esc(s)}</text>'
+           for c, s, col in (("cd-ok", "landed ✓", GREEN), ("cd3", "T-3", GOLD), ("cd2", "T-2", GOLD), ("cd1", "T-1", GOLD),
+                             ("cd-go", "liftoff", AMBER), ("cd-back", "coming home", CYAN)))}
+  <path d="M916 {GROUND} L928 318 H1032 L1044 {GROUND} Z" fill="#1B2234"/>
+  <ellipse cx="{PAD_X}" cy="318" rx="30" ry="3" fill="none" stroke="{GOLD}" stroke-opacity=".6"/>
+  <text x="{PAD_X}" y="327" text-anchor="middle" font-family="{MONO}" font-size="7" fill="{GOLD}" opacity=".7">LAND HERE</text>
+</g>"""
+
+
+def smoke():
+    puffs = "".join(f'<circle class="puff" style="animation-delay:-{i * .07:.2f}s" cx="{PAD_X + dx}" cy="{GROUND - 6}" r="{r}" fill="#A7B0C4" opacity=".8"/>'
+                    for i, (dx, r) in enumerate(((-46, 14), (-26, 18), (0, 20), (26, 18), (48, 14), (-64, 10), (66, 10))))
+    return f'<g class="smoke">{puffs}</g>'
+
+
+# ---------------------------------------------------------------------------- highway + Nitish
+
+CAR_X, CAR_Y = 640, 424  # car centre, wheel-axle line
+
+
+def head():
+    """Nitish's head, local origin at the face centre."""
+    return f"""
+<circle cx="-30" cy="4" r="7.5" fill="{SKIN_DK}"/><circle cx="30" cy="4" r="7.5" fill="{SKIN}"/>
+<rect x="-30" y="-30" width="60" height="64" rx="28" fill="{SKIN}"/>
+<ellipse cx="6" cy="-6" rx="18" ry="14" fill="{SKIN_LT}" opacity=".35"/>
+<path d="M-32 -3 C-35 -24 -24 -40 -6 -43 C6 -45 20 -42 28 -30 C35 -20 35 -10 32 -3 C27 -15 16 -21 2 -21 C-14 -21 -25 -15 -32 -3 Z" fill="{HAIR}"/>
+<path d="M-22 -28 C-8 -39 13 -39 24 -25" fill="none" stroke="{HAIR_HI}" stroke-width="4" stroke-linecap="round" opacity=".6"/>
+<path d="M-22 14 C-18 32 18 32 22 14 C16 26 -16 26 -22 14 Z" fill="{HAIR}" opacity=".22"/>
+<ellipse cx="-9" cy="1" rx="5.2" ry="5.6" fill="#FFF"/><ellipse cx="12" cy="1" rx="5.2" ry="5.6" fill="#FFF"/>
+<g class="f-calm">
+  <circle cx="-7" cy="2" r="2.7" fill="{HAIR}"/><circle cx="14" cy="2" r="2.7" fill="{HAIR}"/>
+  <path d="M-16 -9 Q-9 -11 -3 -9 M6 -9 Q13 -11 19 -9" fill="none" stroke="{HAIR}" stroke-width="2.4" stroke-linecap="round"/>
+  <path d="M-4 15 Q3 19 10 15" fill="none" stroke="#4A1915" stroke-width="2.4" stroke-linecap="round"/>
+</g>
+<g class="f-look" opacity="0">
+  <circle cx="-6.5" cy="-1.5" r="2.7" fill="{HAIR}"/><circle cx="14.5" cy="-1.5" r="2.7" fill="{HAIR}"/>
+  <path d="M-16 -13 Q-9 -16 -3 -13 M6 -13 Q13 -16 20 -13" fill="none" stroke="{HAIR}" stroke-width="2.4" stroke-linecap="round"/>
+  <ellipse cx="3" cy="16" rx="3.4" ry="4.4" fill="#4A1915"/>
+</g>
+<g class="f-smug" opacity="0">
+  <circle cx="-7" cy="1.5" r="2.7" fill="{HAIR}"/><circle cx="14" cy="1.5" r="2.7" fill="{HAIR}"/>
+  <path d="M-16 -8 L-3 -8" stroke="{HAIR}" stroke-width="2.6" stroke-linecap="round"/>
+  <path d="M6 -12 Q13 -17 20 -11" fill="none" stroke="{HAIR}" stroke-width="2.6" stroke-linecap="round"/>
+  <path d="M-6 13 Q4 22 14 12" fill="none" stroke="#4A1915" stroke-width="2.4" stroke-linecap="round"/>
+</g>"""
+
+
+def wheel(cx, cy):
+    spokes = "".join(f'<line x1="{cx}" y1="{cy}" x2="{f(cx + 9 * math.cos(math.radians(a)))}" '
+                     f'y2="{f(cy + 9 * math.sin(math.radians(a)))}"/>' for a in range(0, 360, 60))
+    return (f'<circle cx="{cx}" cy="{cy}" r="17" fill="#07080C" stroke="#2A3246" stroke-width="3"/>'
+            f'<g class="spin" stroke="{CYAN}" stroke-width="2" stroke-linecap="round">{spokes}</g>'
+            f'<circle cx="{cx}" cy="{cy}" r="3" fill="{CYAN}"/>')
+
+
+def car():
+    cup_up = [(0, "-26 -26"), (1.4, "-26 -26"), (1.9, "0 0"), (13.2, "0 0"), (13.5, "-26 -26"), (CYCLE, "-26 -26")]
+    arm_d = [(0, "M585 352 Q566 350 564 342"), (1.4, "M585 352 Q566 350 564 342"), (1.9, "M585 352 Q584 362 590 368"),
+             (13.2, "M585 352 Q584 362 590 368"), (13.5, "M585 352 Q566 350 564 342"), (CYCLE, "M585 352 Q566 350 564 342")]
+    return f"""
+<g class="drive">
+  <ellipse cx="{CAR_X}" cy="{CAR_Y + 16}" rx="140" ry="6" fill="#000" opacity=".6"/>
+  <path d="M800 392 L1000 370 V430 L800 410 Z" fill="url(#beam)"/>
+  <!-- Nitish in the back seat -->
+  <path d="M574 380 V362 Q574 344 600 342 H616 Q640 344 640 362 V380 Z" fill="{HOODIE}" stroke="#2C354A"/>
+  <path d="M598 342 Q608 352 618 342" fill="#ECEBE6"/>
+  <g transform="translate(608 312) scale(.78)">{head()}</g>
+  <!-- empty driver seat; the wheel steers itself -->
+  <rect x="676" y="336" width="20" height="30" rx="7" fill="#151B29" stroke="#2C354A"/>
+  <g class="steer"><ellipse cx="716" cy="352" rx="4" ry="12" fill="none" stroke="#8C97AD" stroke-width="3"/></g>
+  <!-- body -->
+  <path d="M512 426 V398 Q512 372 546 370 H712 L744 340 Q750 334 756 340 L770 376 Q798 380 800 402 V426 Z" fill="#1A2236"/>
+  <path d="M712 370 L744 340" stroke="{CYAN}" stroke-opacity=".45" stroke-width="2"/>
+  <path d="M520 384 H790" stroke="#2C354A"/>
+  <path d="M600 372 V420" stroke="#11182A" stroke-width="2"/>
+  <line x1="516" y1="428" x2="798" y2="428" stroke="{PINK}" stroke-width="6" opacity=".7" filter="url(#glow)"/>
+  <rect x="512" y="392" width="6" height="10" rx="2" fill="{RED}"/>
+  <rect x="794" y="392" width="7" height="8" rx="2" fill="#FFF1C9"/>
+  <!-- lidar puck -->
+  <rect x="744" y="328" width="14" height="8" rx="3" fill="#2A3246"/>
+  <g class="scan"><path d="M751 330 L800 316 A50 50 0 0 1 800 346 Z" fill="{CYAN}" opacity=".18"/></g>
+  <!-- rear display -->
+  <rect x="514" y="352" width="56" height="18" rx="3" fill="#07080E" stroke="#2C354A"/>
+  <text x="542" y="365" text-anchor="middle" font-family="{MONO}" font-size="10" font-weight="700" fill="{GOLD}">ETA:orbit</text>
+  <!-- coffee arm -->
+  <path d="M585 352 Q566 350 564 342" fill="none" stroke="#1E2536" stroke-width="13" stroke-linecap="round">{smil("d", arm_d)}</path>
+  <g>{smil("transform", cup_up, kind="translate")}
+    <circle cx="590" cy="368" r="6.5" fill="{SKIN}"/>
+    <rect x="579" y="352" width="13" height="16" rx="3" fill="#EFF3FA"/>
+    <rect x="579" y="358" width="13" height="4" fill="{AMBER}"/>
+  </g>
+  {wheel(566, CAR_Y)}{wheel(748, CAR_Y)}
+</g>"""
+
+
+def traffic():
+    cars = []
+    for i, (dur, delay, col) in enumerate(((3.4, 0, CYAN), (5.1, 2.2, VIOLET), (4.3, 3.6, GOLD))):
+        cars.append(f"""
+<g class="oncoming" style="animation-duration:{dur}s;animation-delay:-{delay}s">
+  <path d="M0 376 V366 Q2 356 16 355 L26 347 H52 L62 355 Q76 356 78 366 V376 Z" fill="#141A28"/>
+  <path d="M29 349 H50 L57 356 H22 Z" fill="#0B1424"/>
+  <rect x="36" y="342" width="7" height="5" rx="2" fill="#3A4560"/>
+  <rect x="1" y="364" width="5" height="4" rx="1.5" fill="#FFF1C9"/>
+  <line x1="2" y1="378" x2="76" y2="378" stroke="{col}" stroke-width="4" opacity=".7" filter="url(#glow)"/>
+  <circle cx="18" cy="377" r="6" fill="#07080C"/><circle cx="60" cy="377" r="6" fill="#07080C"/>
+</g>""")
+    return "".join(cars)
+
+
+def highway():
+    dashes = "".join(f'<rect x="{x}" y="389" width="34" height="3" fill="#3A4560"/>' for x in range(-80, 1320, 80))
+    posts = "".join(f'<rect x="{x}" y="336" width="3" height="14" fill="#1E2536"/>' for x in range(-60, 1300, 60))
+    return f"""
+<rect x="0" y="{GROUND}" width="{W}" height="{H - GROUND}" fill="url(#road)"/>
+<rect x="0" y="{GROUND}" width="{W}" height="2" fill="#1D2334"/>
+<g class="rail">{posts}</g>
+<rect x="0" y="338" width="{W}" height="3" fill="#2A3246"/>
+<rect x="0" y="352" width="{W}" height="2" fill="#2A3246"/>
+{traffic()}
+<g class="dash">{dashes}</g>
+<rect x="0" y="436" width="{W}" height="2" fill="#2A3246"/>"""
+
+
+def exit_sign():
+    return f"""
+<g>
+  <rect x="1186" y="270" width="4" height="{GROUND - 270}" fill="#2A3246"/>
+  <rect x="1100" y="244" width="94" height="40" rx="4" fill="#0E5A3A" stroke="#E8EDF7" stroke-width="1.5"/>
+  <text x="1147" y="261" text-anchor="middle" font-family="{SANS}" font-size="12.5" font-weight="700" fill="#FFFFFF">portfolio</text>
+  <text x="1147" y="277" text-anchor="middle" font-family="{SANS}" font-size="11" font-weight="600" fill="#D7F5E6">exit here ↗</text>
 </g>"""
 
 
 def bubble(cx, cy, w, s, tail_x, cls):
     return f"""
 <g class="{cls}" opacity="0">
-  <rect x="{f(cx - w / 2)}" y="{cy - 18}" width="{w}" height="36" rx="18" fill="#11141F" stroke="{GREEN}" stroke-width="1.6"/>
-  <path d="M{tail_x - 7} {cy + 17} L{tail_x - 2} {cy + 28} L{tail_x + 7} {cy + 17}" fill="#11141F" stroke="{GREEN}" stroke-width="1.6" stroke-linejoin="round"/>
-  <line x1="{tail_x - 6}" y1="{cy + 17}" x2="{tail_x + 6}" y2="{cy + 17}" stroke="#11141F" stroke-width="3"/>
+  <rect x="{f(cx - w / 2)}" y="{cy - 17}" width="{w}" height="34" rx="17" fill="#11141F" stroke="{GREEN}" stroke-width="1.6"/>
+  <path d="M{tail_x - 7} {cy + 16} L{tail_x + 2} {cy + 27} L{tail_x + 7} {cy + 16}" fill="#11141F" stroke="{GREEN}" stroke-width="1.6" stroke-linejoin="round"/>
+  <line x1="{tail_x - 6}" y1="{cy + 16}" x2="{tail_x + 6}" y2="{cy + 16}" stroke="#11141F" stroke-width="3"/>
   <text x="{cx}" y="{cy + 5}" text-anchor="middle" font-family="{SANS}" font-size="15" font-weight="700" fill="{INK}">{esc(s)}</text>
 </g>"""
-
-
-# ---------------------------------------------------------------------------- weather + street
-
-def street():
-    streaks = [(690, PINK, ""), (818, GREEN, "free"), (975, GOLD, "ramen"), (676, AMBER, ""), (1004, AMBER, ""),
-               (130, AMBER, "name-a"), (260, CYAN, "name-b"), (412, GOLD, "doorlight"), (860, CYAN, "")]
-    refl = "".join(
-        f'<g class="{c}"><rect class="shimmer" style="animation-delay:-{i * .37:.2f}s" x="{x - 26}" y="378" width="52" '
-        f'height="58" fill="{col}" opacity=".2" filter="url(#soft)"/></g>'
-        for i, (x, col, c) in enumerate(streaks))
-    ripples = "".join(
-        f'<ellipse class="ripple" style="animation-delay:-{d}s" cx="{x}" cy="{y}" rx="14" ry="3" fill="none" '
-        f'stroke="#9FB6D9" stroke-width="1" opacity="0"/>'
-        for x, y, d in ((96, 412, 0), (300, 398, .5), (520, 424, 1.1), (742, 404, .3), (930, 420, .8),
-                        (1140, 400, 1.4), (420, 432, 1.7)))
-    return f"""
-<rect x="0" y="{FLOOR}" width="1200" height="{H - FLOOR}" fill="url(#street)"/>
-<rect x="0" y="{FLOOR}" width="1200" height="2" fill="#1D2334"/>
-<path d="M372 {FLOOR} H452 L500 440 H330 Z" fill="url(#doorSpill)"/>
-{refl}
-{ripples}"""
-
-
-def rain():
-    rnd = random.Random(5)
-    out = []
-    for name, n, op in (("rainA", 46, .22), ("rainB", 34, .34)):
-        lines = []
-        for _ in range(n):
-            x, y, ln = rnd.uniform(0, W + 60), rnd.uniform(0, H), rnd.uniform(10, 20)
-            for dy in (0, -H):
-                lines.append(f'<line x1="{x:.0f}" y1="{y + dy:.0f}" x2="{x - ln * .28:.0f}" y2="{y + dy + ln:.0f}"/>')
-        out.append(f'<g class="{name}" stroke="#A9C7F0" stroke-width="1.1" stroke-linecap="round" opacity="{op}">'
-                   + "".join(lines) + "</g>")
-    return "\n".join(out)
 
 
 # ---------------------------------------------------------------------------- assembly
 
 def build():
-    jitter = [(0, "transform:translate(0,0)"), (4.6, "transform:translate(0,0)")]
-    t, s = 4.7, 1
-    while t < 7.8:
-        jitter.append((round(t, 2), f"transform:translate({1.6 * s}px,{-.8 * (s > 0)}px)"))
-        t, s = t + 0.1, -s
-    jitter += [(7.85, "transform:translate(0,0)"), (CYCLE, "transform:translate(0,0)")]
-
-    free = [(0, "opacity:1"), (3.9, "opacity:1"), (3.95, "opacity:.1"), (4.05, "opacity:1"), (4.15, "opacity:.2"),
-            (4.3, "opacity:.9"), (4.36, "opacity:0"), (7.9, "opacity:0"), (7.95, "opacity:.8"), (8.05, "opacity:.1"),
-            (8.2, "opacity:1"), (8.26, "opacity:.3"), (8.4, "opacity:1"), (CYCLE, "opacity:1")]
-
     css = "\n".join([
-        kf("free", free), f".free{{{run('free')}}}",
-        kf("rjit", jitter), f".robot{{{run('rjit')}}}",
-        hidden("rcalm", [(4.6, 7.8), (8.4, 10.4)]), f".r-calm{{{run('rcalm')}}}",
-        shown("ralarm", [(4.6, 7.8)]), f".r-alarm{{{run('ralarm')}}}",
-        shown("rhappy", [(8.4, 10.4)]), f".r-happy{{{run('rhappy')}}}",
-        hidden("fcalm", [(5.5, 8.4)]), f".f-calm{{{run('fcalm')}}}",
-        shown("fshock", [(5.5, 6.3)]), f".f-shock{{{run('fshock')}}}",
-        shown("fsmug", [(6.3, 8.4)]), f".f-smug{{{run('fsmug')}}}",
-        shown("tipbug", [(4.9, 7.0)], ramp=0.05), f".tipbug{{{run('tipbug')}}}",
-        shown("flybug", [(7.0, CYCLE - .2)], ramp=0.02), f".flybug{{{run('flybug')}}}",
-        hidden("n14", [(7.9, CYCLE - .2)], ramp=0.05), f".n14{{{run('n14')}}}",
-        shown("n15", [(7.9, CYCLE - .2)], ramp=0.05), f".n15{{{run('n15')}}}",
-        shown("say", [(6.3, 9.4)], ramp=0.15), f".say{{{run('say')}}}",
-        # ambient loops
-        "@keyframes blinkR{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}",
-        ".r-blink{animation:blinkR 3.7s infinite;transform-box:fill-box;transform-origin:center}",
-        "@keyframes stir{0%,100%{transform:rotate(-5deg)}50%{transform:rotate(6deg)}}",
-        ".stir{animation:stir 1.6s ease-in-out infinite;transform-box:view-box;transform-origin:808px 284px}",
-        "@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}",
-        ".bob{animation:bob 3s ease-in-out infinite}",
-        "@keyframes steam{0%{transform:translateY(4px);opacity:0}30%{opacity:.4}100%{transform:translateY(-14px);opacity:0}}",
-        ".steam{animation:steam 2.6s ease-out infinite}",
-        "@keyframes tail{0%,100%{transform:rotate(0)}50%{transform:rotate(9deg)}}",
-        ".tail{animation:tail 3.4s ease-in-out infinite;transform-box:view-box;transform-origin:1050px 68px}",
-        "@keyframes cateyes{0%,46%,50%,100%{transform:scaleY(1)}48%{transform:scaleY(.1)}}",
-        ".cateyes{animation:cateyes 5.2s infinite;transform-box:fill-box;transform-origin:center}",
-        "@keyframes rain{to{transform:translate(-120px,440px)}}",
-        ".rainA{animation:rain 1.5s linear infinite}.rainB{animation:rain .95s linear infinite}",
-        "@keyframes ripple{0%{transform:scale(.2);opacity:0}15%{opacity:.6}100%{transform:scale(1.4);opacity:0}}",
-        ".ripple{animation:ripple 2s ease-out infinite;transform-box:fill-box;transform-origin:center}",
-        "@keyframes shimmer{0%,100%{transform:scaleX(1)}50%{transform:scaleX(1.25)}}",
-        ".shimmer{animation:shimmer 2.8s ease-in-out infinite;transform-box:fill-box;transform-origin:center}",
-        "@keyframes blink{0%,60%{fill-opacity:1}61%,78%{fill-opacity:0}}",
-        ".blink{animation:blink 6s steps(1) infinite}",
-        "@keyframes beacon{0%,100%{opacity:.15}50%{opacity:1}}.beacon{animation:beacon 1.8s infinite}",
-        "@keyframes hum{0%,96%,100%{opacity:1}97%{opacity:.35}98%{opacity:1}99%{opacity:.6}}",
-        ".underline{animation:hum 5.5s infinite}.name-b{animation:hum 9s -3s infinite}",
-        "@keyframes door{0%,100%{opacity:.45}50%{opacity:.62}}.doorlight{animation:door 4s ease-in-out infinite}",
+        toggle("u1", [(0, 0.8), (12.4, CYCLE)], ramp=0.02),
+        kf("u1slide", [(0, "transform:translateX(0)"), (12.4, "transform:translateX(-76px)"),
+                       (13.4, "transform:translateX(0)"), (CYCLE, "transform:translateX(0)")]),
+        f".u1slide{{{run('u1slide', 'ease-out')}}}",
+        toggle("u2", [(0.8, 2.0)], ramp=0.02),
+        toggle("u3", [(2.0, 6.6)], ramp=0.02),
+        toggle("u4", [(6.6, 10.4)], ramp=0.02),
+        toggle("burn", [(9.0, 10.4), (12.0, 13.2)], ramp=0.1),
+        toggle("smoke", [(8.9, 10.6), (12.8, 13.9)], ramp=0.15),
+        toggle("cd-ok", [(0, 7.9), (13.3, CYCLE)], ramp=0.04),
+        toggle("cd3", [(8.0, 8.33)], ramp=0.02),
+        toggle("cd2", [(8.35, 8.66)], ramp=0.02),
+        toggle("cd1", [(8.68, 8.98)], ramp=0.02),
+        toggle("cd-go", [(9.0, 11.0)], ramp=0.02),
+        toggle("cd-back", [(11.02, 13.25)], ramp=0.02),
+        toggle("f-calm", [(8.9, 13.2), (13.2, CYCLE), (0, 1.6)], ramp=0.08, invert=True),
+        toggle("f-look", [(8.9, 13.2)]),
+        toggle("f-smug", [(13.2, CYCLE), (0, 1.6)]),
+        toggle("say", [(13.3, CYCLE), (0, 1.6)], ramp=0.12),
+        # ambient
+        "@keyframes spin{to{transform:rotate(360deg)}}",
+        ".spin{animation:spin .5s linear infinite;transform-box:fill-box;transform-origin:center}",
+        "@keyframes steer{0%,100%{transform:rotate(-14deg)}50%{transform:rotate(14deg)}}",
+        ".steer{animation:steer 2.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}",
+        "@keyframes scan{0%,100%{transform:scaleY(.4)}50%{transform:scaleY(1.2)}}",
+        ".scan{animation:scan 1.2s ease-in-out infinite;transform-box:fill-box;transform-origin:0 50%}",
+        "@keyframes drive{0%,100%{transform:translateY(0)}50%{transform:translateY(-1.5px)}}",
+        ".drive{animation:drive .45s ease-in-out infinite}",
+        "@keyframes dash{to{transform:translateX(-80px)}}.dash{animation:dash .32s linear infinite}",
+        "@keyframes rail{to{transform:translateX(-60px)}}.rail{animation:rail .5s linear infinite}",
+        "@keyframes oncoming{from{transform:translateX(1260px)}to{transform:translateX(-120px)}}",
+        ".oncoming{animation-name:oncoming;animation-timing-function:linear;animation-iteration-count:infinite}",
+        "@keyframes belt{to{transform:translateX(12px)}}.belt{animation:belt .6s linear infinite}",
+        "@keyframes flick{0%,100%{transform:scaleY(1)}50%{transform:scaleY(.8)}}",
+        ".flick{animation:flick .12s linear infinite;transform-box:fill-box;transform-origin:50% 0}",
+        "@keyframes puff{0%{transform:scale(.3);opacity:.7}100%{transform:scale(1.6);opacity:0}}",
+        ".puff{animation:puff .9s ease-out infinite;transform-box:fill-box;transform-origin:center}",
+        "@keyframes tw{0%,100%{opacity:.9}50%{opacity:.15}}.tw{animation:tw 3s ease-in-out infinite}",
+        "@keyframes beacon{0%,100%{opacity:.2}50%{opacity:1}}.beacon{animation:beacon 1.6s infinite}",
         "@media (prefers-reduced-motion: reduce){*{animation:none!important}}",
     ])
 
     body = "\n".join([
         defs(),
+        sky(),
         skyline(),
-        wall(),
-        stall_sign(),
-        cat(),
-        stall(),
-        street(),
-        nitish(),
-        flying_bug(),
-        bubble(560, 112, 160, "that's bug #15.", 556, "say"),
-        rain(),
+        factory(),
+        arm(),
+        factory_front(),
+        pad(),
+        stacked_stage(),
+        booster(),
+        smoke(),
+        truck(),
+        exit_sign(),
+        highway(),
+        car(),
+        bubble(610, 252, 112, "stuck it.", 606, "say"),
     ])
-    svg = doc(
+    return doc(
         W, H,
-        "Nitish Sundarraj: power, silicon, robots, cloud",
+        "Ground to orbit: a lights-out factory, a driverless truck, a reusable booster",
         css, body,
-        desc=("A rainy neon street at night. Nitish's name glows on a brick wall next to a door marked portfolio. "
-              "He eats noodles beside a stall whose sign reads BUG-FREE RAMEN, run by a robot in a chef hat. "
-              "The FREE tube flickers out, a bug climbs onto his chopsticks, he drops it into a jar that goes "
-              "from 14 to 15 bugs, says that's bug #15, and the sign lights up again."),
+        desc=("A neon night scene. In a lights-out factory a robot arm loads a rocket upper stage onto a driverless "
+              "truck, which drives itself to the launch pad. The stage is stacked on a reusable booster, the countdown "
+              "runs, the rocket lifts off, and the booster comes back down and lands on the pad. In the foreground "
+              "Nitish rides past in a self-driving car with an empty driver's seat, raises his coffee and says "
+              "stuck it."),
     )
-    return svg
