@@ -17,7 +17,7 @@ def write(rel, svg):
 
 
 if __name__ == "__main__":
-    write("hero.svg", hero.build())
+    write("hero-pixel.svg", hero.build())
     write("stack.svg", sections.stack())
     write("coursework.svg", sections.coursework())
     write("footer.svg", sections.footer())
